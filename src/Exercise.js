@@ -29,7 +29,9 @@ const Exercise = () => {
                             return (
                                 <div key={item}>
                                     <h4>{item}</h4>
-                                    <Options />
+                                    <Options 
+                                        Pname={`exercise-${item}`}
+                                    />
                                 </div>
                             )
                         })

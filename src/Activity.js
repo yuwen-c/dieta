@@ -29,7 +29,9 @@ const Activity = () => {
                         return(
                             <div key={item}>
                                 <h4>{item}</h4>
-                                <Options/>
+                                <Options
+                                    Pname={`activity-${item}`}
+                                />
                             </div>
                         )
                     })
