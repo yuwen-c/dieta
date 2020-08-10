@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import BodyWeight from './BodyWight';
+import Exercise from './Exercise';
+import Activity from './Activity';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+  constructor(){
+    super();
+    this.state = {
+      weight : 0,
+      BMR : 0,
+    }
+  }
+
+  onInputChange = (event) => {
+    this.setState({weight: event.target.value});
+    console.log(event.target.value);
+  }
+
+  onSubmitWeight = (event) =>{
+    const bmr = this.state.weight*2.2*12;
+    this.setState({BMR : bmr});
+  } 
+
+  render(){
+    return(
+      <div>
+        <BodyWeight
+          PonInputChange = {this.onInputChange}
+          Pbmr = {this.state.BMR}
+        />
+        <Exercise/>
+        <Activity/>
+      </div>
+    )
+  }
+
 }
+
 
 export default App;
