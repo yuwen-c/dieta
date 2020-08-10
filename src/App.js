@@ -17,16 +17,18 @@ class App extends Component{
     console.log(event.target.value);
   }
 
-  onSubmitWeight = (event) =>{
-    const bmr = this.state.weight*2.2*12;
+  onSubmitCalculate = () =>{
+    const bmr = parseInt(this.state.weight*2.2*12);
     this.setState({BMR : bmr});
   } 
+
 
   render(){
     return(
       <div>
         <BodyWeight
           PonInputChange = {this.onInputChange}
+          PonSubmitCalculate = {this.onSubmitCalculate}
           Pbmr = {this.state.BMR}
         />
         <Exercise/>
