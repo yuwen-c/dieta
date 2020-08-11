@@ -5,21 +5,21 @@ const Distribution = () => {
         <div>
             <h4 className="">Monday</h4>
                 <div className="">
-                    <dl class="f6 lh-title mv2">
-                        <dt class="dib b">Protein:</dt>
-                        <dd class="dib ml0 mid-gray">110g</dd>
+                    <dl className="f6 lh-title mv2">
+                        <dt className="dib b">Protein:</dt>
+                        <dd className="dib ml0 mid-gray">110g</dd>
                     </dl>
-                    <dl class="f6 lh-title mv2">
-                        <dt class="dib b">Oil:</dt>
-                        <dd class="dib ml0 mid-gray">55g</dd>
+                    <dl className="f6 lh-title mv2">
+                        <dt className="dib b">Oil:</dt>
+                        <dd className="dib ml0 mid-gray">55g</dd>
                     </dl>
-                    <dl class="f6 lh-title mv2">
-                        <dt class="dib b">Carbonhydrate:</dt>
-                        <dd class="dib ml0 mid-gray">100g</dd>
+                    <dl className="f6 lh-title mv2">
+                        <dt className="dib b">Carbonhydrate:</dt>
+                        <dd className="dib ml0 mid-gray">100g</dd>
                     </dl>
-                    <dl class="f6 lh-title mv2">
-                        <dt class="dib b">Total calorie: </dt>
-                        <dd class="dib ml0 mid-gray">1200 Kcal</dd>
+                    <dl className="f6 lh-title mv2">
+                        <dt className="dib b">Total calorie: </dt>
+                        <dd className="dib ml0 mid-gray">1200 Kcal</dd>
                     </dl>   
                 </div>   
                 <div className="">
