@@ -4,6 +4,9 @@ import Exercise from './Exercise';
 import Activity from './Activity';
 import CalorieDeficit from './CalorieDeficit';
 import Nutrition from './Nutrition';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
+import './App.css';
 
 class App extends Component{
   constructor(){
@@ -27,15 +30,18 @@ class App extends Component{
 
   render(){
     return(
-      <div>
+      <div className="App">
+        <SignIn/>
+        <SignUp/>
         <BodyWeight
           PonInputChange = {this.onInputChange}
           PonSubmitCalculate = {this.onSubmitCalculate}
           Pbmr = {this.state.BMR}
         />
+        <CalorieDeficit/>
         <Activity/>
         <Exercise/>
-        <CalorieDeficit/>
+
         <Nutrition/>
       </div>
     )
