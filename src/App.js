@@ -7,6 +7,7 @@ import Nutrition from './Nutrition';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 import './App.css';
+import Navigation from './Navigation';
 
 class App extends Component{
   constructor(){
@@ -31,6 +32,7 @@ class App extends Component{
   render(){
     return(
       <div className="App">
+        <Navigation/>
         <SignIn/>
         <SignUp/>
         <BodyWeight
