@@ -15,12 +15,13 @@ class App extends Component{
     this.state = {
       weight : 0,
       BMR : 0,
+      isSignIn : false,
+      route: ""
     }
   }
 
   onInputChange = (event) => {
     this.setState({weight: event.target.value});
-    console.log(event.target.value);
   }
 
   onSubmitCalculate = () =>{
@@ -28,23 +29,34 @@ class App extends Component{
     this.setState({BMR : bmr});
   } 
 
+  onRouteChange = () => {
+    this.setState({isSignIn : true})
+  }
+
 
   render(){
     return(
-      <div className="App">
+      <div  className="App">
         <Navigation/>
-        <SignIn/>
-        <SignUp/>
-        <BodyWeight
-          PonInputChange = {this.onInputChange}
-          PonSubmitCalculate = {this.onSubmitCalculate}
-          Pbmr = {this.state.BMR}
-        />
-        <CalorieDeficit/>
-        <Activity/>
-        <Exercise/>
+        {this.state.isSignIn === false ? 
+        <div>
+          <SignIn
+            PonRouteChange={this.onRouteChange}
+          />
+        </div>
+      :
+        <div>
+          <BodyWeight
+            PonInputChange = {this.onInputChange}
+            PonSubmitCalculate = {this.onSubmitCalculate}
+            Pbmr = {this.state.BMR}
+          />
+          <CalorieDeficit/>
+          <Activity/>
+          <Exercise/>
 
-        <Nutrition/>
+          <Nutrition/>
+        </div>}
       </div>
     )
   }

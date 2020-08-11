@@ -28,8 +28,12 @@ class SignIn extends Component{
                             </div>
                         </fieldset>
                         <div className="">
-                            <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
-                            type="submit" value="Sign in"/>
+                            <input 
+                            className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
+                            type="submit" 
+                            value="Sign in"
+                            onClick={this.props.PonRouteChange}
+                            />
                         </div>
                         <div className="lh-copy mt3">
                             <p className="f6 link dim black db">Sign up</p>
