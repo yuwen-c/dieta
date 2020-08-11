@@ -31,8 +31,8 @@ class App extends Component{
           PonSubmitCalculate = {this.onSubmitCalculate}
           Pbmr = {this.state.BMR}
         />
-        <Exercise/>
         <Activity/>
+        <Exercise/>
       </div>
     )
   }

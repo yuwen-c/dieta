@@ -1,13 +1,14 @@
 import React from 'react';
 import Options from './Options';
+import LoadButton from './LoadButton';
 
 const Exercise = () => {
     const weekArr = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     return (
         <div>
-            <fieldset id="favorite_movies" className="bn">
-                <legend className="fw7 f4 ">choose your amount of exercise this week</legend>
-    
+            <fieldset id="" className="bn">
+                <legend className="fw7 f4 pb3">choose your amount of exercise this week</legend>
+                <LoadButton/>
                 <div className="">
                     <dl className="f6 lh-title mv2">
                         <dt className="dib b">Low:</dt>
