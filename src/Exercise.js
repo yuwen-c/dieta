@@ -46,7 +46,6 @@ const Exercise = () => {
                     />
                 </div>
             </fieldset>
-
         </div>
     )
 }

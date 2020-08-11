@@ -3,6 +3,7 @@ import BodyWeight from './BodyWight';
 import Exercise from './Exercise';
 import Activity from './Activity';
 import CalorieDeficit from './CalorieDeficit';
+import Nutrition from './Nutrition';
 
 class App extends Component{
   constructor(){
@@ -35,6 +36,7 @@ class App extends Component{
         <Activity/>
         <Exercise/>
         <CalorieDeficit/>
+        <Nutrition/>
       </div>
     )
   }
