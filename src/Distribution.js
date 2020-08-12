@@ -3,7 +3,7 @@ import React from 'react';
 const Distribution = () => {
     return (
         <div>
-            <h4 className="">Monday</h4>
+            <h4 className="">Day 1</h4>
                 <div className="">
                     <dl className="f6 lh-title mv2">
                         <dt className="dib b">Protein:</dt>

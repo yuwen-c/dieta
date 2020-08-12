@@ -2,8 +2,9 @@ import React from 'react';
 import Options from './Options';
 import LoadButton from './LoadButton';
 
-const Activity = ({PonRouteChange}) => {
-    const weekArr = ['Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const Activity = ({PonRouteChange, PonSendOption}) => {
+    const dayArr = ['Day_1', 'Day_2', 'Day_3', 'Day_4', 'Day_5', 'Day_6', 'Day_7'];
+    // const weekArr = ['Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     return(
         <div>
             <fieldset id="" className="bn">
@@ -26,12 +27,13 @@ const Activity = ({PonRouteChange}) => {
 
             <div>
                 {
-                    weekArr.map(item => {
+                    dayArr.map(item => {
                         return(
                             <div key={item}>
                                 <h4>{item}</h4>
                                 <Options
-                                    Pname={`activity-${item}`}
+                                    Pname={`activity${item}`}
+                                    PponSendOption={PonSendOption}
                                 />
                             </div>
                         )

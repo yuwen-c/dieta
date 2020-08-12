@@ -8,6 +8,13 @@ import SignUp from './SignUp';
 import './App.css';
 import Navigation from './Navigation';
 
+// const initialState = {
+//   weight : 55,
+//   BMR: 1452,
+//   isSignIn : true,
+//   route: 'nutrition',
+// }
+
 class App extends Component{
   constructor(){
     super();
@@ -15,15 +22,34 @@ class App extends Component{
       weight : 0,
       BMR : 0,
       isSignIn : false,
-      route: 'signin' // sign in, sign up, weight, activity, exercise, nutrition
+      route: 'signin', // sign in, sign up, weight, activity, exercise, nutrition
+
+      deficit : 0,
+      activityDay_1: '',
+      activityDay_2: '',
+      activityDay_3: '',
+      activityDay_4: '',
+      activityDay_5: '',
+      activityDay_6: '',
+      activityDay_7: '',
+      exerciseDay_1: '',
+      exerciseDay_2: '',
+      exerciseDay_3: '',
+      exerciseDay_4: '',
+      exerciseDay_5: '',
+      exerciseDay_6: '',
+      exerciseDay_7: '',
+      
     }
   }
 
+  // get body weight
   onInputChange = (event) => {
     this.setState({weight: event.target.value});
   }
 
-  onSubmitCalculate = () =>{
+  // calculate BMR
+  onBMRCalculate = () =>{
     const bmr = parseInt(this.state.weight*2.2*12);
     this.setState({BMR : bmr});
   } 
@@ -34,7 +60,10 @@ class App extends Component{
     console.log("onRoute", route);
   }
 
-
+  onSendOption = (event) => {
+    console.log(event.target.name, event.target.value);
+    this.setState({[event.target.name]: event.target.value})
+  }
 
   renderSwitch = (route) => {
     switch (route){
@@ -49,19 +78,22 @@ class App extends Component{
       case 'weight':
         return <BodyWeight
                 PonInputChange = {this.onInputChange}
-                PonSubmitCalculate = {this.onSubmitCalculate}
+                PonBMRCalculate = {this.onBMRCalculate}
                 Pbmr = {this.state.BMR}
-                PonRouteChange = {this.onRouteChange}  
+                PonRouteChange = {this.onRouteChange} 
+                PonSendOption = {this.onSendOption} 
                 />
 
       case 'activity':
         return <Activity
                 PonRouteChange = {this.onRouteChange}  
+                PonSendOption = {this.onSendOption}
                 />
 
       case 'exercise':
         return <Exercise
                 PonRouteChange = {this.onRouteChange}  
+                PonSendOption = {this.onSendOption}
                 />
       case 'nutrition':
         return <Nutrition/>
@@ -76,6 +108,9 @@ class App extends Component{
       <div>
         <Navigation/>
         {this.renderSwitch(this.state.route)}
+        {this.state.deficit}
+        {this.state.exerciseDay_1}
+        {this.state.exerciseDay_7}
       </div>
     )
   }
