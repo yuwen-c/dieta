@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 class SignIn extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {}
     }
 
@@ -32,7 +32,7 @@ class SignIn extends Component{
                             className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                             type="submit" 
                             value="Sign in"
-                            onClick={this.props.PonRouteChange}
+                            onClick={()=> {this.props.PonRouteChange("weight")}}
                             />
                         </div>
                         <div className="lh-copy mt3">

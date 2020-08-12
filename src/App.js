@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import BodyWeight from './BodyWight';
 import Exercise from './Exercise';
 import Activity from './Activity';
-import CalorieDeficit from './CalorieDeficit';
 import Nutrition from './Nutrition';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
@@ -16,7 +15,7 @@ class App extends Component{
       weight : 0,
       BMR : 0,
       isSignIn : false,
-      route: ""
+      route: 'signin' // sign in, sign up, weight, activity, exercise, nutrition
     }
   }
 
@@ -29,34 +28,54 @@ class App extends Component{
     this.setState({BMR : bmr});
   } 
 
-  onRouteChange = () => {
-    this.setState({isSignIn : true})
+  onRouteChange = (route) => {
+    // this.setState({isSignIn : true})
+    this.setState({route : route});
+    console.log("onRoute", route);
   }
 
 
+
+  renderSwitch = (route) => {
+    switch (route){
+      case 'signin':
+        return <SignIn
+                PonRouteChange={this.onRouteChange}/>;
+      
+      case 'signup':
+        return <SignUp
+                PonRouteChange={this.onRouteChange}/>
+
+      case 'weight':
+        return <BodyWeight
+                PonInputChange = {this.onInputChange}
+                PonSubmitCalculate = {this.onSubmitCalculate}
+                Pbmr = {this.state.BMR}
+                PonRouteChange = {this.onRouteChange}  
+                />
+
+      case 'activity':
+        return <Activity
+                PonRouteChange = {this.onRouteChange}  
+                />
+
+      case 'exercise':
+        return <Exercise
+                PonRouteChange = {this.onRouteChange}  
+                />
+      case 'nutrition':
+        return <Nutrition/>
+      
+      default:
+        return 
+    }
+  }
+
   render(){
     return(
-      <div  className="App">
+      <div>
         <Navigation/>
-        {this.state.isSignIn === false ? 
-        <div>
-          <SignIn
-            PonRouteChange={this.onRouteChange}
-          />
-        </div>
-      :
-        <div>
-          <BodyWeight
-            PonInputChange = {this.onInputChange}
-            PonSubmitCalculate = {this.onSubmitCalculate}
-            Pbmr = {this.state.BMR}
-          />
-          <CalorieDeficit/>
-          <Activity/>
-          <Exercise/>
-
-          <Nutrition/>
-        </div>}
+        {this.renderSwitch(this.state.route)}
       </div>
     )
   }

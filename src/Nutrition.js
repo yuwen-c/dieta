@@ -5,7 +5,7 @@ const Nutrition = () => {
     return(
         <div>
             <fieldset id="" className="bn">
-                <legend className="fw7 f4">Marina, your daily recommended intakes this week are:</legend>
+                <legend className="fw7 f4 pv3">Marina, your daily recommended intakes this week are:</legend>
                 <Distribution/>
             </fieldset>
 

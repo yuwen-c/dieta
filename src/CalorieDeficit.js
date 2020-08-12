@@ -19,13 +19,6 @@ const CalorieDeficit = () => {
                       <label htmlFor="500" className="lh-copy">500</label>
                     </div>
                 </div>
-                <div className="">
-                    <input 
-                    className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
-                    type="submit" 
-                    value="next page"
-                    />
-                </div>
             </fieldset>
         </div>
     )

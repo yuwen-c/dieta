@@ -2,12 +2,12 @@ import React from 'react';
 import Options from './Options';
 import LoadButton from './LoadButton';
 
-const Activity = () => {
+const Activity = ({PonRouteChange}) => {
     const weekArr = ['Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     return(
         <div>
             <fieldset id="" className="bn">
-              <legend className="fw7 f4 pb3">choose your amount of activity this week</legend>      
+              <legend className="fw7 f4 pv3">choose your amount of activity this week</legend>      
               <LoadButton/>
                 <div className="">
                     <dl className="f6 lh-title mv2">
@@ -43,6 +43,7 @@ const Activity = () => {
                     className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                     type="submit" 
                     value="next page"
+                    onClick={()=> {PonRouteChange('exercise')}}
                     />
                 </div>
             </fieldset>
