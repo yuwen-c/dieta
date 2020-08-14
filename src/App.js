@@ -25,21 +25,12 @@ class App extends Component{
       route: 'signin', // sign in, sign up, weight, activity, exercise, nutrition
 
       deficit : 0,
-      activityDay_1: '',
-      activityDay_2: '',
-      activityDay_3: '',
-      activityDay_4: '',
-      activityDay_5: '',
-      activityDay_6: '',
-      activityDay_7: '',
-      exerciseDay_1: '',
-      exerciseDay_2: '',
-      exerciseDay_3: '',
-      exerciseDay_4: '',
-      exerciseDay_5: '',
-      exerciseDay_6: '',
-      exerciseDay_7: '',
-      
+      activity : [], // change activity to just one array, [0] ~ [6]
+      exercise : [],
+      // after calculation, there will be:
+      daily: [], // day 1: [protein, oil, carbonhydrate, total calorie], day 2: []...
+
+
     }
   }
 
@@ -53,18 +44,40 @@ class App extends Component{
     const bmr = parseInt(this.state.weight*2.2*12);
     this.setState({BMR : bmr});
   } 
-
+  
+  // set route
   onRouteChange = (route) => {
     // this.setState({isSignIn : true})
     this.setState({route : route});
     console.log("onRoute", route);
   }
 
+
+  // onclick, save options in state
   onSendOption = (event) => {
     console.log(event.target.name, event.target.value);
-    this.setState({[event.target.name]: event.target.value})
+    const index = (event.target.name).slice(-1); // get the latest letter of "activity1"
+
+    let arr = this.state.activity.slice(); // use slice() to ensure we create a seperate copy of this.state.activity
+    arr[index-1] = event.target.value; // save one option to the certain index of element
+    this.setState({activity : arr});
+
   }
 
+  calculateNutrition = () => {
+    const {weight} = this.state.weight; // 所有的？
+    const protein = weight * 2; //固定不變
+    // const oil = weight * 4; //固定不變
+    // const day1 = weight * 2.2 * (12 + activityDay_1 + exerciseDay_1); // 算出day1~7
+    // const Cday1 = parseInt((day1 - protein * 4 - oil * 9) / 4); //算出 Cday1~7
+    // 算出的結果，全部儲存至database，以便之後查閱。
+    // 所以要在哪邊計算？後端？
+    // 要從哪邊觸發select資料?
+
+  }
+
+
+  // decide render components
   renderSwitch = (route) => {
     switch (route){
       case 'signin':
@@ -108,9 +121,7 @@ class App extends Component{
       <div>
         <Navigation/>
         {this.renderSwitch(this.state.route)}
-        {this.state.deficit}
-        {this.state.exerciseDay_1}
-        {this.state.exerciseDay_7}
+
       </div>
     )
   }
