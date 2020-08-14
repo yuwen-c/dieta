@@ -8,8 +8,8 @@ const Activity = ({PonRouteChange, PonSendOption}) => {
     return(
         <div>
             <fieldset id="" className="bn">
-              <legend className="fw7 f4 pv3">choose your amount of activity this week</legend>      
-              <LoadButton/>
+                <legend className="fw7 f4 pv3">choose your amount of activity this week</legend>      
+                <LoadButton/>
                 <div className="">
                     <dl className="f6 lh-title mv2">
                       <dt className="dib b">Low:</dt>
@@ -25,20 +25,20 @@ const Activity = ({PonRouteChange, PonSendOption}) => {
                     </dl>
                 </div>
 
-            <div>
-                {
-                    dayArr.map(item => {
-                        return(
-                            <div key={item}>
-                                <h4>Day {item}</h4>
-                                <Options
-                                    Pname={`activity${item}`}
-                                    PponSendOption={PonSendOption}
-                                />
-                            </div>
-                        )
-                    })
-                }  
+                <div>
+                    {
+                        dayArr.map(item => {
+                            return(
+                                <div key={item}>
+                                    <h4>Day {item}</h4>
+                                    <Options
+                                        Pname={`activity${item}`}
+                                        PponSendOption={PonSendOption}
+                                    />
+                                </div>
+                            )
+                        })
+                    }  
                 </div>
                 <div className="">
                     <input 

@@ -3,7 +3,7 @@ import Options from './Options';
 import LoadButton from './LoadButton';
 
 const Exercise = ({PonRouteChange, PonSendOption}) => {
-    const dayArr = ['Day_1', 'Day_2', 'Day_3', 'Day_4', 'Day_5', 'Day_6', 'Day_7'];
+    const dayArr = ['1', '2', '3', '4', '5', '6', '7'];
     // const weekArr = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     return (
         <div>
@@ -30,7 +30,7 @@ const Exercise = ({PonRouteChange, PonSendOption}) => {
                         dayArr.map(item => {
                             return (
                                 <div key={item}>
-                                    <h4>{item}</h4>
+                                    <h4>Day {item}</h4>
                                     <Options 
                                         Pname={`exercise${item}`}
                                         PponSendOption={PonSendOption}

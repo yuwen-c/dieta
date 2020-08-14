@@ -55,13 +55,19 @@ class App extends Component{
 
   // onclick, save options in state
   onSendOption = (event) => {
+    // 如果回傳的name是activity開頭，就存在activityArr, 如果是exercise就存
     console.log(event.target.name, event.target.value);
     const index = (event.target.name).slice(-1); // get the latest letter of "activity1"
-
-    let arr = this.state.activity.slice(); // use slice() to ensure we create a seperate copy of this.state.activity
-    arr[index-1] = event.target.value; // save one option to the certain index of element
-    this.setState({activity : arr});
-
+    if(event.target.name.includes('activity')){
+      let activityArr = this.state.activity.slice(); // use slice() to ensure we create a seperate copy of this.state.activity
+      activityArr[index-1] = event.target.value; // save one option to the certain index of element
+      this.setState({activity : activityArr})
+    }
+    else{
+      let exerciseArr = this.state.exercise.slice(); // a new exercise state array
+      exerciseArr[index-1] = event.target.value;
+      this.setState({exercise : exerciseArr});
+    }  
   }
 
   calculateNutrition = () => {
@@ -94,7 +100,7 @@ class App extends Component{
                 PonBMRCalculate = {this.onBMRCalculate}
                 Pbmr = {this.state.BMR}
                 PonRouteChange = {this.onRouteChange} 
-                PonSendOption = {this.onSendOption} 
+                // PonSendOption = {this.onSendOption} 
                 />
 
       case 'activity':
@@ -121,7 +127,9 @@ class App extends Component{
       <div>
         <Navigation/>
         {this.renderSwitch(this.state.route)}
-
+      {this.state.activity}
+      <br/>
+      {this.state.exercise}
       </div>
     )
   }
