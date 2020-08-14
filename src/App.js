@@ -101,8 +101,6 @@ class App extends Component{
       dailyCalorie[i] = parseInt(weight * 2.2 * (12 + parseInt(activity[i]) + parseInt(exercise[i])))-deficit;
       // 計算當天的carbon量
       dailyCarbon[i] = parseInt((dailyCalorie[i] - protein * 4 - oil * 9) / 4);
-      console.log("for-dailyCalorie", i ,dailyCalorie) // ok
-      console.log("for-dailyCarbon", i, dailyCarbon)
 
     }
 
@@ -110,9 +108,8 @@ class App extends Component{
       protein : protein,
       oil : oil,
       dailyCalorie : dailyCalorie,
-      dailyCarbon : dailyCarbon
+      dailyCarbon : dailyCarbon    // "let" variable has a different color 
     })
-
   }
 
   // decide render components
@@ -149,7 +146,15 @@ class App extends Component{
                 />
       case 'nutrition':
         return <Nutrition
-                Pdaily = {this.state.daily}/>
+                Pweight = {this.state.weight}
+                Pdeficit = {this.state.deficit}
+                Pprotein = {this.state.protein}
+                Poil = {this.state.oil}
+                Pactivity = {this.state.activity}
+                Pexercise = {this.state.exercise}
+                PdailyCalorie = {this.state.dailyCalorie}
+                PdailyCarbon = {this.state.dailyCarbon}
+                />
       
       default:
         return 
