@@ -63,10 +63,13 @@ class App extends Component{
       activityArr[index-1] = event.target.value; // save one option to the certain index of element
       this.setState({activity : activityArr})
     }
-    else{
+    else if(event.target.name.includes('exercise')){
       let exerciseArr = this.state.exercise.slice(); // a new exercise state array
       exerciseArr[index-1] = event.target.value;
       this.setState({exercise : exerciseArr});
+    }
+    else{
+      this.setState({deficit : event.target.value})
     }  
   }
 
@@ -100,7 +103,7 @@ class App extends Component{
                 PonBMRCalculate = {this.onBMRCalculate}
                 Pbmr = {this.state.BMR}
                 PonRouteChange = {this.onRouteChange} 
-                // PonSendOption = {this.onSendOption} 
+                PonSendOption = {this.onSendOption} 
                 />
 
       case 'activity':
@@ -127,6 +130,10 @@ class App extends Component{
       <div>
         <Navigation/>
         {this.renderSwitch(this.state.route)}
+      {this.state.deficit}
+      <br/>
+      {this.state.weight}
+      <br/>
       {this.state.activity}
       <br/>
       {this.state.exercise}
