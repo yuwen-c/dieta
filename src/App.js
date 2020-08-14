@@ -19,17 +19,20 @@ class App extends Component{
   constructor(){
     super();
     this.state = {
-      weight : 0,
+      weight : 55,
       BMR : 0,
       isSignIn : false,
       route: 'signin', // sign in, sign up, weight, activity, exercise, nutrition
 
-      deficit : 0,
-      activity : [], // change activity to just one array, [0] ~ [6]
-      exercise : [],
-      // after calculation, there will be:
-      daily: [], // day 1: [protein, oil, carbonhydrate, total calorie], day 2: []...
+      deficit : 300,
+      activity : ['1', '1', '2', '2', '1', '1', '3'], // change activity to just one array, [0] ~ [6]
+      exercise : ['1', '0', '0', '2', '0', '0', '2'],
+      // daily: [], // day 1: [protein, oil, carbohydrate, total calorie], day 2: []...
+      protein : 0,
+      oil : 0,
 
+      dailyCalorie : [],
+      dailyCarbon : []
 
     }
   }
@@ -54,7 +57,7 @@ class App extends Component{
   }
 
 
-  // onclick, save options in state
+  // onclick, save options to state
   onSendOption = (event) => {
     // if the returned name includes activity, then setState activity
     console.log(event.target.name, event.target.value);
@@ -77,17 +80,40 @@ class App extends Component{
   }
 
   calculateNutrition = () => {
-    const {weight} = this.state.weight; // 所有的？
-    const protein = weight * 2; //固定不變
-    // const oil = weight * 4; //固定不變
-    // const day1 = weight * 2.2 * (12 + activityDay_1 + exerciseDay_1); // 算出day1~7
+    const {weight, deficit, activity, exercise} = this.state; 
+    const protein = weight * 2; // 蛋白質固定不變，體重2倍
+    const oil = weight * 1; // 脂肪固定不變，體重1倍
+    // const day1 = parseInt(weight * 2.2 * (12 + parseInt(activity[0]) + parseInt(exercise[0])))-deficit; // 算出day1~7
     // const Cday1 = parseInt((day1 - protein * 4 - oil * 9) / 4); //算出 Cday1~7
-    // 算出的結果，全部儲存至database，以便之後查閱。
-    // 所以要在哪邊計算？後端？
-    // 要從哪邊觸發select資料?
+    // // console.log('protein, oil, Cday1, day1 + bmr: ',protein, oil, Cday1, day1 , this.state.BMR)
+    // // this.setState({daily: [protein, oil, Cday1, day1]}) //不會當作二維，而是整個一維放進去
+    // // this.setState(Object.assign({}, this.state.daily, {daily[0]: [protein, oil, Cday1, day1]})) //syntax error
+    // const newDailyArr = this.state.daily.slice();
+    // newDailyArr[0] = [protein, oil, Cday1, day1];
+    // this.setState({daily : newDailyArr})
+
+    let dailyCalorie = [];
+    let dailyCarbon = [];
+
+    // 進行多天的計算：
+    for(let i=0; i<7; i++){
+      // 先算當天需要的總熱量
+      dailyCalorie[i] = parseInt(weight * 2.2 * (12 + parseInt(activity[i]) + parseInt(exercise[i])))-deficit;
+      // 計算當天的carbon量
+      dailyCarbon[i] = parseInt((dailyCalorie[i] - protein * 4 - oil * 9) / 4);
+      console.log("for-dailyCalorie", i ,dailyCalorie) // ok
+      console.log("for-dailyCarbon", i, dailyCarbon)
+
+    }
+
+    this.setState({
+      protein : protein,
+      oil : oil,
+      dailyCalorie : dailyCalorie,
+      dailyCarbon : dailyCarbon
+    })
 
   }
-
 
   // decide render components
   renderSwitch = (route) => {
@@ -119,9 +145,11 @@ class App extends Component{
         return <Exercise
                 PonRouteChange = {this.onRouteChange}  
                 PonSendOption = {this.onSendOption}
+                PcalculateNutrition = {this.calculateNutrition}
                 />
       case 'nutrition':
-        return <Nutrition/>
+        return <Nutrition
+                Pdaily = {this.state.daily}/>
       
       default:
         return 
@@ -133,13 +161,6 @@ class App extends Component{
       <div>
         <Navigation/>
         {this.renderSwitch(this.state.route)}
-      {this.state.deficit}
-      <br/>
-      {this.state.weight}
-      <br/>
-      {this.state.activity}
-      <br/>
-      {this.state.exercise}
       </div>
     )
   }

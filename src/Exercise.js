@@ -2,7 +2,7 @@ import React from 'react';
 import Options from './Options';
 import LoadButton from './LoadButton';
 
-const Exercise = ({PonRouteChange, PonSendOption}) => {
+const Exercise = ({PonRouteChange, PonSendOption, PcalculateNutrition}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7'];
     // const weekArr = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     return (
@@ -45,7 +45,8 @@ const Exercise = ({PonRouteChange, PonSendOption}) => {
                     className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                     type="submit" 
                     value="next page"
-                    onClick={()=> {PonRouteChange('nutrition')}}
+                    // call two functions in onClick
+                    onClick={()=> {PonRouteChange('nutrition'); PcalculateNutrition()} }
                     />
                 </div>
             </fieldset>

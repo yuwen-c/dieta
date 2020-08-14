@@ -1,21 +1,24 @@
 import React from 'react';
 
-const Distribution = () => {
+const Distribution = ({ deficit, activity, exercise, protein, oil, dailyCalorie, dailyCarbon} ) => {
+    // const { deficit, activity, exercise, protein, oil, dailyCalorie, dailyCarbon} = props; //how??
     return (
         <div>
             <h3 className="">Day_1</h3>
             <h4>Low activity, Rare exercise.</h4>
                 <div className="">
+    {console.log('dailyCalorie', dailyCalorie)}
+    {console.log('dailyCarbon', dailyCarbon)}
                     <dl className="f6 lh-title mv2">
                         <dt className="dib b">Protein:</dt>
-                        <dd className="dib ml0 mid-gray">110g</dd>
+    <dd className="dib ml0 mid-gray">110g</dd>
                     </dl>
                     <dl className="f6 lh-title mv2">
                         <dt className="dib b">Oil:</dt>
                         <dd className="dib ml0 mid-gray">55g</dd>
                     </dl>
                     <dl className="f6 lh-title mv2">
-                        <dt className="dib b">Carbonhydrate:</dt>
+                        <dt className="dib b">Carbohydrate:</dt>
                         <dd className="dib ml0 mid-gray">100g</dd>
                     </dl>
                     <dl className="f6 lh-title mv2">
