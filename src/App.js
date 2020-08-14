@@ -50,12 +50,13 @@ class App extends Component{
     // this.setState({isSignIn : true})
     this.setState({route : route});
     console.log("onRoute", route);
+    window.scrollTo(0, 0); //scroll page to top 
   }
 
 
   // onclick, save options in state
   onSendOption = (event) => {
-    // 如果回傳的name是activity開頭，就存在activityArr, 如果是exercise就存
+    // if the returned name includes activity, then setState activity
     console.log(event.target.name, event.target.value);
     const index = (event.target.name).slice(-1); // get the latest letter of "activity1"
     if(event.target.name.includes('activity')){
@@ -63,11 +64,13 @@ class App extends Component{
       activityArr[index-1] = event.target.value; // save one option to the certain index of element
       this.setState({activity : activityArr})
     }
+    // exercise part
     else if(event.target.name.includes('exercise')){
       let exerciseArr = this.state.exercise.slice(); // a new exercise state array
       exerciseArr[index-1] = event.target.value;
       this.setState({exercise : exerciseArr});
     }
+    // Calorie deficit part: 300/400/500
     else{
       this.setState({deficit : event.target.value})
     }  
