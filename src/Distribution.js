@@ -1,11 +1,32 @@
 import React from 'react';
 
-const Distribution = ({ Pitem, Pweight, Pdeficit, Pprotein, Poil, Pactivity, Pexercise, PdailyCalorie, PdailyCarbon }) => {
-    return (
+const Distribution = ({ Pitem, Pprotein, Poil, Pactivity, Pexercise, PdailyCalorie, PdailyCarbon }) => {
+    let amountA, amountE;
+// show activity and exercise here, turn number to string
+    if(Pactivity[Pitem-1] === '0') {
+        amountA = 'Rare';
+    }else if (Pactivity[Pitem-1] === '1'){
+        amountA = 'Low';
+    }else if(Pactivity[Pitem-1] === '2'){
+        amountA = 'Medium';
+    }else{
+        amountA = 'High';
+    }  
+    
+    if(Pexercise[Pitem-1] === '0') {
+        amountE = 'Rare';
+    }else if (Pexercise[Pitem-1] === '1'){
+        amountE = 'Low';
+    }else if(Pexercise[Pitem-1] === '2'){
+        amountE = 'Medium';
+    }else{
+        amountE = 'High';
+    }
+    
+    return (    
         <div>
             <h3 className="">Day {Pitem}</h3>
-            {/* show activity and exercise here, turn number to string */}
-            <h4> {Pactivity[Pitem-1]} activity, {Pexercise[Pitem-1]} exercise.</h4>
+            <h4>{amountA} activity, {amountE} exercise.</h4>
                 <div className="">
                     <dl className="f6 lh-title mv2">
                         <dt className="dib b">Protein:</dt>

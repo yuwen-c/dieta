@@ -3,6 +3,8 @@ import Distribution from './Distribution';
 
 const Nutrition = ({ Pweight, Pdeficit, Pprotein, Poil, Pactivity, Pexercise, PdailyCalorie, PdailyCarbon }) => {
     const dayArr = [1, 2, 3, 4, 5, 6, 7];
+
+
     return(
         <div>
             <fieldset id="" className="bn">
@@ -14,8 +16,8 @@ const Nutrition = ({ Pweight, Pdeficit, Pprotein, Poil, Pactivity, Pexercise, Pd
                             <Distribution
                             key = {item}
                             Pitem = {item}
-                            Pweight = {Pweight}
-                            Pdeficit = {Pdeficit}
+                            // Pweight = {Pweight}
+                            // Pdeficit = {Pdeficit}
                             Pprotein = {Pprotein}
                             Poil = {Poil}
                             Pactivity = {Pactivity}
