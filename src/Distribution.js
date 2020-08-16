@@ -1,10 +1,11 @@
 import React from 'react';
 
-const Distribution = ({ Pweight, Pdeficit, Pprotein, Poil, Pactivity, Pexercise, PdailyCalorie, PdailyCarbon }) => {
+const Distribution = ({ Pitem, Pweight, Pdeficit, Pprotein, Poil, Pactivity, Pexercise, PdailyCalorie, PdailyCarbon }) => {
     return (
         <div>
-            <h3 className="">Day_1</h3>
-            <h4>Low activity, Rare exercise.</h4>
+            <h3 className="">Day {Pitem}</h3>
+            {/* show activity and exercise here, turn number to string */}
+            <h4> {Pactivity[Pitem-1]} activity, {Pexercise[Pitem-1]} exercise.</h4>
                 <div className="">
                     <dl className="f6 lh-title mv2">
                         <dt className="dib b">Protein:</dt>
@@ -16,11 +17,11 @@ const Distribution = ({ Pweight, Pdeficit, Pprotein, Poil, Pactivity, Pexercise,
                     </dl>
                     <dl className="f6 lh-title mv2">
                         <dt className="dib b">Carbohydrate:</dt>
-                        <dd className="dib ml0 mid-gray">{PdailyCarbon[0]} g</dd>
+                        <dd className="dib ml0 mid-gray">{PdailyCarbon[Pitem-1]} g</dd>
                     </dl>
                     <dl className="f6 lh-title mv2">
                         <dt className="dib b">Total calorie: </dt>
-                        <dd className="dib ml0 mid-gray">{PdailyCalorie[0]} Kcal</dd>
+                        <dd className="dib ml0 mid-gray">{PdailyCalorie[Pitem-1]} Kcal</dd>
                     </dl>   
                 </div>   
                 {/* <div className="">

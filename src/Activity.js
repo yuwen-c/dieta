@@ -3,7 +3,7 @@ import Options from './Options';
 import LoadButton from './LoadButton';
 
 const Activity = ({PonRouteChange, PonSendOption}) => {
-    const dayArr = ['1', '2', '3', '4', '5', '6', '7'];
+    const dayArr = ['1', '2', '3', '4', '5', '6', '7']; // change to int?
     // const weekArr = ['Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     return(
         <div>

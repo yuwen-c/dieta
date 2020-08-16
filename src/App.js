@@ -19,14 +19,14 @@ class App extends Component{
   constructor(){
     super();
     this.state = {
-      weight : 55,
+      weight : 0,
       BMR : 0,
       isSignIn : false,
       route: 'signin', // sign in, sign up, weight, activity, exercise, nutrition
 
-      deficit : 300,
-      activity : ['1', '1', '2', '2', '1', '1', '3'], // change activity to just one array, [0] ~ [6]
-      exercise : ['1', '0', '0', '2', '0', '0', '2'],
+      deficit : 0,
+      activity : [], // change activity to just one array, [0] ~ [6]
+      exercise : [],
       // daily: [], // day 1: [protein, oil, carbohydrate, total calorie], day 2: []...
       protein : 0,
       oil : 0,
