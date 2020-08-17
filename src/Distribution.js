@@ -28,21 +28,21 @@ const Distribution = ({ Pitem, Pprotein, Poil, Pactivity, Pexercise, PdailyCalor
             <h3 className="">Day {Pitem}</h3>
             <h4>{amountA} activity, {amountE} exercise.</h4>
                 <div className="">
-                    <dl className="f6 lh-title mv2">
+                    <dl className="f5 lh-title mv2">
                         <dt className="dib b">Protein:</dt>
-                        <dd className="dib ml0 mid-gray">{Pprotein} g</dd>
+                        <dd className="dib ml1 near-gray">{Pprotein} g</dd>
                     </dl>
-                    <dl className="f6 lh-title mv2">
+                    <dl className="f5 lh-title mv2">
                         <dt className="dib b">Oil:</dt>
-                        <dd className="dib ml0 mid-gray">{Poil} g</dd>
+                        <dd className="dib ml1 near-gray">{Poil} g</dd>
                     </dl>
-                    <dl className="f6 lh-title mv2">
+                    <dl className="f5 lh-title mv2">
                         <dt className="dib b">Carbohydrate:</dt>
-                        <dd className="dib ml0 mid-gray">{PdailyCarbon[Pitem-1]} g</dd>
+                        <dd className="dib ml1 near-gray">{PdailyCarbon[Pitem-1]} g</dd>
                     </dl>
-                    <dl className="f6 lh-title mv2">
+                    <dl className="f5 lh-title mv2">
                         <dt className="dib b">Total calorie: </dt>
-                        <dd className="dib ml0 mid-gray">{PdailyCalorie[Pitem-1]} Kcal</dd>
+                        <dd className="dib ml1 near-gray">{PdailyCalorie[Pitem-1]} Kcal</dd>
                     </dl>   
                 </div>   
                 {/* <div className="">
