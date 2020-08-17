@@ -32,7 +32,9 @@ class App extends Component{
       oil : 0,
 
       dailyCalorie : [],
-      dailyCarbon : []
+      dailyCarbon : [],
+
+      defaultCheckedActivity : '',
 
     }
   }
@@ -79,31 +81,34 @@ class App extends Component{
     }  
   }
 
+  // load activity and exercise settings of last week
+  onLoadOptions = () => {
+// 進到這一頁時，畫面是空白的，要從database裡面叫出，放到畫面option的選項
+// 如果是0，那第一組的option的Rare就要選取
+    // let activityDatabase = ['0', '1', '0', '1', '0', '3', '2'];
+    // activityDatabase[0] = 0 所以defaultCheckedActivity[0] === 'true'
+    this.setState({defaultCheckedActivity : true});
+    console.log("onLoad, click")
+  }
+
+  // 計算熱量並存進state
   calculateNutrition = () => {
     const {weight, deficit, activity, exercise} = this.state; 
-    const protein = weight * 2; // 蛋白質固定不變，體重2倍
-    const oil = weight * 1; // 脂肪固定不變，體重1倍
-    // const day1 = parseInt(weight * 2.2 * (12 + parseInt(activity[0]) + parseInt(exercise[0])))-deficit; // 算出day1~7
-    // const Cday1 = parseInt((day1 - protein * 4 - oil * 9) / 4); //算出 Cday1~7
-    // // console.log('protein, oil, Cday1, day1 + bmr: ',protein, oil, Cday1, day1 , this.state.BMR)
-    // // this.setState({daily: [protein, oil, Cday1, day1]}) //不會當作二維，而是整個一維放進去
-    // // this.setState(Object.assign({}, this.state.daily, {daily[0]: [protein, oil, Cday1, day1]})) //syntax error
-    // const newDailyArr = this.state.daily.slice();
-    // newDailyArr[0] = [protein, oil, Cday1, day1];
-    // this.setState({daily : newDailyArr})
+    const protein = weight * 2; // protein fixes to 2 time weight
+    const oil = weight * 1; // oil fixes to 1 time weight
 
     let dailyCalorie = [];
     let dailyCarbon = [];
 
-    // 進行多天的計算：
+    // calculate day1-7
     for(let i=0; i<7; i++){
-      // 先算當天需要的總熱量
+      // total calorie of that day
       dailyCalorie[i] = parseInt(weight * 2.2 * (12 + parseInt(activity[i]) + parseInt(exercise[i])))-deficit;
-      // 計算當天的carbon量
+      // carbohydrate of thar day
       dailyCarbon[i] = parseInt((dailyCalorie[i] - protein * 4 - oil * 9) / 4);
 
     }
-
+    // save these numbers
     this.setState({
       protein : protein,
       oil : oil,
@@ -136,6 +141,8 @@ class App extends Component{
         return <Activity
                 PonRouteChange = {this.onRouteChange}  
                 PonSendOption = {this.onSendOption}
+                PonLoadOptions = {this.onLoadOptions}  // (load先前資料)，把defaultCheck改成true
+                PoptionState = {this.state.defaultCheckedActivity}  //改變defaulte checked狀態
                 />
 
       case 'exercise':
@@ -165,7 +172,9 @@ class App extends Component{
     return(
       <div>
         <Navigation/>
+        {this.state.defaultCheckedActivity}
         {this.renderSwitch(this.state.route)}
+        
       </div>
     )
   }
