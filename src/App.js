@@ -35,7 +35,7 @@ class App extends Component{
       dailyCalorie : [],
       dailyCarbon : [],
 
-      defaultCheckedActivity : '',
+      defaultCheckedActivity : [[false, false, false, false],[false, false, false, false],[false, false, false, false],[false, false, false, false],[false, false, false, false],[false, false, false, false],[false, false, false, false]],
 
     }
   }
@@ -93,11 +93,13 @@ class App extends Component{
     let activityDefault = [];
 
     for(let i=0; i<7; i++){
-      let activityDayX = [false, false, false, false]; //one day array with 4 elements(default false) 
-      activityDayX[activityDatabase[i]] = true // turn choosen element to true
-      activityDefault.push(activityDayX) 
+      // let activityDayX = [false, false, false, false]; //one day array with 4 elements(default false) 
+      let activityDay = this.state.defaultCheckedActivity[i].slice();
+      activityDay[activityDatabase[i]] = true;
+      // activityDayX[activityDatabase[i]] = true // turn choosen element to true
+      activityDefault.push(activityDay) 
     }
-    console.log(activityDefault);
+    console.log("click",activityDefault);
     this.setState({ defaultCheckedActivity : activityDefault})
   }
 

@@ -5,9 +5,11 @@ import LoadButton from './LoadButton';
 const Activity = ({PonRouteChange, PonSendOption, PonLoadOptions, optionState}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; // change to int?
     // const weekArr = ['Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-    return(
-        <div>
-                <h1>optionState in Activity: {optionState[0]}</h1>
+    console.log("optionState[0] in activity", optionState[0])
+    //console[0]先是undefine, onclick之後會出來。render[0]，boolean跑不出來，如果轉成tostring，則因為array還沒設好，所以會出錯
+    return( 
+        <div> 
+                {/* <h1>optionState in Activity: {optionState[0]}</h1> */}
             <fieldset id="" className="bn">
                 <legend className="fw7 f4 pv3">choose your amount of activity this week</legend>      
                 <LoadButton
@@ -27,22 +29,24 @@ const Activity = ({PonRouteChange, PonSendOption, PonLoadOptions, optionState}) 
                       <dd className="dib ml0 mid-gray">20000 steps, or 2hr mounting/climbing stairs, or 3hr walking, house cleaning/biking.</dd>
                     </dl>
                 </div>
-
+{/* 在map裡面如果用optionState加[0]: TypeError: Cannot read property '1' of undefined (OPTIONS) */}
+{/* 在options裡面加index, 與map裡面加index，只能擇一，否則出錯*/}
                 <div>
-                    {/* {
-                        dayArr.map(item => {
+                    {
+                        dayArr.map((item, index) => {
                             return(
                                 <div key={item}>
-                                    <h4>Day {item}</h4> */}
+                                    <h4>Day {item}</h4>
                                     <Options
-                                        // Pname={`activity${item}`}
+                                        Pname={`activity${item}`}
                                         PponSendOption={PonSendOption}
-                                        optionState={optionState}
+                                        optionState={optionState[index]}
                                     />
-                                {/* </div>
+                                    <div>optionState[index]:  {optionState[index].toString()}</div>
+                                </div>
                             )
                         })
-                    }   */}
+                    }  
                 </div>
                 <div className="">
                     <input 

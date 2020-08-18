@@ -3,10 +3,11 @@ import React from 'react';
 const Options = ({Pname, PponSendOption, optionState}) => {
   // have to fix: correspond label to options
   // The for attribute of <label> must be equal to the id attribute of the related element 
-  console.log("optionState", optionState[0]);  
+  console.log("optionState[1~4] in Options", optionState[0], optionState[1], optionState[2], optionState[3]); 
+  //console[0]先是undefine, onclick之後會出來。
+  //TypeError: Cannot read property '0' of undefined 
   return(
         <div>
-        <h1>optionState in Options: {optionState}</h1>
             <div className="flex items-center mb2">
               <input 
               className="mr2" type="radio" id={`${Pname}-rare`} value="0" name={Pname}
