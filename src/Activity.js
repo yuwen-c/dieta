@@ -2,12 +2,12 @@ import React from 'react';
 import Options from './Options';
 import LoadButton from './LoadButton';
 
-const Activity = ({PonRouteChange, PonSendOption, PonLoadOptions, PoptionState}) => {
+const Activity = ({PonRouteChange, PonSendOption, PonLoadOptions, optionState}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; // change to int?
     // const weekArr = ['Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     return(
         <div>
-        {PoptionState}
+                <h1>optionState in Activity: {optionState[0]}</h1>
             <fieldset id="" className="bn">
                 <legend className="fw7 f4 pv3">choose your amount of activity this week</legend>      
                 <LoadButton
@@ -37,7 +37,7 @@ const Activity = ({PonRouteChange, PonSendOption, PonLoadOptions, PoptionState})
                                     <Options
                                         // Pname={`activity${item}`}
                                         PponSendOption={PonSendOption}
-                                        PoptionState={PoptionState}
+                                        optionState={optionState}
                                     />
                                 {/* </div>
                             )

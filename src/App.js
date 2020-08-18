@@ -98,6 +98,7 @@ class App extends Component{
       activityDefault.push(activityDayX) 
     }
     console.log(activityDefault);
+    this.setState({ defaultCheckedActivity : activityDefault})
   }
 
   // do calculation and save to state
@@ -151,7 +152,7 @@ class App extends Component{
                 PonRouteChange = {this.onRouteChange}  
                 PonSendOption = {this.onSendOption}
                 PonLoadOptions = {this.onLoadOptions}  // (load先前資料)，把defaultCheck改成true
-                PoptionState = {this.state.defaultCheckedActivity}  //改變defaulte checked狀態
+                optionState = {this.state.defaultCheckedActivity}  //改變defaulte checked狀態
                 />
 
       case 'exercise':
@@ -181,9 +182,7 @@ class App extends Component{
     return(
       <div>
         <Navigation/>
-        {this.state.defaultCheckedActivity}
         {this.renderSwitch(this.state.route)}
-        
       </div>
     )
   }
