@@ -84,19 +84,20 @@ class App extends Component{
 
   // load activity and exercise settings of last week
   onLoadOptions = () => {
-// 進到這一頁時，畫面是空白的，要從database裡面叫出，放到畫面option的選項
-// 如果是0，那第一組的option的Rare就要選取
+    // 預設的資料，到時要從資料庫抓
     let activityDatabase = ['0', '1', '0', '1', '0', '3', '2'];
-    // activityDatabase[0] = 0 所以defaultCheckedActivity[0] === 'true'
-    // let activityDay1 = [false, false, false, true] // 1 day : an array which contains 4 boolean 
-    // this.setState({defaultCheckedActivity : activityDay1});
-    // 點下後，要傳送7天的設定出去 => [t, f, f, f]是一天，總共要有7個array
-    // 第x天的資料是4個boolean, 其中第y個是true, 而 y= activityDatabase[x-1]
-    let inputsArr = [false, false, false, false]; 
-    let checkedAmount = activityDatabase[6]
-    let activity1Day = inputsArr;
-    activity1Day[checkedAmount] = true;
-    this.setState({defaultCheckedActivity : activity1Day})
+    // to show the last week options, all the 4 inputs need the defaultChecked attribute
+    // and one of them with "true", others with "false"
+    // only one input with defaultCheck attribute doesn't work!!!!
+
+    let activityDefault = [];
+
+    for(let i=0; i<7; i++){
+      let activityDayX = [false, false, false, false]; //one day array with 4 elements(default false) 
+      activityDayX[activityDatabase[i]] = true // turn choosen element to true
+      activityDefault.push(activityDayX) 
+    }
+    console.log(activityDefault);
   }
 
   // do calculation and save to state
