@@ -7,6 +7,7 @@ import SignIn from './SignIn';
 import SignUp from './SignUp';
 import './App.css';
 import Navigation from './Navigation';
+import { act } from 'react-dom/test-utils';
 
 // const initialState = {
 //   weight : 55,
@@ -87,11 +88,12 @@ class App extends Component{
 // 如果是0，那第一組的option的Rare就要選取
     // let activityDatabase = ['0', '1', '0', '1', '0', '3', '2'];
     // activityDatabase[0] = 0 所以defaultCheckedActivity[0] === 'true'
-    this.setState({defaultCheckedActivity : true});
+    let activityDay1 = [false, false, false, true] // 1 day : an array which contains 4 boolean 
+    this.setState({defaultCheckedActivity : activityDay1});
     console.log("onLoad, click")
   }
 
-  // 計算熱量並存進state
+  // do calculation and save to state
   calculateNutrition = () => {
     const {weight, deficit, activity, exercise} = this.state; 
     const protein = weight * 2; // protein fixes to 2 time weight

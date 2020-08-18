@@ -29,20 +29,20 @@ const Activity = ({PonRouteChange, PonSendOption, PonLoadOptions, PoptionState})
                 </div>
 
                 <div>
-                    {
+                    {/* {
                         dayArr.map(item => {
                             return(
                                 <div key={item}>
-                                    <h4>Day {item}</h4>
+                                    <h4>Day {item}</h4> */}
                                     <Options
-                                        Pname={`activity${item}`}
+                                        // Pname={`activity${item}`}
                                         PponSendOption={PonSendOption}
                                         PoptionState={PoptionState}
                                     />
-                                </div>
+                                {/* </div>
                             )
                         })
-                    }  
+                    }   */}
                 </div>
                 <div className="">
                     <input 
