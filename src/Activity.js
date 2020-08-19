@@ -2,14 +2,16 @@ import React from 'react';
 import Options from './Options';
 import LoadButton from './LoadButton';
 
-const Activity = ({PonRouteChange, PonSendOption, PonLoadOptions, optionCheckedState}) => {
+
+// onLoadOptions的參數竟然不用在最底層的onClick帶入！！
+const Activity = ({PonRouteChange, PonSendOption, onLoadOptions, optionCheckedState}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; // change to int?
     return( 
         <div> 
             <fieldset id="" className="bn">
                 <legend className="fw7 f4 pv3">choose your amount of activity this week</legend>      
                 <LoadButton
-                    PonLoadOptions={PonLoadOptions}
+                onLoadOptions={() => {onLoadOptions('activity')}}
                 />
                 <div className="">
                     <dl className="f6 lh-title mv2">
