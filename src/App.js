@@ -10,6 +10,11 @@ import Navigation from './Navigation';
 import { act } from 'react-dom/test-utils';
 
 
+const initialcheckedActivity = 
+[[false, false, false, false],[false, false, false, false],[false, false, false, false],
+[false, false, false, false],[false, false, false, false],[false, false, false, false],
+[false, false, false, false]];
+
 class App extends Component{
   constructor(){
     super();
@@ -28,7 +33,7 @@ class App extends Component{
       dailyCalorie : [], // 7 days daily calorie
       dailyCarbon : [], // 7 days daily carbohydrate
 
-      checkedActivity : [[false, false, false, false],[false, false, false, false],[false, false, false, false],[false, false, false, false],[false, false, false, false],[false, false, false, false],[false, false, false, false]],
+      checkedActivity : initialcheckedActivity,
       // the default of checked attribute of options
     }
   }
@@ -86,20 +91,20 @@ class App extends Component{
   }
 
   // load activity and exercise settings of last week
-  // 1. 顯示選項在畫面上 ok
+  // 1. 顯示選項在畫面上 ok (但是要先把checked改為false)
   // 2. 儲存到activity state, exercise state ok
   // 3. 分activity, exercise兩種選項
   onLoadOptions = () => {
+    // 使用者可以有先點選了，先把checked恢復false預設值
+    this.setState({checkedActivity: initialcheckedActivity})
     // 預設的資料，到時要從資料庫抓
     let activityDatabase = ['0', '1', '0', '1', '0', '3', '2'];
-    // to show the last week options, all the 4 inputs need the defaultChecked attribute
-    // and one of them with "true", others with "false"
     // ***only one input with defaultCheck attribute doesn't work!!!!
 
     let activityDefault = [];
-
+    // make a copy of checkedActivity state, set one of it (depends on database) to true
     for(let i=0; i<7; i++){
-      let activityDay = this.state.checkedActivity[i].slice();
+      let activityDay = initialcheckedActivity[i].slice();
       activityDay[activityDatabase[i]] = true;
       activityDefault.push(activityDay) 
     }
