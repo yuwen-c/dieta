@@ -29,24 +29,24 @@ const Activity = ({PonRouteChange, PonSendOption, PonLoadOptions, optionState}) 
                       <dd className="dib ml0 mid-gray">20000 steps, or 2hr mounting/climbing stairs, or 3hr walking, house cleaning/biking.</dd>
                     </dl>
                 </div>
-{/* 在map裡面如果用optionState加[0]: TypeError: Cannot read property '1' of undefined (OPTIONS) */}
+{/* 在map裡面如果用optionState加[0]: TypeError: Cannot read property '1' of undefined (OPTIONS) */} 
 {/* 在options裡面加index, 與map裡面加index，只能擇一，否則出錯*/}
                 <div>
-                    {
+                     {
                         dayArr.map((item, index) => {
-                            return(
-                                <div key={item}>
+                            return( 
+                                 <div key={item}> 
                                     <h4>Day {item}</h4>
                                     <Options
                                         Pname={`activity${item}`}
                                         PponSendOption={PonSendOption}
                                         optionState={optionState[index]}
                                     />
-                                    <div>optionState[index]:  {optionState[index].toString()}</div>
-                                </div>
-                            )
+                                    <div>optionState:  {optionState.toString()}</div>
+                                 </div> 
+                             )
                         })
-                    }  
+                    }   
                 </div>
                 <div className="">
                     <input 
