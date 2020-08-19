@@ -2,7 +2,7 @@ import React from 'react';
 import Options from './Options';
 import LoadButton from './LoadButton';
 
-const Exercise = ({PonRouteChange, PonSendOption, PcalculateNutrition}) => {
+const Exercise = ({PonRouteChange, PonSendOption, PcalculateNutrition, optionCheckedState}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; // change to int?
     // const weekArr = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     return (
@@ -27,14 +27,16 @@ const Exercise = ({PonRouteChange, PonSendOption, PcalculateNutrition}) => {
 
                 <div>
                     {
-                        dayArr.map(item => {
+                        dayArr.map((item, index) => {
                             return (
                                 <div key={item}>
                                     <h4>Day {item}</h4>
                                     <Options 
                                         Pname={`exercise${item}`}
                                         PponSendOption={PonSendOption}
+                                        optionCheckedState={optionCheckedState[index]}
                                     />
+                                    optionCheckedState: {optionCheckedState[index].toString()}
                                 </div>
                             )
                         })

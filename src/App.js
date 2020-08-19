@@ -10,7 +10,7 @@ import Navigation from './Navigation';
 import { act } from 'react-dom/test-utils';
 
 
-const initialcheckedActivity = 
+const initialchecked = 
 [[false, false, false, false],[false, false, false, false],[false, false, false, false],
 [false, false, false, false],[false, false, false, false],[false, false, false, false],
 [false, false, false, false]];
@@ -33,7 +33,8 @@ class App extends Component{
       dailyCalorie : [], // 7 days daily calorie
       dailyCarbon : [], // 7 days daily carbohydrate
 
-      checkedActivity : initialcheckedActivity,
+      checkedActivity : initialchecked,
+      checkedExercise : initialchecked,
       // the default of checked attribute of options
     }
   }
@@ -57,22 +58,21 @@ class App extends Component{
     window.scrollTo(0, 0); //scroll page to top 
   }
 
-  // 方向二，另外傳入attribute (as an object)
-  //目前方向之一：把原本的onClick改為onChange，按下之後，要把同一組其他的default設為false，再把自己的設為true
-
+  // 把原本的onClick改為onChange，按下之後，要把同一組其他的default設為false，再把自己的設為true
   // onclick, save options to state
   onSendOption = (event) => {
     // if the returned name includes activity, then setState activity
     console.log("onSendOption: name", event.target.name, "value",event.target.value);
     const index = (event.target.name).slice(-1); // get the latest letter of "activity1"
+    
     if(event.target.name.includes('activity')){
+      // save option value to activity state
       let activityArr = this.state.activity.slice(); // use slice() to ensure we create a seperate copy of this.state.activity
       activityArr[index-1] = event.target.value; // save one option to the certain index of element
       this.setState({activity : activityArr})
 
-      // 如果使用者，先download上週設定，再自行修改：
-      // 修改checked的部分，幫當天的checked都改為false，再把點按的那一個改為true
-      let changedChecked = this.state.checkedActivity.slice();
+      // modify checked state. 1: set 4 options to false, 2: set the one to true
+      let changedChecked = this.state.checkedActivity.slice(); //只有要改那一組option，不能複製整個initial
       changedChecked[index-1] = [false, false, false, false];
       changedChecked[index-1][event.target.value] = true;
       this.setState({checkedActivity : changedChecked})
@@ -80,9 +80,17 @@ class App extends Component{
     }
     // exercise part
     else if(event.target.name.includes('exercise')){
+      // save option value to state
       let exerciseArr = this.state.exercise.slice(); // a new exercise state array
       exerciseArr[index-1] = event.target.value;
       this.setState({exercise : exerciseArr});
+
+      // modify checked state. 
+      let changedChecked = this.state.checkedExercise.slice(); 
+      changedChecked[index-1] = [false, false, false, false];
+      changedChecked[index-1][event.target.value] = true;
+      this.setState({checkedExercise : changedChecked})      
+
     }
     // Calorie deficit part: 300/400/500
     else{
@@ -96,7 +104,7 @@ class App extends Component{
   // 3. 分activity, exercise兩種選項
   onLoadOptions = () => {
     // 使用者可以有先點選了，先把checked恢復false預設值
-    this.setState({checkedActivity: initialcheckedActivity})
+    this.setState({checkedActivity: initialchecked})
     // 預設的資料，到時要從資料庫抓
     let activityDatabase = ['0', '1', '0', '1', '0', '3', '2'];
     // ***only one input with defaultCheck attribute doesn't work!!!!
@@ -104,7 +112,7 @@ class App extends Component{
     let activityDefault = [];
     // make a copy of checkedActivity state, set one of it (depends on database) to true
     for(let i=0; i<7; i++){
-      let activityDay = initialcheckedActivity[i].slice();
+      let activityDay = initialchecked[i].slice();
       activityDay[activityDatabase[i]] = true;
       activityDefault.push(activityDay) 
     }
@@ -168,8 +176,8 @@ class App extends Component{
                 PonRouteChange = {this.onRouteChange}  
                 PonSendOption = {this.onSendOption}
                 onChange={this.onChange}
-                PonLoadOptions = {this.onLoadOptions}  // (load先前資料)，把checked改成true
-                optionCheckedState = {this.state.checkedActivity}  //改變default checked狀態
+                PonLoadOptions = {this.onLoadOptions}  
+                optionCheckedState = {this.state.checkedActivity}
                 />
 
       case 'exercise':
@@ -177,6 +185,7 @@ class App extends Component{
                 PonRouteChange = {this.onRouteChange}  
                 PonSendOption = {this.onSendOption}
                 PcalculateNutrition = {this.calculateNutrition}
+                optionCheckedState = {this.state.checkedExercise}
                 />
       case 'nutrition':
         return <Nutrition

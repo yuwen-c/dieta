@@ -1,13 +1,11 @@
 import React from 'react';
 
 const Options = ({Pname, PponSendOption, optionCheckedState}) => {
-  // have to fix: correspond label to options
   // The for attribute of <label> must be equal to the id attribute of the related element 
-  console.log("optionCheckedState[1~4] in Options", optionCheckedState[0], optionCheckedState[1], optionCheckedState[2], optionCheckedState[3]); 
+  // console.log("optionCheckedState[1~4] in Options", optionCheckedState[0], optionCheckedState[1], optionCheckedState[2], optionCheckedState[3]); 
 
   return(
         <div>
-        {/* <div>小陣列：{optionState[0].toString()}{optionState[1].toString()}{optionState[2].toString()}{optionState[3].toString()}</div> */}
             <div className="flex items-center mb2">
               <input 
               className="mr2" type="radio" id={`${Pname}-rare`} value="0" name={Pname}
