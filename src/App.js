@@ -9,12 +9,6 @@ import './App.css';
 import Navigation from './Navigation';
 import { act } from 'react-dom/test-utils';
 
-// const initialState = {
-//   weight : 55,
-//   BMR: 1452,
-//   isSignIn : true,
-//   route: 'nutrition',
-// }
 
 class App extends Component{
   constructor(){
@@ -61,16 +55,23 @@ class App extends Component{
   // 方向二，另外傳入attribute (as an object)
   //目前方向之一：把原本的onClick改為onChange，按下之後，要把同一組其他的default設為false，再把自己的設為true
 
-
   // onclick, save options to state
   onSendOption = (event) => {
     // if the returned name includes activity, then setState activity
-    console.log("onClick: event.target.name", event.target.name, "event.target.value",event.target.value);
+    console.log("onSendOption: name", event.target.name, "value",event.target.value);
     const index = (event.target.name).slice(-1); // get the latest letter of "activity1"
     if(event.target.name.includes('activity')){
       let activityArr = this.state.activity.slice(); // use slice() to ensure we create a seperate copy of this.state.activity
       activityArr[index-1] = event.target.value; // save one option to the certain index of element
       this.setState({activity : activityArr})
+
+      // 如果使用者，先download上週設定，再自行修改：
+      // 修改checked的部分，幫當天的checked都改為false，再把點按的那一個改為true
+      let changedChecked = this.state.checkedActivity.slice();
+      changedChecked[index-1] = [false, false, false, false];
+      changedChecked[index-1][event.target.value] = true;
+      this.setState({checkedActivity : changedChecked})
+
     }
     // exercise part
     else if(event.target.name.includes('exercise')){
@@ -85,8 +86,9 @@ class App extends Component{
   }
 
   // load activity and exercise settings of last week
-  // 1. 顯示選項在畫面上
-  // 2. 儲存到資料庫(state currently)
+  // 1. 顯示選項在畫面上 ok
+  // 2. 儲存到activity state, exercise state ok
+  // 3. 分activity, exercise兩種選項
   onLoadOptions = () => {
     // 預設的資料，到時要從資料庫抓
     let activityDatabase = ['0', '1', '0', '1', '0', '3', '2'];
@@ -97,14 +99,14 @@ class App extends Component{
     let activityDefault = [];
 
     for(let i=0; i<7; i++){
-      // let activityDayX = [false, false, false, false]; //one day array with 4 elements(default false) 
       let activityDay = this.state.checkedActivity[i].slice();
       activityDay[activityDatabase[i]] = true;
-      // activityDayX[activityDatabase[i]] = true // turn choosen element to true
       activityDefault.push(activityDay) 
     }
-    console.log("click",activityDefault);
     this.setState({ checkedActivity : activityDefault})
+
+    // save data (options) to state (暫時用預設的資料)
+    this.setState({activity : activityDatabase})
 
   }
 
@@ -193,6 +195,7 @@ class App extends Component{
       <div>
         <Navigation/>
         {this.renderSwitch(this.state.route)}
+        {this.state.activity}
       </div>
     )
   }

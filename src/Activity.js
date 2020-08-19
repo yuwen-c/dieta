@@ -38,7 +38,7 @@ const Activity = ({PonRouteChange, PonSendOption, PonLoadOptions, optionCheckedS
                                         PponSendOption={PonSendOption}
                                         optionCheckedState={optionCheckedState[index]}
                                     />
-                                    <div>optionCheckedState:  {optionCheckedState.toString()}</div>
+                                    <div>optionCheckedState:  {optionCheckedState[index].toString()}</div>
                                  </div> 
                              )
                         })
