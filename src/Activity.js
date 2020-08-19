@@ -2,14 +2,10 @@ import React from 'react';
 import Options from './Options';
 import LoadButton from './LoadButton';
 
-const Activity = ({PonRouteChange, PonSendOption, PonLoadOptions, optionState}) => {
+const Activity = ({PonRouteChange, PonSendOption, PonLoadOptions, optionCheckedState}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; // change to int?
-    // const weekArr = ['Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-    console.log("optionState[0] in activity", optionState[0])
-    //console[0]先是undefine, onclick之後會出來。render[0]，boolean跑不出來，如果轉成tostring，則因為array還沒設好，所以會出錯
     return( 
         <div> 
-                {/* <h1>optionState in Activity: {optionState[0]}</h1> */}
             <fieldset id="" className="bn">
                 <legend className="fw7 f4 pv3">choose your amount of activity this week</legend>      
                 <LoadButton
@@ -40,9 +36,9 @@ const Activity = ({PonRouteChange, PonSendOption, PonLoadOptions, optionState}) 
                                     <Options
                                         Pname={`activity${item}`}
                                         PponSendOption={PonSendOption}
-                                        optionState={optionState[index]}
+                                        optionCheckedState={optionCheckedState[index]}
                                     />
-                                    <div>optionState:  {optionState.toString()}</div>
+                                    <div>optionCheckedState:  {optionCheckedState.toString()}</div>
                                  </div> 
                              )
                         })

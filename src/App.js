@@ -26,17 +26,16 @@ class App extends Component{
       route: 'signin', // sign in, sign up, weight, activity, exercise, nutrition
 
       deficit : 0,
-      activity : [], // change activity to just one array, [0] ~ [6]
-      exercise : [],
-      // daily: [], // day 1: [protein, oil, carbohydrate, total calorie], day 2: []...
+      activity : [], // store week activity, like: ['0', '1', '0', '1', '0', '3', '2']
+      exercise : [], // store week exercise, like: ['0', '1', '0', '1', '0', '3', '2']
+      
       protein : 0,
       oil : 0,
+      dailyCalorie : [], // 7 days daily calorie
+      dailyCarbon : [], // 7 days daily carbohydrate
 
-      dailyCalorie : [],
-      dailyCarbon : [],
-
-      defaultCheckedActivity : [[false, false, false, false],[false, false, false, false],[false, false, false, false],[false, false, false, false],[false, false, false, false],[false, false, false, false],[false, false, false, false]],
-      // defaultCheckedActivity :[false, false, false, false],
+      checkedActivity : [[false, false, false, false],[false, false, false, false],[false, false, false, false],[false, false, false, false],[false, false, false, false],[false, false, false, false],[false, false, false, false]],
+      // the default of checked attribute of options
     }
   }
 
@@ -93,25 +92,21 @@ class App extends Component{
     let activityDatabase = ['0', '1', '0', '1', '0', '3', '2'];
     // to show the last week options, all the 4 inputs need the defaultChecked attribute
     // and one of them with "true", others with "false"
-    // only one input with defaultCheck attribute doesn't work!!!!
+    // ***only one input with defaultCheck attribute doesn't work!!!!
 
     let activityDefault = [];
 
     for(let i=0; i<7; i++){
       // let activityDayX = [false, false, false, false]; //one day array with 4 elements(default false) 
-      let activityDay = this.state.defaultCheckedActivity[i].slice();
+      let activityDay = this.state.checkedActivity[i].slice();
       activityDay[activityDatabase[i]] = true;
       // activityDayX[activityDatabase[i]] = true // turn choosen element to true
       activityDefault.push(activityDay) 
     }
     console.log("click",activityDefault);
-    this.setState({ defaultCheckedActivity : activityDefault})
+    this.setState({ checkedActivity : activityDefault})
 
   }
-
-// 如果 this.state.defaultCheckedActivity 預設[], onClick設為[false, false, true, false] ok
-// 如果預設[false, true, false, false], onClick設為[false, false, true, false] ，radio不會變
-// => 的確重繪radio是可行的，放入attribute也沒問題
 
 
 
@@ -166,8 +161,8 @@ class App extends Component{
                 PonRouteChange = {this.onRouteChange}  
                 PonSendOption = {this.onSendOption}
                 onChange={this.onChange}
-                PonLoadOptions = {this.onLoadOptions}  // (load先前資料)，把defaultCheck改成true
-                optionState = {this.state.defaultCheckedActivity}  //改變defaulte checked狀態
+                PonLoadOptions = {this.onLoadOptions}  // (load先前資料)，把checked改成true
+                optionCheckedState = {this.state.checkedActivity}  //改變default checked狀態
                 />
 
       case 'exercise':

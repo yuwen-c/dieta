@@ -1,11 +1,10 @@
 import React from 'react';
 
-const Options = ({Pname, PponSendOption, optionState}) => {
+const Options = ({Pname, PponSendOption, optionCheckedState}) => {
   // have to fix: correspond label to options
   // The for attribute of <label> must be equal to the id attribute of the related element 
-  console.log("optionState[1~4] in Options", optionState[0], optionState[1], optionState[2], optionState[3]); 
-  //console[0]先是undefine, onclick之後會出來。
-  //TypeError: Cannot read property '0' of undefined 
+  console.log("optionCheckedState[1~4] in Options", optionCheckedState[0], optionCheckedState[1], optionCheckedState[2], optionCheckedState[3]); 
+
   return(
         <div>
         {/* <div>小陣列：{optionState[0].toString()}{optionState[1].toString()}{optionState[2].toString()}{optionState[3].toString()}</div> */}
@@ -13,7 +12,7 @@ const Options = ({Pname, PponSendOption, optionState}) => {
               <input 
               className="mr2" type="radio" id={`${Pname}-rare`} value="0" name={Pname}
               onChange={PponSendOption} // use onChange istead of onClick to meet the checked's need
-              checked={optionState[0]}
+              checked={optionCheckedState[0]}
               />
               <label htmlFor={`${Pname}-rare`} className="lh-copy">Rare</label>
             </div>
@@ -21,7 +20,7 @@ const Options = ({Pname, PponSendOption, optionState}) => {
               <input 
               className="mr2" type="radio" id={`${Pname}-low`} value="1" name={Pname}
               onChange={PponSendOption}
-              checked={optionState[1]}
+              checked={optionCheckedState[1]}
               />
               <label htmlFor={`${Pname}-low`} className="lh-copy">Low</label>
             </div>
@@ -29,7 +28,7 @@ const Options = ({Pname, PponSendOption, optionState}) => {
               <input 
               className="mr2" type="radio" id={`${Pname}-medium`} value="2" name={Pname}
               onChange={PponSendOption}
-              checked={optionState[2]}
+              checked={optionCheckedState[2]}
               />
               <label htmlFor={`${Pname}-medium`} className="lh-copy">Medium</label>
             </div>
@@ -37,7 +36,7 @@ const Options = ({Pname, PponSendOption, optionState}) => {
               <input 
               className="mr2" type="radio" id={`${Pname}-high`} value="3" name={Pname}
               onChange={PponSendOption}
-              checked={optionState[3]}
+              checked={optionCheckedState[3]}
               />
               <label htmlFor={`${Pname}-high`} className="lh-copy">High</label>
             </div>
