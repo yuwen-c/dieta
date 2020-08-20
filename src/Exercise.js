@@ -10,7 +10,7 @@ const Exercise = ({onRouteChange, onSendOption, calculateNutrition, onLoadOption
             <fieldset id="" className="bn">
                 <legend className="fw7 f4 pv3">choose your amount of exercise this week</legend>
                 <LoadButton
-                    onLoadOptions={() => {onLoadOptions("Exercise")}}
+                    onLoadOptions={onLoadOptions}
                 />
                 <div className="">
                     <dl className="f6 lh-title mv2">

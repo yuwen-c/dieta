@@ -11,7 +11,7 @@ const Activity = ({onRouteChange, onSendOption, onLoadOptions, optionCheckedStat
             <fieldset id="" className="bn">
                 <legend className="fw7 f4 pv3">choose your amount of activity this week</legend>      
                 <LoadButton
-                onLoadOptions={() => {onLoadOptions('Activity')}}
+                onLoadOptions={onLoadOptions}
                 />
                 <div className="">
                     <dl className="f6 lh-title mv2">

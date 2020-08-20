@@ -105,31 +105,28 @@ class App extends Component{
   }
 
   // load activity and exercise settings of last week
-  // 1. 顯示選項在畫面上 ok (但是要先把checked改為false)
-  // 2. 儲存到activity state, exercise state ok
-  // 3. 分activity, exercise兩種選項
-  onLoadOptions = (kind) => {
-    console.log('onLoad', kind)
+  onLoadOptions = () => {
     // imaginary database
     let ActivityDatabase = ['0', '1', '0', '1', '0', '3', '2'];
     let ExerciseDatabase = ['1', '1', '0', '2', '0', '2', '1'];
 
-    // make a copy of checkedActivity state, set one of it (depends on database) to true
-    if(kind === 'Activity'){
+    // call forLoop function, set checked state and activity, exercise state
+    if(this.state.route === 'activity'){
       this.setState({
         checkedActivity : this.forLoop(ActivityDatabase),
         Activity : ActivityDatabase
       })    
     }
-    else if(kind === 'Exercise'){
+    else if(this.state.route === 'exercise'){
       this.setState({
         checkedExercise : this.forLoop(ExerciseDatabase),
         Exercise : ExerciseDatabase
       })
     }
-
   }
 
+  // give the default false array, and set one of it (depends on database) to true
+  // then return a 7 days 2-dimentional array
   forLoop = (database) => {
     let oneWeekArr = [];
     for(let i=0; i<7; i++){
