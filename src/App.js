@@ -220,7 +220,9 @@ class App extends Component{
   render(){
     return(
       <div>
-        <Navigation/>
+        <Navigation
+        onRouteChange={this.onRouteChange}
+        />
         {this.renderSwitch(this.state.route)}
         <br/>
         {this.state.activity}

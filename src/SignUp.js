@@ -38,7 +38,9 @@ class SignUp extends Component{
                             type="submit" value="Sign up"/>
                         </div>
                         <div className="lh-copy mt3">
-                            <p className="f6 link dim black db">Sign in</p>
+                            <p 
+                            className="f6 link dim black db"
+                            onClick={()=> {this.props.onRouteChange("signin")}}>Sign in</p>
                         </div>
                     </div>
                 </div>

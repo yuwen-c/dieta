@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Navigation = () => {
+const Navigation = ({onRouteChange}) => {
     return(
         <div>
             <nav className="flex justify-between bb b--white-10 bg-near-black">
@@ -18,8 +18,12 @@ const Navigation = () => {
               </div>
               <div className="flex-grow pa3 flex items-center">
                 <div className="f6 link dib white dim mr3 mr4-ns" >About</div>
-                <div className="f6 link dib white dim mr3 mr4-ns" >Sign In</div>
-                <div className="f6 dib white bg-animate hover-bg-white hover-black no-underline pv2 ph4 br-pill ba b--white-20" >Sign Up</div>
+                <div 
+                className="f6 link dib white dim mr3 mr4-ns" 
+                onClick={()=> {onRouteChange("signin")}}>Sign In</div>
+                <div 
+                className="f6 dib white bg-animate hover-bg-white hover-black no-underline pv2 ph4 br-pill ba b--white-20"
+                onClick={()=> {onRouteChange("signup")}}>Sign Up</div>
               </div>
             </nav>
 
