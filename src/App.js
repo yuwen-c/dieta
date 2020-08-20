@@ -7,7 +7,7 @@ import SignIn from './SignIn';
 import SignUp from './SignUp';
 import './App.css';
 import Navigation from './Navigation';
-import { act } from 'react-dom/test-utils';
+// import { act } from 'react-dom/test-utils';
 
 
 const initialchecked = 
@@ -62,8 +62,6 @@ class App extends Component{
     this.setState({route : route});
     console.log("onRoute", route);
     window.scrollTo(0, 0); //scroll page to top 
-
-
   }
 
   // 把原本的onClick改為onChange，按下之後，要把同一組其他的default設為false，再把自己的設為true
@@ -111,49 +109,25 @@ class App extends Component{
   // 2. 儲存到activity state, exercise state ok
   // 3. 分activity, exercise兩種選項
   onLoadOptions = (kind) => {
-    console.log('onLoad', kind, `checked${kind}`)
-      // 先把checked恢復false預設值(若使用者已有點選，要清除)
-      // this.setState({checkedActivity: initialchecked})
-      // 預設的資料，到時要從資料庫抓
-      // let activityDatabase = ['0', '1', '0', '1', '0', '3', '2'];
-      // // ***only one input with defaultCheck attribute doesn't work!!!!
-      // let activityDefault = [];
-      // // make a copy of checkedActivity state, set one of it (depends on database) to true
-      // // for(let i=0; i<7; i++){
-      // //   let activityDay = initialchecked[i].slice();
-      // //   activityDay[activityDatabase[i]] = true;
-      // //   activityDefault.push(activityDay) 
-      // // }
-      // this.setState({checkedActivity : activityDefault})
-      // // 將上週的資料存進activity的state (上週的資料目前先hard code)
-      // this.setState({activity : activityDatabase})
-      
-//=====
-      // reset all the checked state to false
-      this.setState({[`checked${kind}`]: initialchecked});
-      // imaginary database
-      let ActivityDatabase = ['0', '1', '0', '1', '0', '3', '2'];
-      let ExerciseDatabase = ['1', '1', '0', '2', '0', '2', '1'];
+    console.log('onLoad', kind)
+    // imaginary database
+    let ActivityDatabase = ['0', '1', '0', '1', '0', '3', '2'];
+    let ExerciseDatabase = ['1', '1', '0', '2', '0', '2', '1'];
 
-      // let tempChecked = [];
-      let result=[];
     // make a copy of checkedActivity state, set one of it (depends on database) to true
-      if(kind === 'Activity'){
-        result = this.forLoop(ActivityDatabase)       
-      }
-      else if(kind === 'Exercise'){
-        result = this.forLoop(ExerciseDatabase)
-      }
-      console.log("result", result)
+    if(kind === 'Activity'){
       this.setState({
-        [`checked${kind}`] : result
+        checkedActivity : this.forLoop(ActivityDatabase),
+        Activity : ActivityDatabase
+      })    
+    }
+    else if(kind === 'Exercise'){
+      this.setState({
+        checkedExercise : this.forLoop(ExerciseDatabase),
+        Exercise : ExerciseDatabase
       })
-      if(kind === 'Activity'){
-        this.setState({Activity : ActivityDatabase})      
-      }
-      else if(kind === 'Exercise'){
-        this.setState({Exercise : ExerciseDatabase}) 
-      }
+    }
+
   }
 
   forLoop = (database) => {
