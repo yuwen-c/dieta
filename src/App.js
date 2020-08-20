@@ -28,8 +28,8 @@ class App extends Component{
       route: 'signin', // sign in, sign up, weight, activity, exercise, nutrition
 
       deficit : 0,
-      Activity : [], // store week activity, like: ['0', '1', '0', '1', '0', '3', '2']
-      Exercise : [], // store week exercise, like: ['0', '1', '0', '1', '0', '3', '2']
+      activity : [], // store week activity, like: ['0', '1', '0', '1', '0', '3', '2']
+      exercise : [], // store week exercise, like: ['0', '1', '0', '1', '0', '3', '2']
       
       protein : 0,
       oil : 0,
@@ -73,7 +73,7 @@ class App extends Component{
     
     if(event.target.name.includes('activity')){
       // save option value to activity state
-      let activityArr = this.state.Activity.slice(); // use slice() to ensure we create a seperate copy of this.state.activity
+      let activityArr = this.state.activity.slice(); // use slice() to ensure we create a seperate copy of this.state.activity
       activityArr[index-1] = event.target.value; // save one option to the certain index of element
       this.setState({Activity : activityArr})
 
@@ -87,7 +87,7 @@ class App extends Component{
     // exercise part
     else if(event.target.name.includes('exercise')){
       // save option value to state
-      let exerciseArr = this.state.Exercise.slice(); // a new exercise state array
+      let exerciseArr = this.state.exercise.slice(); // a new exercise state array
       exerciseArr[index-1] = event.target.value;
       this.setState({Exercise : exerciseArr});
 
@@ -139,7 +139,7 @@ class App extends Component{
 
   // do calculation and save to state
   calculateNutrition = () => {
-    const {weight, deficit, Activity, Exercise} = this.state; 
+    const {weight, deficit, activity, exercise} = this.state; 
     const protein = weight * 2; // protein fixes to 2 time weight
     const oil = weight * 1; // oil fixes to 1 time weight
 
@@ -206,8 +206,8 @@ class App extends Component{
                 deficit = {this.state.deficit}
                 protein = {this.state.protein}
                 oil = {this.state.oil}
-                activity = {this.state.Activity}
-                exercise = {this.state.Exercise}
+                activity = {this.state.activity}
+                exercise = {this.state.exercise}
                 dailyCalorie = {this.state.dailyCalorie}
                 dailyCarbon = {this.state.dailyCarbon}
                 />
@@ -223,9 +223,9 @@ class App extends Component{
         <Navigation/>
         {this.renderSwitch(this.state.route)}
         <br/>
-        {this.state.Activity}
+        {this.state.activity}
       <br/>
-      {this.state.Exercise}
+      {this.state.exercise}
       </div>
 
     )
