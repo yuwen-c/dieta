@@ -103,31 +103,55 @@ class App extends Component{
   // 2. 儲存到activity state, exercise state ok
   // 3. 分activity, exercise兩種選項
   onLoadOptions = (kind) => {
-    console.log('onLoad', kind)
-    if(kind === 'activity'){
+    console.log('onLoad', kind, `checked${kind}`)
       // 先把checked恢復false預設值(若使用者已有點選，要清除)
-      this.setState({checkedActivity: initialchecked})
+      // this.setState({checkedActivity: initialchecked})
       // 預設的資料，到時要從資料庫抓
-      let activityDatabase = ['0', '1', '0', '1', '0', '3', '2'];
-      // ***only one input with defaultCheck attribute doesn't work!!!!
+      // let activityDatabase = ['0', '1', '0', '1', '0', '3', '2'];
+      // // ***only one input with defaultCheck attribute doesn't work!!!!
+      // let activityDefault = [];
+      // // make a copy of checkedActivity state, set one of it (depends on database) to true
+      // // for(let i=0; i<7; i++){
+      // //   let activityDay = initialchecked[i].slice();
+      // //   activityDay[activityDatabase[i]] = true;
+      // //   activityDefault.push(activityDay) 
+      // // }
+      // this.setState({checkedActivity : activityDefault})
+      // // 將上週的資料存進activity的state (上週的資料目前先hard code)
+      // this.setState({activity : activityDatabase})
+      
+//=====
+      // reset all the checked state to false
+      this.setState({[`checked${kind}`]: initialchecked});
+      // imaginary database
+      let ActivityDatabase = ['0', '1', '0', '1', '0', '3', '2'];
+      let ExerciseDatabase = ['1', '1', '0', '2', '0', '2', '1'];
 
-      let activityDefault = [];
-      // make a copy of checkedActivity state, set one of it (depends on database) to true
-      for(let i=0; i<7; i++){
-        let activityDay = initialchecked[i].slice();
-        activityDay[activityDatabase[i]] = true;
-        activityDefault.push(activityDay) 
+      // let tempChecked = [];
+      let result=[];
+    // make a copy of checkedActivity state, set one of it (depends on database) to true
+      if(kind === 'Activity'){
+        result = this.forLoop(ActivityDatabase)       
       }
-      this.setState({ checkedActivity : activityDefault})
-
-      // save data (options) to state (暫時用預設的資料)
-      this.setState({activity : activityDatabase})
+      else if(kind === 'Exercise'){
+        result = this.forLoop(ExerciseDatabase)
       }
-
-
+      console.log("result", result)
+      this.setState({
+        [`checked${kind}`] : result,
+        [kind] : ActivityDatabase
+      })
   }
 
-
+  forLoop = (database) => {
+    let oneWeekArr = [];
+    for(let i=0; i<7; i++){
+      let oneDayArr = [false, false, false, false];
+      oneDayArr[database[i]] = true;
+      oneWeekArr.push(oneDayArr);
+    }
+    return oneWeekArr;
+  }
 
   // do calculation and save to state
   calculateNutrition = () => {
@@ -189,6 +213,7 @@ class App extends Component{
                 PonRouteChange = {this.onRouteChange}  
                 PonSendOption = {this.onSendOption}
                 PcalculateNutrition = {this.calculateNutrition}
+                onLoadOptions = {this.onLoadOptions}  
                 optionCheckedState = {this.state.checkedExercise}
                 />
       case 'nutrition':
@@ -213,7 +238,6 @@ class App extends Component{
       <div>
         <Navigation/>
         {this.renderSwitch(this.state.route)}
-        {this.state.activity}
       </div>
     )
   }

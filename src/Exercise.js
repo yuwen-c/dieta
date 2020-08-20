@@ -2,14 +2,16 @@ import React from 'react';
 import Options from './Options';
 import LoadButton from './LoadButton';
 
-const Exercise = ({PonRouteChange, PonSendOption, PcalculateNutrition, optionCheckedState}) => {
+const Exercise = ({PonRouteChange, PonSendOption, PcalculateNutrition, onLoadOptions, optionCheckedState}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; // change to int?
     // const weekArr = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     return (
         <div>
             <fieldset id="" className="bn">
                 <legend className="fw7 f4 pv3">choose your amount of exercise this week</legend>
-                <LoadButton/>
+                <LoadButton
+                    onLoadOptions={() => {onLoadOptions("Exercise")}}
+                />
                 <div className="">
                     <dl className="f6 lh-title mv2">
                         <dt className="dib b">Low:</dt>
