@@ -1,7 +1,7 @@
 import React from 'react';
 import Distribution from './Distribution';
 
-const Nutrition = ({ Pweight, Pdeficit, Pprotein, Poil, Pactivity, Pexercise, PdailyCalorie, PdailyCarbon }) => {
+const Nutrition = ({ deficit, protein, oil, activity, exercise, dailyCalorie, dailyCarbon }) => {
     const dayArr = [1, 2, 3, 4, 5, 6, 7];
 
 
@@ -9,21 +9,19 @@ const Nutrition = ({ Pweight, Pdeficit, Pprotein, Poil, Pactivity, Pexercise, Pd
         <div>
             <fieldset id="" className="bn">
                 <legend className="fw7 f4 pt3">Marina, your daily recommended intakes are:</legend>
-                <p className="pt0 pb2">Deficit : {Pdeficit} Kcal</p>
+                <p className="pt0 pb2">Deficit : {deficit} Kcal</p>
                 {
                     dayArr.map(item => {
                         return (
                             <Distribution
                             key = {item}
-                            Pitem = {item}
-                            // Pweight = {Pweight}
-                            // Pdeficit = {Pdeficit}
-                            Pprotein = {Pprotein}
-                            Poil = {Poil}
-                            Pactivity = {Pactivity}
-                            Pexercise = {Pexercise}
-                            PdailyCalorie = {PdailyCalorie}
-                            PdailyCarbon = {PdailyCarbon}
+                            item = {item}
+                            protein = {protein}
+                            oil = {oil}
+                            activity = {activity}
+                            exercise = {exercise}
+                            dailyCalorie = {dailyCalorie}
+                            dailyCarbon = {dailyCarbon}
                             />    
                         )
                   })

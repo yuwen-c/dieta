@@ -4,7 +4,7 @@ import LoadButton from './LoadButton';
 
 
 // onLoadOptions的參數竟然不用在最底層的onClick帶入！！
-const Activity = ({onRouteChange, PonSendOption, onLoadOptions, optionCheckedState}) => {
+const Activity = ({onRouteChange, onSendOption, onLoadOptions, optionCheckedState}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; // change to int?
     return( 
         <div> 
@@ -36,8 +36,8 @@ const Activity = ({onRouteChange, PonSendOption, onLoadOptions, optionCheckedSta
                                  <div key={item}> 
                                     <h4>Day {item}</h4>
                                     <Options
-                                        Pname={`activity${item}`}
-                                        PponSendOption={PonSendOption}
+                                        name={`activity${item}`}
+                                        onSendOption={onSendOption}
                                         optionCheckedState={optionCheckedState[index]}
                                     />
                                     <div>optionCheckedState:  {optionCheckedState[index].toString()}</div>

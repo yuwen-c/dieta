@@ -75,7 +75,7 @@ class App extends Component{
     
     if(event.target.name.includes('activity')){
       // save option value to activity state
-      let activityArr = this.state.activity.slice(); // use slice() to ensure we create a seperate copy of this.state.activity
+      let activityArr = this.state.Activity.slice(); // use slice() to ensure we create a seperate copy of this.state.activity
       activityArr[index-1] = event.target.value; // save one option to the certain index of element
       this.setState({Activity : activityArr})
 
@@ -89,7 +89,7 @@ class App extends Component{
     // exercise part
     else if(event.target.name.includes('exercise')){
       // save option value to state
-      let exerciseArr = this.state.exercise.slice(); // a new exercise state array
+      let exerciseArr = this.state.Exercise.slice(); // a new exercise state array
       exerciseArr[index-1] = event.target.value;
       this.setState({Exercise : exerciseArr});
 
@@ -206,16 +206,16 @@ class App extends Component{
       case 'weight':
         return <BodyWeight
                 onInputChange = {this.onInputChange}
-                PonBMRCalculate = {this.onBMRCalculate}
-                Pbmr = {this.state.BMR}
+                onBMRCalculate = {this.onBMRCalculate}
+                bmr = {this.state.BMR}
                 onRouteChange = {this.onRouteChange} 
-                PonSendOption = {this.onSendOption} 
+                onSendOption = {this.onSendOption} 
                 />
 
       case 'activity':
         return <Activity
                 onRouteChange = {this.onRouteChange}  
-                PonSendOption = {this.onSendOption}
+                onSendOption = {this.onSendOption}
                 onChange={this.onChange}
                 onLoadOptions = {this.onLoadOptions}  
                 optionCheckedState = {this.state.checkedActivity}
@@ -224,21 +224,21 @@ class App extends Component{
       case 'exercise':
         return <Exercise
                 onRouteChange = {this.onRouteChange}  
-                PonSendOption = {this.onSendOption}
-                PcalculateNutrition = {this.calculateNutrition}
+                onSendOption = {this.onSendOption}
+                calculateNutrition = {this.calculateNutrition}
                 onLoadOptions = {this.onLoadOptions}  
                 optionCheckedState = {this.state.checkedExercise}
                 />
       case 'nutrition':
         return <Nutrition
-                Pweight = {this.state.weight}
-                Pdeficit = {this.state.deficit}
-                Pprotein = {this.state.protein}
-                Poil = {this.state.oil}
-                Pactivity = {this.state.Activity}
-                Pexercise = {this.state.Exercise}
-                PdailyCalorie = {this.state.dailyCalorie}
-                PdailyCarbon = {this.state.dailyCarbon}
+                weight = {this.state.weight}
+                deficit = {this.state.deficit}
+                protein = {this.state.protein}
+                oil = {this.state.oil}
+                activity = {this.state.Activity}
+                exercise = {this.state.Exercise}
+                dailyCalorie = {this.state.dailyCalorie}
+                dailyCarbon = {this.state.dailyCarbon}
                 />
       
       default:

@@ -2,7 +2,7 @@ import React from 'react';
 import Options from './Options';
 import LoadButton from './LoadButton';
 
-const Exercise = ({onRouteChange, PonSendOption, PcalculateNutrition, onLoadOptions, optionCheckedState}) => {
+const Exercise = ({onRouteChange, onSendOption, calculateNutrition, onLoadOptions, optionCheckedState}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; // change to int?
     // const weekArr = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     return (
@@ -34,8 +34,8 @@ const Exercise = ({onRouteChange, PonSendOption, PcalculateNutrition, onLoadOpti
                                 <div key={item}>
                                     <h4>Day {item}</h4>
                                     <Options 
-                                        Pname={`exercise${item}`}
-                                        PponSendOption={PonSendOption}
+                                        name={`exercise${item}`}
+                                        onSendOption={onSendOption}
                                         optionCheckedState={optionCheckedState[index]}
                                     />
                                     optionCheckedState: {optionCheckedState[index].toString()}
@@ -50,7 +50,7 @@ const Exercise = ({onRouteChange, PonSendOption, PcalculateNutrition, onLoadOpti
                     type="submit" 
                     value="next page"
                     // call two functions in onClick
-                    onClick={()=> {onRouteChange('nutrition'); PcalculateNutrition()} }
+                    onClick={()=> {onRouteChange('nutrition'); calculateNutrition()} }
                     />
                 </div>
             </fieldset>

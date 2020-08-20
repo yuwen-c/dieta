@@ -1,7 +1,7 @@
 import React from 'react';
 import CalorieDeficit from './CalorieDeficit';
 
-const BodyWeight = ({onInputChange, PonBMRCalculate, Pbmr, onRouteChange, PonSendOption}) => {
+const BodyWeight = ({onInputChange, onBMRCalculate, bmr, onRouteChange, onSendOption}) => {
     return(
       <div className="pa4 black-80">
         <div className="measure">
@@ -22,12 +22,12 @@ const BodyWeight = ({onInputChange, PonBMRCalculate, Pbmr, onRouteChange, PonSen
           className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
           type="submit" 
           value="submit"
-          onClick={PonBMRCalculate}
+          onClick={onBMRCalculate}
           />
         </div>
-        <p>Your BMR (Basal Metabolic Rate) is <span>{Pbmr}</span> Kcal.</p>
+        <p>Your BMR (Basal Metabolic Rate) is <span>{bmr}</span> Kcal.</p>
         <CalorieDeficit
-          PponSendOption={PonSendOption}
+          onSendOption={onSendOption}
         />
         <div className="">
           <input 
