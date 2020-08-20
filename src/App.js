@@ -149,7 +149,7 @@ class App extends Component{
     // calculate day1-7
     for(let i=0; i<7; i++){
       // total calorie of that day
-      dailyCalorie[i] = parseInt(weight * 2.2 * (12 + parseInt(Activity[i]) + parseInt(Exercise[i])))-deficit;
+      dailyCalorie[i] = parseInt(weight * 2.2 * (12 + parseInt(activity[i]) + parseInt(exercise[i])))-deficit;
       // carbohydrate of thar day
       dailyCarbon[i] = parseInt((dailyCalorie[i] - protein * 4 - oil * 9) / 4);
 
