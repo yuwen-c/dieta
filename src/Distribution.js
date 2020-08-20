@@ -26,8 +26,6 @@ const Distribution = ({ Pitem, Pprotein, Poil, Pactivity, Pexercise, PdailyCalor
     return (    
         <div>
             <h3 className="">Day {Pitem}</h3>
-            <div>Pactivity: {Pactivity}</div>
-            <div>Pexercise: {Pexercise}</div>
             <h4>{amountA} activity, {amountE} exercise.</h4>
                 <div className="">
                     <dl className="f5 lh-title mv2">

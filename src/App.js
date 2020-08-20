@@ -197,24 +197,24 @@ class App extends Component{
     switch (route){
       case 'signin':
         return <SignIn
-                PonRouteChange={this.onRouteChange}/>;
+                onRouteChange={this.onRouteChange}/>;
       
       case 'signup':
         return <SignUp
-                PonRouteChange={this.onRouteChange}/>
+                onRouteChange={this.onRouteChange}/>
 
       case 'weight':
         return <BodyWeight
-                PonInputChange = {this.onInputChange}
+                onInputChange = {this.onInputChange}
                 PonBMRCalculate = {this.onBMRCalculate}
                 Pbmr = {this.state.BMR}
-                PonRouteChange = {this.onRouteChange} 
+                onRouteChange = {this.onRouteChange} 
                 PonSendOption = {this.onSendOption} 
                 />
 
       case 'activity':
         return <Activity
-                PonRouteChange = {this.onRouteChange}  
+                onRouteChange = {this.onRouteChange}  
                 PonSendOption = {this.onSendOption}
                 onChange={this.onChange}
                 onLoadOptions = {this.onLoadOptions}  
@@ -223,7 +223,7 @@ class App extends Component{
 
       case 'exercise':
         return <Exercise
-                PonRouteChange = {this.onRouteChange}  
+                onRouteChange = {this.onRouteChange}  
                 PonSendOption = {this.onSendOption}
                 PcalculateNutrition = {this.calculateNutrition}
                 onLoadOptions = {this.onLoadOptions}  

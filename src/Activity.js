@@ -4,7 +4,7 @@ import LoadButton from './LoadButton';
 
 
 // onLoadOptions的參數竟然不用在最底層的onClick帶入！！
-const Activity = ({PonRouteChange, PonSendOption, onLoadOptions, optionCheckedState}) => {
+const Activity = ({onRouteChange, PonSendOption, onLoadOptions, optionCheckedState}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; // change to int?
     return( 
         <div> 
@@ -51,7 +51,7 @@ const Activity = ({PonRouteChange, PonSendOption, onLoadOptions, optionCheckedSt
                     className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                     type="submit" 
                     value="next page"
-                    onClick={()=> {PonRouteChange('exercise')}}
+                    onClick={()=> {onRouteChange('exercise')}}
                     />
                 </div>
             </fieldset>
