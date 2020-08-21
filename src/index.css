@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  @media (--breakpoint-not-small) {
+    padding-left: 50%
+  }
 }
 
 code {

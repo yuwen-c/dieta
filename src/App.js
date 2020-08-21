@@ -236,7 +236,10 @@ class App extends Component{
         onRouteChange = {this.onRouteChange}
         isSign = {this.state.isSignIn} 
         />
-        {this.renderSwitch(this.state.route)}
+        <div className="pl3 pl5-ns mw6-ns">
+          {this.renderSwitch(this.state.route)}
+        </div>
+
       </div>
 
     )

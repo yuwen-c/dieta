@@ -14,16 +14,22 @@ const Exercise = ({onRouteChange, onSendOption, calculateNutrition, onLoadOption
                 />
                 <div className="">
                     <dl className="f5 lh-title mv2">
-                        <dt className="dib b">Low:</dt>
-                        <dd className="dib ml0 near-gray">less than 12 sets of workout, or less than 0.5hr cardio.</dd>
+                        <dt className="dib b pb1">Low:</dt><br/>
+                        <dd className="dib ml0 near-gray">less than 12 sets workout</dd><br/>
+                        <dd className="dib ml0 near-gray">less than 0.5hr cardio</dd><br/>
+                        <dd className="f6 dib ml0 mid-gray">(one of these)</dd><br/>
                     </dl>
                     <dl className="f5 lh-title mv2">
-                        <dt className="dib b">Middle:</dt>
-                        <dd className="dib ml0 near-gray">15-20 sets workout, or 1hr cardio.</dd>
+                        <dt className="dib b pb1">Middle:</dt><br/>
+                        <dd className="dib ml0 near-gray">15-20 sets workout</dd><br/>
+                        <dd className="dib ml0 near-gray">1hr cardio.</dd><br/>
+                        <dd className="f6 dib ml0 mid-gray">(one of these)</dd><br/>
                     </dl>
                     <dl className="f5 lh-title mv2">
-                        <dt className="dib b">High:</dt>
-                        <dd className="dib ml0 near-gray">25 sets workout, or more than 1.5hr cardio.</dd>
+                        <dt className="dib b pb1">High:</dt><br/>
+                        <dd className="dib ml0 near-gray">25 sets workout</dd><br/>
+                        <dd className="dib ml0 near-gray">more than 1.5hr cardio</dd><br/>
+                        <dd className="f6 dib ml0 mid-gray">(one of these)</dd><br/>
                     </dl>
                 </div>
 
