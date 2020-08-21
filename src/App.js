@@ -112,20 +112,20 @@ class App extends Component{
   // load activity and exercise settings of last week
   onLoadOptions = () => {
     // imaginary database
-    let ActivityDatabase = ['0', '1', '0', '1', '0', '3', '2'];
-    let ExerciseDatabase = ['1', '1', '0', '2', '0', '2', '1'];
+    let activityDatabase = ['0', '1', '0', '1', '0', '3', '2'];
+    let exerciseDatabase = ['1', '1', '0', '2', '0', '2', '1'];
 
     // call forLoop function, set checked state and activity, exercise state
     if(this.state.route === 'activity'){
       this.setState({
-        checkedActivity : this.forLoop(ActivityDatabase),
-        Activity : ActivityDatabase
+        checkedActivity : this.forLoop(activityDatabase),
+        activity : activityDatabase
       })    
     }
     else if(this.state.route === 'exercise'){
       this.setState({
-        checkedExercise : this.forLoop(ExerciseDatabase),
-        Exercise : ExerciseDatabase
+        checkedExercise : this.forLoop(exerciseDatabase),
+        exercise : exerciseDatabase
       })
     }
   }
@@ -144,7 +144,9 @@ class App extends Component{
 
   // do calculation and save to state
   calculateNutrition = () => {
+    console.log("calculateNutrition")
     const {weight, deficit, activity, exercise} = this.state; 
+    console.log(activity, exercise)
     const protein = weight * 2; // protein fixes to 2 time weight
     const oil = weight * 1; // oil fixes to 1 time weight
 

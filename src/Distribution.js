@@ -27,31 +27,24 @@ const Distribution = ({ item, protein, oil, activity, exercise, dailyCalorie, da
         <div>
             <h3 className="">Day {item}</h3>
             <h4>{amountA} activity, {amountE} exercise.</h4>
-                <div className="">
-                    <dl className="f5 lh-title mv2">
-                        <dt className="dib b">Protein:</dt>
-                        <dd className="dib ml1 near-gray">{protein} g</dd>
-                    </dl>
-                    <dl className="f5 lh-title mv2">
-                        <dt className="dib b">Oil:</dt>
-                        <dd className="dib ml1 near-gray">{oil} g</dd>
-                    </dl>
-                    <dl className="f5 lh-title mv2">
-                        <dt className="dib b">Carbohydrate:</dt>
-                        <dd className="dib ml1 near-gray">{dailyCarbon[item-1]} g</dd>
-                    </dl>
-                    <dl className="f5 lh-title mv2">
-                        <dt className="dib b">Total calorie: </dt>
-                        <dd className="dib ml1 near-gray">{dailyCalorie[item-1]} Kcal</dd>
-                    </dl>   
-                </div>   
-                <div className="">
-                    <input 
-                    className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
-                    type="submit" 
-                    value="next page"
-                    />
-                </div>    
+            <div className="">
+                <dl className="f5 lh-title mv2">
+                    <dt className="dib b">Protein:</dt>
+                    <dd className="dib ml1 near-gray">{protein} g</dd>
+                </dl>
+                <dl className="f5 lh-title mv2">
+                    <dt className="dib b">Oil:</dt>
+                    <dd className="dib ml1 near-gray">{oil} g</dd>
+                </dl>
+                <dl className="f5 lh-title mv2">
+                    <dt className="dib b">Carbohydrate:</dt>
+                    <dd className="dib ml1 near-gray">{dailyCarbon[item-1]} g</dd>
+                </dl>
+                <dl className="f5 lh-title mv2">
+                    <dt className="dib b">Total calorie: </dt>
+                    <dd className="dib ml1 near-gray">{dailyCalorie[item-1]} Kcal</dd>
+                </dl>   
+            </div>      
         </div>
     )
 }

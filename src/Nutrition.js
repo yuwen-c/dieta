@@ -3,8 +3,6 @@ import Distribution from './Distribution';
 
 const Nutrition = ({ deficit, protein, oil, activity, exercise, dailyCalorie, dailyCarbon }) => {
     const dayArr = [1, 2, 3, 4, 5, 6, 7];
-
-
     return(
         <div>
             <fieldset id="" className="bn">
@@ -25,13 +23,15 @@ const Nutrition = ({ deficit, protein, oil, activity, exercise, dailyCalorie, da
                             />    
                         )
                   })
-
-
-
-
                 }
+                <div className="">
+                    <input 
+                    className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
+                    type="submit" 
+                    value="next page"
+                    />
+                </div> 
             </fieldset>
-
         </div>
     )
 }
