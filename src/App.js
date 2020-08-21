@@ -211,6 +211,7 @@ class App extends Component{
                 />
       case 'nutrition':
         return <Nutrition
+                onRouteChange = {this.onRouteChange}
                 weight = {this.state.weight}
                 deficit = {this.state.deficit}
                 protein = {this.state.protein}
