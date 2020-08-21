@@ -19,6 +19,7 @@ class App extends Component{
   constructor(){
     super();
     this.state = {
+      name: '',
       email: '',
       password: '',
 
@@ -40,6 +41,10 @@ class App extends Component{
       checkedExercise : initialchecked,
       // the default of checked attribute of options
     }
+  }
+
+  setStateFun = (stateName, stateValue) => {
+    this.setState({[stateName] : stateValue})
   }
 
   // get body weight
@@ -168,11 +173,13 @@ class App extends Component{
     switch (route){
       case 'signin':
         return <SignIn
-                onRouteChange={this.onRouteChange}/>;
-      
+                onRouteChange={this.onRouteChange}
+                setStateFun={this.setStateFun}/>
       case 'signup':
         return <SignUp
-                onRouteChange={this.onRouteChange}/>
+                onRouteChange={this.onRouteChange}
+                setStateFun={this.setStateFun}
+                />
 
       case 'weight':
         return <BodyWeight
@@ -226,8 +233,8 @@ class App extends Component{
         {this.renderSwitch(this.state.route)}
         <br/>
         {this.state.activity}
-      <br/>
-      {this.state.exercise}
+        <br/>
+        {this.state.exercise}
       </div>
 
     )
