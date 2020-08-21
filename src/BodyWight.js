@@ -1,5 +1,6 @@
 import React from 'react';
 import CalorieDeficit from './CalorieDeficit';
+import NextPage from './NextPage';
 
 const BodyWeight = ({onInputChange, onBMRCalculate, bmr, onRouteChange, onSendOption}) => {
     return(
@@ -29,14 +30,9 @@ const BodyWeight = ({onInputChange, onBMRCalculate, bmr, onRouteChange, onSendOp
         <CalorieDeficit
           onSendOption={onSendOption}
         />
-        <div className="">
-          <input 
-          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
-          type="submit" 
-          value="next page"
-          onClick={()=> {onRouteChange('activity')}}
-          />
-        </div>
+        <NextPage
+          onRouteChange={()=> {onRouteChange('activity')}}
+        />
       </div>
     )
 }

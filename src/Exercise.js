@@ -1,6 +1,7 @@
 import React from 'react';
 import Options from './Options';
 import LoadButton from './LoadButton';
+import NextPage from './NextPage';
 
 const Exercise = ({onRouteChange, onSendOption, calculateNutrition, onLoadOptions, optionCheckedState}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; 
@@ -43,15 +44,10 @@ const Exercise = ({onRouteChange, onSendOption, calculateNutrition, onLoadOption
                         })
                     }
                 </div>
-                <div className="">
-                    <input 
-                    className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
-                    type="submit" 
-                    value="next page"
-                    // call two functions in onClick
-                    onClick={()=> {onRouteChange('nutrition'); calculateNutrition()} }
-                    />
-                </div>
+                <NextPage
+                // call two functions in onClick
+                onRouteChange={()=> {onRouteChange('nutrition'); calculateNutrition()} }
+                />
             </fieldset>
         </div>
     )
