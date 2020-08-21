@@ -15,32 +15,34 @@ const initialchecked =
 [false, false, false, false],[false, false, false, false],[false, false, false, false],
 [false, false, false, false]];
 
+const initialState = {
+  name: '',
+  email: '',
+  password: '',
+
+  weight : 0,
+  BMR : 0,
+  isSignIn : false,
+  route: 'signin', // sign in, sign up, weight, activity, exercise, nutrition
+
+  deficit : 0,
+  activity : [], // store week activity, like: ['0', '1', '0', '1', '0', '3', '2']
+  exercise : [], // store week exercise, like: ['0', '1', '0', '1', '0', '3', '2']
+  
+  protein : 0,
+  oil : 0,
+  dailyCalorie : [], // 7 days daily calorie
+  dailyCarbon : [], // 7 days daily carbohydrate
+
+  checkedActivity : initialchecked,
+  checkedExercise : initialchecked,
+  // the default of checked attribute of options
+}
+
 class App extends Component{
   constructor(){
     super();
-    this.state = {
-      name: '',
-      email: '',
-      password: '',
-
-      weight : 0,
-      BMR : 0,
-      isSignIn : false,
-      route: 'signin', // sign in, sign up, weight, activity, exercise, nutrition
-
-      deficit : 0,
-      activity : [], // store week activity, like: ['0', '1', '0', '1', '0', '3', '2']
-      exercise : [], // store week exercise, like: ['0', '1', '0', '1', '0', '3', '2']
-      
-      protein : 0,
-      oil : 0,
-      dailyCalorie : [], // 7 days daily calorie
-      dailyCarbon : [], // 7 days daily carbohydrate
-
-      checkedActivity : initialchecked,
-      checkedExercise : initialchecked,
-      // the default of checked attribute of options
-    }
+    this.state = initialState;
   }
 
   setStateFun = (stateName, stateValue) => {
@@ -59,12 +61,9 @@ class App extends Component{
   } 
   
   // set route:  
-  // sign in(存email, pw), sign up(存name, pw, email), 
-  // weight(存), activity(存activity), exercise(存exercise), 
-  // nutrition(存？沒下一頁)
   onRouteChange = (route) => {
     if(route === 'signin'){
-      this.setState({isSignIn : false})
+      this.setState(initialState)
     }
     else if(route === 'weight'){
       this.setState({isSignIn : true})
