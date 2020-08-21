@@ -45,13 +45,13 @@ const Distribution = ({ item, protein, oil, activity, exercise, dailyCalorie, da
                         <dd className="dib ml1 near-gray">{dailyCalorie[item-1]} Kcal</dd>
                     </dl>   
                 </div>   
-                {/* <div className="">
+                <div className="">
                     <input 
                     className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                     type="submit" 
                     value="next page"
                     />
-                </div>     */}
+                </div>    
         </div>
     )
 }

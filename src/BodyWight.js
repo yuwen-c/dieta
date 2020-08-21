@@ -13,7 +13,7 @@ const BodyWeight = ({onInputChange, onBMRCalculate, bmr, onRouteChange, onSendOp
           type="text" 
           aria-describedby="name-desc"
           onChange={onInputChange}
-          ></input>
+          />
           <small id="name-desc" className="f6 black-60 db mb2">enter your body weight here</small>
         </div>
 
