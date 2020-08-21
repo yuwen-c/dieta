@@ -7,17 +7,14 @@ class SignUp extends Component{
     }
 
     onNameChange = (event) => {
-        //this.setState({email : event.target.value})
         this.props.setStateFun('Name', event.target.value)
     }
 
     onEmailChange = (event) => {
-        //this.setState({email : event.target.value})
         this.props.setStateFun('email', event.target.value)
     }
 
     onPasswordChange = (event) => {
-        //this.setState({email : event.target.value})
         this.props.setStateFun('password', event.target.value)
     }
 

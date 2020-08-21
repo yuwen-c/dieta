@@ -2,7 +2,6 @@ import React from 'react';
 
 const Options = ({name, onSendOption, optionCheckedState}) => {
   // The for attribute of <label> must be equal to the id attribute of the related element 
-  // console.log("optionCheckedState[1~4] in Options", optionCheckedState[0], optionCheckedState[1], optionCheckedState[2], optionCheckedState[3]); 
 
   return(
         <div>

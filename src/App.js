@@ -70,7 +70,6 @@ class App extends Component{
       this.setState({isSignIn : true})
     }
     this.setState({route : route});
-    console.log("onRoute", route);
     window.scrollTo(0, 0); //scroll page to top 
   }
 
@@ -78,7 +77,6 @@ class App extends Component{
   // onclick, save options to state
   onSendOption = (event) => {
     // if the returned name includes activity, then setState activity
-    console.log("onSendOption: name", event.target.name, "value",event.target.value);
     const index = (event.target.name).slice(-1); // get the latest letter of "activity1"
     
     if(event.target.name.includes('activity')){
@@ -149,9 +147,7 @@ class App extends Component{
 
   // do calculation and save to state
   calculateNutrition = () => {
-    console.log("calculateNutrition")
     const {weight, deficit, activity, exercise} = this.state; 
-    console.log(activity, exercise)
     const protein = weight * 2; // protein fixes to 2 time weight
     const oil = weight * 1; // oil fixes to 1 time weight
 
@@ -216,6 +212,7 @@ class App extends Component{
                 />
       case 'nutrition':
         return <Nutrition
+                email = {this.state.email}
                 onRouteChange = {this.onRouteChange}
                 weight = {this.state.weight}
                 deficit = {this.state.deficit}
@@ -241,10 +238,6 @@ class App extends Component{
         isSign = {this.state.isSignIn} 
         />
         {this.renderSwitch(this.state.route)}
-        <br/>
-        {this.state.activity}
-        <br/>
-        {this.state.exercise}
       </div>
 
     )

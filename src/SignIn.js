@@ -7,14 +7,11 @@ class SignIn extends Component{
     }
 
     onEmailChange = (event) => {
-        //this.setState({email : event.target.value})
         this.props.setStateFun('email', event.target.value)
     }
 
     onPasswordChange = (event) => {
-        //this.setState({password : event.target.value})
         this.props.setStateFun('password', event.target.value)
-
     }
 
     render(){

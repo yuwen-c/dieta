@@ -3,8 +3,7 @@ import Options from './Options';
 import LoadButton from './LoadButton';
 
 const Exercise = ({onRouteChange, onSendOption, calculateNutrition, onLoadOptions, optionCheckedState}) => {
-    const dayArr = ['1', '2', '3', '4', '5', '6', '7']; // change to int?
-    // const weekArr = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const dayArr = ['1', '2', '3', '4', '5', '6', '7']; 
     return (
         <div>
             <fieldset id="" className="bn">
@@ -13,17 +12,17 @@ const Exercise = ({onRouteChange, onSendOption, calculateNutrition, onLoadOption
                     onLoadOptions={onLoadOptions}
                 />
                 <div className="">
-                    <dl className="f6 lh-title mv2">
+                    <dl className="f5 lh-title mv2">
                         <dt className="dib b">Low:</dt>
-                        <dd className="dib ml0 mid-gray">less than 12 sets of workout, or less than 0.5hr cardio.</dd>
+                        <dd className="dib ml0 near-gray">less than 12 sets of workout, or less than 0.5hr cardio.</dd>
                     </dl>
-                    <dl className="f6 lh-title mv2">
+                    <dl className="f5 lh-title mv2">
                         <dt className="dib b">Middle:</dt>
-                        <dd className="dib ml0 mid-gray">15-20 sets workout, or 1hr cardio.</dd>
+                        <dd className="dib ml0 near-gray">15-20 sets workout, or 1hr cardio.</dd>
                     </dl>
-                    <dl className="f6 lh-title mv2">
+                    <dl className="f5 lh-title mv2">
                         <dt className="dib b">High:</dt>
-                        <dd className="dib ml0 mid-gray">25 sets workout, or more than 1.5hr cardio.</dd>
+                        <dd className="dib ml0 near-gray">25 sets workout, or more than 1.5hr cardio.</dd>
                     </dl>
                 </div>
 
@@ -38,7 +37,7 @@ const Exercise = ({onRouteChange, onSendOption, calculateNutrition, onLoadOption
                                         onSendOption={onSendOption}
                                         optionCheckedState={optionCheckedState[index]}
                                     />
-                                    optionCheckedState: {optionCheckedState[index].toString()}
+                                    {/* optionCheckedState: {optionCheckedState[index].toString()} */}
                                 </div>
                             )
                         })

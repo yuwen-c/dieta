@@ -40,7 +40,7 @@ const Navigation = ({ isSign, email, onRouteChange }) => {
 
                     <div 
                     className="f6 link dib white dim mr3 mr4-ns" 
-                    >Hi, {email}</div>
+                    >Hi! {email}</div>
                     <div 
                     className="f6 link dib white dim mr3 mr4-ns" 
                     onClick={()=> {onRouteChange("signin")}}>Sign Out</div>
