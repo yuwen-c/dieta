@@ -63,7 +63,12 @@ class App extends Component{
   // weight(存), activity(存activity), exercise(存exercise), 
   // nutrition(存？沒下一頁)
   onRouteChange = (route) => {
-    // this.setState({isSignIn : true})
+    if(route === 'signin'){
+      this.setState({isSignIn : false})
+    }
+    else if(route === 'weight'){
+      this.setState({isSignIn : true})
+    }
     this.setState({route : route});
     console.log("onRoute", route);
     window.scrollTo(0, 0); //scroll page to top 
@@ -231,7 +236,9 @@ class App extends Component{
     return(
       <div>
         <Navigation
-        onRouteChange={this.onRouteChange}
+        email = {this.state.email}
+        onRouteChange = {this.onRouteChange}
+        isSign = {this.state.isSignIn} 
         />
         {this.renderSwitch(this.state.route)}
         <br/>

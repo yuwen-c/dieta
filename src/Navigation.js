@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Navigation = ({onRouteChange}) => {
-    return(
+const Navigation = ({ isSign, email, onRouteChange }) => {
+  return(
         <div>
             <nav className="flex justify-between bb b--white-10 bg-near-black">
               <div className="link white-70 hover-white no-underline flex items-center pa3" >
@@ -16,17 +16,40 @@ const Navigation = ({onRouteChange}) => {
                   </path>
                 </svg>
               </div>
-              <div className="flex-grow pa3 flex items-center">
-                <div className="f6 link dib white dim mr3 mr4-ns" >About</div>
-                <div 
-                className="f6 link dib white dim mr3 mr4-ns" 
-                onClick={()=> {onRouteChange("signin")}}>Sign In</div>
-                <div 
-                className="f6 dib white bg-animate hover-bg-white hover-black no-underline pv2 ph4 br-pill ba b--white-20"
-                onClick={()=> {onRouteChange("signup")}}>Sign Up</div>
+              <div className="flex-grow pa3 flex items-center">            
+                {/* <div 
+                className="f6 link dib white dim mr3 mr4-ns" >About</div> */}
+                {
+                  isSign === false ? 
+
+                  <div>
+
+                    <div 
+                    className="f6 link dib white dim mr3 mr4-ns" 
+                    onClick={()=> {onRouteChange("signin")}}>Sign In</div>
+                    <div 
+                    // className="f6 dib white bg-animate hover-bg-white hover-black no-underline pv2 ph4 br-pill ba b--white-20"
+                    className="f6 link dib white dim mr3 mr4-ns" 
+                    onClick={()=> {onRouteChange("signup")}}>Sign Up</div>
+
+                  </div>
+
+                  : 
+
+                  <div>
+
+                    <div 
+                    className="f6 link dib white dim mr3 mr4-ns" 
+                    >Hi, {email}</div>
+                    <div 
+                    className="f6 link dib white dim mr3 mr4-ns" 
+                    onClick={()=> {onRouteChange("signin")}}>Sign Out</div>
+
+                  </div>
+
+                }
               </div>
             </nav>
-
         </div>
     )
 }
