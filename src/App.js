@@ -8,7 +8,7 @@ import SignUp from './SignUp';
 import './App.css';
 import Navigation from './Navigation';
 // import { act } from 'react-dom/test-utils';
-
+import NavDropdownExample from './NavDropdown';
 
 const initialchecked = 
 [[false, false, false, false],[false, false, false, false],[false, false, false, false],
@@ -236,6 +236,7 @@ class App extends Component{
         onRouteChange = {this.onRouteChange}
         isSign = {this.state.isSignIn} 
         />
+        <NavDropdownExample/>
         <div className="pl3 pl5-ns mw6-ns">
           {this.renderSwitch(this.state.route)}
         </div>
