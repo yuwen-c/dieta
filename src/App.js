@@ -82,7 +82,7 @@ class App extends Component{
       // save option value to activity state
       let activityArr = this.state.activity.slice(); // use slice() to ensure we create a seperate copy of this.state.activity
       activityArr[index-1] = event.target.value; // save one option to the certain index of element
-      this.setState({Activity : activityArr})
+      this.setState({activity : activityArr})
 
       // modify checked state. 1: set 4 options to false, 2: set the one to true
       let changedChecked = this.state.checkedActivity.slice(); //只有要改那一組option，不能複製整個initial
@@ -96,7 +96,7 @@ class App extends Component{
       // save option value to state
       let exerciseArr = this.state.exercise.slice(); // a new exercise state array
       exerciseArr[index-1] = event.target.value;
-      this.setState({Exercise : exerciseArr});
+      this.setState({exercise : exerciseArr});
 
       // modify checked state. 
       let changedChecked = this.state.checkedExercise.slice(); 
