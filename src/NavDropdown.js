@@ -2,35 +2,61 @@ import React from 'react';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Nav from 'react-bootstrap/Nav';
 
-const NavDropdownExample = () => {
-    const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
-  
+const NavDropdownExample = ({ isSign, email, onRouteChange }) => {
+  if(!isSign){
     return (
-      <Nav variant="pills" activeKey="1" onSelect={handleSelect}>
-        <Nav.Item>
-          <Nav.Link eventKey="1" href="#/home">
-            NavLink 1 content
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="2" title="Item">
-            NavLink 2 content
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="3" disabled>
-            NavLink 3 content
-          </Nav.Link>
-        </Nav.Item>
-        <NavDropdown title="Dropdown" id="nav-dropdown">
-          <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
-          <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
-          <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
+      <Nav variant="pills"  >
+        <NavDropdown title="Menu" id="nav-dropdown">
+          <NavDropdown.Item 
+          onClick={() => {onRouteChange('weight')}}
+          >重新計算</NavDropdown.Item>
+          <NavDropdown.Item >查看上次計算結果</NavDropdown.Item>
+          <NavDropdown.Item >決定下週方向</NavDropdown.Item>
         </NavDropdown>
+
+        <Nav.Item>
+          <Nav.Link 
+          title="Item"
+          onClick={() => {onRouteChange('signin')}}>
+            Sign In
+          </Nav.Link>
+        </Nav.Item>
+
+        <Nav.Item>
+          <Nav.Link 
+          onClick={() => {onRouteChange('signup')}}>
+            Sign Up
+          </Nav.Link>
+        </Nav.Item>
       </Nav>
-    );
+    )
+    }
+    else{
+      return(
+        <Nav variant="pills"  >
+          <NavDropdown title="Menu" id="nav-dropdown">
+            <NavDropdown.Item 
+            onClick={() => {onRouteChange('weight')}}
+            >重新計算</NavDropdown.Item>
+            <NavDropdown.Item >查看上次計算結果</NavDropdown.Item>
+            <NavDropdown.Item >決定下週方向</NavDropdown.Item>
+          </NavDropdown>
+
+          <Nav.Item>
+          <Nav.Link >
+            Hi! {email}
+            </Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link 
+            onClick={() => {onRouteChange('signin')}}>
+              Sign Out
+            </Nav.Link>
+          </Nav.Item>
+        </Nav>
+      )
+    }
   }
-//   render(<NavDropdownExample />);
+
 export default NavDropdownExample;
