@@ -6,9 +6,9 @@ import Nutrition from './Nutrition';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 import './App.css';
-import Navigation from './Navigation';
+// import Navigation from './Navigation';
 // import { act } from 'react-dom/test-utils';
-import NavDropdownExample from './NavDropdown';
+import NavbarDrop from './NavbarDrop';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -238,8 +238,8 @@ class App extends Component{
         onRouteChange = {this.onRouteChange}
         isSign = {this.state.isSignIn} 
         /> */}
-        <NavDropdownExample
-                  email = {this.state.email}
+        <NavbarDrop
+        email = {this.state.email}
         onRouteChange = {this.onRouteChange}
         isSign = {this.state.isSignIn} 
         />
