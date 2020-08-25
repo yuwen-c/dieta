@@ -11,12 +11,11 @@ const NavbarDrop = ({ isSign, email, onRouteChange }) => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link>Home</Nav.Link>
-              <Nav.Link>Link</Nav.Link>
-              <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item >Action</NavDropdown.Item>
-                <NavDropdown.Item >Another action</NavDropdown.Item>
-                <NavDropdown.Item >Something</NavDropdown.Item>
+              <Nav.Link>Sign In</Nav.Link>
+              <NavDropdown title="Menu" id="basic-nav-dropdown">
+                <NavDropdown.Item >Calculation</NavDropdown.Item>
+                <NavDropdown.Item >Latest Result</NavDropdown.Item>
+                <NavDropdown.Item >Next Move</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item >Separated link</NavDropdown.Item>
               </NavDropdown>
