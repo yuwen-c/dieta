@@ -9,6 +9,8 @@ import './App.css';
 import Navigation from './Navigation';
 // import { act } from 'react-dom/test-utils';
 import NavDropdownExample from './NavDropdown';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const initialchecked = 
 [[false, false, false, false],[false, false, false, false],[false, false, false, false],
@@ -231,12 +233,16 @@ class App extends Component{
   render(){
     return(
       <div>
-        <Navigation
+        {/* <Navigation
         email = {this.state.email}
         onRouteChange = {this.onRouteChange}
         isSign = {this.state.isSignIn} 
+        /> */}
+        <NavDropdownExample
+                  email = {this.state.email}
+        onRouteChange = {this.onRouteChange}
+        isSign = {this.state.isSignIn} 
         />
-        <NavDropdownExample/>
         <div className="pl3 pl5-ns mw6-ns">
           {this.renderSwitch(this.state.route)}
         </div>
