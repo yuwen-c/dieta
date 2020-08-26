@@ -16,7 +16,7 @@ const NextMove = () => {
                     </dl>
 
 
-                    <div className="">
+                    <div className="pv2">
                         <input 
                         className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                         type="submit" 
@@ -25,7 +25,7 @@ const NextMove = () => {
                         />
                     </div>
 
-                    <div className="">
+                    <div className="pv2">
                         <input 
                         className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                         type="submit" 
@@ -34,13 +34,57 @@ const NextMove = () => {
                     />
                     </div>
 
-                    <div className="">
+                    <div className="flex items-center mb2">
+                      <input 
+                      className="mr2" type="radio" id="300" value="300" name="deficit"
+                    //   onClick={onSendOption}
+                      />
+                      <label htmlFor="300" className="lh-copy">-100 Kcal</label>
+                    </div>
+                    <div className="flex items-center mb2">
+                      <input 
+                      className="mr2" type="radio" id="400" value="400" name="deficit"
+                    //   onClick={onSendOption}
+                      />
+                      <label htmlFor="400" className="lh-copy">-200 Kcal</label>
+                    </div>
+                    <div className="flex items-center mb2">
+                      <input 
+                      className="mr2" type="radio" id="500" value="500" name="deficit"
+                    //   onClick={onSendOption}
+                      />
+                      <label htmlFor="500" className="lh-copy">-300 Kcal</label>
+                    </div>
+
+                    <div className="pv2">
                         <input 
                         className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                         type="submit" 
                         value="Slow Down"
                         //onClick={onBMRCalculate}
                         />
+                    </div>
+
+                    <div className="flex items-center mb2">
+                      <input 
+                      className="mr2" type="radio" id="300" value="300" name="deficit"
+                    //   onClick={onSendOption}
+                      />
+                      <label htmlFor="300" className="lh-copy">+100 Kcal</label>
+                    </div>
+                    <div className="flex items-center mb2">
+                      <input 
+                      className="mr2" type="radio" id="400" value="400" name="deficit"
+                    //   onClick={onSendOption}
+                      />
+                      <label htmlFor="400" className="lh-copy">+200 Kcal</label>
+                    </div>
+                    <div className="flex items-center mb2">
+                      <input 
+                      className="mr2" type="radio" id="500" value="500" name="deficit"
+                    //   onClick={onSendOption}
+                      />
+                      <label htmlFor="500" className="lh-copy">+300 Kcal</label>
                     </div>
 
                 </div>           
