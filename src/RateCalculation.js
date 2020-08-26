@@ -1,18 +1,45 @@
-import React from 'react';
-import NextPage from './NextPage';
+import React, { Component } from 'react';
+//import NextPage from './NextPage';
+import RateGuide from './RateGuide';
 
-const RateCalculation = () => {
+class RateCalculation extends Component{
+  constructor(){
+    super();
+    this.state = {
+      weightThisWeek: 0,
+      weightLastWeek: 0,
+      rate: 0,
+    }
+  }
+
+  onThisWeekInput = (event) => {
+    this.setState({weightThisWeek: event.target.value})
+  }
+
+  onLastWeekInput = (event) => {
+    this.setState({weightLastWeek: event.target.value})
+  }
+
+  rateCalculation = () => {
+    const {weightThisWeek, weightLastWeek} = this.state;
+    const rate = Math.round((weightThisWeek - weightLastWeek)/ weightLastWeek * 10000)/100
+    this.setState({rate: rate});
+    console.log(rate);
+  }
+
+
+  render(){
     return(
         <div className="pa4 black-80">
             <div className="measure pv2">
                 <label htmlFor="name" className="f6 b db mb2">Average weight This Week 
                   <span className="normal black-60"> kg</span>
                 </label>
-                <input id="weight" 
+                <input id="weightThisWeek" 
                 className="input-reset ba b--black-60 pa2 mb2 db w-30" 
                 type="text" 
                 aria-describedby="name-desc"
-                // onChange={onInputChange}
+                onChange={this.onThisWeekInput}
                 />
               {/* <small id="name-desc" className="f6 black-60 db mb2">enter your body weight here</small> */}
             </div>
@@ -21,11 +48,11 @@ const RateCalculation = () => {
                 <label htmlFor="name" className="f6 b db mb2">Average weight Last Week
                   <span className="normal black-60"> kg</span>
                 </label>
-                <input id="weight" 
+                <input id="weightLastWeek" 
                 className="input-reset ba b--black-60 pa2 mb2 db w-30" 
                 type="text" 
                 aria-describedby="name-desc"
-                // onChange={onInputChange}
+                onChange={this.onLastWeekInput}
                 />
             </div>
 
@@ -34,16 +61,16 @@ const RateCalculation = () => {
               className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
               type="submit" 
               value="submit"
-            //   onClick={onBMRCalculate}
+              onClick={this.rateCalculation}
               />
             </div>
-            <p>Your're lose <span>XX</span> % weight</p>
-
-            <NextPage
-            //   onRouteChange={()=> {onRouteChange('activity')}}
+            <p>Your've changed <span>{this.state.rate}</span> % weight.</p>
+            <RateGuide
+              rate={this.state.rate}
             />
       </div>
     )
+  }
 }
 
 export default RateCalculation;
