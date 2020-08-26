@@ -7,6 +7,8 @@ import SignIn from './SignIn';
 import SignUp from './SignUp';
 import './App.css';
 import Navigation from './Navigation';
+import RateCalculation from './RateCalculation';
+import RateGuide from './RateGuide';
 // import { act } from 'react-dom/test-utils';
 
 
@@ -230,16 +232,22 @@ class App extends Component{
 
   render(){
     return(
-      <div>
-        <Navigation
-        email = {this.state.email}
-        onRouteChange = {this.onRouteChange}
-        isSign = {this.state.isSignIn} 
-        />
-        <div className="pl3 pl5-ns mw6-ns">
-          {this.renderSwitch(this.state.route)}
-        </div>
+      // <div>
+      //   <Navigation
+      //   email = {this.state.email}
+      //   onRouteChange = {this.onRouteChange}
+      //   isSign = {this.state.isSignIn} 
+      //   />
+      //   <div className="pl3 pl5-ns mw6-ns">
+      //     {this.renderSwitch(this.state.route)}
+      //   </div>
 
+      // </div>
+
+      <div>
+        <Navigation/>
+        <RateCalculation/>
+        <RateGuide/>
       </div>
 
     )
