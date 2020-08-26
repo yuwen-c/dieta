@@ -9,6 +9,7 @@ import './App.css';
 import Navigation from './Navigation';
 import RateCalculation from './RateCalculation';
 import RateGuide from './RateGuide';
+import NextMove from './NextMove';
 // import { act } from 'react-dom/test-utils';
 
 
@@ -248,6 +249,7 @@ class App extends Component{
         <Navigation/>
         <RateCalculation/>
         <RateGuide/>
+        <NextMove/>
       </div>
 
     )
