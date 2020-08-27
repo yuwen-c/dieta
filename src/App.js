@@ -8,7 +8,6 @@ import SignUp from './SignUp';
 import './App.css';
 import Navigation from './Navigation';
 import RateCalculation from './RateCalculation';
-import RateGuide from './RateGuide';
 import NextMove from './NextMove';
 // import { act } from 'react-dom/test-utils';
 
@@ -40,6 +39,9 @@ const initialState = {
   checkedActivity : initialchecked,
   checkedExercise : initialchecked,
   // the default of checked attribute of options
+
+  modify: '', //Speed Up, Slow Down
+  modifyOption: 0,
 }
 
 class App extends Component{
@@ -173,6 +175,12 @@ class App extends Component{
     })
   }
 
+
+  onModifyClick = (event) => {
+    this.setState({modify: event.target.value});
+    console.log('value', event.target.value)
+  } //event.target.value = Speed Up, name=X
+
   // decide render components
   renderSwitch = (route) => {
     switch (route){
@@ -242,14 +250,15 @@ class App extends Component{
       //   <div className="pl3 pl5-ns mw6-ns">
       //     {this.renderSwitch(this.state.route)}
       //   </div>
-
       // </div>
 
       <div>
         <Navigation/>
         <RateCalculation/>
-        <RateGuide/>
-        <NextMove/>
+        <NextMove
+          onModifyClick = {this.onModifyClick}
+          modifyState = {this.state.modify}
+        />
       </div>
 
     )
