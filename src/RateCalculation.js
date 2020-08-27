@@ -64,7 +64,7 @@ class RateCalculation extends Component{
               onClick={this.rateCalculation}
               />
             </div>
-            <p>Your've changed <span>{this.state.rate}</span> % weight.</p>
+            <p>Your've got <span>{this.state.rate}</span> % weight changed last week.</p>
             <RateGuide
               rate={this.state.rate}
             />
@@ -75,7 +75,7 @@ class RateCalculation extends Component{
 
 export default RateCalculation;
 
-// //
+
 
 // 1. 
 // 輸入上週體重平均、本週體重平均  ok
