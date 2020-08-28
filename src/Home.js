@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Home = () => {
+const Home = ({onRouteChange}) => {
     return(
         <div>
             <article className="mw7 center ph3 ph5-ns tc br2 pv5 bg-washed-green dark-green mb5">
@@ -15,14 +15,17 @@ const Home = () => {
                 Sign up for beta access or learn more about Dieta.
               </p>
               <div>
+                <p 
+                className="f6 br-pill bg-dark-green no-underline washed-green ba b--dark-green grow pv2 ph3 dib mr3"
+                onClick={() => {onRouteChange('signin')}} >
+                Sign In</p>
                 <p className="f6 br-pill bg-dark-green no-underline washed-green ba b--dark-green grow pv2 ph3 dib mr3"
-                  >
-                  Sign Up
-                </p>
+                onClick={() => {onRouteChange('signup')}} >
+                Sign Up</p>
                 <p className="f6 br-pill dark-green no-underline ba grow pv2 ph3 dib"
-                  >
-                  Learn More
-                </p>
+                onClick={() => {onRouteChange('weight')}} >
+                Learn More</p>  
+                {/* use without sign Up?? */}
               </div>
             </article>            
         </div>

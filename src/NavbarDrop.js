@@ -11,7 +11,12 @@ const NavbarDrop = ({ isSign, email, onRouteChange }) => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link>Sign In</Nav.Link>
+              <Nav.Link
+              onClick={() => {onRouteChange('home')}}
+              >Home</Nav.Link>
+              <Nav.Link
+              onClick={() => {onRouteChange('signin')}}
+              >Sign In</Nav.Link>
               <NavDropdown title="Menu" id="basic-nav-dropdown">
                 <NavDropdown.Item 
                 onClick={() => {onRouteChange('weight')}}
