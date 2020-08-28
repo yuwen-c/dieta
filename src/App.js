@@ -176,7 +176,7 @@ class App extends Component{
     })
   }
 
-
+  // choose next move to speed up or slow down, show options (-100/ +100...)
   onModifyClick = (event) => {
     if (event.target.value === 'Speed Up'){
       this.setState({
@@ -190,9 +190,11 @@ class App extends Component{
         modifySlowDown: true
       })
     }
-
-    console.log('value', event.target.value)
   } //event.target.value = Speed Up, name=X
+
+  onSendModifyOption = (event) => {
+    this.setState({modifyOption: event.target.value});
+  } // value -100, name speedup
 
   // decide render components
   renderSwitch = (route) => {
@@ -272,6 +274,7 @@ class App extends Component{
           onModifyClick = {this.onModifyClick}
           modifySpeedUp = {this.state.modifySpeedUp}
           modifySlowDown = {this.state.modifySlowDown}
+          onSendModifyOption = {this.onSendModifyOption}
         />
       </div>
 

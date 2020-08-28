@@ -2,7 +2,7 @@ import React from 'react';
 import NextPage from './NextPage';
 import ModifyOptions from './ModifyOptions';
 
-const NextMove = ({onModifyClick, modifySpeedUp, modifySlowDown}) => {
+const NextMove = ({onModifyClick, modifySpeedUp, modifySlowDown, onSendModifyOption}) => {
     return(
         <div>
           <fieldset id="" className="bn">
@@ -33,7 +33,8 @@ const NextMove = ({onModifyClick, modifySpeedUp, modifySlowDown}) => {
                   <small id="name-desc" className="f6 black-60 db mb2">Enlarge calorie deficit, eat less.</small>
                 </div>
                 <ModifyOptions
-                  modifySpeedUp = {modifySpeedUp}
+                  modifySpeedUp={modifySpeedUp}
+                  onSendModifyOption={onSendModifyOption}
                 />
                 <div className="pv2">
                   <input 
@@ -45,7 +46,8 @@ const NextMove = ({onModifyClick, modifySpeedUp, modifySlowDown}) => {
                   <small id="name-desc" className="f6 black-60 db mb2">Minimize calorie deficit, eat more.</small>
                 </div>
                 <ModifyOptions
-                  modifySlowDown = {modifySlowDown}
+                  modifySlowDown={modifySlowDown}
+                  onSendModifyOption={onSendModifyOption}
                 />
             </div>           
             <NextPage
