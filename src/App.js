@@ -6,7 +6,12 @@ import Nutrition from './Nutrition';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 import './App.css';
+
 // import Navigation from './Navigation';
+
+import Navigation from './Navigation';
+import RateCalculation from './RateCalculation';
+import NextMove from './NextMove';
 // import { act } from 'react-dom/test-utils';
 import NavbarDrop from './NavbarDrop';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -39,6 +44,10 @@ const initialState = {
   checkedActivity : initialchecked,
   checkedExercise : initialchecked,
   // the default of checked attribute of options
+
+  modifySpeedUp: false,
+  modifySlowDown: false, 
+  modifyOption: 0,
 }
 
 class App extends Component{
@@ -84,7 +93,7 @@ class App extends Component{
       // save option value to activity state
       let activityArr = this.state.activity.slice(); // use slice() to ensure we create a seperate copy of this.state.activity
       activityArr[index-1] = event.target.value; // save one option to the certain index of element
-      this.setState({Activity : activityArr})
+      this.setState({activity : activityArr})
 
       // modify checked state. 1: set 4 options to false, 2: set the one to true
       let changedChecked = this.state.checkedActivity.slice(); //只有要改那一組option，不能複製整個initial
@@ -98,7 +107,7 @@ class App extends Component{
       // save option value to state
       let exerciseArr = this.state.exercise.slice(); // a new exercise state array
       exerciseArr[index-1] = event.target.value;
-      this.setState({Exercise : exerciseArr});
+      this.setState({exercise : exerciseArr});
 
       // modify checked state. 
       let changedChecked = this.state.checkedExercise.slice(); 
@@ -172,6 +181,26 @@ class App extends Component{
     })
   }
 
+  // choose next move to speed up or slow down, show options (-100/ +100...)
+  onModifyClick = (event) => {
+    if (event.target.value === 'Speed Up'){
+      this.setState({
+        modifySpeedUp : true,
+        modifySlowDown: false
+      })
+    }
+    else{
+      this.setState({
+        modifySpeedUp : false,
+        modifySlowDown: true
+      })
+    }
+  } //event.target.value = Speed Up, name=X
+
+  onSendModifyOption = (event) => {
+    this.setState({modifyOption: event.target.value});
+  } // value -100, name speedup
+
   // decide render components
   renderSwitch = (route) => {
     switch (route){
@@ -232,21 +261,31 @@ class App extends Component{
 
   render(){
     return(
-      <div>
-        {/* <Navigation
-        email = {this.state.email}
-        onRouteChange = {this.onRouteChange}
-        isSign = {this.state.isSignIn} 
-        /> */}
-        <NavbarDrop
-        email = {this.state.email}
-        onRouteChange = {this.onRouteChange}
-        isSign = {this.state.isSignIn} 
-        />
-        <div className="pl3 pl5-ns mw6-ns">
-          {this.renderSwitch(this.state.route)}
-        </div>
+      // <div>
+      //   <Navigation
+      //   email = {this.state.email}
+      //   onRouteChange = {this.onRouteChange}
+      //   isSign = {this.state.isSignIn} 
+      //   />
+      //   <div className="pl3 pl5-ns mw6-ns">
+      //     {this.renderSwitch(this.state.route)}
+      //   </div>
+      // </div>
 
+      <div>
+
+        <NavbarDrop
+          email = {this.state.email}
+          onRouteChange = {this.onRouteChange}
+          isSign = {this.state.isSignIn} 
+        />
+        <RateCalculation/>
+        <NextMove
+          onModifyClick = {this.onModifyClick}
+          modifySpeedUp = {this.state.modifySpeedUp}
+          modifySlowDown = {this.state.modifySlowDown}
+          onSendModifyOption = {this.onSendModifyOption}
+        />
       </div>
 
     )

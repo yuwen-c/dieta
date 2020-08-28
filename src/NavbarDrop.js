@@ -1,8 +1,8 @@
 import React from 'react';
-
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+// from https://react-bootstrap.github.io/components/navbar/
 
 const NavbarDrop = ({ isSign, email, onRouteChange }) => {
     return(
