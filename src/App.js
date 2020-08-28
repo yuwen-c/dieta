@@ -5,11 +5,10 @@ import Activity from './Activity';
 import Nutrition from './Nutrition';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
+import Home from './Home';
 import './App.css';
 
 // import Navigation from './Navigation';
-
-import Navigation from './Navigation';
 import RateCalculation from './RateCalculation';
 import NextMove from './NextMove';
 // import { act } from 'react-dom/test-utils';
@@ -30,7 +29,7 @@ const initialState = {
   weight : 0,
   BMR : 0,
   isSignIn : false,
-  route: 'signin', // sign in, sign up, weight, activity, exercise, nutrition
+  route: 'home', // sign in, sign up, weight, activity, exercise, nutrition
 
   deficit : 0,
   activity : [], // store week activity, like: ['0', '1', '0', '1', '0', '3', '2']
@@ -204,6 +203,8 @@ class App extends Component{
   // decide render components
   renderSwitch = (route) => {
     switch (route){
+      case 'home':
+        return <Home/>
       case 'signin':
         return <SignIn
                 onRouteChange={this.onRouteChange}
