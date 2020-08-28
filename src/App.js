@@ -40,7 +40,8 @@ const initialState = {
   checkedExercise : initialchecked,
   // the default of checked attribute of options
 
-  modify: '', //Speed Up, Slow Down
+  modifySpeedUp: false,
+  modifySlowDown: false, 
   modifyOption: 0,
 }
 
@@ -177,7 +178,19 @@ class App extends Component{
 
 
   onModifyClick = (event) => {
-    this.setState({modify: event.target.value});
+    if (event.target.value === 'Speed Up'){
+      this.setState({
+        modifySpeedUp : true,
+        modifySlowDown: false
+      })
+    }
+    else{
+      this.setState({
+        modifySpeedUp : false,
+        modifySlowDown: true
+      })
+    }
+
     console.log('value', event.target.value)
   } //event.target.value = Speed Up, name=X
 
@@ -257,7 +270,8 @@ class App extends Component{
         <RateCalculation/>
         <NextMove
           onModifyClick = {this.onModifyClick}
-          modifyState = {this.state.modify}
+          modifySpeedUp = {this.state.modifySpeedUp}
+          modifySlowDown = {this.state.modifySlowDown}
         />
       </div>
 

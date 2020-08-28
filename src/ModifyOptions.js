@@ -1,10 +1,10 @@
 import React from 'react';
 
-const ModifyOptions = ({modifyState}) => {
+const ModifyOptions = ({modifySpeedUp, modifySlowDown}) => {
     return(
       <div>
       {
-        modifyState === 'Speed Up' 
+        modifySpeedUp && !modifySlowDown 
         
         ? 
         <div>
@@ -33,7 +33,9 @@ const ModifyOptions = ({modifyState}) => {
 
         :
 
-        modifyState === 'Slow Down' ?
+          !modifySpeedUp && modifySlowDown 
+        
+          ?
 
         <div>
             <div className="flex items-center mb2">
@@ -58,8 +60,8 @@ const ModifyOptions = ({modifyState}) => {
               <label htmlFor="+300" className="lh-copy">+300 Kcal</label>
             </div>
         </div>
-        :
-        <div></div>
+          :
+        null
       }
       </div>
     )
