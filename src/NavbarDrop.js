@@ -13,11 +13,15 @@ const NavbarDrop = ({ isSign, email, onRouteChange }) => {
             <Nav className="mr-auto">
               <Nav.Link>Sign In</Nav.Link>
               <NavDropdown title="Menu" id="basic-nav-dropdown">
-                <NavDropdown.Item >Calculation</NavDropdown.Item>
-                <NavDropdown.Item >Latest Result</NavDropdown.Item>
-                <NavDropdown.Item >Next Move</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item >Separated link</NavDropdown.Item>
+                <NavDropdown.Item 
+                onClick={() => {onRouteChange('weight')}}
+                >Calculation</NavDropdown.Item>
+                <NavDropdown.Item 
+                onClick={() => {onRouteChange('nutrition')}}
+                >Latest Result</NavDropdown.Item>
+                <NavDropdown.Item 
+                onClick={() => {onRouteChange('rate')}}>
+                Next Move</NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>

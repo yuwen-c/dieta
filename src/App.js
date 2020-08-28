@@ -253,6 +253,16 @@ class App extends Component{
                 dailyCalorie = {this.state.dailyCalorie}
                 dailyCarbon = {this.state.dailyCarbon}
                 />
+      case 'rate':
+        return <div>
+                  <RateCalculation/>
+                  <NextMove
+                    onModifyClick = {this.onModifyClick}
+                    modifySpeedUp = {this.state.modifySpeedUp}
+                    modifySlowDown = {this.state.modifySlowDown}
+                    onSendModifyOption = {this.onSendModifyOption}
+                  />
+                </div>
       
       default:
         return 
@@ -261,33 +271,21 @@ class App extends Component{
 
   render(){
     return(
-      // <div>
-      //   <Navigation
-      //   email = {this.state.email}
-      //   onRouteChange = {this.onRouteChange}
-      //   isSign = {this.state.isSignIn} 
-      //   />
-      //   <div className="pl3 pl5-ns mw6-ns">
-      //     {this.renderSwitch(this.state.route)}
-      //   </div>
-      // </div>
-
       <div>
-
+        {/* <Navigation
+        email = {this.state.email}
+        onRouteChange = {this.onRouteChange}
+        isSign = {this.state.isSignIn} 
+        /> */}
         <NavbarDrop
           email = {this.state.email}
           onRouteChange = {this.onRouteChange}
           isSign = {this.state.isSignIn} 
         />
-        <RateCalculation/>
-        <NextMove
-          onModifyClick = {this.onModifyClick}
-          modifySpeedUp = {this.state.modifySpeedUp}
-          modifySlowDown = {this.state.modifySlowDown}
-          onSendModifyOption = {this.onSendModifyOption}
-        />
+        <div className="pl3 pl5-ns mw6-ns">
+          {this.renderSwitch(this.state.route)}
+        </div>
       </div>
-
     )
   }
 
