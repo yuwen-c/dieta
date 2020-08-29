@@ -7,13 +7,12 @@ const Home = ({onRouteChange}) => {
               <h1 className="fw6 f3 f2-ns lh-title mt0 mb3">
                 Your Calorie Calculator.
               </h1>
-              <h2 className="fw2 f4 lh-copy mt0 mb3">
-                This will change things. And we want you to be involved. This text needs to
-                be longer for testing sake.
+              <h2 className="fw2 f4 lh-copy mt0 mb3 mw6">
+                針對體重、每日活動量及運動量，及想要的減重速度，幫你計算每日卡路里。
               </h2>
-              <p className="fw1 f5 mt0 mb3">
-                Sign up for beta access or learn more about Dieta.
-              </p>
+              {/* <p className="fw1 f5 mt0 mb3">
+                
+              </p> */}
               <div>
                 <p 
                 className="f6 br-pill bg-dark-green no-underline washed-green ba b--dark-green grow pv2 ph3 dib mr3"

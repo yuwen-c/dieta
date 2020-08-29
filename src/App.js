@@ -70,12 +70,12 @@ class App extends Component{
     this.setState({BMR : bmr});
   } 
   
-  // set route:  
+  // set route and isSignIn state 
   onRouteChange = (route) => {
     if(route === 'signin'){
       this.setState(initialState)
     }
-    else if(route === 'weight'){
+    else if(route === 'weight' ){
       this.setState({isSignIn : true})
     }
     this.setState({route : route});
@@ -127,16 +127,16 @@ class App extends Component{
     let activityDatabase = ['0', '1', '0', '1', '0', '3', '2'];
     let exerciseDatabase = ['1', '1', '0', '2', '0', '2', '1'];
 
-    // call forLoop function, set checked state and activity, exercise state
+    // call getWeekOption function, set checked state and activity, exercise state
     if(this.state.route === 'activity'){
       this.setState({
-        checkedActivity : this.forLoop(activityDatabase),
+        checkedActivity : this.getWeekOption(activityDatabase),
         activity : activityDatabase
       })    
     }
     else if(this.state.route === 'exercise'){
       this.setState({
-        checkedExercise : this.forLoop(exerciseDatabase),
+        checkedExercise : this.getWeekOption(exerciseDatabase),
         exercise : exerciseDatabase
       })
     }
@@ -144,7 +144,7 @@ class App extends Component{
 
   // give the default false array, and set one of it (depends on database) to true
   // then return a 7 days 2-dimentional array
-  forLoop = (database) => {
+  getWeekOption = (database) => {
     let oneWeekArr = [];
     for(let i=0; i<7; i++){
       let oneDayArr = [false, false, false, false];
@@ -266,6 +266,7 @@ class App extends Component{
                     modifySpeedUp = {this.state.modifySpeedUp}
                     modifySlowDown = {this.state.modifySlowDown}
                     onSendModifyOption = {this.onSendModifyOption}
+                    onRouteChange = {this.onRouteChange}
                   />
                 </div>
       

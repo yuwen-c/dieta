@@ -14,9 +14,18 @@ const NavbarDrop = ({ isSign, email, onRouteChange }) => {
               <Nav.Link
               onClick={() => {onRouteChange('home')}}
               >Home</Nav.Link>
+              {
+                !isSign ?              
               <Nav.Link
               onClick={() => {onRouteChange('signin')}}
               >Sign In</Nav.Link>
+
+              :
+
+              <Nav.Link
+              onClick={() => {onRouteChange('signin')}}
+              >Sign Out</Nav.Link>
+              }
               <NavDropdown title="Menu" id="basic-nav-dropdown">
                 <NavDropdown.Item 
                 onClick={() => {onRouteChange('weight')}}

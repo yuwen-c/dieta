@@ -2,7 +2,7 @@ import React from 'react';
 import NextPage from './NextPage';
 import ModifyOptions from './ModifyOptions';
 
-const NextMove = ({onModifyClick, modifySpeedUp, modifySlowDown, onSendModifyOption}) => {
+const NextMove = ({onModifyClick, modifySpeedUp, modifySlowDown, onSendModifyOption, onRouteChange}) => {
     return(
         <div>
           <fieldset id="" className="bn">
@@ -19,7 +19,7 @@ const NextMove = ({onModifyClick, modifySpeedUp, modifySlowDown, onSendModifyOpt
                   className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                   type="submit" 
                   value="Maintain Current Rate"
-                  // onClick={onBMRCalculate}
+                  onClick={()=> {onRouteChange('activity')}}
                   />
                   <small id="name-desc" className="f6 black-60 db mb2">Maintain the current deficit.</small>
                 </div>
@@ -51,7 +51,7 @@ const NextMove = ({onModifyClick, modifySpeedUp, modifySlowDown, onSendModifyOpt
                 />
             </div>           
             <NextPage
-            // onRouteChange={()=> {onRouteChange('exercise')}}
+            onRouteChange={()=> {onRouteChange('activity')}}
             />
           </fieldset>    
           </div>

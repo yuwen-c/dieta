@@ -3,7 +3,7 @@ import React from 'react';
 const CalorieDeficit = ({onSendOption}) => {
     return (
       <div >
-        <legend className="fw7 f4 pb3">your calorie deficit per day this week</legend>
+        <legend className="fw7 f4 ">Calorie deficit per day this week:</legend>
         <div className="flex items-center mb2">
           <input 
           className="mr2" type="radio" id="300" value="300" name="deficit"

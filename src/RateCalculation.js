@@ -34,6 +34,8 @@ class RateCalculation extends Component{
   render(){
     return(
         <div className="pa4 black-80">
+        <legend className="fw7 f4 pv3">Not sure about the next step?<br/>Calculate your losing rate then we'll tell you:</legend> 
+ 
             <div className="measure pv2">
                 <label htmlFor="name" className="f6 b db mb2">Average weight This Week 
                   <span className="normal black-60"> kg</span>
@@ -59,7 +61,7 @@ class RateCalculation extends Component{
                 />
             </div>
 
-            <div className="">
+            <div className="pb3">
               <input 
               className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
               type="submit" 
@@ -67,7 +69,7 @@ class RateCalculation extends Component{
               onClick={this.rateCalculation}
               />
             </div>
-            <p>Your've got <span>{this.state.rate}</span> % weight changed last week.</p>
+            <h6>Your've got <span>{this.state.rate}</span> % weight changed last week.</h6>
             <RateGuide
               rate={this.state.rate}
             />
