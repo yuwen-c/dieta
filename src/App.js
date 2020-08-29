@@ -25,12 +25,12 @@ const initialState = {
   email: '',
   password: '',
 
-  weight : 0,
+  weight : 55,
   BMR : 0,
   isSignIn : false,
   route: 'home', // sign in, sign up, weight, activity, exercise, nutrition
 
-  deficit : 0,
+  deficit : 300,
   activity : [], // store week activity, like: ['0', '1', '0', '1', '0', '3', '2']
   exercise : [], // store week exercise, like: ['0', '1', '0', '1', '0', '3', '2']
   
@@ -156,7 +156,8 @@ class App extends Component{
 
   // do calculation and save to state
   calculateNutrition = () => {
-    const {weight, deficit, activity, exercise} = this.state; 
+    // 實際上這邊要先去資料庫抓體重、deficit
+    const {weight, deficit, activity, exercise, modifyOption} = this.state; 
     const protein = weight * 2; // protein fixes to 2 time weight
     const oil = weight * 1; // oil fixes to 1 time weight
 
@@ -165,11 +166,10 @@ class App extends Component{
 
     // calculate day1-7
     for(let i=0; i<7; i++){
-      // total calorie of that day
-      dailyCalorie[i] = parseInt(weight * 2.2 * (12 + parseInt(activity[i]) + parseInt(exercise[i])))-deficit;
+      // total calorie of that day (-deficit, plus speed up or slow down option)
+      dailyCalorie[i] = parseInt(weight * 2.2 * (12 + parseInt(activity[i]) + parseInt(exercise[i]))) - deficit + parseInt(modifyOption);
       // carbohydrate of thar day
       dailyCarbon[i] = parseInt((dailyCalorie[i] - protein * 4 - oil * 9) / 4);
-
     }
     // save these numbers
     this.setState({
