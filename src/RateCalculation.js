@@ -9,8 +9,6 @@ class RateCalculation extends Component{
       weightThisWeek: 0,
       weightLastWeek: 0,
       rate: 0,
-      modify:'',
-      modifyOption:''
     }
   }
 
@@ -28,7 +26,6 @@ class RateCalculation extends Component{
     this.setState({rate: rate});
     window.scrollTo(0, 300); //scroll page the guide part
   }
-
 
 
   render(){

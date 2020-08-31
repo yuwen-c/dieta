@@ -163,12 +163,13 @@ class App extends Component{
 
     let dailyCalorie = [];
     let dailyCarbon = [];
+    const totalDeficit = parseInt(deficit) + parseInt(-modifyOption);// add modify part
 
     // calculate day1-7
     for(let i=0; i<7; i++){
       // total calorie of that day (-deficit, plus speed up or slow down option)
-      dailyCalorie[i] = parseInt(weight * 2.2 * (12 + parseInt(activity[i]) + parseInt(exercise[i]))) - deficit + parseInt(modifyOption);
-      // carbohydrate of thar day
+      dailyCalorie[i] = parseInt(weight * 2.2 * (12 + parseInt(activity[i]) + parseInt(exercise[i]))) - totalDeficit;
+      // carbohydrate of that day
       dailyCarbon[i] = parseInt((dailyCalorie[i] - protein * 4 - oil * 9) / 4);
     }
     // save these numbers
@@ -196,9 +197,10 @@ class App extends Component{
     }
   } //event.target.value = Speed Up, name=X
 
+  // nextmove, choose speed up or slow down
   onSendModifyOption = (event) => {
     this.setState({modifyOption: event.target.value});
-  } // value -100, name speedup
+  } 
 
   // decide render components
   renderSwitch = (route) => {
