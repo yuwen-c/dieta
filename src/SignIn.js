@@ -25,9 +25,14 @@ class SignIn extends Component{
         })
         .then(response => response.json())
         .then(result => {
-            this.props.loadUser(result) // refresh App user state
+            if(result.name){
+                this.props.loadUser(result); // refresh App user state
+                this.props.onRouteChange('weight');
+            }
+            else{}
+
         })
-        this.props.onRouteChange('weight')
+
     }
 
 
