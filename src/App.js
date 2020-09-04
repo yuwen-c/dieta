@@ -21,16 +21,19 @@ const initialchecked =
 [false, false, false, false]];
 
 const initialState = {
-  name: '',
-  email: '',
-  password: '',
+  user : {
+    name: '',
+    email: '',
+    weight: 0,
+    deficit: 0
+  },
 
-  weight : 55,
+  weight : 0,
   BMR : 0,
   isSignIn : false,
   route: 'home', // sign in, sign up, weight, activity, exercise, nutrition
 
-  deficit : 300,
+  deficit : 0,
   activity : [], // store week activity, like: ['0', '1', '0', '1', '0', '3', '2']
   exercise : [], // store week exercise, like: ['0', '1', '0', '1', '0', '3', '2']
   
@@ -54,9 +57,9 @@ class App extends Component{
     this.state = initialState;
   }
 
-  // save name, email, password to state
-  setStateFun = (stateName, stateValue) => {
-    this.setState({[stateName] : stateValue})
+  // after sign in, load user to App state
+  loadUser = (data) => {
+    this.setState({user: data})
   }
 
   // get body weight
@@ -157,7 +160,11 @@ class App extends Component{
   // do calculation and save to state
   calculateNutrition = () => {
     // 實際上這邊要先去資料庫抓體重、deficit
-    const {weight, deficit, activity, exercise, modifyOption} = this.state; 
+    let {weight, deficit, activity, exercise, modifyOption} = this.state; 
+    if(weight === 0) {
+      weight = 55;
+      deficit = 300
+    }
     const protein = weight * 2; // protein fixes to 2 time weight
     const oil = weight * 1; // oil fixes to 1 time weight
 
@@ -172,6 +179,8 @@ class App extends Component{
       // carbohydrate of that day
       dailyCarbon[i] = parseInt((dailyCalorie[i] - protein * 4 - oil * 9) / 4);
     }
+    console.log("dailyCalorie", dailyCalorie)
+    console.log("dailyCarbon ", dailyCarbon )
     // save these numbers
     this.setState({
       protein : protein,
@@ -213,6 +222,7 @@ class App extends Component{
                </div>
       case 'signin':
         return <SignIn
+                loadUser={this.loadUser}
                 onRouteChange={this.onRouteChange}
                 setStateFun={this.setStateFun}/>
       case 'signup':
@@ -249,7 +259,7 @@ class App extends Component{
                 />
       case 'nutrition':
         return <Nutrition
-                email = {this.state.email}
+                name = {this.state.user.name}
                 onRouteChange = {this.onRouteChange}
                 weight = {this.state.weight}
                 deficit = {this.state.deficit}
@@ -281,12 +291,11 @@ class App extends Component{
     return(
       <div>
         {/* <Navigation
-        email = {this.state.email}
         onRouteChange = {this.onRouteChange}
         isSign = {this.state.isSignIn} 
         /> */}
         <NavbarDrop
-          email = {this.state.email}
+          name = {this.state.user.name}
           onRouteChange = {this.onRouteChange}
           isSign = {this.state.isSignIn} 
         />

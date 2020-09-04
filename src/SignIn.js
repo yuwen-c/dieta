@@ -3,16 +3,33 @@ import React, { Component } from 'react';
 class SignIn extends Component{
     constructor(props){
         super(props);
-        this.state = {}
+        this.state = {
+            email: '', 
+            password: ''
+        }
     }
 
     onEmailChange = (event) => {
-        this.props.setStateFun('email', event.target.value)
+        this.setState({email : event.target.value})
     }
 
     onPasswordChange = (event) => {
-        this.props.setStateFun('password', event.target.value)
+        this.setState({password : event.target.value})
     }
+
+    onSignIn = () => {
+        fetch('http://localhost:3000/signin', {
+            method: 'post',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(this.state)
+        })
+        .then(response => response.json())
+        .then(result => {
+            this.props.loadUser(result) // refresh App user state
+        })
+        this.props.onRouteChange('weight')
+    }
+
 
     render(){
         return(
@@ -43,7 +60,7 @@ class SignIn extends Component{
                             className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                             type="submit" 
                             value="Sign in"
-                            onClick={()=> {this.props.onRouteChange("weight")}}
+                            onClick={this.onSignIn}
                             />
                         </div>
                         <div className="lh-copy mt3">
