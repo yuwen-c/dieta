@@ -15,17 +15,8 @@ const NavbarDrop = ({ isSign, name, onRouteChange }) => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              {
-                !isSign ?              
-              <Nav.Link
-              onClick={() => {onRouteChange('signin')}}
-              >Sign In</Nav.Link>
-              :             
-              <Nav.Link
-              onClick={() => {onRouteChange('signin')}}
-              >Sign Out</Nav.Link>             
-              }
-              <NavDropdown title="Menu" id="basic-nav-dropdown">
+             
+               <NavDropdown title="Menu" id="basic-nav-dropdown"> 
                 <NavDropdown.Item 
                 onClick={() => {onRouteChange('weight')}}
                 >Calculation</NavDropdown.Item>
@@ -36,8 +27,25 @@ const NavbarDrop = ({ isSign, name, onRouteChange }) => {
                 onClick={() => {onRouteChange('rate')}}>
                 Next Move</NavDropdown.Item>
               </NavDropdown>
+                {/* 這邊的Nav裡面加item-end, 大螢幕時不會往右移，小螢幕時，下拉選單裡面的sign會跑到右邊 */}
+
+              { 
+                !isSign ?  
+              <Nav className="">            
+              <Nav.Link
+              onClick={() => {onRouteChange('signin')}}
+              >Sign In</Nav.Link>
+              <Nav.Link
+              onClick={() => {onRouteChange('signin')}}
+              >Sign Up</Nav.Link>
+              </Nav>
+              :             
+              <Nav.Link
+              onClick={() => {onRouteChange('signin')}}
+              >Sign Out</Nav.Link>             
+              }
+              
             </Nav>
-            {name}
           </Navbar.Collapse>
         </Navbar>
     )
