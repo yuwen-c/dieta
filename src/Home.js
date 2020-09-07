@@ -19,7 +19,7 @@ const Home = ({onRouteChange}) => {
                 onClick={() => {onRouteChange('signin')}} >
                 Sign In</p> */}
                 <p className="f5 br-pill bg-dark-green no-underline washed-green ba b--dark-green grow pv2 ph3 dib mr3"
-                onClick={() => {onRouteChange('signup')}} >
+                onClick={() => {onRouteChange('description')}} >
                 Learn More</p>
                 {/* <p className="f6 br-pill dark-green no-underline ba grow pv2 ph3 dib"
                 onClick={() => {onRouteChange('weight')}} >

@@ -13,6 +13,7 @@ import RateCalculation from './RateCalculation';
 import NextMove from './NextMove';
 // import { act } from 'react-dom/test-utils';
 import NavbarDrop from './NavbarDrop';
+import Description from './Description';
 
 
 const initialchecked = 
@@ -230,7 +231,10 @@ class App extends Component{
                 onRouteChange={this.onRouteChange}
                 setStateFun={this.setStateFun}
                 />
-
+      case 'description':
+        return <Description
+                onRouteChange={this.onRouteChange}
+                />
       case 'weight':
         return <BodyWeight
                 onInputChange = {this.onInputChange}
