@@ -4,27 +4,26 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 // from https://react-bootstrap.github.io/components/navbar/
 
-const NavbarDrop = ({ isSign, email, onRouteChange }) => {
+// *** would like to show user's name in nav, haven't set it done
+
+const NavbarDrop = ({ isSign, name, onRouteChange }) => {
     return(
         <Navbar bg="light" expand="lg">
-          <Navbar.Brand >Dieta</Navbar.Brand>
+          <Navbar.Brand className="grow"
+            onClick={() => {onRouteChange('home')}}          
+           >Dieta</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link
-              onClick={() => {onRouteChange('home')}}
-              >Home</Nav.Link>
               {
                 !isSign ?              
               <Nav.Link
               onClick={() => {onRouteChange('signin')}}
               >Sign In</Nav.Link>
-
-              :
-
+              :             
               <Nav.Link
               onClick={() => {onRouteChange('signin')}}
-              >Sign Out</Nav.Link>
+              >Sign Out</Nav.Link>             
               }
               <NavDropdown title="Menu" id="basic-nav-dropdown">
                 <NavDropdown.Item 
@@ -38,6 +37,7 @@ const NavbarDrop = ({ isSign, email, onRouteChange }) => {
                 Next Move</NavDropdown.Item>
               </NavDropdown>
             </Nav>
+            {name}
           </Navbar.Collapse>
         </Navbar>
     )

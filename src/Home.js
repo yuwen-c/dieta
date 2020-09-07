@@ -14,17 +14,16 @@ const Home = ({onRouteChange}) => {
                 
               </p> */}
               <div>
-                <p 
+                {/* <p 
                 className="f6 br-pill bg-dark-green no-underline washed-green ba b--dark-green grow pv2 ph3 dib mr3"
                 onClick={() => {onRouteChange('signin')}} >
-                Sign In</p>
-                <p className="f6 br-pill bg-dark-green no-underline washed-green ba b--dark-green grow pv2 ph3 dib mr3"
+                Sign In</p> */}
+                <p className="f5 br-pill bg-dark-green no-underline washed-green ba b--dark-green grow pv2 ph3 dib mr3"
                 onClick={() => {onRouteChange('signup')}} >
-                Sign Up</p>
-                <p className="f6 br-pill dark-green no-underline ba grow pv2 ph3 dib"
+                Learn More</p>
+                {/* <p className="f6 br-pill dark-green no-underline ba grow pv2 ph3 dib"
                 onClick={() => {onRouteChange('weight')}} >
-                Learn More</p>  
-                {/* use without sign Up?? */}
+                Learn More</p>   */}
               </div>
             </article>            
         </div>
