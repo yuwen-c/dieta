@@ -13,7 +13,7 @@ const NavbarDrop = ({ isSign, name, onRouteChange }) => {
             onClick={() => {onRouteChange('home')}}          
            >Dieta</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
+          <Navbar.Collapse id="basic-navbar-nav" className="justify-between">
             <Nav className="mr-auto">
              
                <NavDropdown title="Menu" id="basic-nav-dropdown"> 
@@ -31,13 +31,13 @@ const NavbarDrop = ({ isSign, name, onRouteChange }) => {
 
               { 
                 !isSign ?  
-              <Nav className="">            
-              <Nav.Link
-              onClick={() => {onRouteChange('signin')}}
-              >Sign In</Nav.Link>
-              <Nav.Link
-              onClick={() => {onRouteChange('signin')}}
-              >Sign Up</Nav.Link>
+              <Nav className="self-end"> 
+                <Nav.Link
+                onClick={() => {onRouteChange('signin')}}
+                >Sign In</Nav.Link>
+                <Nav.Link
+                onClick={() => {onRouteChange('signin')}}
+                >Sign Up</Nav.Link>
               </Nav>
               :             
               <Nav.Link
