@@ -133,10 +133,20 @@ class App extends Component{
 
     // call getWeekOption function, set checked state and activity, exercise state
     if(this.state.route === 'activity'){
-      this.setState({
-        checkedActivity : this.getWeekOption(activityDatabase),
-        activity : activityDatabase
-      })    
+      fetch('http://localhost:3000/activity', {
+        method: 'post',
+        headers: {'Content-Type' : 'application/json'},
+        body: JSON.stringify({email: this.state.user.email})
+      })
+      .then(response => response.json())
+      .then(result => {
+          delete result['userEmail'];
+          const optionArr = Object.values(result);
+          this.setState({
+            activity : optionArr,
+            checkedActivity : this.getWeekOption(optionArr)
+          });
+      });
     }
     else if(this.state.route === 'exercise'){
       this.setState({
