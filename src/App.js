@@ -127,11 +127,6 @@ class App extends Component{
 
   // load activity and exercise settings of last week
   onLoadOptions = () => {
-    // imaginary database
-    let activityDatabase = ['0', '1', '0', '1', '0', '3', '2'];
-    let exerciseDatabase = ['1', '1', '0', '2', '0', '2', '1'];
-
-    // call getWeekOption function, set checked state and activity, exercise state
     if(this.state.route === 'activity'){
       fetch('http://localhost:3000/activity', {
         method: 'post',
@@ -145,14 +140,26 @@ class App extends Component{
           this.setState({
             activity : optionArr,
             checkedActivity : this.getWeekOption(optionArr)
+            // call getWeekOption function, set checked state 
           });
       });
     }
     else if(this.state.route === 'exercise'){
-      this.setState({
-        checkedExercise : this.getWeekOption(exerciseDatabase),
-        exercise : exerciseDatabase
+      fetch('http://localhost:3000/exercise', {
+        method: 'post',
+        headers: {'Content-Type' : 'application/json'},
+        body: JSON.stringify({email: this.state.user.email})
       })
+      .then(response => response.json())
+      .then(result => {
+          delete result['userEmail'];
+          const optionArr = Object.values(result);
+          this.setState({
+            activity : optionArr,
+            checkedExercise : this.getWeekOption(optionArr)
+            // call getWeekOption function, set checked state 
+          });
+      });
     }
   }
 
