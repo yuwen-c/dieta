@@ -3,21 +3,44 @@ import React, { Component } from 'react';
 class SignUp extends Component{
     constructor(){
         super();
-        this.state = {}
+        this.state = {
+            name:'',
+            email:'',
+            password:''
+        }
     }
 
     onNameChange = (event) => {
-        this.props.setStateFun('Name', event.target.value)
+        this.setState({name : event.target.value})
     }
 
     onEmailChange = (event) => {
-        this.props.setStateFun('email', event.target.value)
+        this.setState({email : event.target.value})
     }
 
     onPasswordChange = (event) => {
-        this.props.setStateFun('password', event.target.value)
+        this.setState({password : event.target.value})
     }
 
+    onSignUp = () => {
+        const {name, email, password} = this.state;
+        if(name && email && password){
+            fetch('http://localhost:3000/signup', {
+                method: 'post', 
+                headers: {'Content-Type' : 'application/json'},
+                body : JSON.stringify(this.state)
+                }
+            )
+            .then(response => response.json())
+            .then(result => {
+                this.props.loadUser(result);
+                this.props.onRouteChange('weight');
+            })
+        }
+        else{
+            console.log('enter personal data plz!')
+        }
+    }
     render(){
         return(
             <div>
@@ -51,8 +74,12 @@ class SignUp extends Component{
                             </div>
                         </fieldset>
                         <div className="">
-                            <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
-                            type="submit" value="Sign up"/>
+                            <input 
+                            className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
+                            type="submit" 
+                            value="Sign up"
+                            onClick={this.onSignUp}
+                            />
                         </div>
                         <div className="lh-copy mt3">
                             <p 

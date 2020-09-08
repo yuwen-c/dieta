@@ -225,11 +225,11 @@ class App extends Component{
         return <SignIn
                 loadUser={this.loadUser}
                 onRouteChange={this.onRouteChange}
-                setStateFun={this.setStateFun}/>
+                />
       case 'signup':
         return <SignUp
+                loadUser={this.loadUser}
                 onRouteChange={this.onRouteChange}
-                setStateFun={this.setStateFun}
                 />
       case 'description':
         return <Description
