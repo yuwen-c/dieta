@@ -18,7 +18,7 @@ const NavbarDrop = ({ isSign, onRouteChange, getResult }) => {
                 onClick={() => {onRouteChange('weight')}}
                 >Calculation</NavDropdown.Item>
                 <NavDropdown.Item 
-                onClick={() => {onRouteChange('nutrition'); getResult()}}
+                onClick={getResult}
                 >Latest Result</NavDropdown.Item>
                 <NavDropdown.Item 
                 onClick={() => {onRouteChange('rate')}}>

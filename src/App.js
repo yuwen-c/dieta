@@ -247,29 +247,38 @@ class App extends Component{
     this.setState({modifyOption: event.target.value});
   } 
 
-  // get calculation result of last time
+  // get latest calculation result
   getResult = () => {
-    const {weight} = this.state.user;
-    fetch('http://localhost:3000/result', {
-      method: 'post', 
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({email: this.state.user.email})
-    })
-    .then(response => response.json())
-    .then(result => {
-      const calorieObj = result.dailyCalorie;
-      const carbonObj = result.dailyCarbon;
+    const {weight} = this.state.user
+    // first time loggin, no latest result 
+    if(weight === 0){
+      alert("No record! Why don't we do it from the beginning?");
+      this.onRouteChange('weight');
+    }
+    else{
+      fetch('http://localhost:3000/result', {
+        method: 'post', 
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({email: this.state.user.email})
+      })
+      .then(response => response.json())
+      .then(result => {
+        const calorieObj = result.dailyCalorie;
+        const carbonObj = result.dailyCarbon;
 
-      delete calorieObj.userEmail;
-      delete carbonObj.userEmail;
+        delete calorieObj.userEmail;
+        delete carbonObj.userEmail;
 
-      this.setState({
+        this.setState({
         protein: weight*2,
         oil: weight,
         dailyCalorie: Object.values(calorieObj),
         dailyCarbon: Object.values(carbonObj)
-      })
-    });
+        })
+      });
+      this.onRouteChange('nutrition');
+    }
+
   }
 
   // decide render components
