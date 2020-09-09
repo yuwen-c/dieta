@@ -155,7 +155,7 @@ class App extends Component{
           delete result['userEmail'];
           const optionArr = Object.values(result);
           this.setState({
-            activity : optionArr,
+            exercise : optionArr,
             checkedExercise : this.getWeekOption(optionArr)
             // call getWeekOption function, set checked state 
           });
@@ -177,12 +177,9 @@ class App extends Component{
 
   // do calculation and save to state
   calculateNutrition = () => {
-    // 實際上這邊要先去資料庫抓體重、deficit
-    let {weight, deficit, activity, exercise, modifyOption} = this.state; 
-    if(weight === 0) {
-      weight = 55;
-      deficit = 300
-    }
+    const {weight, deficit} = this.state.user;
+    const {activity, exercise, modifyOption} = this.state; 
+
     const protein = weight * 2; // protein fixes to 2 time weight
     const oil = weight * 1; // oil fixes to 1 time weight
 
@@ -190,6 +187,7 @@ class App extends Component{
     let dailyCarbon = [];
     const totalDeficit = parseInt(deficit) + parseInt(-modifyOption);// add modify part
 
+    console.log("weight, deficit, activity, exercise, modifyOption", weight, deficit, activity, exercise, modifyOption)
     // calculate day1-7
     for(let i=0; i<7; i++){
       // total calorie of that day (-deficit, plus speed up or slow down option)
@@ -205,7 +203,22 @@ class App extends Component{
       oil : oil,
       dailyCalorie : dailyCalorie,
       dailyCarbon : dailyCarbon    // "let" variable has a different color 
+    });
+    // save data to database
+    fetch('http://localhost:3000/calculate', {
+      method: 'post',
+      headers: 'Content-Type/ application/json',
+      body: JSON.stringify({
+        email: this.state.user.email,
+        deficit: deficit,
+        activity: activity,
+        exercise: exercise,
+        dailyCalorie : dailyCalorie,
+        dailyCarbon : dailyCarbon
+      })
     })
+    .then(response => response.json())
+    .then(result => console.log(result));
   }
 
   // choose next move to speed up or slow down, show options (-100/ +100...)
