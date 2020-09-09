@@ -34,7 +34,7 @@ const initialState = {
   isSignIn : false,
   route: 'home', // sign in, sign up, weight, activity, exercise, nutrition
 
-  deficit : 0,  // the first time user choosing deficit*****
+  deficitOption : 0,  // the first time user choosing deficit*****
   activity : [], // store week activity, like: ['0', '1', '0', '1', '0', '3', '2']
   exercise : [], // store week exercise, like: ['0', '1', '0', '1', '0', '3', '2']
   
@@ -121,7 +121,7 @@ class App extends Component{
     }
     // Calorie deficit part: 300/400/500
     else{
-      this.setState({deficit : event.target.value})
+      this.setState({deficitOption : event.target.value})
     }  
   }
 
@@ -177,17 +177,23 @@ class App extends Component{
 
   // do calculation and save to state
   calculateNutrition = () => {
-    const {weight, deficit, email} = this.state.user;
-    const {activity, exercise, modifyOption} = this.state; 
+    // 使用者非第一次登入，要直接看計算結果，此時this.state裡面不會有deficit, weight, 要從this.state.user抓過來
+    if(this.state.deficitOption === 0){
+      this.setState({
+        deficitOption: this.state.user.deficit,
+        weight: this.state.user.weight
+      })
+    }
+    const {weight, deficitOption, activity, exercise, modifyOption} = this.state; 
 
-    const protein = weight * 2; // protein fixes to 2 time weight
+    const protein = weight * 2; // protein fixes to 2 times weight
     const oil = weight * 1; // oil fixes to 1 time weight
 
     let dailyCalorie = [];
     let dailyCarbon = [];
-    const totalDeficit = parseInt(deficit) + parseInt(-modifyOption);// add modify part
+    const totalDeficit = parseInt(deficitOption) + parseInt(-modifyOption);
+    // saved deficitOption from last time + the modifyDeficti of next move = the new deficit
 
-    console.log("weight, deficit, activity, exercise, modifyOption", weight, deficit, activity, exercise, modifyOption)
     // calculate day1-7
     for(let i=0; i<7; i++){
       // total calorie of that day (-deficit, plus speed up or slow down option)
@@ -195,8 +201,6 @@ class App extends Component{
       // carbohydrate of that day
       dailyCarbon[i] = parseInt((dailyCalorie[i] - protein * 4 - oil * 9) / 4);
     }
-    console.log("dailyCalorie", dailyCalorie)
-    console.log("dailyCarbon ", dailyCarbon )
     // save these numbers
     this.setState({
       protein : protein,
@@ -204,13 +208,14 @@ class App extends Component{
       dailyCalorie : dailyCalorie,
       dailyCarbon : dailyCarbon    // "let" variable has a different color 
     });
+
     // save data to database
     fetch('http://localhost:3000/calculate', {
       method: 'put',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        email: email,
-        deficit: deficit,
+        email: this.user.email,
+        deficit: totalDeficit, //refresh user deficit with modify part
         activity: activity,
         exercise: exercise,
         dailyCalorie : dailyCalorie,
