@@ -177,7 +177,7 @@ class App extends Component{
 
   // do calculation and save to state
   calculateNutrition = () => {
-    const {weight, deficit} = this.state.user;
+    const {weight, deficit, email} = this.state.user;
     const {activity, exercise, modifyOption} = this.state; 
 
     const protein = weight * 2; // protein fixes to 2 time weight
@@ -206,10 +206,10 @@ class App extends Component{
     });
     // save data to database
     fetch('http://localhost:3000/calculate', {
-      method: 'post',
-      headers: 'Content-Type/ application/json',
+      method: 'put',
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        email: this.state.user.email,
+        email: email,
         deficit: deficit,
         activity: activity,
         exercise: exercise,
