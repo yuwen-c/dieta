@@ -1,12 +1,12 @@
 import React from 'react';
 import Distribution from './Distribution';
 
-const Nutrition = ({ email, onRouteChange, deficit, protein, oil, activity, exercise, dailyCalorie, dailyCarbon }) => {
+const Nutrition = ({ name, onRouteChange, deficit, protein, oil, activity, exercise, dailyCalorie, dailyCarbon }) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; 
     return(
         <div>
             <fieldset id="" className="bn">
-                <legend className="fw7 f4 pt3">{email}, your daily recommended intakes are:</legend>
+                <legend className="fw7 f4 pt3">{name}, your daily recommended intakes are:</legend>
                 <p className="pt0 pb2">Deficit : {deficit} Kcal</p>
                 {
                     dayArr.map(item => {

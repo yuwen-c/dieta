@@ -265,11 +265,6 @@ class App extends Component{
         dailyCarbon: Object.values(carbonObj)
       })
     });
-
-
-
-
-
   }
 
   // decide render components
@@ -323,10 +318,9 @@ class App extends Component{
                 />
       case 'nutrition':
         return <Nutrition
-                name = {this.state.user.name}
                 onRouteChange = {this.onRouteChange}
-                weight = {this.state.weight}
-                deficit = {this.state.deficit}
+                name = {this.state.user.name}
+                deficit = {this.state.user.deficit}
                 protein = {this.state.protein}
                 oil = {this.state.oil}
                 activity = {this.state.activity}
