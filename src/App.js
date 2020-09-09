@@ -79,7 +79,7 @@ class App extends Component{
     if(route === 'signin'){
       this.setState(initialState)
     }
-    else if(route === 'weight' ){
+    else if(route === 'description' ){
       this.setState({isSignIn : true})
     }
     this.setState({route : route});
