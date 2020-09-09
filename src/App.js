@@ -242,6 +242,36 @@ class App extends Component{
     this.setState({modifyOption: event.target.value});
   } 
 
+  // get calculation result of last time
+  getResult = () => {
+    const {weight} = this.state.user;
+    fetch('http://localhost:3000/result', {
+      method: 'post', 
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({email: this.state.user.email})
+    })
+    .then(response => response.json())
+    .then(result => {
+      const calorieObj = result.dailyCalorie;
+      const carbonObj = result.dailyCarbon;
+
+      delete calorieObj.userEmail;
+      delete carbonObj.userEmail;
+
+      this.setState({
+        protein: weight*2,
+        oil: weight,
+        dailyCalorie: Object.values(calorieObj),
+        dailyCarbon: Object.values(carbonObj)
+      })
+    });
+
+
+
+
+
+  }
+
   // decide render components
   renderSwitch = (route) => {
     switch (route){
@@ -332,6 +362,7 @@ class App extends Component{
           name = {this.state.user.name}
           onRouteChange = {this.onRouteChange}
           isSign = {this.state.isSignIn} 
+          getResult = {this.getResult}
         />
         <div className="pl3 pl5-ns mw6-ns">
           {this.renderSwitch(this.state.route)}

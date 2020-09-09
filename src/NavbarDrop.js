@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 // from https://react-bootstrap.github.io/components/navbar/
 
-const NavbarDrop = ({ isSign, name, onRouteChange }) => {
+const NavbarDrop = ({ isSign, onRouteChange, getResult }) => {
     return(
         <Navbar bg="light" expand="lg">
           <Navbar.Brand className="grow pointer"
@@ -18,7 +18,7 @@ const NavbarDrop = ({ isSign, name, onRouteChange }) => {
                 onClick={() => {onRouteChange('weight')}}
                 >Calculation</NavDropdown.Item>
                 <NavDropdown.Item 
-                onClick={() => {onRouteChange('nutrition')}}
+                onClick={() => {onRouteChange('nutrition'); getResult()}}
                 >Latest Result</NavDropdown.Item>
                 <NavDropdown.Item 
                 onClick={() => {onRouteChange('rate')}}>
