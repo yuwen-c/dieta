@@ -32,7 +32,7 @@ const initialState = {
   weight : 0,     // the first time user entering weight***
   BMR : 0,
   isSignIn : false,
-  route: 'home', // sign in, sign up, weight, activity, exercise, nutrition
+  route: 'home', // sign in, sign up, weight, activity, exercise, nutrition 新增 description, rate
 
   deficitOption : 0,  // the first time user choosing deficit*****
   activity : [], // store week activity, like: ['0', '1', '0', '1', '0', '3', '2']
@@ -74,7 +74,7 @@ class App extends Component{
     this.setState({BMR : bmr});
   } 
   
-  // set route and isSignIn state 
+  // set route and isSignIn state 如果登入有符合，或是註冊成功，isSignIn => true
   onRouteChange = (route) => {
     if(route === 'signin'){
       this.setState(initialState)
@@ -342,7 +342,7 @@ class App extends Component{
                 dailyCalorie = {this.state.dailyCalorie}
                 dailyCarbon = {this.state.dailyCarbon}
                 />
-      case 'rate':
+      case 'nextMove':
         return <div>
                   <RateCalculation/>
                   <NextMove
@@ -364,17 +364,18 @@ class App extends Component{
       <div>
         {/* <Navigation
         onRouteChange = {this.onRouteChange}
-        isSign = {this.state.isSignIn} 
+        isSignIn = {this.state.isSignIn} 
         /> */}
         <NavbarDrop
           name = {this.state.user.name}
           onRouteChange = {this.onRouteChange}
-          isSign = {this.state.isSignIn} 
+          isSignIn = {this.state.isSignIn} 
           getResult = {this.getResult}
         />
         <div className="pl3 pl5-ns mw6-ns">
           {this.renderSwitch(this.state.route)}
         </div>
+        {this.state.isSignIn.toString()}
       </div>
     )
   }
