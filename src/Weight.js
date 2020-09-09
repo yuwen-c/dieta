@@ -2,7 +2,7 @@ import React from 'react';
 import CalorieDeficit from './CalorieDeficit';
 import NextPage from './NextPage';
 
-const BodyWeight = ({onInputChange, onBMRCalculate, bmr, onRouteChange, onSendOption}) => {
+const Weight = ({onInputChange, onBMRCalculate, bmr, onRouteChange, onSendOption}) => {
     return(
       <div className="pa4 black-80">
         <legend className="fw7 f4 pv3">Start to calculate! <br/>Enter your body weight:</legend> 
@@ -38,4 +38,4 @@ const BodyWeight = ({onInputChange, onBMRCalculate, bmr, onRouteChange, onSendOp
     )
 }
 
-export default BodyWeight;
+export default Weight;

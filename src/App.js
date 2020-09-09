@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BodyWeight from './BodyWight';
+import Weight from './Weight';
 import Exercise from './Exercise';
 import Activity from './Activity';
 import Nutrition from './Nutrition';
@@ -25,16 +25,16 @@ const initialState = {
   user : {
     name: '',
     email: '',
-    weight: 0,
+    weight: 0,    //load user data after log in. weight, deficit got refreshed***
     deficit: 0
   },
 
-  weight : 0,
+  weight : 0,     // the first time user entering weight***
   BMR : 0,
   isSignIn : false,
   route: 'home', // sign in, sign up, weight, activity, exercise, nutrition
 
-  deficit : 0,
+  deficit : 0,  // the first time user choosing deficit*****
   activity : [], // store week activity, like: ['0', '1', '0', '1', '0', '3', '2']
   exercise : [], // store week exercise, like: ['0', '1', '0', '1', '0', '3', '2']
   
@@ -291,7 +291,7 @@ class App extends Component{
                 onRouteChange={this.onRouteChange}
                 />
       case 'weight':
-        return <BodyWeight
+        return <Weight
                 onInputChange = {this.onInputChange}
                 onBMRCalculate = {this.onBMRCalculate}
                 bmr = {this.state.BMR}
