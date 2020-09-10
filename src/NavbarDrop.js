@@ -4,13 +4,14 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 // from https://react-bootstrap.github.io/components/navbar/
 
-const NavbarDrop = ({ isSign, onRouteChange, getResult }) => {
+const NavbarDrop = ({ isSignIn, onRouteChange, getResult }) => {
     return(
         <Navbar bg="light" expand="lg">
           <Navbar.Brand className="grow pointer"
             onClick={() => {onRouteChange('home')}}          
            >Dieta</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">            
               <NavDropdown title="Menu" id="basic-nav-dropdown"> 
@@ -21,12 +22,12 @@ const NavbarDrop = ({ isSign, onRouteChange, getResult }) => {
                 onClick={getResult}
                 >Latest Result</NavDropdown.Item>
                 <NavDropdown.Item 
-                onClick={() => {onRouteChange('rate')}}>
+                onClick={() => {onRouteChange('nextMove')}}>
                 Next Move</NavDropdown.Item>
               </NavDropdown>
             </Nav>
               { 
-                !isSign ?  
+                !isSignIn ?  
               <Nav > 
                 <Nav.Link
                 onClick={() => {onRouteChange('signin')}}
