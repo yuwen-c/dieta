@@ -21,7 +21,7 @@ const Navigation = ({ isSign, email, onRouteChange }) => {
                 </svg>
                 <div className="dropdown-content">
                   <div
-                  onClick={() => {onRouteChange("weight")}}>Calculation</div>
+                  onClick={() => {onRouteChange("calculation")}}>Calculation</div>
                   <div
                   onClick={() => {onRouteChange('result')}}>Lastest Result</div>
                   <div>Next Move</div>

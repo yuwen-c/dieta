@@ -78,17 +78,26 @@ class App extends Component{
     this.setState({isSignIn : true});
   }
 
-  // set route and isSignIn state 如果登入有符合，或是註冊成功，isSignIn => true
+  // set route state
   onRouteChange = (route) => {
-    if(route === 'signin'){
-      this.setState(initialState)
-    }
-    // 設定：如果 未登入 就要去weight, 
-    if(route !== 'home' )
-    if(this.state.isSignIn){
-
-    }
-    this.setState({route : route});
+    // 1. 如果已登入，去哪裡都可以。
+    // if(this.state.isSignIn){   
+    //   this.setState({route : route});
+    // }
+    // // 2. 如果未登入，去某些地方時會被要求登入
+    // else{
+    //   if(route === 'calculation' || route === 'nextMove' || route === 'result'){
+    //     this.setState({route : 'signin'});
+    //   }
+    //   else{
+    //     this.setState({route : route});
+    //   }
+    // }
+    // // 3. 如果點了sign out, 或 sign in, 會被登出=> means, user被洗掉，route變回預設home
+    // if(route === 'signin'){      
+    //   this.setState(initialState)
+    //}
+    this.setState({route : route})
     window.scrollTo(0, 0); //scroll page to top 
   }
 
@@ -382,6 +391,8 @@ class App extends Component{
           {this.renderSwitch(this.state.route)}
         </div>
         {this.state.isSignIn.toString()}
+        <br/>
+        {this.state.route}
       </div>
     )
   }
