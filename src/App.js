@@ -74,14 +74,18 @@ class App extends Component{
     this.setState({BMR : bmr});
   } 
   
+  onIsSignIn = () => {
+    this.setState({isSignIn : true});
+  }
+
   // set route and isSignIn state 如果登入有符合，或是註冊成功，isSignIn => true
   onRouteChange = (route) => {
     if(route === 'signin'){
       this.setState(initialState)
     }
-    else if(route === 'description' ){
-      this.setState({isSignIn : true})
-    }
+    // else if(route === 'description' ){
+    //   this.setState({isSignIn : true})
+    // }
     this.setState({route : route});
     window.scrollTo(0, 0); //scroll page to top 
   }
@@ -292,17 +296,18 @@ class App extends Component{
                </div>
       case 'signin':
         return <SignIn
-                loadUser={this.loadUser}
-                onRouteChange={this.onRouteChange}
+                loadUser = {this.loadUser}
+                onRouteChange = {this.onRouteChange}
+                onIsSignIn = {this.onIsSignIn}
                 />
       case 'signup':
         return <SignUp
-                loadUser={this.loadUser}
-                onRouteChange={this.onRouteChange}
+                loadUser = {this.loadUser}
+                onRouteChange = {this.onRouteChange}
                 />
       case 'description':
         return <Description
-                onRouteChange={this.onRouteChange}
+                onRouteChange = {this.onRouteChange}
                 />
       case 'weight':
         return <Weight
@@ -375,7 +380,7 @@ class App extends Component{
         <div className="pl3 pl5-ns mw6-ns">
           {this.renderSwitch(this.state.route)}
         </div>
-        {/* {this.state.isSignIn.toString()} */}
+        {this.state.isSignIn.toString()}
       </div>
     )
   }

@@ -28,6 +28,7 @@ class SignIn extends Component{
             if(result.name){
                 this.props.loadUser(result); // refresh App user state
                 this.props.onRouteChange('description');
+                this.props.onIsSignIn();
             }
             else{
                 console.log('fail to sign in')
