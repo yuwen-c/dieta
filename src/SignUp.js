@@ -33,8 +33,11 @@ class SignUp extends Component{
             )
             .then(response => response.json())
             .then(result => {
-                this.props.loadUser(result);
-                this.props.onRouteChange('weight');
+                if(result.name){
+                    this.props.loadUser(result);
+                    this.props.onRouteChange('description');
+                    this.props.onIsSignIn();
+                }
             })
         }
         else{

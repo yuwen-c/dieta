@@ -22,7 +22,7 @@ const Home = ({onRouteChange}) => {
                 onClick={() => {onRouteChange('description')}} >
                 Learn More</p>
                 {/* <p className="f6 br-pill dark-green no-underline ba grow pv2 ph3 dib"
-                onClick={() => {onRouteChange('weight')}} >
+                onClick={() => {onRouteChange('calculation')}} >
                 Learn More</p>   */}
               </div>
             </article>            

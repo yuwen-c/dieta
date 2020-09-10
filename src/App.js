@@ -83,9 +83,11 @@ class App extends Component{
     if(route === 'signin'){
       this.setState(initialState)
     }
-    // else if(route === 'description' ){
-    //   this.setState({isSignIn : true})
-    // }
+    // 設定：如果 未登入 就要去weight, 
+    if(route !== 'home' )
+    if(this.state.isSignIn){
+
+    }
     this.setState({route : route});
     window.scrollTo(0, 0); //scroll page to top 
   }
@@ -257,7 +259,7 @@ class App extends Component{
     // first time loggin, no latest result 
     if(weight === 0){
       alert("No record! Why don't we do it from the beginning?");
-      this.onRouteChange('weight');
+      this.onRouteChange('calculation');
     }
     else{
       fetch('http://localhost:3000/result', {
@@ -304,12 +306,13 @@ class App extends Component{
         return <SignUp
                 loadUser = {this.loadUser}
                 onRouteChange = {this.onRouteChange}
+                onIsSignIn = {this.onIsSignIn}
                 />
       case 'description':
         return <Description
                 onRouteChange = {this.onRouteChange}
                 />
-      case 'weight':
+      case 'calculation':
         return <Weight
                 onInputChange = {this.onInputChange}
                 onBMRCalculate = {this.onBMRCalculate}
@@ -317,7 +320,6 @@ class App extends Component{
                 onRouteChange = {this.onRouteChange} 
                 onSendOption = {this.onSendOption} 
                 />
-
       case 'activity':
         return <Activity
                 onRouteChange = {this.onRouteChange}  

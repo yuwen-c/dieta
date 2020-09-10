@@ -16,7 +16,7 @@ const NavbarDrop = ({ isSignIn, onRouteChange, getResult }) => {
             <Nav className="mr-auto">            
               <NavDropdown title="Menu" id="basic-nav-dropdown"> 
                 <NavDropdown.Item 
-                onClick={() => {onRouteChange('weight')}}
+                onClick={() => {onRouteChange('calculation')}}
                 >Calculation</NavDropdown.Item>
                 <NavDropdown.Item 
                 onClick={getResult}
