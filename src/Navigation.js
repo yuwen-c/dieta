@@ -23,7 +23,7 @@ const Navigation = ({ isSign, email, onRouteChange }) => {
                   <div
                   onClick={() => {onRouteChange("weight")}}>Calculation</div>
                   <div
-                  onClick={() => {onRouteChange('nutrition')}}>Lastest Result</div>
+                  onClick={() => {onRouteChange('result')}}>Lastest Result</div>
                   <div>Next Move</div>
                 </div>
               </div>

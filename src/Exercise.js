@@ -52,7 +52,7 @@ const Exercise = ({onRouteChange, onSendOption, calculateNutrition, onLoadOption
                 </div>
                 <NextPage
                 // call two functions in onClick
-                onRouteChange={()=> {onRouteChange('nutrition'); calculateNutrition()} }
+                onRouteChange={()=> {onRouteChange('result'); calculateNutrition()} }
                 />
             </fieldset>
         </div>

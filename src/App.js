@@ -282,7 +282,7 @@ class App extends Component{
         dailyCarbon: Object.values(carbonObj)
         })
       });
-      this.onRouteChange('nutrition');
+      this.onRouteChange('result');
     }
 
   }
@@ -328,7 +328,6 @@ class App extends Component{
                 onLoadOptions = {this.onLoadOptions}  
                 optionCheckedState = {this.state.checkedActivity}
                 />
-
       case 'exercise':
         return <Exercise
                 onRouteChange = {this.onRouteChange}  
@@ -337,7 +336,7 @@ class App extends Component{
                 onLoadOptions = {this.onLoadOptions}  
                 optionCheckedState = {this.state.checkedExercise}
                 />
-      case 'nutrition':
+      case 'result':
         return <Nutrition
                 onRouteChange = {this.onRouteChange}
                 name = {this.state.user.name}
