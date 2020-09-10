@@ -375,7 +375,7 @@ class App extends Component{
         <div className="pl3 pl5-ns mw6-ns">
           {this.renderSwitch(this.state.route)}
         </div>
-        {this.state.isSignIn.toString()}
+        {/* {this.state.isSignIn.toString()} */}
       </div>
     )
   }
