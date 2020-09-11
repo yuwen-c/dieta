@@ -81,23 +81,23 @@ class App extends Component{
   // set route state
   onRouteChange = (route) => {
     // 1. 如果已登入，去哪裡都可以。
-    // if(this.state.isSignIn){   
-    //   this.setState({route : route});
-    // }
-    // // 2. 如果未登入，去某些地方時會被要求登入
-    // else{
-    //   if(route === 'calculation' || route === 'nextMove' || route === 'result'){
-    //     this.setState({route : 'signin'});
-    //   }
-    //   else{
-    //     this.setState({route : route});
-    //   }
-    // }
-    // // 3. 如果點了sign out, 或 sign in, 會被登出=> means, user被洗掉，route變回預設home
-    // if(route === 'signin'){      
-    //   this.setState(initialState)
-    //}
-    this.setState({route : route})
+    if(this.state.isSignIn){   
+      this.setState({route : route});
+    }
+    // 2. 如果未登入，去某些地方時會被要求登入
+    else{
+      if(route === 'calculation' || route === 'nextMove' || route === 'result'){
+        this.setState({route : 'signin'});
+      }
+      else{
+        this.setState({route : route});
+      }     
+    }
+    // 3. 點sign out => user被洗掉，route變回預設home, 但還是要倒回sign in page
+    if(route === 'signin'){      
+      this.setState(initialState);
+      this.setState({route : route});
+    }
     window.scrollTo(0, 0); //scroll page to top 
   }
 
