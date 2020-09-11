@@ -82,7 +82,7 @@ class App extends Component{
   onRouteChange = (route) => {
     // 1. 如果已登入，去哪裡都可以。
     if(this.state.isSignIn){ 
-      if(route === 'signin'){
+      if(route === 'signin'){ // 已登入狀態下點的是sign out
         this.setState(initialState);
       }
       else{
@@ -98,11 +98,6 @@ class App extends Component{
         this.setState({route : route});
       }     
     }
-    // // 3. 點sign out => user被洗掉，route變回預設home, 但還是要倒回sign in page
-    // if(route === 'signin'){      
-    //   this.setState(initialState);
-    //   this.setState({route : route});
-    // }
     window.scrollTo(0, 0); //scroll page to top 
   }
 
