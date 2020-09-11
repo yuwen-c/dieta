@@ -35,7 +35,7 @@ class SignUp extends Component{
             .then(result => {
                 if(result.name){
                     this.props.loadUser(result);
-                    this.props.onRouteChange('description');
+                    this.props.onRouteChange('howItWorks');
                     this.props.onIsSignIn();
                 }
             })

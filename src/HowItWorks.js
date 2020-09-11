@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Description = ({onRouteChange}) => {
+const HowItWorks = ({onRouteChange}) => {
     return(
         <div>
         <h5>提前計畫可以讓你的減脂更順利！</h5>
@@ -18,4 +18,4 @@ const Description = ({onRouteChange}) => {
     )
 }
 
-export default Description;
+export default HowItWorks;

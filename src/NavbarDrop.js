@@ -15,6 +15,9 @@ const NavbarDrop = ({ isSignIn, onRouteChange, getResult }) => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">            
               <NavDropdown title="Menu" id="basic-nav-dropdown"> 
+              <NavDropdown.Item 
+                onClick={() => {onRouteChange('howItWorks')}}
+                >How it works</NavDropdown.Item>
                 <NavDropdown.Item 
                 onClick={() => {onRouteChange('calculation')}}
                 >Calculation</NavDropdown.Item>

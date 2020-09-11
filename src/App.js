@@ -13,7 +13,7 @@ import RateCalculation from './RateCalculation';
 import NextMove from './NextMove';
 // import { act } from 'react-dom/test-utils';
 import NavbarDrop from './NavbarDrop';
-import Description from './Description';
+import HowItWorks from './HowItWorks';
 
 
 const initialchecked = 
@@ -317,8 +317,8 @@ class App extends Component{
                 onRouteChange = {this.onRouteChange}
                 onIsSignIn = {this.onIsSignIn}
                 />
-      case 'description':
-        return <Description
+      case 'howItWorks':
+        return <HowItWorks
                 onRouteChange = {this.onRouteChange}
                 />
       case 'calculation':
