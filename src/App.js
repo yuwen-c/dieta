@@ -14,6 +14,7 @@ import NextMove from './NextMove';
 // import { act } from 'react-dom/test-utils';
 import NavbarDrop from './NavbarDrop';
 import HowItWorks from './HowItWorks';
+import ExplanationCardList from './ExplanationCardList';
 
 
 const initialchecked = 
@@ -318,9 +319,10 @@ class App extends Component{
                 onIsSignIn = {this.onIsSignIn}
                 />
       case 'howItWorks':
-        return <HowItWorks
-                onRouteChange = {this.onRouteChange}
-                />
+        return <ExplanationCardList/>
+        // return <HowItWorks
+        //         onRouteChange = {this.onRouteChange}
+        //         />
       case 'calculation':
         return <Weight
                 onInputChange = {this.onInputChange}
