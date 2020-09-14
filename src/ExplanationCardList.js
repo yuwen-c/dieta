@@ -2,6 +2,9 @@ import React from 'react';
 import ExplanationCard from './ExplanationCard';
 import { howItWorks, howToUse} from './explanation';
 
+
+// 字體大小、字型、黃色padding大小、改變另一組card顏色
+// 背景容器顏色？ 標題做區隔？
 const ExplanationCardList = ( ) => {
     return(
         <div>
