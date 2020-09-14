@@ -1,6 +1,7 @@
 import React from 'react';
 import ExplanationCard from './ExplanationCard';
 import { howItWorks, howToUse} from './explanation';
+import './ExplanationCardList.css';
 
 
 // 字體大小、字型、黃色padding大小、改變另一組card顏色
@@ -8,7 +9,7 @@ import { howItWorks, howToUse} from './explanation';
 const ExplanationCardList = ( ) => {
     return(
         <div>
-            <div className="flex flex-wrap"> 
+            <div className="flex flex-wrap" id="yellow"> 
             {/* // JSX外面也要包<div></div> */}
             {
                 howItWorks.map((item, index) => {
@@ -22,7 +23,7 @@ const ExplanationCardList = ( ) => {
                 })
             }         
             </div>  
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap" id="blue">
             {
                 howToUse.map((item, index) => {
                     return(
