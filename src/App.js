@@ -229,7 +229,7 @@ class App extends Component{
       method: 'put',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        email: this.user.email,
+        email: this.state.user.email,
         deficit: totalDeficit, //refresh user deficit with modify part
         activity: activity,
         exercise: exercise,
