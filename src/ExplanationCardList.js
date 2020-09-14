@@ -1,34 +1,36 @@
 import React from 'react';
 import ExplanationCard from './ExplanationCard';
-import {titleY, descriptionY, titleB, descriptionB} from './explanation';
+import { howItWorks, howToUse} from './explanation';
 
 const ExplanationCardList = ( ) => {
     return(
         <div>
             <div className="flex flex-wrap"> 
             {/* // JSX外面也要包<div></div> */}
-               {
-                titleY.map((item, index) => {
+            {
+                howItWorks.map((item, index) => {
                     return(
                         <ExplanationCard
-                        key={item}
-                        title={item} 
-                        description={descriptionY[index]}                         
+                        key={item.title}
+                        title={item.title} 
+                        description={item.description}                         
                         />                
                     )
                 })
             }         
             </div>  
             <div className="flex flex-wrap">
-                {titleB.map((item, index) => {
+            {
+                howToUse.map((item, index) => {
                     return(
                         <ExplanationCard
-                        key={item}
-                        title={item}
-                        description={descriptionB[index]}
+                        key={item.title}
+                        title={item.title}
+                        description={item.description}
                         />
                     )
-                })}
+                })
+            }
             </div>          
         </div>
 

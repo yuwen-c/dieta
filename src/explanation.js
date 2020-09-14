@@ -17,7 +17,7 @@ export const howItWorks = [
     },
 ]
 
-export const HowToUse = [
+export const howToUse = [
     {
         title: 'Getting start',
         description: 'First step, enter your body weight and estimate your daily activity and exercise amount.'   
