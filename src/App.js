@@ -13,7 +13,6 @@ import RateCalculation from './RateCalculation';
 import NextMove from './NextMove';
 // import { act } from 'react-dom/test-utils';
 import NavbarDrop from './NavbarDrop';
-import HowItWorks from './HowItWorks';
 import ExplanationCardList from './ExplanationCardList';
 
 
@@ -389,7 +388,7 @@ class App extends Component{
           isSignIn = {this.state.isSignIn} 
           getResult = {this.getResult}
         />
-        <div className="pl3 pl5-ns mw6-ns">
+        <div className="pl3 pl5-ns ">
           {this.renderSwitch(this.state.route)}
         </div>
         {this.state.isSignIn.toString()}

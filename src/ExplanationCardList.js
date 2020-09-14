@@ -5,7 +5,7 @@ import {titleY, descriptionY, titleB, descriptionB} from './explanation';
 const ExplanationCardList = ( ) => {
     return(
         <div>
-            <div className="flex"> 
+            <div className="flex flex-wrap"> 
             {/* // JSX外面也要包<div></div> */}
                {
                 titleY.map((item, index) => {
@@ -19,7 +19,7 @@ const ExplanationCardList = ( ) => {
                 })
             }         
             </div>  
-            <div className="flex">
+            <div className="flex flex-wrap">
                 {titleB.map((item, index) => {
                     return(
                         <ExplanationCard
