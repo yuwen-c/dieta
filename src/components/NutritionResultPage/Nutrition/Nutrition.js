@@ -8,22 +8,25 @@ const Nutrition = ({ name, onRouteChange, deficit, protein, oil, activity, exerc
             <fieldset id="" className="bn">
                 <legend className="fw7 f4 pt3">{name}, your daily recommended intakes are:</legend>
                 <p className="pt0 pb2">Deficit : {deficit} Kcal</p>
-                {
-                    dayArr.map(item => {
-                        return (
-                            <Distribution
-                            key = {item}
-                            item = {item}
-                            protein = {protein}
-                            oil = {oil}
-                            activity = {activity}
-                            exercise = {exercise}
-                            dailyCalorie = {dailyCalorie}
-                            dailyCarbon = {dailyCarbon}
-                            />    
-                        )
-                  })
-                }
+                <div className="flex flex-wrap">
+                    {
+                        dayArr.map(item => {
+                            return (
+                                <Distribution
+                                key = {item}
+                                item = {item}
+                                protein = {protein}
+                                oil = {oil}
+                                activity = {activity}
+                                exercise = {exercise}
+                                dailyCalorie = {dailyCalorie}
+                                dailyCarbon = {dailyCarbon}
+                                />    
+                            )
+                          })
+                        }                    
+                </div>
+    
                 <div className="pv2">
                     <input 
                     className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
