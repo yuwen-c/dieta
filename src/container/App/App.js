@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import Weight from '../Weight/Weight';
-import Exercise from '../Exercise/Exercise';
-import Activity from '../Activity/Activity';
-import Nutrition from '../Nutrition/Nutrition';
-import SignIn from '../SignIn/SignIn';
-import SignUp from '../SignUp/SignUp';
-import Home from '../Home/Home';
+import Weight from '../../components/Weight/Weight';
+import Exercise from '../../components/Exercise/Exercise';
+import Activity from '../../components/Activity/Activity';
+import Nutrition from '../../components/Nutrition/Nutrition';
+import SignIn from '../../components/SignIn/SignIn';
+import SignUp from '../../components/SignUp/SignUp';
+import Home from '../../components/Home/Home';
 import './App.css';
-import RateCalculation from '../RateCalculation/RateCalculation';
-import NextMove from '../NextMove/NextMove';
+import RateCalculation from '../../components/RateCalculation/RateCalculation';
+import NextMove from '../../components/NextMove/NextMove';
 // import { act } from 'react-dom/test-utils';
-import NavbarDrop from '../NavbarDrop/NavbarDrop';
-import ExplanationCardList from '../ExplanationCardList/ExplanationCardList';
+import NavbarDrop from '../../components/NavbarDrop/NavbarDrop';
+import ExplanationCardList from '../../components/ExplanationCardList/ExplanationCardList';
 
 
 const initialchecked = 
