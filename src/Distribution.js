@@ -1,4 +1,5 @@
 import React from 'react';
+import './Distribution.css';
 
 const Distribution = ({ item, protein, oil, activity, exercise, dailyCalorie, dailyCarbon }) => {
     let amountA, amountE;
@@ -24,29 +25,39 @@ const Distribution = ({ item, protein, oil, activity, exercise, dailyCalorie, da
     }
     
     return (    
-        <div>
-            <h3 className="">Day {item}</h3>
-            <h4>{amountA} activity, {amountE} exercise.</h4>
-            <div className="">
-                <dl className="f5 lh-title mv2">
-                    <dt className="dib b">Protein:</dt>
-                    <dd className="dib ml1 near-gray">{protein} g</dd>
-                </dl>
-                <dl className="f5 lh-title mv2">
-                    <dt className="dib b">Oil:</dt>
-                    <dd className="dib ml1 near-gray">{oil} g</dd>
-                </dl>
-                <dl className="f5 lh-title mv2">
-                    <dt className="dib b">Carbohydrate:</dt>
-                    <dd className="dib ml1 near-gray">{dailyCarbon[item-1]} g</dd>
-                </dl>
-                <dl className="f5 lh-title mv2">
-                    <dt className="dib b">Total calorie: </dt>
-                    <dd className="dib ml1 near-gray">{dailyCalorie[item-1]} Kcal</dd>
-                </dl>   
-            </div>      
+        <div className="pa3">
+            <article className="ba  mw5 pv1 mv4 br2 b--light-silver shadow-1">
+                <div className="ph3">
+                    <div className="bg-green">
+                        <h3 >
+                            Day {item}
+                        </h3>      
+                    </div>
+                    <h4>{amountA} activity, {amountE} exercise.</h4>
+                    <div className="">
+                        <dl className="f5 lh-title mv2">
+                            <dt className="dib b">Protein:</dt>
+                            <dd className="dib ml1 near-gray">{protein} g</dd>
+                        </dl>
+                        <dl className="f5 lh-title mv2">
+                            <dt className="dib b">Oil:</dt>
+                            <dd className="dib ml1 near-gray">{oil} g</dd>
+                        </dl>
+                        <dl className="f5 lh-title mv2">
+                            <dt className="dib b">Carbohydrate:</dt>
+                            <dd className="dib ml1 near-gray">{dailyCarbon[item-1]} g</dd>
+                        </dl>
+                        <dl className="f5 lh-title mv2">
+                            <dt className="dib b">Total calorie: </dt>
+                            <dd className="dib ml1 near-gray">{dailyCalorie[item-1]} Kcal</dd>
+                        </dl>   
+                    </div>      
+                </div>
+            </article>           
         </div>
     )
 }
+
+
 
 export default Distribution;
