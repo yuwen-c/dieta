@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
-import Weight from './Weight';
-import Exercise from './Exercise';
-import Activity from './Activity';
-import Nutrition from './Nutrition';
-import SignIn from './SignIn';
-import SignUp from './SignUp';
-import Home from './Home';
+import Weight from '../Weight/Weight';
+import Exercise from '../Exercise/Exercise';
+import Activity from '../Activity/Activity';
+import Nutrition from '../Nutrition/Nutrition';
+import SignIn from '../SignIn/SignIn';
+import SignUp from '../SignUp/SignUp';
+import Home from '../Home/Home';
 import './App.css';
-
-// import Navigation from './Navigation';
-import RateCalculation from './RateCalculation';
-import NextMove from './NextMove';
+import RateCalculation from '../RateCalculation/RateCalculation';
+import NextMove from '../NextMove/NextMove';
 // import { act } from 'react-dom/test-utils';
-import NavbarDrop from './NavbarDrop';
-import ExplanationCardList from './ExplanationCardList';
+import NavbarDrop from '../NavbarDrop/NavbarDrop';
+import ExplanationCardList from '../ExplanationCardList/ExplanationCardList';
 
 
 const initialchecked = 

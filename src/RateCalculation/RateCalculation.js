@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-//import NextPage from './NextPage';
-import RateGuide from './RateGuide';
+import RateGuide from '../RateGuide/RateGuide';
 
 class RateCalculation extends Component{
   constructor(){

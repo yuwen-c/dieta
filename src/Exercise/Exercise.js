@@ -1,7 +1,7 @@
 import React from 'react';
-import Options from './Options';
-import LoadButton from './LoadButton';
-import NextPage from './NextPage';
+import Options from '../Options/Options';
+import LoadButton from '../LoadButton/LoadButton';
+import NextPage from '../NextPage/NextPage';
 
 const Exercise = ({onRouteChange, onSendOption, calculateNutrition, onLoadOptions, optionCheckedState}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; 

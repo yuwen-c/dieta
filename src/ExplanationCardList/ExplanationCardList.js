@@ -1,5 +1,5 @@
 import React from 'react';
-import ExplanationCard from './ExplanationCard';
+import ExplanationCard from '../ExplanationCard/ExplanationCard';
 import { howItWorks, howToUse} from './explanation';
 import './ExplanationCardList.css';
 

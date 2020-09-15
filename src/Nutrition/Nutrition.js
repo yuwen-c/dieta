@@ -1,5 +1,5 @@
 import React from 'react';
-import Distribution from './Distribution';
+import Distribution from '../Distribution/Distribution';
 
 const Nutrition = ({ name, onRouteChange, deficit, protein, oil, activity, exercise, dailyCalorie, dailyCarbon }) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; 
