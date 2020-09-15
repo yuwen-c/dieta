@@ -1,5 +1,5 @@
 import React from 'react';
-import NextPage from '../NextPage/NextPage';
+import NextPage from '../../NextPage/NextPage';
 import ModifyOptions from '../ModifyOptions/ModifyOptions';
 
 const NextMove = ({onModifyClick, modifySpeedUp, modifySlowDown, onSendModifyOption, onRouteChange}) => {

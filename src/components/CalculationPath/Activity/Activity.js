@@ -1,7 +1,7 @@
 import React from 'react';
 import Options from '../Options/Options';
 import LoadButton from '../LoadButton/LoadButton';
-import NextPage from '../NextPage/NextPage';
+import NextPage from '../../NextPage/NextPage';
 
 
 // onLoadOptions的參數竟然不用在最底層的onClick帶入！！

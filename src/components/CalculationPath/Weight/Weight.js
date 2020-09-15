@@ -1,6 +1,6 @@
 import React from 'react';
 import CalorieDeficit from '../CalorieDeficit/CalorieDeficit';
-import NextPage from '../NextPage/NextPage';
+import NextPage from '../../NextPage/NextPage';
 
 const Weight = ({onInputChange, onBMRCalculate, bmr, onRouteChange, onSendOption}) => {
     return(
