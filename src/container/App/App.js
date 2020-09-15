@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Weight from '../../components/CalculationPath/Weight/Weight';
 import Exercise from '../../components/CalculationPath/Exercise/Exercise';
 import Activity from '../../components/CalculationPath/Activity/Activity';
-import Nutrition from '../../components/Nutrition/Nutrition';
+import Nutrition from '../../components/NutritionResultPage/Nutrition/Nutrition';
 import SignIn from '../../components/SignIn/SignIn';
 import SignUp from '../../components/SignUp/SignUp';
 import Home from '../../components/Home/Home';
