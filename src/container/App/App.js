@@ -12,6 +12,7 @@ import NextMove from '../../components/NextMovePath/NextMove/NextMove';
 // import { act } from 'react-dom/test-utils';
 import NavbarDrop from '../../components/NavbarDrop/NavbarDrop';
 import ExplanationCardList from '../../components/HowItWorksPath/ExplanationCardList/ExplanationCardList';
+import TableExample from '../../components/CalculationPath/Table/Table';
 
 
 const initialchecked = 
@@ -387,11 +388,12 @@ class App extends Component{
           getResult = {this.getResult}
         />
         <div >
-          {this.renderSwitch(this.state.route)}
+          {/* {this.renderSwitch(this.state.route)} */}
         </div>
-        {this.state.isSignIn.toString()}
+        <TableExample/>
+        {/* {this.state.isSignIn.toString()} */}
         <br/>
-        {this.state.route}
+        {/* {this.state.route} */}
       </div>
     )
   }
