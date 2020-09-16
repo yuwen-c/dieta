@@ -1,0 +1,12 @@
+Table{
+    /* line-height: 1.75;    */
+}
+
+Td:nth-child(1){
+    font-weight: bold;
+    color: #333333 
+}
+
+td{
+    border: 1px solid #555555 ;
+}
