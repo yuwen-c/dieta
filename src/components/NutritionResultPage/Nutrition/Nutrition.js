@@ -7,7 +7,7 @@ const Nutrition = ({ name, onRouteChange, deficit, protein, oil, activity, exerc
         <div>
             <fieldset id="" className="bn">
                 <legend className="fw7 f4 pt3">{name}, your daily recommended intakes are:</legend>
-                <p className="pt0 pb2">Deficit : {deficit} Kcal</p>
+                <div className="">Deficit : {deficit} Kcal</div>
                 <div className="flex flex-wrap">
                     {
                         dayArr.map(item => {

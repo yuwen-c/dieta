@@ -26,7 +26,7 @@ const Distribution = ({ item, protein, oil, activity, exercise, dailyCalorie, da
     
     return (    
         <div id="cardDiv" className="pa3 dib w5">
-            <article className="ba  mw5 pv1 mv4 br2 b--light-silver shadow-1">
+            <article className="ba  mw5 pv1  br2 b--light-silver shadow-1">
                 <div className="ph3">
                     <div className="bg-green">
                         <h3 >

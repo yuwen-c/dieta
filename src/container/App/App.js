@@ -386,7 +386,7 @@ class App extends Component{
           isSignIn = {this.state.isSignIn} 
           getResult = {this.getResult}
         />
-        <div className="pl3 pl5-ns ">
+        <div >
           {this.renderSwitch(this.state.route)}
         </div>
         {this.state.isSignIn.toString()}
@@ -398,5 +398,5 @@ class App extends Component{
 
 }
 
-
+// className="pl3 pl5-ns "
 export default App;
