@@ -388,9 +388,9 @@ class App extends Component{
           getResult = {this.getResult}
         />
         <div >
-          {/* {this.renderSwitch(this.state.route)} */}
+          {this.renderSwitch(this.state.route)}
         </div>
-        <TableExample/>
+        {/* <TableExample/> */}
         {/* {this.state.isSignIn.toString()} */}
         <br/>
         {/* {this.state.route} */}

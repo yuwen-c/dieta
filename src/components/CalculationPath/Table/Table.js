@@ -2,6 +2,7 @@ import React from 'react';
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import './Table.css';
+
 const TableExample = () => {
   return (
     <Table>
