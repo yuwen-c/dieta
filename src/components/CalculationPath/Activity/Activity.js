@@ -2,23 +2,21 @@ import React from 'react';
 import Options from '../Options/Options';
 import LoadButton from '../LoadButton/LoadButton';
 import NextPage from '../../NextPage/NextPage';
-import Level from '../LevelTable/LevelTable';
-import {activityTableData } from '../LevelTable/TableData';
+import LevelTable from '../LevelTable/LevelTable';
 
 // onLoadOptions的參數竟然不用在最底層的onClick帶入！！
 const Activity = ({onRouteChange, onSendOption, onLoadOptions, optionCheckedState}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; 
-    console.log("activitydata", activityTableData)
     return( 
         <div> 
             <fieldset id="" className="bn">
-                <legend className="fw7 f4 pv3">choose your amount of activity per day this week</legend>      
-                <LoadButton
-                onLoadOptions={onLoadOptions}
+                <legend className="fw7 f4 pv3">Choose your amount of activity per day this week</legend>      
+                <LevelTable
+                    activity='activity'
                 />
-                <div>
-                <Level/>
-                </div>
+                <LoadButton
+                    onLoadOptions={onLoadOptions}
+                />
 {/* 在map裡面如果用optionState加[0]: TypeError: Cannot read property '1' of undefined (OPTIONS) */} 
 {/* 在options裡面加index, 與map裡面加index，只能擇一，否則出錯*/}
                 <div>

@@ -4,15 +4,14 @@ import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import './LevelTable.css';
 import { activityTableData, exerciseTableData } from './TableData';
 
-const LevelTable = () => {
-    // // console.log("activity", activity, "exercise", exercise)
-    // let tableDataArr = [];
-    // if(activity){
-    //     tableDataArr = activityTableData;
-    // }
-    // else if(exercise){
-    //     tableDataArr = exerciseTableData;
-    // }
+const LevelTable = (activity, exercise) => {
+    let tableDataArr = [];
+    if(activity){
+        tableDataArr = activityTableData;
+    }
+    else if(exercise){
+        tableDataArr = exerciseTableData;
+    }
 
     return (
         <div>
@@ -27,7 +26,7 @@ const LevelTable = () => {
                 </Thead>
                 <Tbody>
                 {
-                    activityTableData.map((item, index) => {
+                    tableDataArr.map((item, index) => {
                         return(                    
                             <Tr className="" key={item.Type}>
                               <Td><span role="img" aria-label={item.Type} className="pr2">{item.icon}</span>{item.Type}</Td>

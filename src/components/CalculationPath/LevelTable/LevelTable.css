@@ -1,7 +1,9 @@
 Table{
     /* line-height: 1.75;    */
 }
-
+th{
+    text-align: center;
+}
 Td:nth-child(1){
     font-weight: bold;
     color: #333333 
