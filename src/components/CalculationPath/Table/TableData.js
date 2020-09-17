@@ -1,4 +1,4 @@
-const ActivityTableData = [
+export const ActivityTableData = [
     {
         icon: '🐾',
         Type: 'Steps',
@@ -43,7 +43,7 @@ const ActivityTableData = [
     }
 ];
 
-const ExerciseTableData = [
+export const ExerciseTableData = [
     {
         icon: '🏋️',
         Type: 'Workout',
