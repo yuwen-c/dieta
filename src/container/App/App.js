@@ -12,8 +12,6 @@ import NextMove from '../../components/NextMovePath/NextMove/NextMove';
 // import { act } from 'react-dom/test-utils';
 import NavbarDrop from '../../components/NavbarDrop/NavbarDrop';
 import ExplanationCardList from '../../components/HowItWorksPath/ExplanationCardList/ExplanationCardList';
-import TableExample from '../../components/CalculationPath/Table/Table';
-
 
 const initialchecked = 
 [[false, false, false, false],[false, false, false, false],[false, false, false, false],
@@ -388,9 +386,9 @@ class App extends Component{
           getResult = {this.getResult}
         />
         <div >
-          {/* {this.renderSwitch(this.state.route)} */}
+          {this.renderSwitch(this.state.route)}
         </div>
-        <TableExample/>
+
         {/* {this.state.isSignIn.toString()} */}
         <br/>
         {/* {this.state.route} */}
