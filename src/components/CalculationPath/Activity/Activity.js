@@ -10,7 +10,7 @@ const Activity = ({onRouteChange, onSendOption, onLoadOptions, optionCheckedStat
     return( 
         <div> 
             <fieldset id="" className="bn">
-                <legend className="fw7 f4 pv3">Choose your amount of activity per day this week</legend>      
+                <legend className="fw7 f4 pt2">Choose your amount of activity per day this week</legend>      
                 <LevelTable
                     activity='activity'
                 />

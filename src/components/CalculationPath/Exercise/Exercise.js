@@ -2,37 +2,20 @@ import React from 'react';
 import Options from '../Options/Options';
 import LoadButton from '../LoadButton/LoadButton';
 import NextPage from '../../NextPage/NextPage';
+import LevelTable from '../LevelTable/LevelTable';
 
 const Exercise = ({onRouteChange, onSendOption, calculateNutrition, onLoadOptions, optionCheckedState}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; 
     return (
         <div>
             <fieldset id="" className="bn">
-                <legend className="fw7 f4 pv3">choose your amount of exercise this week</legend>
+                <legend className="fw7 f4 pt2">Choose your amount of exercise this week</legend>
+                <LevelTable
+                    exercise='exercise'
+                />                
                 <LoadButton
                     onLoadOptions={onLoadOptions}
                 />
-                <div className="">
-                    <dl className="f5 lh-title mv2">
-                        <dt className="dib b pb1">Low:</dt><br/>
-                        <dd className="dib ml0 near-gray">less than 12 sets workout</dd><br/>
-                        <dd className="dib ml0 near-gray">less than 0.5hr cardio</dd><br/>
-                        <dd className="f6 dib ml0 mid-gray">(one of these)</dd><br/>
-                    </dl>
-                    <dl className="f5 lh-title mv2">
-                        <dt className="dib b pb1">Middle:</dt><br/>
-                        <dd className="dib ml0 near-gray">15-20 sets workout</dd><br/>
-                        <dd className="dib ml0 near-gray">1hr cardio.</dd><br/>
-                        <dd className="f6 dib ml0 mid-gray">(one of these)</dd><br/>
-                    </dl>
-                    <dl className="f5 lh-title mv2">
-                        <dt className="dib b pb1">High:</dt><br/>
-                        <dd className="dib ml0 near-gray">25 sets workout</dd><br/>
-                        <dd className="dib ml0 near-gray">more than 1.5hr cardio</dd><br/>
-                        <dd className="f6 dib ml0 mid-gray">(one of these)</dd><br/>
-                    </dl>
-                </div>
-
                 <div>
                     {
                         dayArr.map((item, index) => {
@@ -61,3 +44,24 @@ const Exercise = ({onRouteChange, onSendOption, calculateNutrition, onLoadOption
 
 
 export default Exercise;
+
+{/* <div className="">
+<dl className="f5 lh-title mv2">
+    <dt className="dib b pb1">Low:</dt><br/>
+    <dd className="dib ml0 near-gray">less than 12 sets workout</dd><br/>
+    <dd className="dib ml0 near-gray">less than 0.5hr cardio</dd><br/>
+    <dd className="f6 dib ml0 mid-gray">(one of these)</dd><br/>
+</dl>
+<dl className="f5 lh-title mv2">
+    <dt className="dib b pb1">Middle:</dt><br/>
+    <dd className="dib ml0 near-gray">15-20 sets workout</dd><br/>
+    <dd className="dib ml0 near-gray">1hr cardio.</dd><br/>
+    <dd className="f6 dib ml0 mid-gray">(one of these)</dd><br/>
+</dl>
+<dl className="f5 lh-title mv2">
+    <dt className="dib b pb1">High:</dt><br/>
+    <dd className="dib ml0 near-gray">25 sets workout</dd><br/>
+    <dd className="dib ml0 near-gray">more than 1.5hr cardio</dd><br/>
+    <dd className="f6 dib ml0 mid-gray">(one of these)</dd><br/>
+</dl> */}
+// </div>
