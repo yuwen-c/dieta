@@ -18,7 +18,7 @@ const TableExample = () => {
                 </Thead>
                 <Tbody>
                 {
-                    ActivityTableData.map((item, index) => {
+                    ExerciseTableData.map((item, index) => {
                         return(                    
                             <Tr className="" key={item.Type}>
                               <Td><span role="img" aria-label={item.Type} className="pr2">{item.icon}</span>{item.Type}</Td>

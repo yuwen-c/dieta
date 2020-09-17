@@ -70,6 +70,6 @@ export const ExerciseTableData = [
         Type: 'Sports (ball, athletics...)',
         Low: '1 hr',
         Medium: '2 hr',
-        High: '-'
+        High: '--'
     },
 ];
