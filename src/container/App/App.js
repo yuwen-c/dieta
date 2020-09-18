@@ -308,11 +308,9 @@ class App extends Component{
   renderSwitch = (route) => {
     switch (route){
       case 'home':
-        return <div className="flex justify-center absolute">
-                <Home
+        return  <Home
                 onRouteChange = {this.onRouteChange} 
                 />
-               </div>
       case 'signin':
         return <SignIn
                 loadUser = {this.loadUser}

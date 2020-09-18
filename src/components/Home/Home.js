@@ -2,7 +2,7 @@ import React from 'react';
 
 const Home = ({onRouteChange}) => {
     return(
-        <div>
+        <div className="mt5">
             <article className="mw7 center ph3 ph5-ns tc br2 pv5 bg-washed-green dark-green mb5">
               <h1 className="fw6 f3 f2-ns lh-title mt0 mb3">
                 Your Calorie Calculator.
