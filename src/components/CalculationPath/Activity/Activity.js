@@ -6,7 +6,7 @@ import LevelTable from '../LevelTable/LevelTable';
 import {activityTableData} from '../LevelTable/TableData';
 
 // onLoadOptions的參數竟然不用在最底層的onClick帶入！！
-const Activity = ({onRouteChange, onSendOption, onLoadOptions, optionCheckedState}) => {
+const Activity = ({onRouteChange, onActExeAmount, onLoadOptions, optionCheckedState}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; 
     return( 
         <div> 
@@ -30,7 +30,7 @@ const Activity = ({onRouteChange, onSendOption, onLoadOptions, optionCheckedStat
                                         style={{'backgroundColor': '#A463F2'}}
                                         item={item}
                                         name={`activity${item}`}
-                                        onSendOption={onSendOption}
+                                        onActExeAmount={onActExeAmount}
                                         optionCheckedState={optionCheckedState[index]}
                                     />
                                     {/* <div>optionCheckedState:  {optionCheckedState[index].toString()}</div> */}

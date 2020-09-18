@@ -5,7 +5,7 @@ import NextPage from '../../NextPage/NextPage';
 import LevelTable from '../LevelTable/LevelTable';
 import {exerciseTableData} from '../LevelTable/TableData';
 
-const Exercise = ({onRouteChange, onSendOption, calculateNutrition, onLoadOptions, optionCheckedState}) => {
+const Exercise = ({onRouteChange, onActExeAmount, calculateNutrition, onLoadOptions, optionCheckedState}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; 
     return (
         <div>
@@ -26,7 +26,7 @@ const Exercise = ({onRouteChange, onSendOption, calculateNutrition, onLoadOption
                                         style={{'backgroundColor' : '#96CCFF'}}
                                         item={item}
                                         name={`exercise${item}`}
-                                        onSendOption={onSendOption}
+                                        onActExeAmount={onActExeAmount}
                                         optionCheckedState={optionCheckedState[index]}
                                     />
                                     {/* optionCheckedState: {optionCheckedState[index].toString()} */}
