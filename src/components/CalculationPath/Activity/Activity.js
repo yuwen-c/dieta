@@ -22,19 +22,20 @@ const Activity = ({onRouteChange, onSendOption, onLoadOptions, optionCheckedStat
 {/* 在map裡面如果用optionState加[0]: TypeError: Cannot read property '1' of undefined (OPTIONS) */} 
 {/* 在options裡面加index, 與map裡面加index，只能擇一，否則出錯*/}
                 <div>
-                     {
+                    {
                         dayArr.map((item, index) => {
                             return( 
-                                 <div key={item}> 
+                                <div key={item}> 
                                     <Options
+                                        style={{'background-color': '#A463F2'}}
                                         item={item}
                                         name={`activity${item}`}
                                         onSendOption={onSendOption}
                                         optionCheckedState={optionCheckedState[index]}
                                     />
                                     {/* <div>optionCheckedState:  {optionCheckedState[index].toString()}</div> */}
-                                 </div> 
-                             )
+                                </div> 
+                            )
                         })
                     }   
                 </div>

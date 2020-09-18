@@ -23,6 +23,7 @@ const Exercise = ({onRouteChange, onSendOption, calculateNutrition, onLoadOption
                             return (
                                 <div key={item}>
                                     <Options 
+                                        style={{'background-color' : '#96CCFF'}}
                                         item={item}
                                         name={`exercise${item}`}
                                         onSendOption={onSendOption}
