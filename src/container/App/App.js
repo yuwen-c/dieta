@@ -54,7 +54,7 @@ class App extends Component{
     this.state = initialState;
   }
 
-  // ========================== Sign In ==========================
+// ========================== Sign In ==========================
   // after sign in, load user to App state
   loadUser = (data) => {
     this.setState({user: data})
@@ -64,7 +64,7 @@ class App extends Component{
     this.setState({isSignIn : true});
   }
 
-  // ========================== Calculation Weight ==========================
+// ========================== Calculation Weight ==========================
   // get body weight
   onWeightChange = (event) => {
     this.setState({weight: event.target.value});
@@ -85,7 +85,7 @@ class App extends Component{
   }
   
 
-  // ========================== Routing ==========================
+// ========================== Routing ==========================
   // set route state
   onRouteChange = (route) => {
     // 1. 如果已登入，去哪裡都可以。
@@ -109,7 +109,7 @@ class App extends Component{
     window.scrollTo(0, 0); //scroll page to top 
   }
 
-  // ========================== Choose activity and exercise amount ==========================
+// ========================== Choose activity and exercise amount ==========================
   // 把原本的onClick改為onChange，按下之後，要把同一組其他的default設為false，再把自己的設為true
   // onclick, save amount options to state
   onActExeAmount = (event) => {
@@ -193,6 +193,7 @@ class App extends Component{
     return oneWeekArr;
   }
 
+// ========================== Calculate nutrition result ==========================
   // do calculation and save to state
   calculateNutrition = () => {
     // 使用者非第一次登入，要直接看計算結果，此時this.state裡面不會有deficit, weight, 要從this.state.user抓過來
@@ -245,8 +246,9 @@ class App extends Component{
     .then(result => console.log(result));
   }
 
+// ========================== Next Move ==========================
   // choose next move to speed up or slow down, show options (-100/ +100...)
-  onModifyClick = (event) => {
+  onModifySpeed = (event) => {
     if (event.target.value === 'Speed Up'){
       this.setState({
         modifySpeedUp : true,
@@ -366,7 +368,7 @@ class App extends Component{
         return <div>
                   <RateCalculation/>
                   <NextMove
-                    onModifyClick = {this.onModifyClick}
+                    onModifySpeed = {this.onModifySpeed}
                     modifySpeedUp = {this.state.modifySpeedUp}
                     modifySlowDown = {this.state.modifySlowDown}
                     onModifyDeficit = {this.onModifyDeficit}

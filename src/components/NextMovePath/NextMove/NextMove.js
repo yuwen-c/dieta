@@ -2,7 +2,7 @@ import React from 'react';
 import NextPage from '../../NextPage/NextPage';
 import ModifyOptions from '../ModifyOptions/ModifyOptions';
 
-const NextMove = ({onModifyClick, modifySpeedUp, modifySlowDown, onModifyDeficit, onRouteChange}) => {
+const NextMove = ({onModifySpeed, modifySpeedUp, modifySlowDown, onModifyDeficit, onRouteChange}) => {
     return(
         <div>
           <fieldset id="" className="bn">
@@ -28,7 +28,7 @@ const NextMove = ({onModifyClick, modifySpeedUp, modifySlowDown, onModifyDeficit
                   className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                   type="submit" 
                   value="Speed Up"
-                  onClick={onModifyClick}
+                  onClick={onModifySpeed}
                   />
                   <small id="name-desc" className="f6 black-60 db mb2">Enlarge calorie deficit, eat less.</small>
                 </div>
@@ -41,7 +41,7 @@ const NextMove = ({onModifyClick, modifySpeedUp, modifySlowDown, onModifyDeficit
                   className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                   type="submit" 
                   value="Slow Down"
-                  onClick={onModifyClick}
+                  onClick={onModifySpeed}
                   />
                   <small id="name-desc" className="f6 black-60 db mb2">Minimize calorie deficit, eat more.</small>
                 </div>
