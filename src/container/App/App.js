@@ -54,11 +54,17 @@ class App extends Component{
     this.state = initialState;
   }
 
+  // ========================== Sign In ==========================
   // after sign in, load user to App state
   loadUser = (data) => {
     this.setState({user: data})
   }
 
+  onIsSignIn = () => {
+    this.setState({isSignIn : true});
+  }
+
+  // ========================== Calculation Weight ==========================
   // get body weight
   onWeightChange = (event) => {
     this.setState({weight: event.target.value});
@@ -78,10 +84,8 @@ class App extends Component{
     this.setState(Object.assign(this.state.user, {deficit : event.target.value}))
   }
   
-  onIsSignIn = () => {
-    this.setState({isSignIn : true});
-  }
 
+  // ========================== Routing ==========================
   // set route state
   onRouteChange = (route) => {
     // 1. 如果已登入，去哪裡都可以。
@@ -105,12 +109,12 @@ class App extends Component{
     window.scrollTo(0, 0); //scroll page to top 
   }
 
+  // ========================== Choose activity and exercise amount ==========================
   // 把原本的onClick改為onChange，按下之後，要把同一組其他的default設為false，再把自己的設為true
   // onclick, save options to state
   onSendOption = (event) => {
     // if the returned name includes activity, then setState activity
     const index = (event.target.name).slice(-1); // get the latest letter of "activity1"
-    
     if(event.target.name.includes('activity')){
       // save option value to activity state
       let activityArr = this.state.activity.slice(); // use slice() to ensure we create a seperate copy of this.state.activity
@@ -136,7 +140,6 @@ class App extends Component{
       changedChecked[index-1] = [false, false, false, false];
       changedChecked[index-1][event.target.value] = true;
       this.setState({checkedExercise : changedChecked})      
-
     }
   }
 
