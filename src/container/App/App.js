@@ -9,7 +9,6 @@ import Home from '../../components/Home/Home';
 import './App.css';
 import RateCalculation from '../../components/NextMovePath/RateCalculation/RateCalculation';
 import NextMove from '../../components/NextMovePath/NextMove/NextMove';
-// import { act } from 'react-dom/test-utils';
 import NavbarDrop from '../../components/NavbarDrop/NavbarDrop';
 import ExplanationCardList from '../../components/HowItWorksPath/ExplanationCardList/ExplanationCardList';
 
@@ -61,8 +60,10 @@ class App extends Component{
   }
 
   // get body weight
-  onInputChange = (event) => {
+  onWeightChange = (event) => {
     this.setState({weight: event.target.value});
+    // 改存到user.weight
+    this.setState(Object.assign(this.state.user, {weight : event.target.value}))
   }
 
   // calculate BMR
@@ -321,7 +322,7 @@ class App extends Component{
         //         />
       case 'calculation':
         return <Weight
-                onInputChange = {this.onInputChange}
+                onWeightChange = {this.onWeightChange}
                 onBMRCalculate = {this.onBMRCalculate}
                 bmr = {this.state.BMR}
                 onRouteChange = {this.onRouteChange} 
@@ -388,7 +389,7 @@ class App extends Component{
         <div >
           {this.renderSwitch(this.state.route)}
         </div>
-
+{this.state.user.weight}
         {/* {this.state.isSignIn.toString()} */}
         <br/>
         {/* {this.state.route} */}
