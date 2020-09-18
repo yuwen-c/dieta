@@ -27,7 +27,7 @@ const Activity = ({onRouteChange, onSendOption, onLoadOptions, optionCheckedStat
                             return( 
                                 <div key={item}> 
                                     <Options
-                                        style={{'background-color': '#A463F2'}}
+                                        style={{'backgroundColor': '#A463F2'}}
                                         item={item}
                                         name={`activity${item}`}
                                         onSendOption={onSendOption}

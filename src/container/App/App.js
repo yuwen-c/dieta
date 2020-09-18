@@ -138,10 +138,6 @@ class App extends Component{
       this.setState({checkedExercise : changedChecked})      
 
     }
-    // // Calorie deficit part: 300/400/500
-    // else{
-    //   this.setState({deficitOption : event.target.value})
-    // }  
   }
 
   // load activity and exercise settings of last week
