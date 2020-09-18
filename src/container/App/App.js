@@ -247,7 +247,7 @@ class App extends Component{
   }
 
 // ========================== Next Move ==========================
-  // choose next move to speed up or slow down, show options (-100/ +100...)
+  // choose speed up or slow down and show options (-100/ +100...)
   onModifySpeed = (event) => {
     if (event.target.value === 'Speed Up'){
       this.setState({
@@ -263,11 +263,12 @@ class App extends Component{
     }
   } //event.target.value = Speed Up, name=X
 
-  // nextmove, choose speed up or slow down
+  // choose calorie option (-100/ +100...)
   onModifyDeficit = (event) => {
     this.setState({modifyDeficit: event.target.value});
   } 
 
+// ========================== Check Latest Nutrition Result ==========================
   // get latest calculation result
   getResult = () => {
     const {weight} = this.state.user
@@ -302,6 +303,7 @@ class App extends Component{
 
   }
 
+// ========================== Rendering ==========================
   // decide render components
   renderSwitch = (route) => {
     switch (route){
