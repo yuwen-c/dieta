@@ -2,17 +2,11 @@ import React from 'react';
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import './LevelTable.css';
-import { activityTableData, exerciseTableData } from './TableData';
 
-const LevelTable = (activity, exercise) => {
-    let tableDataArr = [];
-    if(activity){
-        tableDataArr = activityTableData;
-    }
-    else if(exercise){
-        tableDataArr = exerciseTableData;
-    }
-
+const LevelTable = (data) => {
+    // console.log("activity", activity, "exercise", exercise)
+    console.log("data",data)
+    console.log("data.data",data.data)
     return (
         <div>
             <Table>
@@ -26,7 +20,7 @@ const LevelTable = (activity, exercise) => {
                 </Thead>
                 <Tbody>
                 {
-                    tableDataArr.map((item, index) => {
+                    data.data.map((item, index) => {
                         return(                    
                             <Tr className="" key={item.Type}>
                               <Td><span role="img" aria-label={item.Type} className="pr2">{item.icon}</span>{item.Type}</Td>
@@ -42,7 +36,6 @@ const LevelTable = (activity, exercise) => {
         </div>
     );
 }
-
 
 export default LevelTable;
 
@@ -77,3 +70,11 @@ export default LevelTable;
         //   <Td>2h</Td>
         //   <Td>3h</Td>
         // </Tr>
+
+            // let tableDataArr = [];
+    // if(activity){
+    //     tableDataArr = activityTableData;
+    // }
+    // else if(exercise){
+    //     tableDataArr = exerciseTableData;
+    // }

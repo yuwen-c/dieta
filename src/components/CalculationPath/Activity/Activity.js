@@ -3,6 +3,7 @@ import Options from '../Options/Options';
 import LoadButton from '../LoadButton/LoadButton';
 import NextPage from '../../NextPage/NextPage';
 import LevelTable from '../LevelTable/LevelTable';
+import {activityTableData} from '../LevelTable/TableData';
 
 // onLoadOptions的參數竟然不用在最底層的onClick帶入！！
 const Activity = ({onRouteChange, onSendOption, onLoadOptions, optionCheckedState}) => {
@@ -12,8 +13,9 @@ const Activity = ({onRouteChange, onSendOption, onLoadOptions, optionCheckedStat
             <fieldset id="" className="bn">
                 <legend className="fw7 f4 pt2">Choose your amount of activity per day this week</legend>      
                 <LevelTable
-                    activity='activity'
+                    data={activityTableData}
                 />
+                {/* [{},{},{}] */}
                 <LoadButton
                     onLoadOptions={onLoadOptions}
                 />
@@ -47,28 +49,3 @@ const Activity = ({onRouteChange, onSendOption, onLoadOptions, optionCheckedStat
 
 export default Activity;
 
-// <div className="">
-// <dl className="f5 lh-title mv2">
-//   <dt className="dib b pb1">Low:</dt><br/>
-//   <dd className="dib ml0 near-gray">6,000 steps</dd><br/>
-//   <dd className="dib ml0 near-gray">30mins mounting/climbing stairs</dd><br/>
-//   <dd className="dib ml0 near-gray">1hr walking, house cleaning/biking</dd><br/>
-//   <dd className="f6 dib ml0 mid-gray">(one of these)</dd>
-// </dl>
-// <dl className="f5 lh-title mv2">
-//   <dt className="dib b pb1">Middle:</dt><br/>
-//   <dd className="dib ml0 near-gray">10,000 steps</dd><br/>
-//   <dd className="dib ml0 near-gray">1hr mounting/climbing stairs</dd><br/>
-//   <dd className="dib ml0 near-gray">2hr walking, house cleaning/biking</dd><br/>
-//   <dd className="f6 dib ml0 mid-gray">(one of these)</dd>
-
-
-// </dl>
-// <dl className="f5 lh-title mv2">
-//   <dt className="dib b pb1">High:</dt><br/>
-//   <dd className="dib ml0 near-gray">20,000 steps</dd><br/>
-//   <dd className="dib ml0 near-gray">2hr mounting/climbing stairs</dd><br/>
-//   <dd className="dib ml0 near-gray">3hr walking house cleaning/biking</dd><br/>
-//   <dd className="f6 dib ml0 mid-gray">(one of these)</dd>
-// </dl>
-// </div>

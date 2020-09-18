@@ -60,7 +60,7 @@ export const exerciseTableData = [
     },
     {
         icon: '🥊',
-        Type: 'HIIT',
+        Type: 'HIIT, Tabata',
         Low: '10 min',
         Medium: '20 min',
         High: '30 min'
