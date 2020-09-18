@@ -21,7 +21,7 @@ const Activity = ({onRouteChange, onSendOption, onLoadOptions, optionCheckedStat
                 />
 {/* 在map裡面如果用optionState加[0]: TypeError: Cannot read property '1' of undefined (OPTIONS) */} 
 {/* 在options裡面加index, 與map裡面加index，只能擇一，否則出錯*/}
-                <div>
+                <div className="flex flex-wrap">
                     {
                         dayArr.map((item, index) => {
                             return( 

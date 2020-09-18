@@ -17,7 +17,7 @@ const Exercise = ({onRouteChange, onSendOption, calculateNutrition, onLoadOption
                 <LoadButton
                     onLoadOptions={onLoadOptions}
                 />
-                <div>
+                <div className="flex flex-wrap">
                     {
                         dayArr.map((item, index) => {
                             return (
