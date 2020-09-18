@@ -111,7 +111,7 @@ class App extends Component{
 
   // ========================== Choose activity and exercise amount ==========================
   // 把原本的onClick改為onChange，按下之後，要把同一組其他的default設為false，再把自己的設為true
-  // onclick, save options to state
+  // onclick, save amount options to state
   onActExeAmount = (event) => {
     // if the returned name includes activity, then setState activity
     const index = (event.target.name).slice(-1); // get the latest letter of "activity1"
@@ -144,7 +144,7 @@ class App extends Component{
   }
 
   // load activity and exercise settings of last week
-  onLoadOptions = () => {
+  onLoadActExe = () => {
     if(this.state.route === 'activity'){
       fetch('http://localhost:3000/activity', {
         method: 'post',
@@ -339,7 +339,7 @@ class App extends Component{
                 onRouteChange = {this.onRouteChange}  
                 onActExeAmount = {this.onActExeAmount}
                 onChange={this.onChange}
-                onLoadOptions = {this.onLoadOptions}  
+                onLoadActExe = {this.onLoadActExe}  
                 optionCheckedState = {this.state.checkedActivity}
                 />
       case 'exercise':
@@ -347,7 +347,7 @@ class App extends Component{
                 onRouteChange = {this.onRouteChange}  
                 onActExeAmount = {this.onActExeAmount}
                 calculateNutrition = {this.calculateNutrition}
-                onLoadOptions = {this.onLoadOptions}  
+                onLoadActExe = {this.onLoadActExe}  
                 optionCheckedState = {this.state.checkedExercise}
                 />
       case 'result':

@@ -5,7 +5,7 @@ import NextPage from '../../NextPage/NextPage';
 import LevelTable from '../LevelTable/LevelTable';
 import {exerciseTableData} from '../LevelTable/TableData';
 
-const Exercise = ({onRouteChange, onActExeAmount, calculateNutrition, onLoadOptions, optionCheckedState}) => {
+const Exercise = ({onRouteChange, onActExeAmount, calculateNutrition, onLoadActExe, optionCheckedState}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; 
     return (
         <div>
@@ -15,7 +15,7 @@ const Exercise = ({onRouteChange, onActExeAmount, calculateNutrition, onLoadOpti
                     data={exerciseTableData}
                 />                
                 <LoadButton
-                    onLoadOptions={onLoadOptions}
+                    onLoadActExe={onLoadActExe}
                 />
                 <div className="flex flex-wrap">
                     {
