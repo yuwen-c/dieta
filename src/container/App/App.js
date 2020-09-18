@@ -25,12 +25,10 @@ const initialState = {
     deficit: 0
   },
 
-  weight : 0,     // the first time user entering weight***
   BMR : 0,
   isSignIn : false,
   route: 'home', // sign in, sign up, weight, activity, exercise, nutrition 新增 description, rate
 
-  deficitOption : 0,  // the first time user choosing deficit*****
   activity : [], // store week activity, like: ['0', '1', '0', '1', '0', '3', '2']
   exercise : [], // store week exercise, like: ['0', '1', '0', '1', '0', '3', '2']
   
@@ -67,8 +65,6 @@ class App extends Component{
 // ========================== Calculation Weight ==========================
   // get body weight
   onWeightChange = (event) => {
-    this.setState({weight: event.target.value});
-    // 改存到user.weight
     this.setState(Object.assign(this.state.user, {weight : event.target.value}))
   }
 
@@ -80,7 +76,6 @@ class App extends Component{
 
   // get deficit option
   onDeficitChange = (event) => {
-    // 改存到this.state.user
     this.setState(Object.assign(this.state.user, {deficit : event.target.value}))
   }
   
@@ -196,15 +191,8 @@ class App extends Component{
 // ========================== Calculate nutrition result ==========================
   // do calculation and save to state
   calculateNutrition = () => {
-    // 使用者非第一次登入，要直接看計算結果，此時this.state裡面不會有deficit, weight, 要從this.state.user抓過來
-    // if(this.state.deficitOption === 0){
-    //   this.setState({
-    //     deficitOption: this.state.user.deficit,
-    //     weight: this.state.user.weight
-    //   })
-    // }
     const {weight, deficit} = this.state.user;
-    const {deficitOption, activity, exercise, modifyDeficit} = this.state; 
+    const {activity, exercise, modifyDeficit} = this.state; 
 
     const protein = weight * 2; // protein fixes to 2 times weight
     const oil = weight * 1; // oil fixes to 1 time weight
@@ -212,8 +200,7 @@ class App extends Component{
     let dailyCalorie = [];
     let dailyCarbon = [];
     const totalDeficit = parseInt(deficit) + parseInt(-modifyDeficit);
-    // saved deficitOption from last time + the modifyDeficti of next move = the new deficit
-
+    // deficit from user data + the modifyDeficit of next move = the new deficit
     // calculate day1-7
     for(let i=0; i<7; i++){
       // total calorie of that day (-deficit, plus speed up or slow down option)
@@ -228,6 +215,7 @@ class App extends Component{
       dailyCalorie : dailyCalorie,
       dailyCarbon : dailyCarbon    // "let" variable has a different color 
     });
+    this.setState(Object.assign(this.state.user, {deficit: totalDeficit}));
 
     // save data to database
     fetch('http://localhost:3000/calculate', {
