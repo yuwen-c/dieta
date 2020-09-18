@@ -26,8 +26,8 @@ const Activity = ({onRouteChange, onSendOption, onLoadOptions, optionCheckedStat
                         dayArr.map((item, index) => {
                             return( 
                                  <div key={item}> 
-                                    <h4>Day {item}</h4>
                                     <Options
+                                        item={item}
                                         name={`activity${item}`}
                                         onSendOption={onSendOption}
                                         optionCheckedState={optionCheckedState[index]}

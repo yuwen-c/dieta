@@ -5,8 +5,8 @@ import './LevelTable.css';
 
 const LevelTable = (data) => {
     // console.log("activity", activity, "exercise", exercise)
-    console.log("data",data)
-    console.log("data.data",data.data)
+    // console.log("data",data)
+    // console.log("data.data",data.data)
     return (
         <div>
             <Table>

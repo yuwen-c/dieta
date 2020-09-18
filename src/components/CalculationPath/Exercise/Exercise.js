@@ -22,8 +22,8 @@ const Exercise = ({onRouteChange, onSendOption, calculateNutrition, onLoadOption
                         dayArr.map((item, index) => {
                             return (
                                 <div key={item}>
-                                    <h4>Day {item}</h4>
                                     <Options 
+                                        item={item}
                                         name={`exercise${item}`}
                                         onSendOption={onSendOption}
                                         optionCheckedState={optionCheckedState[index]}
