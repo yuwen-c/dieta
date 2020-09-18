@@ -2,7 +2,7 @@ import React from 'react';
 import NextPage from '../../NextPage/NextPage';
 import ModifyOptions from '../ModifyOptions/ModifyOptions';
 
-const NextMove = ({onModifyClick, modifySpeedUp, modifySlowDown, onSendModifyOption, onRouteChange}) => {
+const NextMove = ({onModifyClick, modifySpeedUp, modifySlowDown, onModifyDeficit, onRouteChange}) => {
     return(
         <div>
           <fieldset id="" className="bn">
@@ -34,7 +34,7 @@ const NextMove = ({onModifyClick, modifySpeedUp, modifySlowDown, onSendModifyOpt
                 </div>
                 <ModifyOptions
                   modifySpeedUp={modifySpeedUp}
-                  onSendModifyOption={onSendModifyOption}
+                  onModifyDeficit={onModifyDeficit}
                 />
                 <div className="pv2">
                   <input 
@@ -47,7 +47,7 @@ const NextMove = ({onModifyClick, modifySpeedUp, modifySlowDown, onSendModifyOpt
                 </div>
                 <ModifyOptions
                   modifySlowDown={modifySlowDown}
-                  onSendModifyOption={onSendModifyOption}
+                  onModifyDeficit={onModifyDeficit}
                 />
             </div>           
             <NextPage

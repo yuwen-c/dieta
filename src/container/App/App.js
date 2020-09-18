@@ -45,7 +45,7 @@ const initialState = {
 
   modifySpeedUp: false,
   modifySlowDown: false, 
-  modifyOption: 0,
+  modifyDeficit: 0,
 }
 
 class App extends Component{
@@ -193,20 +193,21 @@ class App extends Component{
   // do calculation and save to state
   calculateNutrition = () => {
     // 使用者非第一次登入，要直接看計算結果，此時this.state裡面不會有deficit, weight, 要從this.state.user抓過來
-    if(this.state.deficitOption === 0){
-      this.setState({
-        deficitOption: this.state.user.deficit,
-        weight: this.state.user.weight
-      })
-    }
-    const {weight, deficitOption, activity, exercise, modifyOption} = this.state; 
+    // if(this.state.deficitOption === 0){
+    //   this.setState({
+    //     deficitOption: this.state.user.deficit,
+    //     weight: this.state.user.weight
+    //   })
+    // }
+    const {weight, deficit} = this.state.user;
+    const {deficitOption, activity, exercise, modifyDeficit} = this.state; 
 
     const protein = weight * 2; // protein fixes to 2 times weight
     const oil = weight * 1; // oil fixes to 1 time weight
 
     let dailyCalorie = [];
     let dailyCarbon = [];
-    const totalDeficit = parseInt(deficitOption) + parseInt(-modifyOption);
+    const totalDeficit = parseInt(deficit) + parseInt(-modifyDeficit);
     // saved deficitOption from last time + the modifyDeficti of next move = the new deficit
 
     // calculate day1-7
@@ -258,8 +259,8 @@ class App extends Component{
   } //event.target.value = Speed Up, name=X
 
   // nextmove, choose speed up or slow down
-  onSendModifyOption = (event) => {
-    this.setState({modifyOption: event.target.value});
+  onModifyDeficit = (event) => {
+    this.setState({modifyDeficit: event.target.value});
   } 
 
   // get latest calculation result
@@ -365,7 +366,7 @@ class App extends Component{
                     onModifyClick = {this.onModifyClick}
                     modifySpeedUp = {this.state.modifySpeedUp}
                     modifySlowDown = {this.state.modifySlowDown}
-                    onSendModifyOption = {this.onSendModifyOption}
+                    onModifyDeficit = {this.onModifyDeficit}
                     onRouteChange = {this.onRouteChange}
                   />
                 </div>
@@ -391,9 +392,8 @@ class App extends Component{
         <div >
           {this.renderSwitch(this.state.route)}
         </div>
-{this.state.user.weight}
+{this.state.modifyDeficit}
 <br/>
-{this.state.user.deficit}
         {/* {this.state.isSignIn.toString()} */}
         <br/>
         {/* {this.state.route} */}
