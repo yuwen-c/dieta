@@ -2,7 +2,7 @@ import React from 'react';
 import CalorieDeficit from '../CalorieDeficit/CalorieDeficit';
 import NextPage from '../../NextPage/NextPage';
 
-const Weight = ({onWeightChange, onBMRCalculate, bmr, onRouteChange, onSendOption}) => {
+const Weight = ({onWeightChange, onBMRCalculate, bmr, onRouteChange, onDeficitChange}) => {
     return(
       <div className="pa4 black-80">
         <legend className="fw7 f4 pv3">Start to calculate! <br/>Enter your body weight:</legend> 
@@ -29,7 +29,7 @@ const Weight = ({onWeightChange, onBMRCalculate, bmr, onRouteChange, onSendOptio
         </div>
         <h6>Your BMR (Basal Metabolic Rate) is <span>{bmr}</span> Kcal.</h6>
         <CalorieDeficit
-          onSendOption={onSendOption}
+          onDeficitChange={onDeficitChange}
         />
         <NextPage
           onRouteChange={()=> {onRouteChange('activity')}}

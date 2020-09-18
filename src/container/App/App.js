@@ -67,10 +67,16 @@ class App extends Component{
   }
 
   // calculate BMR
-  onBMRCalculate = () =>{
+  onBMRCalculate = () => {
     const bmr = parseInt(this.state.weight*2.2*12);
     this.setState({BMR : bmr});
   } 
+
+  // get deficit option
+  onDeficitChange = (event) => {
+    // 改存到this.state.user
+    this.setState(Object.assign(this.state.user, {deficit : event.target.value}))
+  }
   
   onIsSignIn = () => {
     this.setState({isSignIn : true});
@@ -132,10 +138,10 @@ class App extends Component{
       this.setState({checkedExercise : changedChecked})      
 
     }
-    // Calorie deficit part: 300/400/500
-    else{
-      this.setState({deficitOption : event.target.value})
-    }  
+    // // Calorie deficit part: 300/400/500
+    // else{
+    //   this.setState({deficitOption : event.target.value})
+    // }  
   }
 
   // load activity and exercise settings of last week
@@ -326,7 +332,7 @@ class App extends Component{
                 onBMRCalculate = {this.onBMRCalculate}
                 bmr = {this.state.BMR}
                 onRouteChange = {this.onRouteChange} 
-                onSendOption = {this.onSendOption} 
+                onDeficitChange = {this.onDeficitChange} 
                 />
       case 'activity':
         return <Activity
@@ -390,6 +396,8 @@ class App extends Component{
           {this.renderSwitch(this.state.route)}
         </div>
 {this.state.user.weight}
+<br/>
+{this.state.user.deficit}
         {/* {this.state.isSignIn.toString()} */}
         <br/>
         {/* {this.state.route} */}
