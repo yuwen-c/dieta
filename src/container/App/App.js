@@ -106,36 +106,53 @@ class App extends Component{
 
 // ========================== Choose activity and exercise amount ==========================
   // 把原本的onClick改為onChange，按下之後，要把同一組其他的default設為false，再把自己的設為true
-  // onclick, save amount options to state
+  // onclick, 1. save option value to activity state, save checked (true/ false) to checked state.
   onActExeAmount = (event) => {
-    // if the returned name includes activity, then setState activity
-    const index = (event.target.name).slice(-1); // get the latest letter of "activity1"
-    if(event.target.name.includes('activity')){
-      // save option value to activity state
-      let activityArr = this.state.activity.slice(); // use slice() to ensure we create a seperate copy of this.state.activity
-      activityArr[index-1] = event.target.value; // save one option to the certain index of element
-      this.setState({activity : activityArr})
+    const index = (event.target.name).slice(-1); // get "1" of name: "activity1"
+    const type = (event.target.name).slice(0, -1); // get "activity" or "exercise" of name: "activity1"
+    const checkedStr = `checked`+ type.slice(0,1).toUpperCase()+type.slice(1); // get checkedActivity str or checkedExercise str
 
-      // modify checked state. 1: set 4 options to false, 2: set the one to true
-      let changedChecked = this.state.checkedActivity.slice(); //只有要改那一組option，不能複製整個initial
-      changedChecked[index-1] = [false, false, false, false];
-      changedChecked[index-1][event.target.value] = true;
-      this.setState({checkedActivity : changedChecked})
+    let copyTypeState = this.state[type].slice(); // "activity" or "exercise" state
+    copyTypeState[index-1] = event.target.value;
 
-    }
-    // exercise part
-    else if(event.target.name.includes('exercise')){
-      // save option value to state
-      let exerciseArr = this.state.exercise.slice(); // a new exercise state array
-      exerciseArr[index-1] = event.target.value;
-      this.setState({exercise : exerciseArr});
+    let copyCheckedState = this.state[checkedStr].slice(); // checkedActivity or checkedExercise state
+    copyCheckedState[index-1] = [false, false, false, false];
+    copyCheckedState[index-1][event.target.value] = true;
 
-      // modify checked state. 
-      let changedChecked = this.state.checkedExercise.slice(); 
-      changedChecked[index-1] = [false, false, false, false];
-      changedChecked[index-1][event.target.value] = true;
-      this.setState({checkedExercise : changedChecked})      
-    }
+    this.setState({
+      [type] : copyTypeState,  // activity or exercise state
+      [checkedStr] : copyCheckedState  // checkedActivity or checkedExercise state
+    })
+
+
+
+    // if(event.target.name.includes('activity')){
+    //   // save option value to activity state
+    //   let activityArr = this.state.activity.slice(); // use slice() to ensure we create a seperate copy of this.state.activity
+    //   activityArr[index-1] = event.target.value; // value="0", "1", "2", "3"
+    //   this.setState({activity : activityArr})
+
+    //   // use "checked" attribute to show chosen one
+    //   // modify checked state. 1: set 4 options to false, 2: set the one to true
+    //   let changedChecked = this.state.checkedActivity.slice(); //只有要改那一組option，不能複製整個initial
+    //   changedChecked[index-1] = [false, false, false, false];
+    //   changedChecked[index-1][event.target.value] = true;
+    //   this.setState({checkedActivity : changedChecked})
+
+    // }
+    // // exercise part
+    // else if(event.target.name.includes('exercise')){
+    //   // save option value to state
+    //   let exerciseArr = this.state.exercise.slice(); // a new exercise state array
+    //   exerciseArr[index-1] = event.target.value;
+    //   this.setState({exercise : exerciseArr});
+
+    //   // modify checked state. 
+    //   let changedChecked = this.state.checkedExercise.slice(); 
+    //   changedChecked[index-1] = [false, false, false, false];
+    //   changedChecked[index-1][event.target.value] = true;
+    //   this.setState({checkedExercise : changedChecked})      
+    // }
   }
 
   // load activity and exercise settings of last week
@@ -385,8 +402,13 @@ class App extends Component{
         <div >
           {this.renderSwitch(this.state.route)}
         </div>
-{this.state.modifyDeficit}
+{/* {this.state.activity}
 <br/>
+{this.state.checkedActivity.toString()}
+<br/>
+{this.state.exercise}
+<br/>
+{this.state.checkedExercise.toString()} */}
         {/* {this.state.isSignIn.toString()} */}
         <br/>
         {/* {this.state.route} */}
