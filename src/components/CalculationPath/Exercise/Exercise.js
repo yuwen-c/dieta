@@ -15,6 +15,7 @@ const Exercise = ({onRouteChange, onActExeAmount, calculateNutrition, onLoadActE
                     data={exerciseTableData}
                 />                
                 <LoadButton
+                    name='exercise'
                     onLoadActExe={onLoadActExe}
                 />
                 <div className="flex flex-wrap">

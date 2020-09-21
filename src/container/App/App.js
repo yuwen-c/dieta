@@ -123,40 +123,12 @@ class App extends Component{
       [type] : copyTypeState,  // activity or exercise state
       [checkedStr] : copyCheckedState  // checkedActivity or checkedExercise state
     })
-
-
-
-    // if(event.target.name.includes('activity')){
-    //   // save option value to activity state
-    //   let activityArr = this.state.activity.slice(); // use slice() to ensure we create a seperate copy of this.state.activity
-    //   activityArr[index-1] = event.target.value; // value="0", "1", "2", "3"
-    //   this.setState({activity : activityArr})
-
-    //   // use "checked" attribute to show chosen one
-    //   // modify checked state. 1: set 4 options to false, 2: set the one to true
-    //   let changedChecked = this.state.checkedActivity.slice(); //只有要改那一組option，不能複製整個initial
-    //   changedChecked[index-1] = [false, false, false, false];
-    //   changedChecked[index-1][event.target.value] = true;
-    //   this.setState({checkedActivity : changedChecked})
-
-    // }
-    // // exercise part
-    // else if(event.target.name.includes('exercise')){
-    //   // save option value to state
-    //   let exerciseArr = this.state.exercise.slice(); // a new exercise state array
-    //   exerciseArr[index-1] = event.target.value;
-    //   this.setState({exercise : exerciseArr});
-
-    //   // modify checked state. 
-    //   let changedChecked = this.state.checkedExercise.slice(); 
-    //   changedChecked[index-1] = [false, false, false, false];
-    //   changedChecked[index-1][event.target.value] = true;
-    //   this.setState({checkedExercise : changedChecked})      
-    // }
   }
 
   // load activity and exercise settings of last week
-  onLoadActExe = () => {
+  onLoadActExe = (event) => {
+    console.log(event.target.value) // Load setting of last week
+    console.log(event.target.name) //activity
     if(this.state.route === 'activity'){
       fetch('http://localhost:3000/activity', {
         method: 'post',

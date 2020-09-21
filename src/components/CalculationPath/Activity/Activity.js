@@ -17,6 +17,7 @@ const Activity = ({onRouteChange, onActExeAmount, onLoadActExe, optionCheckedSta
                 />
                 {/* [{},{},{}] */}
                 <LoadButton
+                    name='activity'
                     onLoadActExe={onLoadActExe}
                 />
 {/* 在map裡面如果用optionState加[0]: TypeError: Cannot read property '1' of undefined (OPTIONS) */} 
