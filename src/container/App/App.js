@@ -179,12 +179,12 @@ class App extends Component{
       // carbohydrate of that day
       dailyCarbon[i] = parseInt((dailyCalorie[i] - protein * 4 - oil * 9) / 4);
     }
-    // save these numbers
+    // save these numbers to state
     this.setState({
       protein : protein,
       oil : oil,
       dailyCalorie : dailyCalorie,
-      dailyCarbon : dailyCarbon    // "let" variable has a different color 
+      dailyCarbon : dailyCarbon    
     });
     this.setState(Object.assign(this.state.user, {deficit: totalDeficit}));
 
