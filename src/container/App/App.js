@@ -127,42 +127,24 @@ class App extends Component{
 
   // load activity and exercise settings of last week
   onLoadActExe = (event) => {
-    console.log(event.target.value) // Load setting of last week
-    console.log(event.target.name) //activity
-    if(this.state.route === 'activity'){
-      fetch('http://localhost:3000/activity', {
-        method: 'post',
-        headers: {'Content-Type' : 'application/json'},
-        body: JSON.stringify({email: this.state.user.email})
+    const type = event.target.name; //activity or exercise
+    const checkedStr = `checked`+ type.slice(0,1).toUpperCase()+type.slice(1); // get checkedActivity str or checkedExercise str
+
+    fetch(`http://localhost:3000/${type}`, {
+      method: 'post',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({email: this.state.user.email})
+    })
+    .then(response => response.json())
+    .then(result => {
+      delete result['userEmail'];
+      const optionArr = Object.values(result);
+      this.setState({
+        [type] : optionArr,
+        [checkedStr] : this.getWeekOption(optionArr)
+        // call getWeekOption function, set checked state 
       })
-      .then(response => response.json())
-      .then(result => {
-          delete result['userEmail'];
-          const optionArr = Object.values(result);
-          this.setState({
-            activity : optionArr,
-            checkedActivity : this.getWeekOption(optionArr)
-            // call getWeekOption function, set checked state 
-          });
-      });
-    }
-    else if(this.state.route === 'exercise'){
-      fetch('http://localhost:3000/exercise', {
-        method: 'post',
-        headers: {'Content-Type' : 'application/json'},
-        body: JSON.stringify({email: this.state.user.email})
-      })
-      .then(response => response.json())
-      .then(result => {
-          delete result['userEmail'];
-          const optionArr = Object.values(result);
-          this.setState({
-            exercise : optionArr,
-            checkedExercise : this.getWeekOption(optionArr)
-            // call getWeekOption function, set checked state 
-          });
-      });
-    }
+    })
   }
 
   // give the default false array, and set one of it (depends on database) to true
