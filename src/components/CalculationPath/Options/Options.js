@@ -1,4 +1,5 @@
 import React from 'react';
+import './Options.css';
 
 const Options = ({style, item, name, onActExeAmount, optionCheckedState}) => {
     // The for attribute of <label> must be equal to the id attribute of the related element 

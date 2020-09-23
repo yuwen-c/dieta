@@ -2,6 +2,7 @@ import React from 'react';
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import './LevelTable.css';
+// https://www.npmjs.com/package/react-super-responsive-table
 
 const LevelTable = (data) => {
     // console.log("activity", activity, "exercise", exercise)
