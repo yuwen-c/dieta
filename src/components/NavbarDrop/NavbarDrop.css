@@ -1,0 +1,6 @@
+.dropdown-item.active, .dropdown-item:active {
+    color: #212529;
+    text-decoration: none;
+    background-color: transparent;
+}
+/* to overwrite the bootstrap setting: chosen item has different css */

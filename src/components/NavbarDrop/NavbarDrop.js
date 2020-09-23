@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Navbar from 'react-bootstrap/Navbar';
 // from https://react-bootstrap.github.io/components/navbar/
+import './NavbarDrop.css';
 
 const NavbarDrop = ({ isSignIn, onRouteChange, getResult }) => {
     return(
