@@ -3,6 +3,25 @@ import React from 'react';
 // based on rate, showing guide on screen
 const RateGuide = ({rate}) => {
 
+    return(
+        <div id="cardDiv" className="pa3 w5">
+            <article className="ba pv1 br2 b--light-silver shadow-1">     
+                <div className="ph3">
+                    <div className="br2" style={{'backgroundColor' : '#96CCFF'}} >
+                        <h3>
+                        Lose 0.5% - 1% :
+                        </h3>      
+                    </div>  
+                    <p>
+                    Normal rate, keep going. 
+                    If you have been losing weight with this rate over 3 -4weeks, 
+                    a 2 - 7 day "break" is suggested.
+                    Add 200 - 400 Kcal per day during break.
+                    </p>
+                </div>
+            </article>   
+        </div>
+    )
     if(rate <= -0.005 && rate > -0.015){
         return(
             <div className="">

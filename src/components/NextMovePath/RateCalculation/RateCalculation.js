@@ -2,76 +2,86 @@ import React, { Component } from 'react';
 import RateGuide from '../RateGuide/RateGuide';
 
 class RateCalculation extends Component{
-  constructor(){
-    super();
-    this.state = {
-      weightThisWeek: 0,
-      weightLastWeek: 0,
-      rate: 0,
+    constructor(){
+        super();
+        this.state = {
+          weightThisWeek: 0,
+          weightLastWeek: 0,
+          rate: 0,
+        }
     }
-  }
 
-  onThisWeekInput = (event) => {
-    this.setState({weightThisWeek: event.target.value})
-  }
+    onThisWeekInput = (event) => {
+        this.setState({weightThisWeek: event.target.value})
+    }
 
-  onLastWeekInput = (event) => {
-    this.setState({weightLastWeek: event.target.value})
-  }
+    onLastWeekInput = (event) => {
+        this.setState({weightLastWeek: event.target.value})
+    }
 
-  rateCalculation = () => {
-    const {weightThisWeek, weightLastWeek} = this.state;
-    const rate = Math.round((weightThisWeek - weightLastWeek)/ weightLastWeek * 10000)/100
-    this.setState({rate: rate});
-    window.scrollTo(0, 300); //scroll page the guide part
-  }
+    rateCalculation = () => {
+        const {weightThisWeek, weightLastWeek} = this.state;
+        const rate = Math.round((weightThisWeek - weightLastWeek)/ weightLastWeek * 10000)/100
+        this.setState({rate: rate});
+        window.scrollTo(0, 300); //scroll page the guide part
+    }
 
 
-  render(){
-    return(
-        <div className="pa4 black-80">
-        <legend className="fw7 f4 pv3">Not sure about the next step?<br/>Calculate your losing rate then we'll tell you:</legend> 
- 
-            <div className="measure pv2">
-                <label htmlFor="name" className="f6 b db mb2">Average weight This Week 
-                  <span className="normal black-60"> kg</span>
-                </label>
-                <input id="weightThisWeek" 
-                className="input-reset ba b--black-60 pa2 mb2 db w-30" 
-                type="text" 
-                aria-describedby="name-desc"
-                onChange={this.onThisWeekInput}
+    render(){
+        return(
+            <div className="flex flex-column items-center">
+                <div id="cardDiv" className="pa3 w5">
+                    <article className="ba pv1 br2 b--light-silver shadow-1">     
+                        <div className="ph3">
+                            <div className="br2" style={{'backgroundColor' : '#96CCFF'}} >
+                                <h3>
+                                What's the next step? 
+                                </h3>      
+                            </div>  
+                            <div className="fw7 f8 ">Calculate your losing rate:</div> 
+                            <div className="measure">
+                                <label htmlFor="name" className="f6 b db mb2">Average weight This Week 
+                                  <span className="normal black-60"> kg</span>
+                                </label>
+                                <input id="weightThisWeek" 
+                                className="input-reset ba b--black-60 pa2 mb2 db w-40" 
+                                type="text" 
+                                aria-describedby="name-desc"
+                                onChange={this.onThisWeekInput}
+                                />
+                            </div>
+                            <div className="measure">
+                                <label htmlFor="name" className="f6 b db mb2">Average weight Last Week
+                                  <span className="normal black-60"> kg</span>
+                                </label>
+                                <input id="weightLastWeek" 
+                                className="input-reset ba b--black-60 pa2 mb2 db w-40" 
+                                type="text" 
+                                aria-describedby="name-desc"
+                                onChange={this.onLastWeekInput}
+                                />
+                            </div>
+        
+                            <div className="pb3">
+                              <input 
+                              className="ph3 pv2 input-reset ba b--black bg-transparent grow pointer b f6 dib" 
+                              type="submit" 
+                              value="submit"
+                              onClick={this.rateCalculation}
+                              />
+                            </div>
+        
+                            <p>weight change:<span className="pl1">{this.state.rate}</span> % last week.</p>
+
+                        </div>
+                    </article>   
+                </div>
+                <RateGuide
+                  rate={this.state.rate}
                 />
-              {/* <small id="name-desc" className="f6 black-60 db mb2">enter your body weight here</small> */}
             </div>
-
-            <div className="measure pv2">
-                <label htmlFor="name" className="f6 b db mb2">Average weight Last Week
-                  <span className="normal black-60"> kg</span>
-                </label>
-                <input id="weightLastWeek" 
-                className="input-reset ba b--black-60 pa2 mb2 db w-30" 
-                type="text" 
-                aria-describedby="name-desc"
-                onChange={this.onLastWeekInput}
-                />
-            </div>
-
-            <div className="pb3">
-              <input 
-              className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
-              type="submit" 
-              value="submit"
-              onClick={this.rateCalculation}
-              />
-            </div>
-            <h6>Your've got <span>{this.state.rate}</span> % weight changed last week.</h6>
-            <RateGuide
-              rate={this.state.rate}
-            />
-      </div>
-    )
-  }
+        )
+    }
 }
 
 export default RateCalculation;
