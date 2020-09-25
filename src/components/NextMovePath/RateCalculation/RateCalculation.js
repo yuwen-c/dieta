@@ -38,7 +38,7 @@ class RateCalculation extends Component{
         const rateNum = rate/100; // convert % -> normal number
 
         return(
-            <div className="flex flex-column items-center">
+            <div className="">
                 <div id="cardDiv" className="pa3 w5">
                     <article className="ba pv1 br2 b--light-silver shadow-1">     
                         <div className="ph3">

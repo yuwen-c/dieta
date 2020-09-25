@@ -324,7 +324,7 @@ class App extends Component{
                 dailyCarbon = {this.state.dailyCarbon}
                 />
       case 'nextMove':
-        return <div>
+        return <div className="flex flex-column items-center">
                   <RateCalculation/>
                   <NextMove
                     onModifySpeed = {this.onModifySpeed}
