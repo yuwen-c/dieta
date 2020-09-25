@@ -12,10 +12,12 @@ const RateGuide = ({rate}) => {
                         Lose 0.5% - 1% :
                         </h3>      
                     </div>  
-                    <p>
-                    Normal rate, keep going. 
+                    <div className=" b lh-copy pb2">Normal rate, keep going. </div>
+                    <p className="mb2"> 
                     If you have been losing weight with this rate over 3 -4weeks, 
                     a 2 - 7 day "break" is suggested.
+                    </p>
+                    <p>
                     Add 200 - 400 Kcal per day during break.
                     </p>
                 </div>

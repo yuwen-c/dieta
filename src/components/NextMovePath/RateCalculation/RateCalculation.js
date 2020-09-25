@@ -35,7 +35,7 @@ class RateCalculation extends Component{
                         <div className="ph3">
                             <div className="br2" style={{'backgroundColor' : '#96CCFF'}} >
                                 <h3>
-                                What's the next step? 
+                                What's the next? 
                                 </h3>      
                             </div>  
                             <div className="fw7 f8 ">Calculate your losing rate:</div> 
@@ -71,7 +71,7 @@ class RateCalculation extends Component{
                               />
                             </div>
         
-                            <p>weight change:<span className="pl1">{this.state.rate}</span> % last week.</p>
+                            <p><span className="pl1">{this.state.rate}</span> % weight change.</p>
 
                         </div>
                     </article>   
