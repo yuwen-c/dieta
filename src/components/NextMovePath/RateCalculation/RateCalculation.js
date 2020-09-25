@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import RateGuide from '../RateGuide/RateGuide';
+import {RateGuideSuggestions} from '../RateGuide/RateGuideSuggestions';
 
 class RateCalculation extends Component{
     constructor(){
         super();
         this.state = {
-          weightThisWeek: 0,
-          weightLastWeek: 0,
-          rate: 0,
+            showGuide: false, // show guide card after calculating rate
+            weightThisWeek: 0,
+            weightLastWeek: 0,
+            rate: 0, // % of losing rate
         }
     }
-
+// 如何判斷rate是尚未輸入的0，還是計算結果的0?
     onThisWeekInput = (event) => {
         this.setState({weightThisWeek: event.target.value})
     }
@@ -22,12 +24,19 @@ class RateCalculation extends Component{
     rateCalculation = () => {
         const {weightThisWeek, weightLastWeek} = this.state;
         const rate = Math.round((weightThisWeek - weightLastWeek)/ weightLastWeek * 10000)/100
-        this.setState({rate: rate});
-        window.scrollTo(0, 300); //scroll page the guide part
+        this.setState({
+            rate: rate,
+            showGuide: true
+        });
+        // window.scrollTo(0, 300); //scroll page the guide part
     }
 
 
+
     render(){
+        const {rate, showGuide} = this.state;
+        const rateNum = rate/100; // convert % -> normal number
+
         return(
             <div className="flex flex-column items-center">
                 <div id="cardDiv" className="pa3 w5">
@@ -76,9 +85,30 @@ class RateCalculation extends Component{
                         </div>
                     </article>   
                 </div>
+                {   //-0.5% ~ -1.5%
+                    (rateNum <= -0.005 && rateNum > -0.015) ?
+
                 <RateGuide
-                  rate={this.state.rate}
+                showGuide={showGuide}
+                RateGuideSuggestions={RateGuideSuggestions[0]}
                 />
+
+                :
+                    rateNum <= -0.015 ?  // -1.5% or more 
+
+                    <RateGuide
+                    showGuide={showGuide}
+                    RateGuideSuggestions={RateGuideSuggestions[1]}
+                    />
+
+                    :   // - less than 0.5%
+                        
+                    <RateGuide
+                    showGuide={showGuide}
+                    RateGuideSuggestions={RateGuideSuggestions[2]}
+                    />
+
+                }
             </div>
         )
     }
