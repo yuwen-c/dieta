@@ -1,3 +1,7 @@
 .App{
     /* padding-left: 20%; */
 }
+
+input{
+    border-radius: 0.125rem;
+}
