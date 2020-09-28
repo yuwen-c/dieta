@@ -38,8 +38,8 @@ class RateCalculation extends Component{
         const rateNum = rate/100; // convert % -> normal number
 
         return(
-            <div className="">
-                <div id="cardDiv" className="pa3 w5">
+            <div className="w5 w-70-ns">
+                <div id="cardDiv" className="pa3 ">
                     <article className="ba pv1 br2 b--light-silver shadow-1">     
                         <div className="ph3">
                             <div className="br2" style={{'backgroundColor' : '#96CCFF'}} >
@@ -53,7 +53,7 @@ class RateCalculation extends Component{
                                   <span className="normal black-60"> kg</span>
                                 </label>
                                 <input id="weightThisWeek" 
-                                className="input-reset ba b--black-60 pa2 mb2 db w-40" 
+                                className="input-reset ba b--black-60 pa2 mb2 db w3" 
                                 type="text" 
                                 aria-describedby="name-desc"
                                 onChange={this.onThisWeekInput}
@@ -64,7 +64,7 @@ class RateCalculation extends Component{
                                   <span className="normal black-60"> kg</span>
                                 </label>
                                 <input id="weightLastWeek" 
-                                className="input-reset ba b--black-60 pa2 mb2 db w-40" 
+                                className="input-reset ba b--black-60 pa2 mb2 db w3" 
                                 type="text" 
                                 aria-describedby="name-desc"
                                 onChange={this.onLastWeekInput}

@@ -6,7 +6,7 @@ import './Weight.css'
 const Weight = ({onWeightChange, onBMRCalculate, bmr, onRouteChange, onDeficitChange}) => {
     return(
         <div className="flex flex-column items-center">
-            <div id="cardDiv" className="pa3 w5">
+            <div id="cardDiv" className="pa3 w5 w-70-ns">
                 <article className="ba pv1 br2 b--light-silver shadow-1">     
                     <div className="ph3">
                         <div className="br2" style={{'backgroundColor' : '#96CCFF'}} >
@@ -40,8 +40,8 @@ const Weight = ({onWeightChange, onBMRCalculate, bmr, onRouteChange, onDeficitCh
                     </div>
                 </article>   
             </div>
-            <div id="cardDiv" className="pa3 dib w5">
-                <article className="ba  mw5 pv1 br2 b--light-silver shadow-1">
+            <div id="cardDiv" className="pa3 w5 w-70-ns">
+                <article className="ba pv1 br2 b--light-silver shadow-1">
                     <div className="ph3">
                         <CalorieDeficit
                         onDeficitChange={onDeficitChange}

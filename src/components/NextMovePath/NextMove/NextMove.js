@@ -4,7 +4,7 @@ import ModifyOptions from '../ModifyOptions/ModifyOptions';
 
 const NextMove = ({onModifySpeed, modifySpeedUp, modifySlowDown, onModifyDeficit, onRouteChange}) => {
     return(
-        <div id="cardDiv" className="pa3 w5">
+        <div id="cardDiv" className="pa3 w5 w-70-ns">
             <article className="ba pv1 br2 b--light-silver shadow-1">     
                 <div className="ph3">
                     <div className="br2" style={{'backgroundColor' : '#96CCFF'}} >
