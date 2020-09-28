@@ -2,7 +2,7 @@ import React from 'react';
 
 const NextPage = ({onRouteChange}) => {
     return(
-        <div className="pt2 pb3">
+        <div className="pv3" id="nextPageDiv">
             <input 
             className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
             type="submit" 

@@ -1,6 +1,6 @@
 export const activityTableData = [
     {
-        icon: '🐾',
+        icon: '👣',
         Type: 'Steps',
         Low: '6,000',
         Medium: '10,000',

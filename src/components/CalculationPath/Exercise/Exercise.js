@@ -4,13 +4,13 @@ import LoadButton from '../LoadButton/LoadButton';
 import NextPage from '../../NextPage/NextPage';
 import LevelTable from '../LevelTable/LevelTable';
 import {exerciseTableData} from '../LevelTable/TableData';
+import './Exercise.css';
 
 const Exercise = ({onRouteChange, onActExeAmount, calculateNutrition, onLoadActExe, optionCheckedState}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; 
     return (
-        <div>
-            <fieldset id="" className="bn">
-                <legend className="fw7 f4 pt2">Choose your amount of exercise this week</legend>
+        <div className="pa3" id="exerciseDiv">
+                <legend className="fw7 f4 pv3 ph2">Amount of exercise/ day</legend>
                 <LevelTable
                     data={exerciseTableData}
                 />                
@@ -40,7 +40,6 @@ const Exercise = ({onRouteChange, onActExeAmount, calculateNutrition, onLoadActE
                 // call two functions in onClick
                 onRouteChange={()=> {onRouteChange('result'); calculateNutrition()} }
                 />
-            </fieldset>
         </div>
     )
 }

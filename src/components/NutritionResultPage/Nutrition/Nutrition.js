@@ -4,10 +4,10 @@ import Distribution from '../Distribution/Distribution';
 const Nutrition = ({ name, onRouteChange, deficit, protein, oil, activity, exercise, dailyCalorie, dailyCarbon }) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; 
     return(
-        <div>
-            <fieldset id="" className="bn">
-                <legend className="fw7 f4 pt3">{name}, your daily recommended intakes are:</legend>
-                <div className="">Deficit : {deficit} Kcal</div>
+        <div className="pa3">
+            {/* <fieldset id="" className="bn"> */}
+                <legend className="fw7 f4 pv3 ph2">{name}, your daily recommended intakes are:</legend>
+                <div className="b ph2">Deficit : {deficit} Kcal</div>
                 <div className="flex flex-wrap">
                     {
                         dayArr.map(item => {
@@ -27,7 +27,7 @@ const Nutrition = ({ name, onRouteChange, deficit, protein, oil, activity, exerc
                         }                    
                 </div>
     
-                <div className="pv2">
+                <div className="pv3 ph2">
                     <input 
                     className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                     type="submit" 
@@ -35,7 +35,7 @@ const Nutrition = ({ name, onRouteChange, deficit, protein, oil, activity, exerc
                     onClick={() => {onRouteChange('signin')}}
                     />
                 </div> 
-            </fieldset>
+            {/* </fieldset> */}
         </div>
     )
 }

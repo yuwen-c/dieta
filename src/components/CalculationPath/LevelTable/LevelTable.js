@@ -9,7 +9,7 @@ const LevelTable = (data) => {
     // console.log("data",data)
     // console.log("data.data",data.data)
     return (
-        <div>
+        <div className="ph2 pb2">
             <Table>
                 <Thead>
                   <Tr className="white bg-mid-gray">
@@ -40,42 +40,3 @@ const LevelTable = (data) => {
 
 export default LevelTable;
 
-
-        // <Tr className="">
-        //   <Td><span className="pr2">⛰</span>Mounting</Td>
-        //   <Td>0.5h</Td>
-        //   <Td>1h</Td>
-        //   <Td>2h</Td>
-        // </Tr>
-        // <Tr className="">
-        //   <Td><span className="pr2">📶</span>Climbing stairs</Td>
-        //   <Td>0.5h</Td>
-        //   <Td>1h</Td>
-        //   <Td>2h</Td>
-        // </Tr>
-        // <Tr className="">
-        //   <Td><span className="pr2">🚶</span>Walking</Td>
-        //   <Td>1h</Td>
-        //   <Td>2h</Td>
-        //   <Td>3h</Td>
-        // </Tr>
-        // <Tr className="">
-        //   <Td><span className="pr2">🧹</span>House cleaning</Td>
-        //   <Td>1h</Td>
-        //   <Td>2h</Td>
-        //   <Td>3h</Td>
-        // </Tr>
-        // <Tr className="">
-        //   <Td><span className="pr2">🚴</span>Biking</Td>
-        //   <Td>1h</Td>
-        //   <Td>2h</Td>
-        //   <Td>3h</Td>
-        // </Tr>
-
-            // let tableDataArr = [];
-    // if(activity){
-    //     tableDataArr = activityTableData;
-    // }
-    // else if(exercise){
-    //     tableDataArr = exerciseTableData;
-    // }
