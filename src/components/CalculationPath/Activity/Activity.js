@@ -10,7 +10,7 @@ const Activity = ({onRouteChange, onActExeAmount, onLoadActExe, optionCheckedSta
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; 
     return( 
         <div className="pa3 flex flex-column items-center"> 
-            <legend className="fw7 f4 pv3 ph2 tc">Amount of activity/ day</legend>      
+            <legend className="fw7 f4 pv3 tc">Amount of activity/ day</legend>      
             <LevelTable         
                 data={activityTableData}
             />
@@ -25,16 +25,14 @@ const Activity = ({onRouteChange, onActExeAmount, onLoadActExe, optionCheckedSta
                     {
                         dayArr.map((item, index) => {
                             return( 
-                                <div key={item} className="center"> 
                                     <Options
+                                        key={item}
                                         style={{'backgroundColor': '#A463F2'}}
                                         item={item}
                                         name={`activity${item}`}
                                         onActExeAmount={onActExeAmount}
                                         optionCheckedState={optionCheckedState[index]}
                                     />
-                                    {/* <div>optionCheckedState:  {optionCheckedState[index].toString()}</div> */}
-                                </div> 
                             )
                         })
                     }   
@@ -48,4 +46,3 @@ const Activity = ({onRouteChange, onActExeAmount, onLoadActExe, optionCheckedSta
 
 
 export default Activity;
-

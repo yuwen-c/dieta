@@ -9,7 +9,7 @@ const Exercise = ({onRouteChange, onActExeAmount, calculateNutrition, onLoadActE
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; 
     return (
         <div className="pa3 flex flex-column items-center">
-                <legend className="fw7 f4 pv3 ph2 tc">Amount of exercise/ day</legend>
+                <legend className="fw7 f4 pv3 tc">Amount of exercise/ day</legend>
                 <LevelTable
                     data={exerciseTableData}
                 />                
@@ -21,16 +21,14 @@ const Exercise = ({onRouteChange, onActExeAmount, calculateNutrition, onLoadActE
                     {
                         dayArr.map((item, index) => {
                             return (
-                                <div key={item} className="center">
                                     <Options 
+                                        key={item}
                                         style={{'backgroundColor' : '#96CCFF'}}
                                         item={item}
                                         name={`exercise${item}`}
                                         onActExeAmount={onActExeAmount}
                                         optionCheckedState={optionCheckedState[index]}
                                     />
-                                    {/* optionCheckedState: {optionCheckedState[index].toString()} */}
-                                </div>
                             )
                         })
                     }
