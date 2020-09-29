@@ -8,7 +8,7 @@ import './ExplanationCardList.css';
 // 背景容器顏色？ 標題做區隔？
 const ExplanationCardList = ( ) => {
     return(
-        <div className="pa3">
+        <div className="">
             <div className="flex flex-wrap" id="yellow"> 
             {/* // JSX外面也要包<div></div> */}
             {

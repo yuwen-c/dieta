@@ -1,6 +1,6 @@
 export const howItWorks = [
     {
-        title: 'Why use this?',
+        title: 'Why use Dieta?',
         description: 'A weekly plan helps you loss weight easily!'
     },
     {
