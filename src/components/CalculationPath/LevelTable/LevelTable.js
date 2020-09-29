@@ -9,7 +9,7 @@ const LevelTable = (data) => {
     // console.log("data",data)
     // console.log("data.data",data.data)
     return (
-        <div className="ph2 pb2">
+        <div className="w-80">
             <Table>
                 <Thead>
                   <Tr className="white bg-mid-gray">

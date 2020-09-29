@@ -46,12 +46,12 @@ const Weight = ({onWeightChange, onBMRCalculate, bmr, onRouteChange, onDeficitCh
                         <CalorieDeficit
                         onDeficitChange={onDeficitChange}
                         />
-                        <NextPage
-                        onRouteChange={()=> {onRouteChange('activity')}}
-                        />
                     </div>
                 </article>   
             </div>
+            <NextPage
+            onRouteChange={()=> {onRouteChange('activity')}}
+            />
         </div>
     )
 }

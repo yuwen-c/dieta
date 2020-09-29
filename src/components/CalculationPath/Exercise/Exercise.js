@@ -4,13 +4,12 @@ import LoadButton from '../LoadButton/LoadButton';
 import NextPage from '../../NextPage/NextPage';
 import LevelTable from '../LevelTable/LevelTable';
 import {exerciseTableData} from '../LevelTable/TableData';
-import './Exercise.css';
 
 const Exercise = ({onRouteChange, onActExeAmount, calculateNutrition, onLoadActExe, optionCheckedState}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; 
     return (
-        <div className="pa3" id="exerciseDiv">
-                <legend className="fw7 f4 pv3 ph2">Amount of exercise/ day</legend>
+        <div className="pa3 flex flex-column items-center">
+                <legend className="fw7 f4 pv3 ph2 tc">Amount of exercise/ day</legend>
                 <LevelTable
                     data={exerciseTableData}
                 />                
@@ -22,7 +21,7 @@ const Exercise = ({onRouteChange, onActExeAmount, calculateNutrition, onLoadActE
                     {
                         dayArr.map((item, index) => {
                             return (
-                                <div key={item}>
+                                <div key={item} className="center">
                                     <Options 
                                         style={{'backgroundColor' : '#96CCFF'}}
                                         item={item}

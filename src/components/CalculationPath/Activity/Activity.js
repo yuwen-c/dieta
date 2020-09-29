@@ -4,14 +4,13 @@ import LoadButton from '../LoadButton/LoadButton';
 import NextPage from '../../NextPage/NextPage';
 import LevelTable from '../LevelTable/LevelTable';
 import {activityTableData} from '../LevelTable/TableData';
-import './Activity.css';
 
 // onLoadActExe的參數竟然不用在最底層的onClick帶入！！
 const Activity = ({onRouteChange, onActExeAmount, onLoadActExe, optionCheckedState}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; 
     return( 
-        <div className="pa3" id="activityDiv"> 
-            <legend className="fw7 f4 pv3 ph2">Amount of activity/ day</legend>      
+        <div className="pa3 flex flex-column items-center"> 
+            <legend className="fw7 f4 pv3 ph2 tc">Amount of activity/ day</legend>      
             <LevelTable         
                 data={activityTableData}
             />
@@ -26,7 +25,7 @@ const Activity = ({onRouteChange, onActExeAmount, onLoadActExe, optionCheckedSta
                     {
                         dayArr.map((item, index) => {
                             return( 
-                                <div key={item}> 
+                                <div key={item} className="center"> 
                                     <Options
                                         style={{'backgroundColor': '#A463F2'}}
                                         item={item}
