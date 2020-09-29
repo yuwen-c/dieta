@@ -8,7 +8,7 @@ import SignUp from '../../components/SignUp/SignUp';
 import Home from '../../components/Home/Home';
 import './App.css';
 import RateCalculation from '../../components/NextMovePath/RateCalculation/RateCalculation';
-import NextMove from '../../components/NextMovePath/NextMove/NextMove';
+// import NextMove from '../../components/NextMovePath/NextMove/NextMove';
 import NavbarDrop from '../../components/NavbarDrop/NavbarDrop';
 import ExplanationCardList from '../../components/HowItWorksPath/ExplanationCardList/ExplanationCardList';
 
@@ -284,9 +284,6 @@ class App extends Component{
                 />
       case 'howItWorks':
         return <ExplanationCardList/>
-        // return <HowItWorks
-        //         onRouteChange = {this.onRouteChange}
-        //         />
       case 'calculation':
         return <Weight
                 onWeightChange = {this.onWeightChange}
@@ -324,17 +321,13 @@ class App extends Component{
                 dailyCarbon = {this.state.dailyCarbon}
                 />
       case 'nextMove':
-        return <div className="flex flex-column items-center">
-                  <RateCalculation/>
-                  <NextMove
-                    onModifySpeed = {this.onModifySpeed}
-                    modifySpeedUp = {this.state.modifySpeedUp}
-                    modifySlowDown = {this.state.modifySlowDown}
-                    onModifyDeficit = {this.onModifyDeficit}
-                    onRouteChange = {this.onRouteChange}
-                  />
-                </div>
-      
+        return  <RateCalculation
+                onModifySpeed = {this.onModifySpeed}
+                modifySpeedUp = {this.state.modifySpeedUp}
+                modifySlowDown = {this.state.modifySlowDown}
+                onModifyDeficit = {this.onModifyDeficit}
+                onRouteChange = {this.onRouteChange}
+                />
       default:
         return 
     }

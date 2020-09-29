@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import NextMove from '../NextMove/NextMove';
+import NextPage from '../../NextPage/NextPage';
 import RateGuide from '../RateGuide/RateGuide';
 import {RateGuideSuggestions} from '../RateGuide/RateGuideSuggestions';
 
@@ -38,77 +40,95 @@ class RateCalculation extends Component{
         const rateNum = rate/100; // convert % -> normal number
 
         return(
-            <div className="w5 w-70-ns">
-                <div id="cardDiv" className="pa3 ">
-                    <article className="ba pv1 br2 b--light-silver shadow-1">     
+            <div className="flex flex-column items-center">
+                <div className="w5 w-70-ns">
+                    <div id="cardDiv" className="pa3 ">
+                        <article className="ba pv1 br2 b--light-silver shadow-1">     
+                            <div className="ph3">
+                                <div className="br2" style={{'backgroundColor' : '#96CCFF'}} >
+                                    <h3>
+                                    What's the next? 
+                                    </h3>      
+                                </div>  
+                                <div className="fw7 f8 ">Calculate your losing rate:</div> 
+                                <div className="measure">
+                                    <label htmlFor="name" className="f6 b db mb2">Average weight This Week 
+                                      <span className="normal black-60"> kg</span>
+                                    </label>
+                                    <input id="weightThisWeek" 
+                                    className="input-reset ba b--black-60 pa2 mb2 db w3" 
+                                    type="text" 
+                                    aria-describedby="name-desc"
+                                    onChange={this.onThisWeekInput}
+                                    />
+                                </div>
+                                <div className="measure">
+                                    <label htmlFor="name" className="f6 b db mb2">Average weight Last Week
+                                      <span className="normal black-60"> kg</span>
+                                    </label>
+                                    <input id="weightLastWeek" 
+                                    className="input-reset ba b--black-60 pa2 mb2 db w3" 
+                                    type="text" 
+                                    aria-describedby="name-desc"
+                                    onChange={this.onLastWeekInput}
+                                    />
+                                </div>
+            
+                                <div className="pb3">
+                                  <input 
+                                  className="ph3 pv2 input-reset ba b--black bg-transparent grow pointer b f6 dib" 
+                                  type="submit" 
+                                  value="submit"
+                                  onClick={this.rateCalculation}
+                                  />
+                                </div>
+            
+                                <p><span className="pl1">{this.state.rate}</span> % weight change.</p>
+            
+                            </div>
+                        </article>   
+                    </div>
+                    {   //-0.5% ~ -1.5%
+                        (rateNum <= -0.005 && rateNum > -0.015) ?
+                    
+                    <RateGuide
+                    showGuide={showGuide}
+                    RateGuideSuggestions={RateGuideSuggestions[0]}
+                    />
+    
+                    :
+                        rateNum <= -0.015 ?  // -1.5% or more 
+                    
+                        <RateGuide
+                        showGuide={showGuide}
+                        RateGuideSuggestions={RateGuideSuggestions[1]}
+                        />
+    
+                        :   // - less than 0.5%
+                            
+                        <RateGuide
+                        showGuide={showGuide}
+                        RateGuideSuggestions={RateGuideSuggestions[2]}
+                        />
+    
+                    }
+                </div>
+                <div id="cardDiv" className="pa3 w5 w-70-ns">
+                    <article className="ba pv1 br2 b--light-silver shadow-1">
                         <div className="ph3">
-                            <div className="br2" style={{'backgroundColor' : '#96CCFF'}} >
-                                <h3>
-                                What's the next? 
-                                </h3>      
-                            </div>  
-                            <div className="fw7 f8 ">Calculate your losing rate:</div> 
-                            <div className="measure">
-                                <label htmlFor="name" className="f6 b db mb2">Average weight This Week 
-                                  <span className="normal black-60"> kg</span>
-                                </label>
-                                <input id="weightThisWeek" 
-                                className="input-reset ba b--black-60 pa2 mb2 db w3" 
-                                type="text" 
-                                aria-describedby="name-desc"
-                                onChange={this.onThisWeekInput}
-                                />
-                            </div>
-                            <div className="measure">
-                                <label htmlFor="name" className="f6 b db mb2">Average weight Last Week
-                                  <span className="normal black-60"> kg</span>
-                                </label>
-                                <input id="weightLastWeek" 
-                                className="input-reset ba b--black-60 pa2 mb2 db w3" 
-                                type="text" 
-                                aria-describedby="name-desc"
-                                onChange={this.onLastWeekInput}
-                                />
-                            </div>
-        
-                            <div className="pb3">
-                              <input 
-                              className="ph3 pv2 input-reset ba b--black bg-transparent grow pointer b f6 dib" 
-                              type="submit" 
-                              value="submit"
-                              onClick={this.rateCalculation}
-                              />
-                            </div>
-        
-                            <p><span className="pl1">{this.state.rate}</span> % weight change.</p>
-
+                            <NextMove
+                            onModifySpeed = {this.props.onModifySpeed}
+                            modifySpeedUp = {this.props.modifySpeedUp}
+                            modifySlowDown = {this.props.modifySlowDown}
+                            onModifyDeficit = {this.props.onModifyDeficit}
+                            onRouteChange = {this.props.onRouteChange}
+                            />
                         </div>
                     </article>   
                 </div>
-                {   //-0.5% ~ -1.5%
-                    (rateNum <= -0.005 && rateNum > -0.015) ?
-
-                <RateGuide
-                showGuide={showGuide}
-                RateGuideSuggestions={RateGuideSuggestions[0]}
+                <NextPage
+                onRouteChange={()=> {this.props.onRouteChange('activity')}}
                 />
-
-                :
-                    rateNum <= -0.015 ?  // -1.5% or more 
-
-                    <RateGuide
-                    showGuide={showGuide}
-                    RateGuideSuggestions={RateGuideSuggestions[1]}
-                    />
-
-                    :   // - less than 0.5%
-                        
-                    <RateGuide
-                    showGuide={showGuide}
-                    RateGuideSuggestions={RateGuideSuggestions[2]}
-                    />
-
-                }
             </div>
         )
     }
