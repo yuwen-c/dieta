@@ -3,9 +3,9 @@ import React from 'react';
 
 const LoadButton = ({name, onLoadActExe}) => {
     return(
-        <div className="mv3">
+        <div className="ma3">
             <input 
-            className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f5 dib" 
+            className="b pv2 input-reset ba b--black bg-transparent grow pointer f5 dib" 
             type="submit" value="Load setting of last week"
             name={name}
             onClick={onLoadActExe}
