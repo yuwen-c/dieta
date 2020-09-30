@@ -25,7 +25,8 @@ class SignUp extends Component{
     onSignUp = () => {
         const {name, email, password} = this.state;
         if(name && email && password){
-            fetch('http://localhost:3000/signup', {
+            fetch('https://gentle-badlands-25513.herokuapp.com/signup', {
+            // fetch('http://localhost:3000/signup', {
                 method: 'post', 
                 headers: {'Content-Type' : 'application/json'},
                 body : JSON.stringify(this.state)

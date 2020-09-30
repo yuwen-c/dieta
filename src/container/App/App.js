@@ -130,7 +130,8 @@ class App extends Component{
     const type = event.target.name; //activity or exercise
     const checkedStr = `checked`+ type.slice(0,1).toUpperCase()+type.slice(1); // get checkedActivity str or checkedExercise str
 
-    fetch(`http://localhost:3000/${type}`, {
+    fetch(`https://gentle-badlands-25513.herokuapp.com/${type}`, {
+    // fetch(`http://localhost:3000/${type}`, {
       method: 'post',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({email: this.state.user.email})
@@ -189,7 +190,8 @@ class App extends Component{
     this.setState(Object.assign(this.state.user, {deficit: totalDeficit}));
 
     // save data to database
-    fetch('http://localhost:3000/calculate', {
+    fetch('https://gentle-badlands-25513.herokuapp.com/calculate', {
+    // fetch('http://localhost:3000/calculate', {
       method: 'put',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -237,7 +239,8 @@ class App extends Component{
       this.onRouteChange('calculation');
     }
     else{
-      fetch('http://localhost:3000/result', {
+      fetch('https://gentle-badlands-25513.herokuapp.com/result', {
+      // fetch('http://localhost:3000/result', {
         method: 'post', 
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({email: this.state.user.email})

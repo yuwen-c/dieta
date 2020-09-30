@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 class SignIn extends Component{
-    constructor(props){
-        super(props);
+    constructor(){
+        super();
         this.state = {
             email: '', 
             password: ''
@@ -18,7 +18,8 @@ class SignIn extends Component{
     }
 
     onSignIn = () => {
-        fetch('http://localhost:3000/signin', {
+        fetch('https://gentle-badlands-25513.herokuapp.com/signin', {
+        // fetch('http://localhost:3000/signin', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(this.state)
