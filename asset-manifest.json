@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/dieta/static/css/main.fe17d250.chunk.css",
-    "main.js": "/dieta/static/js/main.208ddc45.chunk.js",
-    "main.js.map": "/dieta/static/js/main.208ddc45.chunk.js.map",
+    "main.js": "/dieta/static/js/main.5025ce07.chunk.js",
+    "main.js.map": "/dieta/static/js/main.5025ce07.chunk.js.map",
     "runtime-main.js": "/dieta/static/js/runtime-main.26a46b36.js",
     "runtime-main.js.map": "/dieta/static/js/runtime-main.26a46b36.js.map",
     "static/css/2.240481f6.chunk.css": "/dieta/static/css/2.240481f6.chunk.css",
     "static/js/2.ed78316e.chunk.js": "/dieta/static/js/2.ed78316e.chunk.js",
     "static/js/2.ed78316e.chunk.js.map": "/dieta/static/js/2.ed78316e.chunk.js.map",
     "index.html": "/dieta/index.html",
-    "precache-manifest.4302e7beff6f90489e09b717f7bebc4b.js": "/dieta/precache-manifest.4302e7beff6f90489e09b717f7bebc4b.js",
+    "precache-manifest.7717b0b87fb258fd6a8b4d3a12d2ab33.js": "/dieta/precache-manifest.7717b0b87fb258fd6a8b4d3a12d2ab33.js",
     "service-worker.js": "/dieta/service-worker.js",
     "static/css/2.240481f6.chunk.css.map": "/dieta/static/css/2.240481f6.chunk.css.map",
     "static/css/main.fe17d250.chunk.css.map": "/dieta/static/css/main.fe17d250.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.240481f6.chunk.css",
     "static/js/2.ed78316e.chunk.js",
     "static/css/main.fe17d250.chunk.css",
-    "static/js/main.208ddc45.chunk.js"
+    "static/js/main.5025ce07.chunk.js"
   ]
 }
