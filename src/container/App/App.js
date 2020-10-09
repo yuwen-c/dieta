@@ -163,7 +163,7 @@ class App extends Component{
 // ========================== Calculate nutrition result ==========================
   // do calculation and save to state
   calculateNutrition = () => {
-    const {weight, deficit} = this.state.user;
+    const {email, weight, deficit} = this.state.user;
     const {activity, exercise, modifyDeficit} = this.state; 
 
     const protein = weight * 2; // protein fixes to 2 times weight
@@ -190,12 +190,13 @@ class App extends Component{
     this.setState(Object.assign(this.state.user, {deficit: totalDeficit}));
 
     // save data to database
-    fetch('https://gentle-badlands-25513.herokuapp.com/calculate', {
-    // fetch('http://localhost:3000/calculate', {
+    // fetch('https://gentle-badlands-25513.herokuapp.com/calculate', {
+    fetch('http://localhost:3000/calculate', {
       method: 'put',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        email: this.state.user.email,
+        email: email,
+        weight: weight,
         deficit: totalDeficit, //refresh user deficit with modify part
         activity: activity,
         exercise: exercise,
