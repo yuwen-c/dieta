@@ -65,7 +65,7 @@ class App extends Component{
 // ========================== Calculation Weight ==========================
   // get body weight
   onWeightChange = (event) => {
-    this.setState(Object.assign(this.state.user, {weight : event.target.value}))
+    this.setState(Object.assign(this.state.user, {weight : parseInt(event.target.value)}))
   }
 
   // calculate BMR
@@ -76,7 +76,7 @@ class App extends Component{
 
   // get deficit option
   onDeficitChange = (event) => {
-    this.setState(Object.assign(this.state.user, {deficit : event.target.value}))
+    this.setState(Object.assign(this.state.user, {deficit : parseInt(event.target.value)}))
   }
   
 
@@ -165,7 +165,7 @@ class App extends Component{
   calculateNutrition = () => {
     const {email, weight, deficit} = this.state.user;
     const {activity, exercise, modifyDeficit} = this.state; 
-
+    
     const protein = weight * 2; // protein fixes to 2 times weight
     const oil = weight * 1; // oil fixes to 1 time weight
 
