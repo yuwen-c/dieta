@@ -4,21 +4,21 @@ import './Distribution.css';
 const Distribution = ({ item, protein, oil, activity, exercise, dailyCalorie, dailyCarbon }) => {
     let amountA, amountE;
 // show activity and exercise here, turn number to string
-    if(activity[item-1] === '0') {
+    if(activity[item-1] === 0) {
         amountA = 'Rare';
-    }else if (activity[item-1] === '1'){
+    }else if (activity[item-1] === 1){
         amountA = 'Low';
-    }else if(activity[item-1] === '2'){
+    }else if(activity[item-1] === 2){
         amountA = 'Medium';
     }else{
         amountA = 'High';
     }  
     
-    if(exercise[item-1] === '0') {
+    if(exercise[item-1] === 0) {
         amountE = 'Rare';
-    }else if (exercise[item-1] === '1'){
+    }else if (exercise[item-1] === 1){
         amountE = 'Low';
-    }else if(exercise[item-1] === '2'){
+    }else if(exercise[item-1] === 2){
         amountE = 'Medium';
     }else{
         amountE = 'High';

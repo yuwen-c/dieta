@@ -241,7 +241,6 @@ class App extends Component{
   getResult = () => {
     const {weight} = this.state.user
     // first time loggin, no latest result 
-    console.log("getresult", this.state.user)
     if(weight === 0){
       alert("No record! Why don't we do it from the beginning?");
       this.onRouteChange('calculation');
@@ -257,25 +256,24 @@ class App extends Component{
       .then(result => {
 
         console.log(result);
-        const calorieObj = result.userCalorie;
-        const carbonObj = result.userCarbon;
+        const {userCalorie, userCarbon, userActivity, userExercise} = result;
 
-        console.log(calorieObj, carbonObj)
-        delete calorieObj.userEmail;
-        delete carbonObj.userEmail;
+        delete userCalorie.email;
+        delete userCarbon.email;
+        delete userActivity.email;
+        delete userExercise.email;
 
         this.setState({
-        protein: weight*2,
-        oil: weight,
-        dailyCalorie: Object.values(calorieObj),
-        dailyCarbon: Object.values(carbonObj)
-        })
+          protein: weight*2,
+          oil: weight,
+          dailyCalorie: Object.values(userCalorie),
+          dailyCarbon: Object.values(userCarbon),
+          activity: Object.values(userActivity),
+          exercise: Object.values(userExercise) 
+          })
       });
       this.onRouteChange('result');
     }
-
-
-    // 發現少了activity, exercise資料！！！！！！！！
   }
 
 // ========================== Rendering ==========================
