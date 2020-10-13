@@ -130,21 +130,26 @@ class App extends Component{
     const type = event.target.name; //activity or exercise
     const checkedStr = `checked`+ type.slice(0,1).toUpperCase()+type.slice(1); // get checkedActivity str or checkedExercise str
 
-    fetch(`https://gentle-badlands-25513.herokuapp.com/${type}`, {
-    // fetch(`http://localhost:3000/${type}`, {
+    // fetch(`https://gentle-badlands-25513.herokuapp.com/${type}`, {
+    fetch(`http://localhost:3000/${type}`, {
       method: 'post',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({email: this.state.user.email})
     })
     .then(response => response.json())
     .then(result => {
-      delete result['userEmail'];
-      const optionArr = Object.values(result);
-      this.setState({
-        [type] : optionArr,
-        [checkedStr] : this.getWeekOption(optionArr)
-        // call getWeekOption function, set checked state 
-      })
+      if(result==="No saved record! please choose the options."){
+        alert(result);
+      }
+      else{      
+        delete result['email'];
+        const optionArr = Object.values(result);
+        this.setState({
+          [type] : optionArr,
+          [checkedStr] : this.getWeekOption(optionArr)
+          // call getWeekOption function, set checked state 
+        })
+      }
     })
   }
 
@@ -152,6 +157,7 @@ class App extends Component{
   // then return a 7 days 2-dimentional array
   getWeekOption = (database) => {
     let oneWeekArr = [];
+    console.log(database);
     for(let i=0; i<7; i++){
       let oneDayArr = [false, false, false, false];
       oneDayArr[database[i]] = true;
@@ -235,22 +241,26 @@ class App extends Component{
   getResult = () => {
     const {weight} = this.state.user
     // first time loggin, no latest result 
+    console.log("getresult", this.state.user)
     if(weight === 0){
       alert("No record! Why don't we do it from the beginning?");
       this.onRouteChange('calculation');
     }
     else{
-      fetch('https://gentle-badlands-25513.herokuapp.com/result', {
-      // fetch('http://localhost:3000/result', {
+      // fetch('https://gentle-badlands-25513.herokuapp.com/result', {
+      fetch('http://localhost:3000/result', {
         method: 'post', 
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({email: this.state.user.email})
       })
       .then(response => response.json())
       .then(result => {
-        const calorieObj = result.dailyCalorie;
-        const carbonObj = result.dailyCarbon;
 
+        console.log(result);
+        const calorieObj = result.userCalorie;
+        const carbonObj = result.userCarbon;
+
+        console.log(calorieObj, carbonObj)
         delete calorieObj.userEmail;
         delete carbonObj.userEmail;
 
@@ -264,6 +274,8 @@ class App extends Component{
       this.onRouteChange('result');
     }
 
+
+    // 發現少了activity, exercise資料！！！！！！！！
   }
 
 // ========================== Rendering ==========================
