@@ -79,6 +79,10 @@ class App extends Component{
     this.setState(Object.assign(this.state.user, {deficit : parseInt(event.target.value)}))
   }
   
+  // when user leaves weight page, delete data
+  onDeleteBMR = () => {
+    this.setState({BMR : 0})
+  }
 
 // ========================== Routing ==========================
   // set route state
@@ -104,6 +108,13 @@ class App extends Component{
     window.scrollTo(0, 0); //scroll page to top 
   }
 
+  // 是否提醒使用者，重新計算會把先前紀錄都覆蓋掉？
+  // 例如在點選menu calculation時，出現：「想要調整減重速度嗎？從next move進入。
+  // 如果重新計算將會蓋掉上次計算結果」
+// if 選擇first calculation, 且total calorie !== 0
+
+
+
 // ========================== Choose activity and exercise amount ==========================
   // 把原本的onClick改為onChange，按下之後，要把同一組其他的default設為false，再把自己的設為true
   // onclick, 1. save option value to activity state, save checked (true/ false) to checked state.
@@ -125,8 +136,7 @@ class App extends Component{
     })
   }
 
-  // after choosing activity and exercise options, delete the state on "nextPage", 
-  // so that when user comes back to these pages won't see the options still remain.
+  // when user leaves activity and exercise pages, delete data
   onDeleteActExeOption = (type) => { // type is activity or exercise
     const checkedStr = `checked`+ type.slice(0,1).toUpperCase()+type.slice(1); // get checkedActivity str or checkedExercise str
     // in activity and exercise pages, nextPage button delete data repactively
@@ -315,6 +325,7 @@ class App extends Component{
                 bmr = {this.state.BMR}
                 onRouteChange = {this.onRouteChange} 
                 onDeficitChange = {this.onDeficitChange} 
+                onDeleteBMR = {this.onDeleteBMR}
                 />
       case 'activity':
         return <Activity
@@ -376,9 +387,9 @@ class App extends Component{
           {this.renderSwitch(this.state.route)}
         </div>
         <br/>
-        {this.state.checkedActivity.toString()}
+        {/* {this.state.checkedActivity.toString()} */}
         <br/>
-        {this.state.checkedExercise.toString()}
+        {/* {this.state.checkedExercise.toString()} */}
       </div>
     )
   }

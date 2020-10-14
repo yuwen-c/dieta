@@ -24,15 +24,15 @@ const NavbarDrop = ({ isSignIn, onRouteChange, getResult }) => {
                 <NavDropdown.Item 
                   href="#calculation" 
                   onClick={(event) => {onRouteChange('calculation'); event.preventDefault()}}
-                  >Calculation</NavDropdown.Item>
+                  >First Calculation</NavDropdown.Item>
+                <NavDropdown.Item 
+                  href="#nextMove" 
+                  onClick={(event) => {onRouteChange('nextMove'); event.preventDefault()}}>
+                  Next Move</NavDropdown.Item>                
                 <NavDropdown.Item 
                   href="#getResult"
                   onClick={(event) => {getResult(); event.preventDefault()}}
                   >Latest Result</NavDropdown.Item>
-                <NavDropdown.Item 
-                  href="#nextMove" 
-                  onClick={(event) => {onRouteChange('nextMove'); event.preventDefault()}}>
-                  Next Move</NavDropdown.Item>
                 </NavDropdown>
             </Nav>
               { 
