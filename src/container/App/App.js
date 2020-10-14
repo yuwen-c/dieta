@@ -8,7 +8,6 @@ import SignUp from '../../components/SignUp/SignUp';
 import Home from '../../components/Home/Home';
 import './App.css';
 import RateCalculation from '../../components/NextMovePath/RateCalculation/RateCalculation';
-// import NextMove from '../../components/NextMovePath/NextMove/NextMove';
 import NavbarDrop from '../../components/NavbarDrop/NavbarDrop';
 import ExplanationCardList from '../../components/HowItWorksPath/ExplanationCardList/ExplanationCardList';
 

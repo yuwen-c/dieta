@@ -5,7 +5,8 @@ class SignIn extends Component{
         super();
         this.state = {
             email: '', 
-            password: ''
+            password: '',
+            message: ''
         }
     }
 
@@ -32,9 +33,8 @@ class SignIn extends Component{
                 this.props.onIsSignIn();
             }
             else{
-                console.log('fail to sign in')
+                this.setState({message : 'Sign in failed!'})
             }
-
         })
 
     }
@@ -73,9 +73,12 @@ class SignIn extends Component{
                             />
                         </div>
                         <div className="lh-copy mt3">
+                            {/* <p 
+                            className="f6 link dim black db"
+                            onClick={()=> {this.props.onRouteChange("signup")}}>Sign up</p> */}
                             <p 
                             className="f6 link dim black db"
-                            onClick={()=> {this.props.onRouteChange("signup")}}>Sign up</p>
+                            >{this.state.message}</p>
                         </div>
                     </div>
                 </div>
