@@ -29,8 +29,8 @@ const initialState = {
   isSignIn : false,
   route: 'home', // sign in, sign up, weight, activity, exercise, nutrition 新增 description, rate
 
-  activity : [], // store week activity, like: ['0', '1', '0', '1', '0', '3', '2']
-  exercise : [], // store week exercise, like: ['0', '1', '0', '1', '0', '3', '2']
+  activity : [], // store week activity, like: [0, 1, 0, 1, 0, 3, 2]
+  exercise : [], // store week exercise, like: [0, 1, 0, 1, 0, 3, 2]
   
   protein : 0,
   oil : 0,
@@ -113,7 +113,7 @@ class App extends Component{
     const checkedStr = `checked`+ type.slice(0,1).toUpperCase()+type.slice(1); // get checkedActivity str or checkedExercise str
 
     let copyTypeState = this.state[type].slice(); // "activity" or "exercise" state
-    copyTypeState[index-1] = event.target.value;
+    copyTypeState[index-1] = parseInt(event.target.value);
 
     let copyCheckedState = this.state[checkedStr].slice(); // checkedActivity or checkedExercise state
     copyCheckedState[index-1] = [false, false, false, false];
@@ -363,16 +363,12 @@ class App extends Component{
         <div >
           {this.renderSwitch(this.state.route)}
         </div>
-{/* {this.state.activity}
+{this.state.activity}
 <br/>
-{this.state.checkedActivity.toString()}
 <br/>
 {this.state.exercise}
 <br/>
-{this.state.checkedExercise.toString()} */}
-        {/* {this.state.isSignIn.toString()} */}
         <br/>
-        {/* {this.state.route} */}
       </div>
     )
   }
