@@ -94,7 +94,7 @@ class SignUp extends Component{
                             className="f6 link dim black db"
                             onClick={()=> {this.props.onRouteChange("signin")}}>Sign in</p> */}
                             <p 
-                            className="f5 link dim black db"
+                            className="f5 link black db"
                             >{this.state.message}</p>
                         </div>
                     </div>

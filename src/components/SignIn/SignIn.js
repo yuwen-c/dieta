@@ -19,24 +19,29 @@ class SignIn extends Component{
     }
 
     onSignIn = () => {
-        // fetch('https://gentle-badlands-25513.herokuapp.com/signin', {
-        fetch('http://localhost:3000/signin', {
-            method: 'post',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(this.state)
-        })
-        .then(response => response.json())
-        .then(result => {
-            if(result.name){
-                this.props.loadUser(result); // refresh App user state
-                this.props.onRouteChange('howItWorks');
-                this.props.onIsSignIn();
-            }
-            else{
-                this.setState({message : result})
-            }
-        })
-
+        const {email, password} = this.state;
+        if(email && password){
+            // fetch('https://gentle-badlands-25513.herokuapp.com/signin', {
+            fetch('http://localhost:3000/signin', {
+                method: 'post',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(this.state)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if(result.name){
+                    this.props.loadUser(result); // refresh App user state
+                    this.props.onRouteChange('howItWorks');
+                    this.props.onIsSignIn();
+                }
+                else{
+                    this.setState({message : result});
+                }
+            })
+        }
+        else{
+            this.setState({message : 'Please fill up the blanks.'});
+        }
     }
 
 
@@ -77,7 +82,7 @@ class SignIn extends Component{
                             className="f6 link dim black db"
                             onClick={()=> {this.props.onRouteChange("signup")}}>Sign up</p> */}
                             <p 
-                            className="f5 link dim black db"
+                            className="f5 link black db"
                             >{this.state.message}</p>
                         </div>
                     </div>
