@@ -3,7 +3,7 @@ import CalorieDeficit from '../CalorieDeficit/CalorieDeficit';
 import NextPage from '../../NextPage/NextPage';
 import './Weight.css'
 
-const Weight = ({onWeightChange, onBMRCalculate, bmr, onRouteChange, onDeficitChange, onDeleteBMR}) => {
+const Weight = ({onWeightChange, onBMRCalculate, bmr, onRouteChange, onDeficitChange, onDeleteBMR, message}) => {
     return(
         <div className="flex flex-column items-center">
             <div id="cardDiv" className="pa3 w5 w-70-ns">
@@ -19,12 +19,17 @@ const Weight = ({onWeightChange, onBMRCalculate, bmr, onRouteChange, onDeficitCh
                             <label htmlFor="name" className="f6 b db mb2">Body Weight 
                             <span className="normal black-60"> kg</span>
                             </label>
-                            <input id="weight" 
-                            className="input-reset ba b--black-60 pa2 db w3" 
-                            type="text" 
-                            aria-describedby="name-desc"
-                            onChange={onWeightChange}
-                            />
+                            <div className="flex flex-wrap">
+                                <input id="weight" 
+                                className="input-reset ba b--black-60 pa2 db w3" 
+                                type="text" 
+                                aria-describedby="name-desc"
+                                onChange={onWeightChange}
+                                />
+                                <span
+                                className="f5 link dark-pink dib ml2 pt3"
+                                >{message}</span>                                
+                                </div>
                             <small id="name-desc" className="f6 black-60 db mb2">e.g. 78</small>
                         </div>
 

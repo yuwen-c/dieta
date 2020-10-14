@@ -24,6 +24,8 @@ const initialState = {
     deficit: 0
   },
 
+  message: '',
+
   BMR : 0,
   isSignIn : false,
   route: 'home', // sign in, sign up, weight, activity, exercise, nutrition 新增 description, rate
@@ -64,13 +66,29 @@ class App extends Component{
 // ========================== Calculation Weight ==========================
   // get body weight
   onWeightChange = (event) => {
-    this.setState(Object.assign(this.state.user, {weight : parseInt(event.target.value)}))
+      this.setState(Object.assign(this.state.user, {weight : event.target.value}))
   }
 
-  // calculate BMR
+  // calculate BMR  and check format
   onBMRCalculate = () => {
-    const bmr = parseInt(this.state.weight*2.2*12);
-    this.setState({BMR : bmr});
+    this.setState({
+      message: '',
+      BMR : 0 
+    });
+    const weightNumber = parseFloat(this.state.weight);
+
+    if(!isNaN(weightNumber)){
+      if(weightNumber <= 1000 && weightNumber >= 40){
+        const bmr = parseInt(this.state.weight*2.2*12);
+        this.setState({BMR : bmr});
+      }
+      else{
+        this.setState({message : 'This number is out of range.'})
+      }
+    }
+    else{
+      this.setState({message: "Wrong number format."})
+    }
   } 
 
   // get deficit option
@@ -325,6 +343,7 @@ class App extends Component{
                 onRouteChange = {this.onRouteChange} 
                 onDeficitChange = {this.onDeficitChange} 
                 onDeleteBMR = {this.onDeleteBMR}
+                message = {this.state.message}
                 />
       case 'activity':
         return <Activity
