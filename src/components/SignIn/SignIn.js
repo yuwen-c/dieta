@@ -33,7 +33,7 @@ class SignIn extends Component{
                 this.props.onIsSignIn();
             }
             else{
-                this.setState({message : 'Sign in failed!'})
+                this.setState({message : result})
             }
         })
 
@@ -77,7 +77,7 @@ class SignIn extends Component{
                             className="f6 link dim black db"
                             onClick={()=> {this.props.onRouteChange("signup")}}>Sign up</p> */}
                             <p 
-                            className="f6 link dim black db"
+                            className="f5 link dim black db"
                             >{this.state.message}</p>
                         </div>
                     </div>

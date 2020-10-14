@@ -4,9 +4,10 @@ class SignUp extends Component{
     constructor(){
         super();
         this.state = {
-            name:'',
-            email:'',
-            password:''
+            name: '',
+            email: '',
+            password: '',
+            message: ''
         }
     }
 
@@ -39,10 +40,13 @@ class SignUp extends Component{
                     this.props.onRouteChange('howItWorks');
                     this.props.onIsSignIn();
                 }
+                else{
+                    this.setState({message : 'Sign up failure'});
+                }
             })
         }
         else{
-            console.log('enter personal data plz!')
+            this.setState({message : 'Enter your data please.'})
         }
     }
     render(){
@@ -86,9 +90,12 @@ class SignUp extends Component{
                             />
                         </div>
                         <div className="lh-copy mt3">
-                            <p 
+                            {/* <p 
                             className="f6 link dim black db"
-                            onClick={()=> {this.props.onRouteChange("signin")}}>Sign in</p>
+                            onClick={()=> {this.props.onRouteChange("signin")}}>Sign in</p> */}
+                            <p 
+                            className="f5 link dim black db"
+                            >{this.state.message}</p>
                         </div>
                     </div>
                 </div>

@@ -20,12 +20,12 @@ const Weight = ({onWeightChange, onBMRCalculate, bmr, onRouteChange, onDeficitCh
                             <span className="normal black-60"> kg</span>
                             </label>
                             <input id="weight" 
-                            className="input-reset ba b--black-60 pa2 mb2 db w3" 
+                            className="input-reset ba b--black-60 pa2 db w3" 
                             type="text" 
                             aria-describedby="name-desc"
                             onChange={onWeightChange}
                             />
-                            <small id="name-desc" className="f6 black-60 db mb2">enter your body weight here</small>
+                            <small id="name-desc" className="f6 black-60 db mb2">e.g. 78</small>
                         </div>
 
                         <div className="pb3">
