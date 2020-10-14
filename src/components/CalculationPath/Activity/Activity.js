@@ -6,7 +6,7 @@ import LevelTable from '../LevelTable/LevelTable';
 import {activityTableData} from '../LevelTable/TableData';
 
 // onLoadActExe的參數竟然不用在最底層的onClick帶入！！
-const Activity = ({onRouteChange, onActExeAmount, onLoadActExe, optionCheckedState}) => {
+const Activity = ({onRouteChange, onActExeAmount, onLoadActExe, optionCheckedState, onDeleteActExeOption}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; 
     return( 
         <div className="pa3 flex flex-column items-center"> 
@@ -38,7 +38,7 @@ const Activity = ({onRouteChange, onActExeAmount, onLoadActExe, optionCheckedSta
                     }   
                 </div>
                 <NextPage
-                onRouteChange={()=> {onRouteChange('exercise')}}
+                onRouteChange={()=> {onRouteChange('exercise'); onDeleteActExeOption('activity')}}
                 />
         </div>
     )

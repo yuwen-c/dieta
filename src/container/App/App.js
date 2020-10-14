@@ -125,6 +125,16 @@ class App extends Component{
     })
   }
 
+  // after choosing activity and exercise options, delete the state on "nextPage", 
+  // so that when user comes back to these pages won't see the options still remain.
+  onDeleteActExeOption = (type) => { // type is activity or exercise
+    const checkedStr = `checked`+ type.slice(0,1).toUpperCase()+type.slice(1); // get checkedActivity str or checkedExercise str
+    // in activity and exercise pages, nextPage button delete data repactively
+    this.setState({
+      [checkedStr] : initialchecked,
+    })
+  }
+
   // load activity and exercise settings of last week
   onLoadActExe = (event) => {
     const type = event.target.name; //activity or exercise
@@ -313,6 +323,7 @@ class App extends Component{
                 onChange={this.onChange}
                 onLoadActExe = {this.onLoadActExe}  
                 optionCheckedState = {this.state.checkedActivity}
+                onDeleteActExeOption = {this.onDeleteActExeOption}
                 />
       case 'exercise':
         return <Exercise
@@ -321,6 +332,7 @@ class App extends Component{
                 calculateNutrition = {this.calculateNutrition}
                 onLoadActExe = {this.onLoadActExe}  
                 optionCheckedState = {this.state.checkedExercise}
+                onDeleteActExeOption = {this.onDeleteActExeOption}
                 />
       case 'result':
         return <Nutrition
@@ -363,12 +375,10 @@ class App extends Component{
         <div >
           {this.renderSwitch(this.state.route)}
         </div>
-{this.state.activity}
-<br/>
-<br/>
-{this.state.exercise}
-<br/>
         <br/>
+        {this.state.checkedActivity.toString()}
+        <br/>
+        {this.state.checkedExercise.toString()}
       </div>
     )
   }
