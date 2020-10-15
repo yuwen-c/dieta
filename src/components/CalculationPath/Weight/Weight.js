@@ -3,7 +3,7 @@ import CalorieDeficit from '../CalorieDeficit/CalorieDeficit';
 import NextPage from '../../NextPage/NextPage';
 import './Weight.css'
 
-const Weight = ({onWeightChange, onBMRCalculate, bmr, onRouteChange, onDeficitChange, onDeleteBMR, message, onCheckBeforeNextPage}) => {
+const Weight = ({onWeightChange, onBMRCalculate, bmr, onRouteChange, onDeficitChange, onDeleteBMR, weightMessage, nextPageMessage, onCheckBeforeNextPage}) => {
     return(
         <div className="flex flex-column items-center">
             <div id="cardDiv" className="pa3 w5 w-70-ns">
@@ -28,7 +28,7 @@ const Weight = ({onWeightChange, onBMRCalculate, bmr, onRouteChange, onDeficitCh
                                 />
                                 <span
                                 className="f5 link dark-pink dib ml2 pt3"
-                                >{message}</span>                                
+                                >{weightMessage}</span>                                
                                 </div>
                             <small id="name-desc" className="f6 black-60 db mb2">e.g. 78</small>
                         </div>
@@ -54,10 +54,15 @@ const Weight = ({onWeightChange, onBMRCalculate, bmr, onRouteChange, onDeficitCh
                     </div>
                 </article>   
             </div>
-            <NextPage
-            // onRouteChange={()=> {onCheckWeight(); onRouteChange('activity'); onDeleteBMR()}}
-            onCheckBeforeNextPage={() => onCheckBeforeNextPage('activity')}
-            />
+            <div className="relative">
+                <NextPage className=""
+                // onRouteChange={()=> {onCheckWeight(); onRouteChange('activity'); onDeleteBMR()}}
+                onCheckBeforeNextPage={() => onCheckBeforeNextPage('activity')}
+                />
+                <span
+                id="spanId" className="f5 link dark-pink absolute bottom-1"
+                >{nextPageMessage}</span> 
+            </div>
         </div>
     )
 }

@@ -8,3 +8,7 @@ h3{
     margin-inline-end: 0px;
     font-weight: bold;
 }
+
+#spanId{
+    right: -8rem;
+}

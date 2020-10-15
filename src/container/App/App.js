@@ -24,9 +24,9 @@ const initialState = {
     deficit: 0
   },
 
-  message: '',
+  weightMessage: '',
   nextPageMessage: '',
-  readyToNextPage: false,
+  // readyToNextPage: false,
 
   BMR : 0,
   isSignIn : false,
@@ -74,7 +74,7 @@ class App extends Component{
   // calculate BMR  and check format
   onBMRCalculate = () => {
     this.setState({
-      message: '',
+      weightMessage: '',
       BMR : 0,
       weight : parseFloat(this.state.weight)
     });
@@ -87,11 +87,11 @@ class App extends Component{
         this.setState({BMR : bmr});
       }
       else{
-        this.setState({message : 'This number is out of range.'})
+        this.setState({weightMessage : 'This number is out of range.'})
       }
     }
     else{
-      this.setState({message: "Wrong number format."})
+      this.setState({weightMessage: "Wrong number format."})
     }
   } 
 
@@ -113,13 +113,11 @@ class App extends Component{
             this.onRouteChange('activity');
           }
           else{
-            console.log("choose deficit.")
-            alert("choose deficit.")
+            this.setState({nextPageMessage: "Choose deficit."})
           }
         }
         else{
-          console.log("wrong body weight.")
-          alert("wrong body weight.")
+          this.setState({nextPageMessage: "Wrong body weight"})
         }
         break;
 
@@ -375,7 +373,8 @@ class App extends Component{
                 onRouteChange = {this.onRouteChange} 
                 onDeficitChange = {this.onDeficitChange} 
                 onDeleteBMR = {this.onDeleteBMR}
-                message = {this.state.message}
+                weightMessage = {this.state.weightMessage}
+                nextPageMessage = {this.state.nextPageMessage}
                 onCheckBeforeNextPage = {this.onCheckBeforeNextPage}
                 />
       case 'activity':
