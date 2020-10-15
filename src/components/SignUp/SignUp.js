@@ -36,7 +36,7 @@ class SignUp extends Component{
             .then(response => response.json())
             .then(result => {
                 if(result.name){
-                    this.props.loadUser(result);
+                    // this.props.loadUser(result);
                     this.props.onRouteChange('howItWorks');
                     this.props.onIsSignIn();
                 }
@@ -94,7 +94,7 @@ class SignUp extends Component{
                             className="f6 link dim black db"
                             onClick={()=> {this.props.onRouteChange("signin")}}>Sign in</p> */}
                             <p 
-                            className="f5 link black db"
+                            className="f5 link dark-pink db"
                             >{this.state.message}</p>
                         </div>
                     </div>

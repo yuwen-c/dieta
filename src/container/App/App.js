@@ -25,6 +25,8 @@ const initialState = {
   },
 
   message: '',
+  nextPageMessage: '',
+  readyToNextPage: false,
 
   BMR : 0,
   isSignIn : false,
@@ -73,12 +75,14 @@ class App extends Component{
   onBMRCalculate = () => {
     this.setState({
       message: '',
-      BMR : 0 
+      BMR : 0,
+      weight : parseFloat(this.state.weight)
     });
-    const weightNumber = parseFloat(this.state.weight);
-
-    if(!isNaN(weightNumber)){
-      if(weightNumber <= 1000 && weightNumber >= 40){
+    // const weightNumber = parseFloat(this.state.weight);
+    const {weight} = this.state.user;
+    // check if weight is a number
+    if(!isNaN(weight)){
+      if(weight <= 1000 && weight >= 40){
         const bmr = parseInt(this.state.weight*2.2*12);
         this.setState({BMR : bmr});
       }
@@ -95,7 +99,35 @@ class App extends Component{
   onDeficitChange = (event) => {
     this.setState(Object.assign(this.state.user, {deficit : parseInt(event.target.value)}))
   }
-  
+
+
+// ========================== Check blanks before jump to next page ==========================
+
+  onCheckBeforeNextPage = (route) => {
+    switch (route) {
+      case 'activity':
+        console.log('activity1')
+        const {weight, deficit} = this.state.user;
+        if (weight <=1000 &&  weight >= 40){
+          if(deficit !== 0){
+            this.onRouteChange('activity');
+          }
+          else{
+            console.log("choose deficit.")
+            alert("choose deficit.")
+          }
+        }
+        else{
+          console.log("wrong body weight.")
+          alert("wrong body weight.")
+        }
+        break;
+
+      default:
+        console.log("defaulte")
+    }
+  }
+
   // when user leaves weight page, delete data
   onDeleteBMR = () => {
     this.setState({BMR : 0})
@@ -104,21 +136,21 @@ class App extends Component{
 // ========================== Routing ==========================
   // set route state
   onRouteChange = (route) => {
-    // 1. 如果已登入，去哪裡都可以。
+    // 1. if already sign in, can access to anywhere
     if(this.state.isSignIn){ 
-      if(route === 'signin'){ // 已登入狀態下點的是sign out
+      if(route === 'signin'){ // actually is "sign out" button
         this.setState(initialState);
       }
       else{
         this.setState({route : route});
       }
     }
-    // 2. 如果未登入，去某些地方時會被要求登入
+    // 2. to some certain pages, users need to sign in first
     else{
       if(route === 'calculation' || route === 'nextMove' || route === 'result' || route === 'signin'){
         this.setState({route : 'signin'});
       }
-      else{
+      else{ // "how it works" page doesn't need permission
         this.setState({route : route});
       }     
     }
@@ -344,6 +376,7 @@ class App extends Component{
                 onDeficitChange = {this.onDeficitChange} 
                 onDeleteBMR = {this.onDeleteBMR}
                 message = {this.state.message}
+                onCheckBeforeNextPage = {this.onCheckBeforeNextPage}
                 />
       case 'activity':
         return <Activity

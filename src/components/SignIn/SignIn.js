@@ -30,7 +30,7 @@ class SignIn extends Component{
             .then(response => response.json())
             .then(result => {
                 if(result.name){
-                    this.props.loadUser(result); // refresh App user state
+                    // this.props.loadUser(result); // refresh App user state
                     this.props.onRouteChange('howItWorks');
                     this.props.onIsSignIn();
                 }
@@ -82,7 +82,7 @@ class SignIn extends Component{
                             className="f6 link dim black db"
                             onClick={()=> {this.props.onRouteChange("signup")}}>Sign up</p> */}
                             <p 
-                            className="f5 link black db"
+                            className="f5 link dark-pink db"
                             >{this.state.message}</p>
                         </div>
                     </div>
