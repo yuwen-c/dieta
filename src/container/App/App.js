@@ -10,7 +10,7 @@ import './App.css';
 import RateCalculation from '../../components/NextMovePath/RateCalculation/RateCalculation';
 import NavbarDrop from '../../components/NavbarDrop/NavbarDrop';
 import ExplanationCardList from '../../components/HowItWorksPath/ExplanationCardList/ExplanationCardList';
-import { activityTableData } from '../../components/CalculationPath/LevelTable/TableData';
+import { activityTableData, exerciseTableData } from '../../components/CalculationPath/LevelTable/TableData';
 
 const initialchecked = 
 [[false, false, false, false],[false, false, false, false],[false, false, false, false],
@@ -27,7 +27,6 @@ const initialState = {
 
   weightMessage: '',
   nextPageMessage: '',
-  // readyToNextPage: false,
 
   BMR : 0,
   isSignIn : false,
@@ -105,9 +104,9 @@ class App extends Component{
 // ========================== Check blanks before jump to next page ==========================
 
   onCheckBeforeNextPage = (route) => {
-    console.log("route", route);
+    this.setState({nextPageMessage : ''})
     switch (route) {
-      case 'activity':     // weight頁面的檢查
+      case 'activity':     // calculate weight 頁面的檢查
         const {weight, deficit} = this.state.user;
         if (weight <=1000 &&  weight >= 40){
           if(deficit !== 0){
@@ -122,9 +121,8 @@ class App extends Component{
         }
         break;
 
-      case 'exercise':    // activity頁面的檢查
+      case 'exercise':    // activity 頁面的檢查
         const {activity} = this.state;
-        console.log("exercise", activity.length, activity)
         if(activity.length === 7 && !activity.includes(undefined)){
           this.onRouteChange('exercise');
         }
@@ -133,8 +131,14 @@ class App extends Component{
         }
         break;
 
-      case 'result':   // exercise頁面的檢查
-
+      case 'result':   // exercise 頁面的檢查
+        const {exercise} = this.state;
+        if(exercise.length === 7 && !exercise.includes(undefined)){
+          this.onRouteChange('result');
+        }
+        else{
+          this.setState({nextPageMessage: "Choose options."})
+        }
         break;
 
       default:
@@ -406,6 +410,8 @@ class App extends Component{
                 onLoadActExe = {this.onLoadActExe}  
                 optionCheckedState = {this.state.checkedExercise}
                 onDeleteActExeOption = {this.onDeleteActExeOption}
+                nextPageMessage = {this.state.nextPageMessage}
+                onCheckBeforeNextPage = {this.onCheckBeforeNextPage}
                 />
       case 'result':
         return <Nutrition
