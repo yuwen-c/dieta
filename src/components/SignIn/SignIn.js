@@ -30,7 +30,7 @@ class SignIn extends Component{
             .then(response => response.json())
             .then(result => {
                 if(result.name){
-                    // this.props.loadUser(result); // refresh App user state
+                    this.props.loadUser(result); // refresh App user state
                     this.props.onRouteChange('howItWorks');
                     this.props.onIsSignIn();
                 }

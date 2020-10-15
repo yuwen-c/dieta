@@ -10,7 +10,7 @@ import './App.css';
 import RateCalculation from '../../components/NextMovePath/RateCalculation/RateCalculation';
 import NavbarDrop from '../../components/NavbarDrop/NavbarDrop';
 import ExplanationCardList from '../../components/HowItWorksPath/ExplanationCardList/ExplanationCardList';
-import { activityTableData, exerciseTableData } from '../../components/CalculationPath/LevelTable/TableData';
+//import { activityTableData, exerciseTableData } from '../../components/CalculationPath/LevelTable/TableData';
 
 const initialchecked = 
 [[false, false, false, false],[false, false, false, false],[false, false, false, false],
@@ -56,9 +56,14 @@ class App extends Component{
   }
 
 // ========================== Sign In ==========================
-  // after sign in, load user to App state
+  // after sign in, load user to App state  (only email and name)
   loadUser = (data) => {
-    this.setState({user: data})
+    console.log(data);
+    const{email, name} = data;
+    this.setState(Object.assign(this.state.user, {
+      email: email,
+      name: name
+    }))
   }
 
   onIsSignIn = () => {
@@ -320,30 +325,32 @@ class App extends Component{
 // ========================== Check Latest Nutrition Result ==========================
   // get latest calculation result
   getResult = () => {
-    const {weight} = this.state.user
+    console.log("getresult", this.state.user);
+    // fetch('https://gentle-badlands-25513.herokuapp.com/result', {
+    fetch('http://localhost:3000/result', {
+      method: 'post', 
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({email: this.state.user.email})
+    })
+    .then(response => response.json())
+    .then(result => {
+      console.log("result", result);
+      const {weight, deficit} = result.user;
+      const {userCalorie, userCarbon, userActivity, userExercise} = result;
     // first time loggin, no latest result 
-    if(weight === 0){
-      alert("No record! Why don't we do it from the beginning?");
-      this.onRouteChange('calculation');
-    }
-    else{
-      // fetch('https://gentle-badlands-25513.herokuapp.com/result', {
-      fetch('http://localhost:3000/result', {
-        method: 'post', 
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({email: this.state.user.email})
-      })
-      .then(response => response.json())
-      .then(result => {
-
-        console.log(result);
-        const {userCalorie, userCarbon, userActivity, userExercise} = result;
-
+      if(weight === 0){
+        alert("No record! Why don't we do it from the beginning?");
+        this.onRouteChange('calculation');
+      }
+      else{
+        this.setState(Object.assign(this.state.user, {
+          weight: weight,
+          deficit: deficit
+        }))
         delete userCalorie.email;
         delete userCarbon.email;
         delete userActivity.email;
         delete userExercise.email;
-
         this.setState({
           protein: weight*2,
           oil: weight,
@@ -351,11 +358,14 @@ class App extends Component{
           dailyCarbon: Object.values(userCarbon),
           activity: Object.values(userActivity),
           exercise: Object.values(userExercise) 
-          })
-      });
-      this.onRouteChange('result');
-    }
+          });
+        
+        this.onRouteChange('result');
+      }}
+    )
+    .catch(console.log)
   }
+
 
 // ========================== Rendering ==========================
   // decide render components
