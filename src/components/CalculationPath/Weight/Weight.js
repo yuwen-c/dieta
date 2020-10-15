@@ -54,15 +54,11 @@ const Weight = ({onWeightChange, onBMRCalculate, bmr, onRouteChange, onDeficitCh
                     </div>
                 </article>   
             </div>
-            <div className="relative">
-                <NextPage className=""
-                // onRouteChange={()=> {onCheckWeight(); onRouteChange('activity'); onDeleteBMR()}}
-                onCheckBeforeNextPage={() => onCheckBeforeNextPage('activity')}
-                />
-                <span
-                id="spanId" className="f5 link dark-pink absolute bottom-1"
-                >{nextPageMessage}</span> 
-            </div>
+            <NextPage className=""
+            // onRouteChange={()=> {onCheckWeight(); onRouteChange('activity'); onDeleteBMR()}}
+            onCheckBeforeNextPage={() => onCheckBeforeNextPage('activity')}
+            nextPageMessage={nextPageMessage}
+            />
         </div>
     )
 }

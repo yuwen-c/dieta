@@ -104,9 +104,9 @@ class App extends Component{
 // ========================== Check blanks before jump to next page ==========================
 
   onCheckBeforeNextPage = (route) => {
+    console.log("route", route);
     switch (route) {
-      case 'activity':
-        console.log('activity1')
+      case 'activity':     // weight頁面的檢查
         const {weight, deficit} = this.state.user;
         if (weight <=1000 &&  weight >= 40){
           if(deficit !== 0){
@@ -121,8 +121,23 @@ class App extends Component{
         }
         break;
 
+      case 'exercise':    // activity頁面的檢查
+        const {activity} = this.state;
+        console.log("exercise", activity.length)
+        if(activity.length === 7){
+          this.onRouteChange('exercise');
+        }
+        else{
+          this.setState({nextPageMessage: "Choose options."})
+        }
+        break;
+
+      case 'result':   // exercise頁面的檢查
+
+        break;
+
       default:
-        console.log("defaulte")
+        console.log("default")
     }
   }
 
@@ -154,12 +169,6 @@ class App extends Component{
     }
     window.scrollTo(0, 0); //scroll page to top 
   }
-
-  // 是否提醒使用者，重新計算會把先前紀錄都覆蓋掉？
-  // 例如在點選menu calculation時，出現：「想要調整減重速度嗎？從next move進入。
-  // 如果重新計算將會蓋掉上次計算結果」
-// if 選擇first calculation, 且total calorie !== 0
-
 
 
 // ========================== Choose activity and exercise amount ==========================
@@ -385,6 +394,8 @@ class App extends Component{
                 onLoadActExe = {this.onLoadActExe}  
                 optionCheckedState = {this.state.checkedActivity}
                 onDeleteActExeOption = {this.onDeleteActExeOption}
+                nextPageMessage = {this.state.nextPageMessage}
+                onCheckBeforeNextPage = {this.onCheckBeforeNextPage}
                 />
       case 'exercise':
         return <Exercise
