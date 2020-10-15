@@ -10,6 +10,7 @@ import './App.css';
 import RateCalculation from '../../components/NextMovePath/RateCalculation/RateCalculation';
 import NavbarDrop from '../../components/NavbarDrop/NavbarDrop';
 import ExplanationCardList from '../../components/HowItWorksPath/ExplanationCardList/ExplanationCardList';
+import { activityTableData } from '../../components/CalculationPath/LevelTable/TableData';
 
 const initialchecked = 
 [[false, false, false, false],[false, false, false, false],[false, false, false, false],
@@ -123,8 +124,8 @@ class App extends Component{
 
       case 'exercise':    // activity頁面的檢查
         const {activity} = this.state;
-        console.log("exercise", activity.length)
-        if(activity.length === 7){
+        console.log("exercise", activity.length, activity)
+        if(activity.length === 7 && !activity.includes(undefined)){
           this.onRouteChange('exercise');
         }
         else{
