@@ -74,12 +74,16 @@ class App extends Component{
 // ========================== Calculation Weight ==========================
   // get body weight and show BMR on the screen
   onWeightChange = (event) => {
-    if(!isNaN(event.target.value)){
-      this.setState(Object.assign(this.state.user, {weight : parseFloat(event.target.value)})); 
-      this.setState({BMR: parseInt(event.target.value*2.2*12)})     
+    const value = event.target.value;
+    console.log(typeof(value), value)
+    if(!isNaN(value) && value !== ""){
+      console.log("!isNan")
+      this.setState(Object.assign(this.state.user, {weight : parseFloat(value)})); 
+      // this.setState({BMR: parseInt(value*2.2*12)})     
     }
     else{
-      // do not calculate BMR
+      console.log("isNan")
+      this.setState(Object.assign(this.state.user, {weight : ""}))
     }
   }
 

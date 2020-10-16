@@ -50,6 +50,8 @@ const Weight = ({weight, deficit, onWeightChange, onBMRCalculate, bmr, onRouteCh
                 <article className="ba pv1 br2 b--light-silver shadow-1">
                     <div className="ph3">
                         <CalorieDeficit
+                        weight={weight}
+                        deficit={deficit}
                         onDeficitChange={onDeficitChange}
                         />
                     </div>

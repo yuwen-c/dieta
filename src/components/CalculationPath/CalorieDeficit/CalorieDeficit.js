@@ -1,6 +1,13 @@
 import React from 'react';
 
-const CalorieDeficit = ({onDeficitChange}) => {
+const CalorieDeficit = ({weight, deficit, onDeficitChange}) => {
+    let showDeficit;
+    if(weight !== 0){
+        showDeficit = <p className="b">Your current deficit is <span>{deficit}</span> Kcal per day.</p>
+    }
+    else{
+        showDeficit = null;
+    }
     return (
         <div>
             <div className="br2" style={{'backgroundColor' : '#96CCFF'}} >
@@ -9,6 +16,7 @@ const CalorieDeficit = ({onDeficitChange}) => {
                 </h3>      
             </div>   
             <div className="fw7 f8 pb3">How many calories would you like to reduce?</div> 
+            {showDeficit}
             <div className="flex items-center mb2">
                 <input 
                 className="mr2" type="radio" id="300" value="300" name="deficit"
