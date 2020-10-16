@@ -71,10 +71,18 @@ class App extends Component{
   }
 
 // ========================== Calculation Weight ==========================
-  // get body weight
+  // get body weight and show BMR on the screen
   onWeightChange = (event) => {
-      this.setState(Object.assign(this.state.user, {weight : event.target.value}))
+    if(!isNaN(event.target.value)){
+      this.setState(Object.assign(this.state.user, {weight : parseFloat(event.target.value)})); 
+      this.setState({BMR: parseInt(event.target.value*2.2*12)})     
+    }
+    else{
+      // do not calculate BMR
+    }
   }
+
+
 
   // calculate BMR  and check format
   onBMRCalculate = () => {

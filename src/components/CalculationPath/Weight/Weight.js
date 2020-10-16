@@ -33,14 +33,14 @@ const Weight = ({onWeightChange, onBMRCalculate, bmr, onRouteChange, onDeficitCh
                             <small id="name-desc" className="f6 black-60 db mb2">e.g. 78</small>
                         </div>
 
-                        <div className="pb3">
+                        {/* <div className="pb3">
                             <input 
                             className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                             type="submit" 
                             value="submit"
                             onClick={onBMRCalculate}
                             />
-                        </div>
+                        </div> */}
                         <p>Your BMR is <span>{bmr}</span> Kcal.</p>
                     </div>
                 </article>   
