@@ -56,14 +56,15 @@ class App extends Component{
   }
 
 // ========================== Sign In ==========================
-  // after sign in, load user to App state  (only email and name)
+  // after sign in, load user to App state  
   loadUser = (data) => {
-    console.log(data);
-    const{email, name} = data;
-    this.setState(Object.assign(this.state.user, {
-      email: email,
-      name: name
-    }))
+    // console.log(data);
+    // const{email, name} = data;
+    // this.setState(Object.assign(this.state.user, {
+    //   email: email,
+    //   name: name
+    // }))
+    this.setState({user: data})
   }
 
   onIsSignIn = () => {
@@ -81,8 +82,6 @@ class App extends Component{
       // do not calculate BMR
     }
   }
-
-
 
   // calculate BMR  and check format
   onBMRCalculate = () => {
@@ -401,6 +400,8 @@ class App extends Component{
         return <Weight
                 onWeightChange = {this.onWeightChange}
                 onBMRCalculate = {this.onBMRCalculate}
+                weight = {this.state.user.weight}
+                deficit = {this.state.user.deficit}
                 bmr = {this.state.BMR}
                 onRouteChange = {this.onRouteChange} 
                 onDeficitChange = {this.onDeficitChange} 

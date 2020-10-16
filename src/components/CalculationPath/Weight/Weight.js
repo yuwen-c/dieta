@@ -3,7 +3,7 @@ import CalorieDeficit from '../CalorieDeficit/CalorieDeficit';
 import NextPage from '../../NextPage/NextPage';
 import './Weight.css'
 
-const Weight = ({onWeightChange, onBMRCalculate, bmr, onRouteChange, onDeficitChange, onDeleteBMR, weightMessage, nextPageMessage, onCheckBeforeNextPage}) => {
+const Weight = ({weight, deficit, onWeightChange, onBMRCalculate, bmr, onRouteChange, onDeficitChange, onDeleteBMR, weightMessage, nextPageMessage, onCheckBeforeNextPage}) => {
     return(
         <div className="flex flex-column items-center">
             <div id="cardDiv" className="pa3 w5 w-70-ns">
@@ -24,6 +24,7 @@ const Weight = ({onWeightChange, onBMRCalculate, bmr, onRouteChange, onDeficitCh
                                 className="input-reset ba b--black-60 pa2 db w3" 
                                 type="text" 
                                 aria-describedby="name-desc"
+                                value={weight}
                                 onChange={onWeightChange}
                                 />
                                 <span
@@ -41,7 +42,7 @@ const Weight = ({onWeightChange, onBMRCalculate, bmr, onRouteChange, onDeficitCh
                             onClick={onBMRCalculate}
                             />
                         </div> */}
-                        <p>Your BMR is <span>{bmr}</span> Kcal.</p>
+                        {/* <p>Your BMR is <span>{bmr}</span> Kcal.</p> */}
                     </div>
                 </article>   
             </div>
