@@ -62,6 +62,17 @@ class App extends Component{
     this.setState({user: data})
   }
 
+  reLoadUser = () => {
+    fetch('http://localhost:3000/getUser',{
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({email: this.state.user.email})
+    })
+    .then(response => response.json())
+    .then(user => {
+      this.loadUser(user);
+    })
+  }
   onIsSignIn = () => {
     this.setState({isSignIn : true});
   }
@@ -169,6 +180,9 @@ class App extends Component{
             weight: 0,
             deficit: 0
           }))
+        }
+        else if(route === 'nextMove'){
+          this.reLoadUser();
         }
         this.setState({route : route});
       }
@@ -484,14 +498,15 @@ class App extends Component{
           isSignIn = {this.state.isSignIn} 
           getResult = {this.getResult}
         />
-        <div >
+        <div>
           {this.renderSwitch(this.state.route)}
         </div>
         <br/>
         {this.state.maintainRate.toString()}
-{this.state.modifyDeficit}
         <br/>
-        {/* {this.state.checkedExercise.toString()} */}
+        {this.state.modifyDeficit}
+        <br/>
+        {this.state.user.weight}
       </div>
     )
   }
