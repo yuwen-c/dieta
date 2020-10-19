@@ -3,7 +3,7 @@ import CalorieDeficit from '../CalorieDeficit/CalorieDeficit';
 import NextPage from '../../NextPage/NextPage';
 import './Weight.css'
 
-const Weight = ({weight, deficit, onWeightChange, onBMRCalculate, bmr, onRouteChange, onDeficitChange, onDeleteBMR, weightMessage, nextPageMessage, onCheckBeforeNextPage}) => {
+const Weight = ({weight, deficit, onWeightChange, onRouteChange, onDeficitChange, weightMessage, nextPageMessage, onCheckBeforeNextPage}) => {
     return(
         <div className="flex flex-column items-center">
             <div id="cardDiv" className="pa3 w5 w-70-ns">

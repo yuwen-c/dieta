@@ -16,7 +16,7 @@ const CalorieDeficit = ({weight, deficit, onDeficitChange}) => {
                 </h3>      
             </div>   
             <div className="fw7 f8 pb3">How many calories would you like to reduce?</div> 
-            {showDeficit}
+            {/* {showDeficit} */}
             <div className="flex items-center mb2">
                 <input 
                 className="mr2" type="radio" id="300" value="300" name="deficit"

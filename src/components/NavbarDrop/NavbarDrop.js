@@ -20,19 +20,19 @@ const NavbarDrop = ({ isSignIn, onRouteChange, getResult }) => {
                   href="#howItWorks" 
                   onClick={(event) => {onRouteChange('howItWorks'); event.preventDefault()}}
                   // onClick={() => {onRouteChange('howItWorks')}}                  
-                  >How it works</NavDropdown.Item>
+                  >原理</NavDropdown.Item>
                 <NavDropdown.Item 
                   href="#calculation" 
                   onClick={(event) => {onRouteChange('calculation'); event.preventDefault()}}
-                  >First Calculation</NavDropdown.Item>
+                  >減脂開始</NavDropdown.Item>
                 <NavDropdown.Item 
                   href="#nextMove" 
                   onClick={(event) => {onRouteChange('nextMove'); event.preventDefault()}}>
-                  Next Move</NavDropdown.Item>                
+                  減脂期間</NavDropdown.Item>                
                 <NavDropdown.Item 
                   href="#getResult"
                   onClick={(event) => {getResult(); event.preventDefault()}}
-                  >Latest Result</NavDropdown.Item>
+                  >上次計算結果</NavDropdown.Item>
                 </NavDropdown>
             </Nav>
               { 

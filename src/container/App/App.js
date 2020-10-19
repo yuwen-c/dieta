@@ -28,7 +28,7 @@ const initialState = {
   weightMessage: '',
   nextPageMessage: '',
 
-  BMR : 0,
+  // BMR : 0,
   isSignIn : false,
   route: 'home', // sign in, sign up, weight, activity, exercise, nutrition 新增 description, rate
 
@@ -58,12 +58,6 @@ class App extends Component{
 // ========================== Sign In ==========================
   // after sign in, load user to App state  
   loadUser = (data) => {
-    // console.log(data);
-    // const{email, name} = data;
-    // this.setState(Object.assign(this.state.user, {
-    //   email: email,
-    //   name: name
-    // }))
     this.setState({user: data})
   }
 
@@ -72,44 +66,41 @@ class App extends Component{
   }
 
 // ========================== Calculation Weight ==========================
-  // get body weight and show BMR on the screen
+  // check weight input format and set weight state
   onWeightChange = (event) => {
     const value = event.target.value;
-    console.log(typeof(value), value)
+    // weight is a number, and not a empty string
     if(!isNaN(value) && value !== ""){
-      console.log("!isNan")
       this.setState(Object.assign(this.state.user, {weight : parseFloat(value)})); 
-      // this.setState({BMR: parseInt(value*2.2*12)})     
     }
     else{
-      console.log("isNan")
       this.setState(Object.assign(this.state.user, {weight : ""}))
     }
   }
 
   // calculate BMR  and check format
-  onBMRCalculate = () => {
-    this.setState({
-      weightMessage: '',
-      BMR : 0,
-      weight : parseFloat(this.state.weight)
-    });
-    // const weightNumber = parseFloat(this.state.weight);
-    const {weight} = this.state.user;
-    // check if weight is a number
-    if(!isNaN(weight)){
-      if(weight <= 1000 && weight >= 40){
-        const bmr = parseInt(this.state.weight*2.2*12);
-        this.setState({BMR : bmr});
-      }
-      else{
-        this.setState({weightMessage : 'This number is out of range.'})
-      }
-    }
-    else{
-      this.setState({weightMessage: "Wrong number format."})
-    }
-  } 
+  // onBMRCalculate = () => {
+  //   this.setState({
+  //     weightMessage: '',
+  //     BMR : 0,
+  //     weight : parseFloat(this.state.weight)
+  //   });
+  //   // const weightNumber = parseFloat(this.state.weight);
+  //   const {weight} = this.state.user;
+  //   // check if weight is a number
+  //   if(!isNaN(weight)){
+  //     if(weight <= 1000 && weight >= 40){
+  //       const bmr = parseInt(this.state.weight*2.2*12);
+  //       this.setState({BMR : bmr});
+  //     }
+  //     else{
+  //       this.setState({weightMessage : 'This number is out of range.'})
+  //     }
+  //   }
+  //   else{
+  //     this.setState({weightMessage: "Wrong number format."})
+  //   }
+  // } 
 
   // get deficit option
   onDeficitChange = (event) => {
@@ -160,11 +151,6 @@ class App extends Component{
       default:
         console.log("default")
     }
-  }
-
-  // when user leaves weight page, delete data
-  onDeleteBMR = () => {
-    this.setState({BMR : 0})
   }
 
 // ========================== Routing ==========================
@@ -403,13 +389,13 @@ class App extends Component{
       case 'calculation':
         return <Weight
                 onWeightChange = {this.onWeightChange}
-                onBMRCalculate = {this.onBMRCalculate}
+                // onBMRCalculate = {this.onBMRCalculate}
                 weight = {this.state.user.weight}
                 deficit = {this.state.user.deficit}
-                bmr = {this.state.BMR}
+                // bmr = {this.state.BMR}
                 onRouteChange = {this.onRouteChange} 
                 onDeficitChange = {this.onDeficitChange} 
-                onDeleteBMR = {this.onDeleteBMR}
+                // onDeleteBMR = {this.onDeleteBMR}
                 weightMessage = {this.state.weightMessage}
                 nextPageMessage = {this.state.nextPageMessage}
                 onCheckBeforeNextPage = {this.onCheckBeforeNextPage}
