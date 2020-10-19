@@ -162,6 +162,13 @@ class App extends Component{
         this.setState(initialState);
       }
       else{
+        // once get into the calculation page, delete weight and deficit state to fit the check
+        if(route === 'calculation'){ 
+          this.setState(Object.assign(this.state.user, {
+            weight: 0,
+            deficit: 0
+          }))
+        }
         this.setState({route : route});
       }
     }
