@@ -1,7 +1,7 @@
 import React from 'react';
 import ModifyOptions from '../ModifyOptions/ModifyOptions';
 
-const NextMove = ({onModifySpeed, modifySpeedUp, modifySlowDown, onModifyDeficit, onRouteChange}) => {
+const NextMove = ({maintainRate, deficit, onModifySpeed, modifySpeedUp, modifySlowDown, onModifyDeficit, onRouteChange}) => {
     return(  
         <div className="">
             <div className="br2" style={{'backgroundColor' : '#96CCFF'}} >
@@ -21,17 +21,23 @@ const NextMove = ({onModifySpeed, modifySpeedUp, modifySlowDown, onModifyDeficit
                     className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                     type="submit" 
                     value="Maintain Current Rate"
-                    onClick={()=> {onRouteChange('activity')}}
+                    name="maintain"
+                    onClick={onModifySpeed}
                     />
                     <small id="name-desc" className="f6 black-60 db mb2">
                       Maintain the current deficit.
                     </small>
+                    {maintainRate ? 
+                    <p>Maintain deficit: <span>{deficit}</span> Kcal.</p>
+                    : 
+                    null}
                 </div>
                 <div className="pv1">
                     <input 
                     className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                     type="submit" 
-                    value="Speed Up"
+                    value="Speed Up, eat less"
+                    name="speedUp"
                     onClick={onModifySpeed}
                     />
                     <small id="name-desc" className="f6 black-60 db mb2">
@@ -46,7 +52,8 @@ const NextMove = ({onModifySpeed, modifySpeedUp, modifySlowDown, onModifyDeficit
                     <input 
                     className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                     type="submit" 
-                    value="Slow Down"
+                    value="Slow Down, eat more"
+                    name="slowDown"
                     onClick={onModifySpeed}
                     />
                     <small id="name-desc" className="f6 black-60 db mb2">

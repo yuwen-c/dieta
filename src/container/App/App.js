@@ -44,6 +44,7 @@ const initialState = {
   checkedExercise : initialchecked,
   // the default of checked attribute of options
 
+  maintainRate: false,
   modifySpeedUp: false,
   modifySlowDown: false, 
   modifyDeficit: 0,
@@ -307,14 +308,25 @@ class App extends Component{
 // ========================== Next Move ==========================
   // choose speed up or slow down and show options (-100/ +100...)
   onModifySpeed = (event) => {
-    if (event.target.value === 'Speed Up'){
+    console.log(event.target.name)
+    if(event.target.name === 'maintain'){
       this.setState({
+        maintainRate : true,
+        modifyDeficit : 0,
+        modifySpeedUp : false,
+        modifySlowDown : false
+      })
+    }
+    else if(event.target.name === 'speedUp'){
+      this.setState({
+        maintainRate : false,
         modifySpeedUp : true,
         modifySlowDown: false
       })
     }
-    else{
+    else if(event.target.name === 'slowDown'){
       this.setState({
+        maintainRate : false,
         modifySpeedUp : false,
         modifySlowDown: true
       })
@@ -323,7 +335,10 @@ class App extends Component{
 
   // choose calorie option (-100/ +100...)
   onModifyDeficit = (event) => {
-    this.setState({modifyDeficit: event.target.value});
+    this.setState({
+      maintainRate : false,
+      modifyDeficit: event.target.value
+    });
   } 
 
 // ========================== Check Latest Nutrition Result ==========================
@@ -443,6 +458,8 @@ class App extends Component{
                 />
       case 'nextMove':
         return  <RateCalculation
+                maintainRate = {this.state.maintainRate}
+                deficit = {this.state.user.deficit}
                 onModifySpeed = {this.onModifySpeed}
                 modifySpeedUp = {this.state.modifySpeedUp}
                 modifySlowDown = {this.state.modifySlowDown}
@@ -471,7 +488,8 @@ class App extends Component{
           {this.renderSwitch(this.state.route)}
         </div>
         <br/>
-        {/* {this.state.checkedActivity.toString()} */}
+        {this.state.maintainRate.toString()}
+{this.state.modifyDeficit}
         <br/>
         {/* {this.state.checkedExercise.toString()} */}
       </div>

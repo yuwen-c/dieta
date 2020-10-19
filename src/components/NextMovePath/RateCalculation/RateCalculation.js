@@ -117,6 +117,8 @@ class RateCalculation extends Component{
                     <article className="ba pv1 br2 b--light-silver shadow-1">
                         <div className="ph3">
                             <NextMove
+                            maintainRate = {this.props.maintainRate}
+                            deficit = {this.props.deficit}
                             onModifySpeed = {this.props.onModifySpeed}
                             modifySpeedUp = {this.props.modifySpeedUp}
                             modifySlowDown = {this.props.modifySlowDown}
