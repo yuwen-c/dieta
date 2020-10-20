@@ -74,6 +74,7 @@ class App extends Component{
         //?????
       }
     })
+    .catch(console.log);
   }
 
   // delete state so that the nextPage check can work well
@@ -246,6 +247,7 @@ class App extends Component{
         })
       }
     })
+    .catch(console.log);
   }
 
   // give the default false array, and set one of it (depends on database) to true
@@ -305,7 +307,8 @@ class App extends Component{
       })
     })
     .then(response => response.json())
-    .then(result => console.log(result));
+    .then(result => console.log(result))
+    .catch(console.log);
   }
 
 // ========================== Next Move ==========================

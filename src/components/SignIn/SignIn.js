@@ -38,6 +38,7 @@ class SignIn extends Component{
                     this.setState({message : result});
                 }
             })
+            .catch(console.log);
         }
         else{
             this.setState({message : 'Please fill up the blanks.'});

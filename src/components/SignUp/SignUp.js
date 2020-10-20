@@ -44,6 +44,7 @@ class SignUp extends Component{
                     this.setState({message : result});
                 }
             })
+            .catch(console.log);
         }
         else{
             this.setState({message : 'Enter your data please.'})
