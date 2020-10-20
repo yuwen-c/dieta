@@ -114,7 +114,6 @@ class App extends Component{
       // 2種情況下會連到activity, 在weight calculation, 或是在nextMove
       case 'activity':     
         if (route === 'calculation'){  // calculate weight 頁面的檢查
-          console.log('calculation');
           const {weight, deficit} = this.state.user;
           if (weight <=1000 &&  weight >= 40){
             if(deficit !== 0){
@@ -129,8 +128,7 @@ class App extends Component{
           }
 
         }
-        else if (route === 'nextMove'){  // 在nextMove頁面的檢查
-          console.log('nextMove');
+        else if (route === 'nextMove'){  // nextMove頁面的檢查
           const {maintainRate, modifyDeficit} = this.state;
           if(maintainRate === false && modifyDeficit === 0){
             this.setState({nextPageMessage: "Choose deficit."})
@@ -156,6 +154,7 @@ class App extends Component{
         const {exercise} = this.state;
         if(exercise.length === 7 && !exercise.includes(undefined)){
           this.onRouteChange('result');
+          this.calculateNutrition();
         }
         else{
           this.setState({nextPageMessage: "Choose options."})
@@ -261,7 +260,6 @@ class App extends Component{
   // then return a 7 days 2-dimentional array
   getWeekOption = (database) => {
     let oneWeekArr = [];
-    console.log(database);
     for(let i=0; i<7; i++){
       let oneDayArr = [false, false, false, false];
       oneDayArr[database[i]] = true;

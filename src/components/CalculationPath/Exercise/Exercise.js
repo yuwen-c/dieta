@@ -37,7 +37,7 @@ const Exercise = ({onRouteChange, onActExeAmount, calculateNutrition, onLoadActE
                 // call two functions in onClick
                 // onRouteChange={()=> {onRouteChange('result'); onDeleteActExeOption('exercise'); calculateNutrition()} }
                 nextPageMessage = {nextPageMessage}
-                onCheckBeforeNextPage = {()=> {onCheckBeforeNextPage('result'); calculateNutrition()}}
+                onCheckBeforeNextPage = {()=> {onCheckBeforeNextPage('result')}}
                 />
         </div>
     )
