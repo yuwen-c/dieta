@@ -319,7 +319,6 @@ class App extends Component{
 // ========================== Next Move ==========================
   // choose speed up or slow down and show options (-100/ +100...)
   onModifySpeed = (event) => {
-    console.log(event.target.name)
     if(event.target.name === 'maintain'){
       this.setState({
         maintainRate : true,
@@ -355,7 +354,6 @@ class App extends Component{
 // ========================== Check Latest Nutrition Result ==========================
   // get latest calculation result
   getResult = () => {
-    console.log("getresult", this.state.user);
     // fetch('https://gentle-badlands-25513.herokuapp.com/result', {
     fetch('http://localhost:3000/result', {
       method: 'post', 
@@ -364,7 +362,6 @@ class App extends Component{
     })
     .then(response => response.json())
     .then(result => {
-      console.log("result", result);
       const {weight, deficit} = result.user;
       const {userCalorie, userCarbon, userActivity, userExercise} = result;
     // first time loggin, no latest result 

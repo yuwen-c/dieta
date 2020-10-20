@@ -12,24 +12,36 @@ class RateCalculation extends Component{
             weightThisWeek: 0,
             weightLastWeek: 0,
             rate: 0, // % of losing rate
+            error: ''
         }
     }
-// 如何判斷rate是尚未輸入的0，還是計算結果的0?
     onThisWeekInput = (event) => {
-        this.setState({weightThisWeek: event.target.value})
+        this.setState({weightThisWeek: parseFloat(event.target.value)})
     }
 
     onLastWeekInput = (event) => {
-        this.setState({weightLastWeek: event.target.value})
+        this.setState({weightLastWeek: parseFloat(event.target.value)})
     }
 
     rateCalculation = () => {
+        this.setState({error: ''})
         const {weightThisWeek, weightLastWeek} = this.state;
-        const rate = Math.round((weightThisWeek - weightLastWeek)/ weightLastWeek * 10000)/100
-        this.setState({
-            rate: rate,
-            showGuide: true
-        });
+
+        if(!isNaN(weightThisWeek) && !isNaN(weightLastWeek)){
+            if(weightThisWeek <=1000 && weightThisWeek >= 40 && weightLastWeek <=1000 &&  weightLastWeek >= 40 ){
+                const rate = Math.round((weightThisWeek - weightLastWeek)/ weightLastWeek * 10000)/100
+                this.setState({
+                    rate: rate,
+                    showGuide: true
+                });                
+            }
+            else{
+                this.setState({error: 'Invalid number'})
+            }
+        }
+        else{
+            this.setState({error: 'Invalid number'})
+        }
         // window.scrollTo(0, 300); //scroll page the guide part
     }
 
@@ -48,6 +60,9 @@ class RateCalculation extends Component{
                                 <div className="br2" style={{'backgroundColor' : '#96CCFF'}} >
                                     <h3>
                                     What's the next? 
+                                    {this.state.rate}
+                                    {rateNum}
+                                    {this.state.weightThisWeek}
                                     </h3>      
                                 </div>  
                                 <div className="fw7 f8 ">Calculate your losing rate:</div> 
@@ -74,13 +89,16 @@ class RateCalculation extends Component{
                                     />
                                 </div>
             
-                                <div className="pb3">
-                                  <input 
-                                  className="ph3 pv2 input-reset ba b--black bg-transparent grow pointer b f6 dib" 
-                                  type="submit" 
-                                  value="submit"
-                                  onClick={this.rateCalculation}
-                                  />
+                                <div className="pb3 flex flex-wrap">
+                                    <input 
+                                    className="ph3 pv2 input-reset ba b--black bg-transparent grow pointer b f6 dib" 
+                                    type="submit" 
+                                    value="submit"
+                                    onClick={this.rateCalculation}
+                                    />
+                                    <span
+                                    className="f5 link dark-pink dib ml2 pt3"
+                                    >{this.state.error}</span> 
                                 </div>
             
                                 <p><span className="pl1">{this.state.rate}</span> % weight change.</p>
