@@ -78,9 +78,6 @@ class SignIn extends Component{
                             />
                         </div>
                         <div className="lh-copy mt3">
-                            {/* <p 
-                            className="f6 link dim black db"
-                            onClick={()=> {this.props.onRouteChange("signup")}}>Sign up</p> */}
                             <p 
                             className="f5 link dark-pink db"
                             >{this.state.message}</p>

@@ -41,7 +41,7 @@ class SignUp extends Component{
                     this.props.onIsSignIn();
                 }
                 else{
-                    this.setState({message : 'Sign up failure'});
+                    this.setState({message : result});
                 }
             })
         }
@@ -90,9 +90,6 @@ class SignUp extends Component{
                             />
                         </div>
                         <div className="lh-copy mt3">
-                            {/* <p 
-                            className="f6 link dim black db"
-                            onClick={()=> {this.props.onRouteChange("signin")}}>Sign in</p> */}
                             <p 
                             className="f5 link dark-pink db"
                             >{this.state.message}</p>

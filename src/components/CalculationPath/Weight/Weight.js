@@ -3,7 +3,7 @@ import CalorieDeficit from '../CalorieDeficit/CalorieDeficit';
 import NextPage from '../../NextPage/NextPage';
 import './Weight.css'
 
-const Weight = ({weight, deficit, onWeightChange, onRouteChange, onDeficitChange, weightMessage, nextPageMessage, onCheckBeforeNextPage}) => {
+const Weight = ({onWeightChange, onRouteChange, onDeficitChange, nextPageMessage, onCheckBeforeNextPage}) => {
     return(
         <div className="flex flex-column items-center">
             <div id="cardDiv" className="pa3 w5 w-70-ns">
@@ -24,25 +24,11 @@ const Weight = ({weight, deficit, onWeightChange, onRouteChange, onDeficitChange
                                 className="input-reset ba b--black-60 pa2 db w3" 
                                 type="text" 
                                 aria-describedby="name-desc"
-                                // value={weight}
                                 onChange={onWeightChange}
-                                />
-                                <span
-                                className="f5 link dark-pink dib ml2 pt3"
-                                >{weightMessage}</span>                                
-                                </div>
+                                />                               
+                            </div>
                             <small id="name-desc" className="f6 black-60 db mb2">e.g. 78</small>
                         </div>
-
-                        {/* <div className="pb3">
-                            <input 
-                            className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
-                            type="submit" 
-                            value="submit"
-                            onClick={onBMRCalculate}
-                            />
-                        </div> */}
-                        {/* <p>Your BMR is <span>{bmr}</span> Kcal.</p> */}
                     </div>
                 </article>   
             </div>
@@ -50,8 +36,6 @@ const Weight = ({weight, deficit, onWeightChange, onRouteChange, onDeficitChange
                 <article className="ba pv1 br2 b--light-silver shadow-1">
                     <div className="ph3">
                         <CalorieDeficit
-                        weight={weight}
-                        deficit={deficit}
                         onDeficitChange={onDeficitChange}
                         />
                     </div>

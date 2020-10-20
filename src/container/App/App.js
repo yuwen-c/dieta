@@ -25,12 +25,9 @@ const initialState = {
     deficit: 0
   },
 
-  weightMessage: '',
-  nextPageMessage: '',
-
-  // BMR : 0,
   isSignIn : false,
   route: 'home', // sign in, sign up, weight, activity, exercise, nutrition 新增 description, rate
+  nextPageMessage: '',
 
   activity : [], // store week activity, like: [0, 1, 0, 1, 0, 3, 2]
   exercise : [], // store week exercise, like: [0, 1, 0, 1, 0, 3, 2]
@@ -70,7 +67,12 @@ class App extends Component{
     })
     .then(response => response.json())
     .then(user => {
-      this.loadUser(user);
+      if(user.name){
+        this.loadUser(user);
+      }
+      else{
+        //?????
+      }
     })
   }
 
@@ -190,8 +192,8 @@ class App extends Component{
 
 
 // ========================== Choose activity and exercise amount ==========================
-  // 把原本的onClick改為onChange，按下之後，要把同一組其他的default設為false，再把自己的設為true
-  // onclick, 1. save option value to activity state, save checked (true/ false) to checked state.
+  // 把同一組的default設為false，再把選中的設為true
+  // 1. save option value to activity state. 2. save checked (true/ false) to checked state.
   onActExeAmount = (event) => {
     const index = (event.target.name).slice(-1); // get "1" of name: "activity1"
     const type = (event.target.name).slice(0, -1); // get "activity" or "exercise" of name: "activity1"
@@ -210,10 +212,9 @@ class App extends Component{
     })
   }
 
-  // when user leaves activity and exercise pages, delete data
+  // when user leaves activity and exercise pages, delete "checked" state repactively
   onDeleteActExeOption = (type) => { // type is activity or exercise
     const checkedStr = `checked`+ type.slice(0,1).toUpperCase()+type.slice(1); // get checkedActivity str or checkedExercise str
-    // in activity and exercise pages, nextPage button delete data repactively
     this.setState({
       [checkedStr] : initialchecked,
     })
@@ -232,7 +233,7 @@ class App extends Component{
     })
     .then(response => response.json())
     .then(result => {
-      if(result==="No saved record! please choose the options."){
+      if(result==="No saved record!"){
         alert(result);
       }
       else{      
@@ -409,22 +410,15 @@ class App extends Component{
       case 'calculation':
         return <Weight
                 onWeightChange = {this.onWeightChange}
-                // onBMRCalculate = {this.onBMRCalculate}
-                weight = {this.state.user.weight}
-                deficit = {this.state.user.deficit}
-                // bmr = {this.state.BMR}
-                onRouteChange = {this.onRouteChange} 
+                // onRouteChange = {this.onRouteChange} 
                 onDeficitChange = {this.onDeficitChange} 
-                // onDeleteBMR = {this.onDeleteBMR}
-                weightMessage = {this.state.weightMessage}
                 nextPageMessage = {this.state.nextPageMessage}
                 onCheckBeforeNextPage = {this.onCheckBeforeNextPage}
                 />
       case 'activity':
         return <Activity
-                onRouteChange = {this.onRouteChange}  
+                // onRouteChange = {this.onRouteChange}  
                 onActExeAmount = {this.onActExeAmount}
-                onChange={this.onChange}
                 onLoadActExe = {this.onLoadActExe}  
                 optionCheckedState = {this.state.checkedActivity}
                 onDeleteActExeOption = {this.onDeleteActExeOption}
@@ -433,9 +427,9 @@ class App extends Component{
                 />
       case 'exercise':
         return <Exercise
-                onRouteChange = {this.onRouteChange}  
+                // onRouteChange = {this.onRouteChange}  
                 onActExeAmount = {this.onActExeAmount}
-                calculateNutrition = {this.calculateNutrition}
+                // calculateNutrition = {this.calculateNutrition}
                 onLoadActExe = {this.onLoadActExe}  
                 optionCheckedState = {this.state.checkedExercise}
                 onDeleteActExeOption = {this.onDeleteActExeOption}
@@ -462,7 +456,7 @@ class App extends Component{
                 modifySpeedUp = {this.state.modifySpeedUp}
                 modifySlowDown = {this.state.modifySlowDown}
                 onModifyDeficit = {this.onModifyDeficit}
-                onRouteChange = {this.onRouteChange}
+                // onRouteChange = {this.onRouteChange}
                 nextPageMessage = {this.state.nextPageMessage}
                 onCheckBeforeNextPage = {this.onCheckBeforeNextPage}
                 />
@@ -488,11 +482,7 @@ class App extends Component{
           {this.renderSwitch(this.state.route)}
         </div>
         <br/>
-        {this.state.maintainRate.toString()}
-        <br/>
-        {this.state.modifyDeficit}
-        <br/>
-        {this.state.user.weight}
+        {this.state.user.name}
       </div>
     )
   }

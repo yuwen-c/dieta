@@ -39,7 +39,7 @@ const Activity = ({onRouteChange, onActExeAmount, onLoadActExe, optionCheckedSta
                 </div>
                 <NextPage
                 // onRouteChange={()=> {onRouteChange('exercise'); onDeleteActExeOption('activity')}}
-                onCheckBeforeNextPage={() => {onCheckBeforeNextPage('exercise')}}
+                onCheckBeforeNextPage={() => {onCheckBeforeNextPage('exercise'); onDeleteActExeOption('activity')}}
                 nextPageMessage={nextPageMessage}
                 />
         </div>

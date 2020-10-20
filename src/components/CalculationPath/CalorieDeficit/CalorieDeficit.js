@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CalorieDeficit = ({weight, deficit, onDeficitChange}) => {
+const CalorieDeficit = ({onDeficitChange}) => {
     return (
         <div>
             <div className="br2" style={{'backgroundColor' : '#96CCFF'}} >

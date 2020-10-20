@@ -141,7 +141,7 @@ class RateCalculation extends Component{
                             modifySpeedUp = {this.props.modifySpeedUp}
                             modifySlowDown = {this.props.modifySlowDown}
                             onModifyDeficit = {this.props.onModifyDeficit}
-                            onRouteChange = {this.props.onRouteChange}
+                            // onRouteChange = {this.props.onRouteChange}
                             />
                         </div>
                     </article>   
