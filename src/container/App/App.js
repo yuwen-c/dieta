@@ -107,22 +107,39 @@ class App extends Component{
 
 // ========================== Check blanks before jump to next page ==========================
 
-  onCheckBeforeNextPage = (route) => {
+  onCheckBeforeNextPage = (toRoute) => {
     this.setState({nextPageMessage : ''})
-    switch (route) {
-      case 'activity':     // calculate weight 頁面的檢查
-        const {weight, deficit} = this.state.user;
-        if (weight <=1000 &&  weight >= 40){
-          if(deficit !== 0){
-            this.onRouteChange('activity');
+    const {route} = this.state;
+    switch (toRoute) {
+      // 2種情況下會連到activity, 在weight calculation, 或是在nextMove
+      case 'activity':     
+        if (route === 'calculation'){  // calculate weight 頁面的檢查
+          console.log('calculation');
+          const {weight, deficit} = this.state.user;
+          if (weight <=1000 &&  weight >= 40){
+            if(deficit !== 0){
+              this.onRouteChange('activity');
+            }
+            else{
+              this.setState({nextPageMessage: "Choose deficit."})
+            }
           }
           else{
+            this.setState({nextPageMessage: "Wrong body weight"})
+          }
+
+        }
+        else if (route === 'nextMove'){  // 在nextMove頁面的檢查
+          console.log('nextMove');
+          const {maintainRate, modifyDeficit} = this.state;
+          if(maintainRate === false && modifyDeficit === 0){
             this.setState({nextPageMessage: "Choose deficit."})
           }
+          else{
+            this.onRouteChange('activity');
+          }
         }
-        else{
-          this.setState({nextPageMessage: "Wrong body weight"})
-        }
+
         break;
 
       case 'exercise':    // activity 頁面的檢查
@@ -460,6 +477,8 @@ class App extends Component{
                 modifySlowDown = {this.state.modifySlowDown}
                 onModifyDeficit = {this.onModifyDeficit}
                 onRouteChange = {this.onRouteChange}
+                nextPageMessage = {this.state.nextPageMessage}
+                onCheckBeforeNextPage = {this.onCheckBeforeNextPage}
                 />
       default:
         return 

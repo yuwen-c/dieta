@@ -129,7 +129,9 @@ class RateCalculation extends Component{
                     </article>   
                 </div>
                 <NextPage
-                onRouteChange={()=> {this.props.onRouteChange('activity')}}
+                nextPageMessage={this.props.nextPageMessage}
+                onCheckBeforeNextPage={() => {this.props.onCheckBeforeNextPage('activity')}}
+                // onRouteChange={()=> {this.props.onRouteChange('activity')}}
                 />
             </div>
         )
