@@ -73,6 +73,15 @@ class App extends Component{
       this.loadUser(user);
     })
   }
+
+  // delete state so that the nextPage check can work well
+  deleteUserNumber = () => {
+    this.setState(Object.assign(this.state.user, {
+      weight: 0,
+      deficit: 0
+    }))
+  }
+
   onIsSignIn = () => {
     this.setState({isSignIn : true});
   }
@@ -89,30 +98,6 @@ class App extends Component{
       this.setState(Object.assign(this.state.user, {weight : ""}))
     }
   }
-
-  // calculate BMR  and check format
-  // onBMRCalculate = () => {
-  //   this.setState({
-  //     weightMessage: '',
-  //     BMR : 0,
-  //     weight : parseFloat(this.state.weight)
-  //   });
-  //   // const weightNumber = parseFloat(this.state.weight);
-  //   const {weight} = this.state.user;
-  //   // check if weight is a number
-  //   if(!isNaN(weight)){
-  //     if(weight <= 1000 && weight >= 40){
-  //       const bmr = parseInt(this.state.weight*2.2*12);
-  //       this.setState({BMR : bmr});
-  //     }
-  //     else{
-  //       this.setState({weightMessage : 'This number is out of range.'})
-  //     }
-  //   }
-  //   else{
-  //     this.setState({weightMessage: "Wrong number format."})
-  //   }
-  // } 
 
   // get deficit option
   onDeficitChange = (event) => {
@@ -176,10 +161,7 @@ class App extends Component{
       else{
         // once get into the calculation page, delete weight and deficit state to fit the check
         if(route === 'calculation'){ 
-          this.setState(Object.assign(this.state.user, {
-            weight: 0,
-            deficit: 0
-          }))
+          this.deleteUserNumber();
         }
         else if(route === 'nextMove'){
           this.reLoadUser();
@@ -392,7 +374,6 @@ class App extends Component{
           activity: Object.values(userActivity),
           exercise: Object.values(userExercise) 
           });
-        
         this.onRouteChange('result');
       }}
     )
