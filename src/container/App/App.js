@@ -87,16 +87,9 @@ class App extends Component{
   }
 
 // ========================== Calculation Weight ==========================
-  // check weight input format and set weight state
+  // save weight to state
   onWeightChange = (event) => {
-    const value = event.target.value;
-    // weight is a number, and not a empty string
-    if(!isNaN(value) && value !== ""){
-      this.setState(Object.assign(this.state.user, {weight : parseFloat(value)})); 
-    }
-    else{
-      this.setState(Object.assign(this.state.user, {weight : ""}))
-    }
+    this.setState(Object.assign(this.state.user, {weight : parseFloat(event.target.value)}));
   }
 
   // get deficit option
@@ -111,11 +104,10 @@ class App extends Component{
     this.setState({nextPageMessage : ''})
     const {route} = this.state;
     switch (toRoute) {
-      // 2種情況下會連到activity, 在weight calculation, 或是在nextMove
       case 'activity':     
         if (route === 'calculation'){  // calculate weight 頁面的檢查
           const {weight, deficit} = this.state.user;
-          if (weight <=1000 &&  weight >= 40){
+          if (!isNaN(weight) && weight <=1000 && weight >= 40){
             if(deficit !== 0){
               this.onRouteChange('activity');
             }
@@ -124,9 +116,8 @@ class App extends Component{
             }
           }
           else{
-            this.setState({nextPageMessage: "Wrong body weight"})
+            this.setState({nextPageMessage: "Invalid weight."})
           }
-
         }
         else if (route === 'nextMove'){  // nextMove頁面的檢查
           const {maintainRate, modifyDeficit} = this.state;

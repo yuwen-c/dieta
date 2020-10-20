@@ -24,7 +24,7 @@ const Weight = ({weight, deficit, onWeightChange, onRouteChange, onDeficitChange
                                 className="input-reset ba b--black-60 pa2 db w3" 
                                 type="text" 
                                 aria-describedby="name-desc"
-                                value={weight}
+                                // value={weight}
                                 onChange={onWeightChange}
                                 />
                                 <span
