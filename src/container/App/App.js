@@ -10,6 +10,8 @@ import './App.css';
 import RateCalculation from '../../components/NextMovePath/RateCalculation/RateCalculation';
 import NavbarDrop from '../../components/NavbarDrop/NavbarDrop';
 import ExplanationCardList from '../../components/HowItWorksPath/ExplanationCardList/ExplanationCardList';
+import Modal from '../../components/Modal/Modal';
+// import { Button } from 'react-bootstrap';
 //import { activityTableData, exerciseTableData } from '../../components/CalculationPath/LevelTable/TableData';
 
 const initialchecked = 
@@ -45,6 +47,8 @@ const initialState = {
   modifySpeedUp: false,
   modifySlowDown: false, 
   modifyDeficit: 0,
+
+  showModal: false,
 }
 
 class App extends Component{
@@ -387,6 +391,15 @@ class App extends Component{
     .catch(console.log)
   }
 
+// ========================== Modal ==========================
+ 
+  onShowModal = () => {
+    this.setState({showModal : true});
+  }
+
+  onHideModal = () => {
+    this.setState({showModal : false});
+  }
 
 // ========================== Rendering ==========================
   // decide render components
@@ -469,6 +482,18 @@ class App extends Component{
   }
 
   render(){
+    const modal = this.state.showModal ? (
+      <Modal>
+        <div className="modalClass">
+            No calculation record saved.            
+          <br/>
+            inside of modalClass and also modal-root div.
+            <br/>
+          <button onClick={this.onHideModal}>OK</button>
+        </div>
+      </Modal>
+    ) : null;
+
     return(
       <div>
         {/* <Navigation
@@ -485,7 +510,8 @@ class App extends Component{
           {this.renderSwitch(this.state.route)}
         </div>
         <br/>
-        {this.state.user.name}
+        <button onClick={this.onShowModal}>show modal</button>
+        {modal}
       </div>
     )
   }
