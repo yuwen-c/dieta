@@ -14,7 +14,7 @@ input{
 
 .modalClass {
     background-color: rgba(0,0,0,0.5);
-    position: absolute;
+    position: fixed; 
     height: 100vh;
     width: 100vw;
     top: 0;
@@ -23,7 +23,8 @@ input{
     align-items: center;
     justify-content: center;
   }
-  
+  /* position: fixed; is positioned relative to the viewport, 
+  which means it always stays in the same place even if the page is scrolled */
 
   h3{
     padding: 5px;
