@@ -14,9 +14,9 @@ input{
 
 .modalClass {
     background-color: rgba(0,0,0,0.5);
-    position: fixed;
-    height: 100%;
-    width: 100%;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
     top: 0;
     left: 0;
     display: flex;
@@ -25,4 +25,19 @@ input{
   }
   
 
-  
+  h3{
+    padding: 5px;
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+#description{
+    line-height: 1.6;
+}
+
+

@@ -11,6 +11,7 @@ import RateCalculation from '../../components/NextMovePath/RateCalculation/RateC
 import NavbarDrop from '../../components/NavbarDrop/NavbarDrop';
 import ExplanationCardList from '../../components/HowItWorksPath/ExplanationCardList/ExplanationCardList';
 import Modal from '../../components/Modal/Modal';
+import ModalContent from '../../components/Modal/ModalContent';
 // import { Button } from 'react-bootstrap';
 //import { activityTableData, exerciseTableData } from '../../components/CalculationPath/LevelTable/TableData';
 
@@ -48,7 +49,8 @@ const initialState = {
   modifySlowDown: false, 
   modifyDeficit: 0,
 
-  showModal: false,
+  showNoResultModal: false,
+  showNoActExeModal: false
 }
 
 class App extends Component{
@@ -238,8 +240,8 @@ class App extends Component{
     })
     .then(response => response.json())
     .then(result => {
-      if(result==="No saved record!"){
-        alert(result);
+      if(result==="No saved record."){
+        this.onShowModal("showNoActExeModal");
       }
       else{      
         delete result['email'];
@@ -365,7 +367,7 @@ class App extends Component{
       const {userCalorie, userCarbon, userActivity, userExercise} = result;
     // first time loggin, no latest result 
       if(weight === 0){
-        alert("No record! Why don't we do it from the beginning?");
+        this.onShowModal('showNoResultModal');
         this.onRouteChange('calculation');
       }
       else{
@@ -393,12 +395,12 @@ class App extends Component{
 
 // ========================== Modal ==========================
  
-  onShowModal = () => {
-    this.setState({showModal : true});
+  onShowModal = (modal) => {
+    this.setState({[modal] : true});
   }
 
-  onHideModal = () => {
-    this.setState({showModal : false});
+  onHideModal = (modal) => {
+    this.setState({[modal] : false});
   }
 
 // ========================== Rendering ==========================
@@ -482,17 +484,14 @@ class App extends Component{
   }
 
   render(){
-    const modal = this.state.showModal ? (
+    const modal = 
       <Modal>
-        <div className="modalClass">
-            No calculation record saved.            
-          <br/>
-            inside of modalClass and also modal-root div.
-            <br/>
-          <button onClick={this.onHideModal}>OK</button>
-        </div>
+        <ModalContent
+          showNoResultModal={this.state.showNoResultModal}
+          showNoActExeModal={this.state.showNoActExeModal}
+          onHideModal={this.onHideModal}
+        />
       </Modal>
-    ) : null;
 
     return(
       <div>
@@ -509,8 +508,6 @@ class App extends Component{
         <div>
           {this.renderSwitch(this.state.route)}
         </div>
-        <br/>
-        <button onClick={this.onShowModal}>show modal</button>
         {modal}
       </div>
     )
