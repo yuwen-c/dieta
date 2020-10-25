@@ -11,6 +11,18 @@ class SignUp extends Component{
         }
     }
 
+    onGuestLogin = () => {
+        const guestUser = {
+            name: 'Guest',
+            email: 'guest',
+            weight: 0,
+            deficit: 0
+        }
+        this.props.loadUser(guestUser);
+        this.props.onRouteChange('howItWorks');
+        this.props.onIsSignIn();
+    }
+
     onNameChange = (event) => {
         this.setState({name : event.target.value})
     }
@@ -50,13 +62,27 @@ class SignUp extends Component{
             this.setState({message : 'Enter your data please.'})
         }
     }
+
     render(){
         return(
             <div>
                 <div className="pa4 black-80">
                     <div className="measure center">
                         <fieldset id="sign_in" className="ba b--transparent ph0 mh0">
-                            <legend className="f4 fw6 ph0 mh0">Sign Up</legend>
+                            <legend className="f4 fw6 ph0 mh0 flex">
+                                <div>
+                                    Sign Up
+                                </div>
+
+                                <div className="pl5">
+                                    <input 
+                                    className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
+                                    type="submit" 
+                                    value="隨便逛逛"
+                                    onClick={this.onGuestLogin}
+                                    />
+                                </div>
+                            </legend>
                             <div className="mt3">
                                <label className="db fw6 lh-copy f6" htmlFor="name">Name</label>
                                <input 
@@ -95,6 +121,7 @@ class SignUp extends Component{
                             className="f5 link dark-pink db"
                             >{this.state.message}</p>
                         </div>
+
                     </div>
                 </div>
             </div>

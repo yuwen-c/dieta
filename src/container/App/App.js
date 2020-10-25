@@ -63,6 +63,7 @@ class App extends Component{
   // after sign in, load user to App state  
   loadUser = (data) => {
     this.setState({user: data})
+    console.log("data", data);
   }
 
   reLoadUser = () => {
@@ -508,6 +509,8 @@ class App extends Component{
         <div>
           {this.renderSwitch(this.state.route)}
         </div>
+        {this.state.user.name}
+        {this.state.user.email}
         {modal}
       </div>
     )
