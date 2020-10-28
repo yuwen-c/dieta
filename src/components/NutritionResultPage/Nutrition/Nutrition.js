@@ -30,8 +30,10 @@ const Nutrition = ({ name, onRouteChange, deficit, protein, oil, activity, exerc
                     <input 
                     className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                     type="submit" 
-                    value="Sign out"
-                    onClick={() => {onRouteChange('signin')}}
+                    // value="Sign out"
+                    // onClick={() => {onRouteChange('signin')}}
+                    value="Sign up now to save your calculation!"
+                    onClick={() => {onRouteChange('signup')}}
                     />
                 </div> 
         </div>

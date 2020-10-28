@@ -272,7 +272,7 @@ class App extends Component{
 // ========================== Calculate nutrition result ==========================
   // do calculation and save to state
   calculateNutrition = () => {
-    const {email, weight, deficit} = this.state.user;
+    const {name, email, weight, deficit} = this.state.user;
     const {activity, exercise, modifyDeficit} = this.state; 
     
     const protein = weight * 2; // protein fixes to 2 times weight
@@ -298,25 +298,45 @@ class App extends Component{
     });
     this.setState(Object.assign(this.state.user, {deficit: totalDeficit}));
 
-    // save data to database
-    // fetch('https://gentle-badlands-25513.herokuapp.com/calculate', {
-    fetch('http://localhost:3000/calculate', {
-      method: 'put',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        email: email,
-        weight: weight,
-        deficit: totalDeficit, //refresh user deficit with modify part
-        activity: activity,
-        exercise: exercise,
-        dailyCalorie : dailyCalorie,
-        dailyCarbon : dailyCarbon
-      })
-    })
-    .then(response => response.json())
-    .then(result => console.log(result))
-    .catch(console.log);
+    if(name === 'Guest'){
+      console.log("guest", `don't do fetch`);
+    }
+    else{
+      this.onSaveCalculation(totalDeficit, dailyCalorie, dailyCarbon);
+    }
   }
+// guest user
+// 1. do calculation ok
+// 2. click sign up => to sign up page w/o initiation the user ok
+// 3. fill data, click sign up => create new user and do save data
+// 4. direct to result page with user name.
+
+// issue? isGuest?
+// 2 pathes: normal user and guest user
+
+// save data to database
+  onSaveCalculation = (totalDeficit, dailyCalorie, dailyCarbon) => {
+    const {name, email, weight, deficit} = this.state.user;
+    const {activity, exercise, modifyDeficit} = this.state; 
+    // fetch('https://gentle-badlands-25513.herokuapp.com/calculate', {
+      fetch('http://localhost:3000/calculate', {
+        method: 'put',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          email: email,
+          weight: weight,
+          deficit: totalDeficit, //refresh user deficit with modify part
+          activity: activity,
+          exercise: exercise,
+          dailyCalorie : dailyCalorie,
+          dailyCarbon : dailyCarbon
+        })
+      })
+      .then(response => response.json())
+      .then(result => console.log(result))
+      .catch(console.log);
+  }
+
 
 // ========================== Next Move ==========================
   // choose speed up or slow down and show options (-100/ +100...)
@@ -420,6 +440,7 @@ class App extends Component{
                 />
       case 'signup':
         return <SignUp
+                name = {this.state.user.name}
                 loadUser = {this.loadUser}
                 onRouteChange = {this.onRouteChange}
                 onIsSignIn = {this.onIsSignIn}

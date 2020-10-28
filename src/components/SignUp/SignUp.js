@@ -64,6 +64,33 @@ class SignUp extends Component{
     }
 
     render(){
+        // a original version of sign up button, and a guest user after calculation, sign up button
+        const button = this.props.name !== 'Guest' ?
+        // let signUpButton; 
+        // this.props.name !== 'Guest' ? 
+
+        
+        <div className="">
+        <input 
+        className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
+        type="submit" 
+        value="Sign up"
+        onClick={this.onSignUp}
+        />
+        </div>
+        
+
+        :
+
+        <div className="">
+        <input 
+        className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
+        type="submit" 
+        value="Guest Sign up"
+        onClick={this.onSignUp} // guest signup, store calculation result
+        />
+        </div>
+
         return(
             <div>
                 <div className="pa4 black-80">
@@ -108,14 +135,15 @@ class SignUp extends Component{
                                />
                             </div>
                         </fieldset>
-                        <div className="">
+                        {/* <div className="">
                             <input 
                             className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                             type="submit" 
                             value="Sign up"
                             onClick={this.onSignUp}
                             />
-                        </div>
+                        </div> */}
+                        {button}
                         <div className="lh-copy mt3">
                             <p 
                             className="f5 link dark-pink db"
