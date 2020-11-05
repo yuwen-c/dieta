@@ -107,12 +107,22 @@ class App extends Component{
 // ========================== Calculation Weight ==========================
   // save weight to state
   onWeightChange = (event) => {
-    this.setState(Object.assign(this.state.user, {weight : parseFloat(event.target.value)}));
+    this.setState(prevstate => {
+      let user = Object.assign({}, prevstate);
+      user.weight = parseFloat(event.target.value);
+      return {user : user}
+    })
+    // this.setState(Object.assign(this.state.user, {weight : parseFloat(event.target.value)}));
   }
 
   // get deficit option
   onDeficitChange = (event) => {
-    this.setState(Object.assign(this.state.user, {deficit : parseInt(event.target.value)}))
+    this.setState(prevstate => {
+      let user = Object.assign({}, prevstate);
+      user.deficit = parseFloat(event.target.value);
+      return {user : user}
+    })
+    // this.setState(Object.assign(this.state.user, {deficit : parseInt(event.target.value)}))
   }
 
 
