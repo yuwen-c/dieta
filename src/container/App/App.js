@@ -57,6 +57,7 @@ class App extends Component{
   constructor(){
     super();
     this.state = JSON.parse(JSON.stringify(initialState));
+    console.log("constructor", this.state, this.state.user);
   }
 
 
@@ -72,6 +73,7 @@ class App extends Component{
       user.email = email;
       return {user : user};
     })
+    console.log("loadUser", data)
   }
 
   reLoadUser = () => {
@@ -95,7 +97,7 @@ class App extends Component{
   // delete state so that the nextPage check can work well
   deleteUserNumber = () => {
     this.setState(prevstate => {
-      let user = Object.assign({}, prevstate);
+      let user = Object.assign({}, prevstate.user);
       user.weight = 0;
       user.deficit = 0;
       return {user: user}
@@ -113,19 +115,20 @@ class App extends Component{
 // ========================== Calculation Weight ==========================
   // save weight to state
   onWeightChange = (event) => {
-    this.setState(prevstate => {
-      let user = Object.assign({}, prevstate);
-      user.weight = parseFloat(event.target.value);
+    let weightValue = event.target.value;
+    this.setState(prevState => {
+      let user = Object.assign({}, prevState.user);
+      user.weight = parseFloat(weightValue);
       return {user : user}
     })
-    // this.setState(Object.assign(this.state.user, {weight : parseFloat(event.target.value)}));
   }
 
   // get deficit option
   onDeficitChange = (event) => {
+    let deficitValue = event.target.value;
     this.setState(prevstate => {
-      let user = Object.assign({}, prevstate);
-      user.deficit = parseFloat(event.target.value);
+      let user = Object.assign({}, prevstate.user);
+      user.deficit = parseInt(deficitValue);
       return {user : user}
     })
     // this.setState(Object.assign(this.state.user, {deficit : parseInt(event.target.value)}))
@@ -324,7 +327,7 @@ class App extends Component{
     // this.setState(Object.assign(this.state.user, {deficit: totalDeficit}));
 
     this.setState(prevstate => {
-      let user = Object.assign({}, prevstate);
+      let user = Object.assign({}, prevstate.user);
       user.deficit = totalDeficit;
       return {user : user}
     })
@@ -546,6 +549,8 @@ class App extends Component{
   }
 
   render(){
+    // console.log("render user", this.state.user);
+    // console.log("render state", this.state)
     const modal = 
       <Modal>
         <ModalContent
