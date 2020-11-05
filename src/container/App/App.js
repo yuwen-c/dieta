@@ -56,14 +56,22 @@ const initialState = {
 class App extends Component{
   constructor(){
     super();
-    this.state = initialState;
+    this.state = JSON.parse(JSON.stringify(initialState));
   }
+
+
 
 // ========================== Sign In ==========================
   // after sign in, load user to App state  
   loadUser = (data) => {
-    this.setState({user: data})
-    console.log("data", data);
+    const {name, email} = data;
+    // only refresh user name and email
+    this.setState(prevstate => {
+      let user = Object.assign({}, prevstate.user);
+      user.name = name;
+      user.email = email;
+      return {user : user};
+    })
   }
 
   reLoadUser = () => {
@@ -174,6 +182,7 @@ class App extends Component{
     if(this.state.isSignIn){ 
       if(route === 'signin'){ // actually is "sign out" button
         this.setState(initialState);
+        console.log("reset initialState", initialState);
       }
       else{
         // once get into the calculation page, delete weight and deficit state to fit the check
@@ -444,6 +453,10 @@ class App extends Component{
                 loadUser = {this.loadUser}
                 onRouteChange = {this.onRouteChange}
                 onIsSignIn = {this.onIsSignIn}
+                onSaveCalculation = {this.onSaveCalculation}
+                deficit = {this.state.deficit}
+                dailyCalorie = {this.state.dailyCalorie}
+                dailyCarbon = {this.state.dailyCarbon}
                 />
       case 'howItWorks':
         return <ExplanationCardList/>
@@ -531,7 +544,7 @@ class App extends Component{
           {this.renderSwitch(this.state.route)}
         </div>
         {this.state.user.name}
-        {this.state.user.email}
+        {this.state.isSignIn.toString()}
         {modal}
       </div>
     )

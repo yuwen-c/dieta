@@ -63,12 +63,35 @@ class SignUp extends Component{
         }
     }
 
+    // guest sign up function:
+    // like normal sign up, create new user in database,
+    // fetch and save data
+
+
+    // this.props.loadUser(result);                    
+    // this.props.onSaveCalculation(deficit, dailyCalorie, dailyCarbon);
+    // this.props.onRouteChange('result'); // normal user, sign up=> howitworks, guest sign up => result
+    // this.props.onIsSignIn();
+    // 如果App class user = guest, 那點選註冊時，就要
+    onGuestSignUp = () => {
+        // const {name, email, password} = this.state;
+        if(this.props.name !== "Guest"){
+            console.log("onguest, if")
+            this.onSignUp();
+        }
+        else{
+            console.log("onguest, else")
+            this.props.loadUser(this.state);
+            const {deficit, dailyCalorie, dailyCarbon} = this.props;        
+            this.onSignUp();
+            this.props.onSaveCalculation(deficit, dailyCalorie, dailyCarbon);
+        }
+
+    }
+
     render(){
         // a original version of sign up button, and a guest user after calculation, sign up button
         const button = this.props.name !== 'Guest' ?
-        // let signUpButton; 
-        // this.props.name !== 'Guest' ? 
-
         
         <div className="">
         <input 
@@ -87,7 +110,7 @@ class SignUp extends Component{
         className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
         type="submit" 
         value="Guest Sign up"
-        onClick={this.onSignUp} // guest signup, store calculation result
+        onClick={this.onGuestSignUp} // guest signup, store calculation result
         />
         </div>
 
@@ -135,15 +158,15 @@ class SignUp extends Component{
                                />
                             </div>
                         </fieldset>
-                        {/* <div className="">
+                        <div className="">
                             <input 
                             className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                             type="submit" 
                             value="Sign up"
-                            onClick={this.onSignUp}
+                            onClick={this.onGuestSignUp}
                             />
-                        </div> */}
-                        {button}
+                        </div>
+                        {/* {button} */}
                         <div className="lh-copy mt3">
                             <p 
                             className="f5 link dark-pink db"
