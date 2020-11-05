@@ -94,10 +94,16 @@ class App extends Component{
 
   // delete state so that the nextPage check can work well
   deleteUserNumber = () => {
-    this.setState(Object.assign(this.state.user, {
-      weight: 0,
-      deficit: 0
-    }))
+    this.setState(prevstate => {
+      let user = Object.assign({}, prevstate);
+      user.weight = 0;
+      user.deficit = 0;
+      return {user: user}
+    })
+    // this.setState(Object.assign(this.state.user, {
+    //   weight: 0,
+    //   deficit: 0
+    // }))
   }
 
   onIsSignIn = () => {
@@ -315,8 +321,13 @@ class App extends Component{
       dailyCalorie : dailyCalorie,
       dailyCarbon : dailyCarbon    
     });
-    this.setState(Object.assign(this.state.user, {deficit: totalDeficit}));
+    // this.setState(Object.assign(this.state.user, {deficit: totalDeficit}));
 
+    this.setState(prevstate => {
+      let user = Object.assign({}, prevstate);
+      user.deficit = totalDeficit;
+      return {user : user}
+    })
     if(name === 'Guest'){
       console.log("guest", `don't do fetch`);
     }
@@ -411,10 +422,16 @@ class App extends Component{
         this.onRouteChange('calculation');
       }
       else{
-        this.setState(Object.assign(this.state.user, {
-          weight: weight,
-          deficit: deficit
-        }))
+        this.setState(prevstate => {
+          let user = Object.assign({}, prevstate.user);
+          user.weight = weight;
+          user.deficit = deficit;
+          return {user : user}
+        })
+        // this.setState(Object.assign(this.state.user, {
+        //   weight: weight,
+        //   deficit: deficit
+        // }))
         delete userCalorie.email;
         delete userCarbon.email;
         delete userActivity.email;
