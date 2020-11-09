@@ -51,7 +51,7 @@ class SignUp extends Component{
         .then(response => response.json())  
         .catch(console.log)
     }
-    onSignUp = async () => {
+    onSignUp = () => {
         const {name, email, password} = this.state;
         if(name && email && password){
             this.onSignUpFetch(name, email, password)
