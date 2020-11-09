@@ -41,7 +41,7 @@ class SignUp extends Component{
             email: email,
             password: password
         }
-       // fetch('https://gentle-badlands-25513.herokuapp.com/signup', {
+       // return fetch('https://gentle-badlands-25513.herokuapp.com/signup', {
         return fetch('http://localhost:3000/signup', {
             method: 'post', 
             headers: {'Content-Type' : 'application/json'},
@@ -51,59 +51,53 @@ class SignUp extends Component{
         .then(response => response.json())  
         .catch(console.log)
     }
+
     onSignUp = () => {
+        console.log("on sign up")
         const {name, email, password} = this.state;
         if(name && email && password){
             this.onSignUpFetch(name, email, password)
             .then(result => {
-                console.log("inside of async", result);      // 好像成功了耶          
+                if(result.name){
+                    this.props.loadUser(result);
+                    this.props.onRouteChange('howItWorks');
+                    this.props.onIsSignIn();
+                }
+                else{
+                    this.setState({message : result});
+                }     
             })
             .catch(console.log)
-
-            // if(user.name){
-            //     this.props.loadUser(user);
-            //     this.props.onRouteChange('howItWorks');
-            //     this.props.onIsSignIn();
-            // }
-            // else{
-            //     this.setState({message : user});
-            // }            
         }
         else{
             this.setState({message : 'Enter your data please.'})
         }
     }
 
-    // guest sign up function:
-    // like normal sign up, create new user in database,
-    // fetch and save data
-
-
-    // this.props.loadUser(result);                    
-    // this.props.onSaveCalculation(deficit, dailyCalorie, dailyCarbon);
-    // this.props.onRouteChange('result'); // normal user, sign up=> howitworks, guest sign up => result
-    // this.props.onIsSignIn();
-    // 如果App class user = guest, 那點選註冊時，就要
-
-    // 注意！先註冊完才能存資料，我要等註冊ok才能發下一個fetch
-
-
-
-    // 或是我就單獨寫一個function，先會動就好了？
-    // 後端收到的資料依然是guest??因為app的地方還沒有setState,就發儲存的fetch了？
+    // 
     onGuestSignUp = () => {
-        // const {name, email, password} = this.state;
-        if(this.props.name !== "Guest"){
-            console.log("NOT Guest SignUp")
+        const {name, email, password} = this.state;
+        if(this.props.name !== "Guest"){ // normal user
             this.onSignUp();
         }
-        else{
-            console.log("Guest SignUp")
-            const {deficit, dailyCalorie, dailyCarbon} = this.props;        
-            this.props.loadUser(this.state);
-            
+        else{                            // guest user
+            this.onSignUpFetch(name, email, password)
+            .then(result => {
+                console.log("result", result)
+                if(result.name){ 
+                    const {deficit, dailyCalorie, dailyCarbon} = this.props;  
+                    console.log("guest sign up - deficit", deficit)       // undefine????????/
+                    this.props.onSaveCalculation(result.email, deficit, dailyCalorie, dailyCarbon);
+                    this.props.onRouteChange('result');
+                    this.props.loadUser(result);
+                    this.props.onIsSignIn();
+                }
+                else{
+                    this.setState({message : result});
+                }     
+            })
+            .catch(console.log)          
         }
-
     }
 
     render(){
@@ -180,7 +174,7 @@ class SignUp extends Component{
                             className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                             type="submit" 
                             value="Sign up"
-                            onClick={this.onSignUp}
+                            onClick={this.onGuestSignUp}
                             />
                         </div>
                         {/* {button} */}

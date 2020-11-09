@@ -168,7 +168,6 @@ class App extends Component{
         break;
 
       case 'exercise':    // activity 頁面的檢查
-      console.log("to page exercise check")
         const {activity} = this.state;
         if(activity.length === 7 && !activity.includes(undefined)){
           this.onRouteChange('exercise');
@@ -312,6 +311,7 @@ class App extends Component{
     let dailyCalorie = [];
     let dailyCarbon = [];
     const totalDeficit = parseInt(deficit) + parseInt(-modifyDeficit);
+    console.log("calculation - deficit", deficit, "modifyDeficit", modifyDeficit, "totalDeficit", totalDeficit)
     // deficit from user data + the modifyDeficit of next move = the new deficit
     // calculate day1-7
     for(let i=0; i<7; i++){
@@ -338,7 +338,7 @@ class App extends Component{
       console.log("guest", `don't do fetch`);
     }
     else{
-      this.onSaveCalculation(totalDeficit, dailyCalorie, dailyCarbon);
+      this.onSaveCalculation(email, totalDeficit, dailyCalorie, dailyCarbon);
     }
   }
 // guest user
@@ -351,17 +351,18 @@ class App extends Component{
 // 2 pathes: normal user and guest user
 
 // save data to database
-  onSaveCalculation = (totalDeficit, dailyCalorie, dailyCarbon) => {
-    const {name, email, weight, deficit} = this.state.user;
-    const {activity, exercise, modifyDeficit} = this.state; 
+  onSaveCalculation = (userEmail, deficit, dailyCalorie, dailyCarbon) => {
+    console.log("onSaveCalculation", deficit)
+    const {weight} = this.state.user;
+    const {activity, exercise} = this.state; 
     // fetch('https://gentle-badlands-25513.herokuapp.com/calculate', {
       fetch('http://localhost:3000/calculate', {
         method: 'put',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-          email: email,
+          email: userEmail,
           weight: weight,
-          deficit: totalDeficit, //refresh user deficit with modify part
+          deficit: deficit, //refresh user deficit with modify part
           activity: activity,
           exercise: exercise,
           dailyCalorie : dailyCalorie,
@@ -487,7 +488,7 @@ class App extends Component{
                 onRouteChange = {this.onRouteChange}
                 onIsSignIn = {this.onIsSignIn}
                 onSaveCalculation = {this.onSaveCalculation}
-                deficit = {this.state.deficit}
+                deficit = {this.state.user.deficit}
                 dailyCalorie = {this.state.dailyCalorie}
                 dailyCarbon = {this.state.dailyCarbon}
                 />
@@ -552,8 +553,7 @@ class App extends Component{
   }
 
   render(){
-    // console.log("render user", this.state.user);
-    // console.log("render state", this.state)
+    console.log("render", this.state.user.deficit)
     const modal = 
       <Modal>
         <ModalContent
