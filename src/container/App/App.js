@@ -56,8 +56,8 @@ const initialState = {
 class App extends Component{
   constructor(){
     super();
+    // this.state = initialState;
     this.state = JSON.parse(JSON.stringify(initialState));
-    console.log("constructor", this.state, this.state.user);
   }
 
 
@@ -73,7 +73,7 @@ class App extends Component{
       user.email = email;
       return {user : user};
     })
-    console.log("loadUser", data)
+    return name;
   }
 
   reLoadUser = () => {
@@ -131,7 +131,6 @@ class App extends Component{
       user.deficit = parseInt(deficitValue);
       return {user : user}
     })
-    // this.setState(Object.assign(this.state.user, {deficit : parseInt(event.target.value)}))
   }
 
 
@@ -169,12 +168,14 @@ class App extends Component{
         break;
 
       case 'exercise':    // activity 頁面的檢查
+      console.log("to page exercise check")
         const {activity} = this.state;
         if(activity.length === 7 && !activity.includes(undefined)){
           this.onRouteChange('exercise');
         }
         else{
           this.setState({nextPageMessage: "Choose options."})
+          console.log("message change")
         }
         break;
 
@@ -231,16 +232,18 @@ class App extends Component{
   // 把同一組的default設為false，再把選中的設為true
   // 1. save option value to activity state. 2. save checked (true/ false) to checked state.
   onActExeAmount = (event) => {
-    const index = (event.target.name).slice(-1); // get "1" of name: "activity1"
-    const type = (event.target.name).slice(0, -1); // get "activity" or "exercise" of name: "activity1"
+    const eventValue = event.target.value;
+    const eventName = event.target.name;
+    const index = eventName.slice(-1); // get "1" of name: "activity1"
+    const type = eventName.slice(0, -1); // get "activity" or "exercise" of name: "activity1"
     const checkedStr = `checked`+ type.slice(0,1).toUpperCase()+type.slice(1); // get checkedActivity str or checkedExercise str
 
     let copyTypeState = this.state[type].slice(); // "activity" or "exercise" state
-    copyTypeState[index-1] = parseInt(event.target.value);
+    copyTypeState[index-1] = parseInt(eventValue);
 
     let copyCheckedState = this.state[checkedStr].slice(); // checkedActivity or checkedExercise state
     copyCheckedState[index-1] = [false, false, false, false];
-    copyCheckedState[index-1][event.target.value] = true;
+    copyCheckedState[index-1][eventValue] = true;
 
     this.setState({
       [type] : copyTypeState,  // activity or exercise state
@@ -575,8 +578,7 @@ class App extends Component{
         <div>
           {this.renderSwitch(this.state.route)}
         </div>
-        {this.state.user.name}
-        {this.state.isSignIn.toString()}
+
         {modal}
       </div>
     )

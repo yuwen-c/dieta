@@ -35,28 +35,39 @@ class SignUp extends Component{
         this.setState({password : event.target.value})
     }
 
-    onSignUp = () => {
+    onSignUpFetch = (name, email, password) => {
+        const user = {
+            name: name, 
+            email: email,
+            password: password
+        }
+       // fetch('https://gentle-badlands-25513.herokuapp.com/signup', {
+        return fetch('http://localhost:3000/signup', {
+            method: 'post', 
+            headers: {'Content-Type' : 'application/json'},
+            body : JSON.stringify(user)
+            }
+        )
+        .then(response => response.json())  
+        .catch(console.log)
+    }
+    onSignUp = async () => {
         const {name, email, password} = this.state;
         if(name && email && password){
-            // fetch('https://gentle-badlands-25513.herokuapp.com/signup', {
-            fetch('http://localhost:3000/signup', {
-                method: 'post', 
-                headers: {'Content-Type' : 'application/json'},
-                body : JSON.stringify(this.state)
-                }
-            )
-            .then(response => response.json())
+            this.onSignUpFetch(name, email, password)
             .then(result => {
-                if(result.name){
-                    this.props.loadUser(result);
-                    this.props.onRouteChange('howItWorks');
-                    this.props.onIsSignIn();
-                }
-                else{
-                    this.setState({message : result});
-                }
+                console.log("inside of async", result);      // 好像成功了耶          
             })
-            .catch(console.log);
+            .catch(console.log)
+
+            // if(user.name){
+            //     this.props.loadUser(user);
+            //     this.props.onRouteChange('howItWorks');
+            //     this.props.onIsSignIn();
+            // }
+            // else{
+            //     this.setState({message : user});
+            // }            
         }
         else{
             this.setState({message : 'Enter your data please.'})
@@ -73,18 +84,24 @@ class SignUp extends Component{
     // this.props.onRouteChange('result'); // normal user, sign up=> howitworks, guest sign up => result
     // this.props.onIsSignIn();
     // 如果App class user = guest, 那點選註冊時，就要
+
+    // 注意！先註冊完才能存資料，我要等註冊ok才能發下一個fetch
+
+
+
+    // 或是我就單獨寫一個function，先會動就好了？
+    // 後端收到的資料依然是guest??因為app的地方還沒有setState,就發儲存的fetch了？
     onGuestSignUp = () => {
         // const {name, email, password} = this.state;
         if(this.props.name !== "Guest"){
-            console.log("onguest, if")
+            console.log("NOT Guest SignUp")
             this.onSignUp();
         }
         else{
-            console.log("onguest, else")
-            this.props.loadUser(this.state);
+            console.log("Guest SignUp")
             const {deficit, dailyCalorie, dailyCarbon} = this.props;        
-            this.onSignUp();
-            this.props.onSaveCalculation(deficit, dailyCalorie, dailyCarbon);
+            this.props.loadUser(this.state);
+            
         }
 
     }
@@ -163,7 +180,7 @@ class SignUp extends Component{
                             className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                             type="submit" 
                             value="Sign up"
-                            onClick={this.onGuestSignUp}
+                            onClick={this.onSignUp}
                             />
                         </div>
                         {/* {button} */}
