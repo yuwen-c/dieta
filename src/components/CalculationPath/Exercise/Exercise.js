@@ -5,7 +5,7 @@ import NextPage from '../../NextPage/NextPage';
 import LevelTable from '../LevelTable/LevelTable';
 import {exerciseTableData} from '../LevelTable/TableData';
 
-const Exercise = ({onRouteChange, calculateNutrition, onActExeAmount, onLoadActExe, optionCheckedState, onDeleteActExeOption, onCheckBeforeNextPage, nextPageMessage}) => {
+const Exercise = ({onRouteChange, calculateNutrition, onActExeAmount, onLoadActExe, optionCheckedState, onCheckBeforeNextPage, nextPageMessage}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; 
     return (
         <div className="pa3 flex flex-column items-center">
@@ -37,7 +37,7 @@ const Exercise = ({onRouteChange, calculateNutrition, onActExeAmount, onLoadActE
                 // call two functions in onClick
                 // onRouteChange={()=> {onRouteChange('result'); onDeleteActExeOption('exercise'); calculateNutrition()} }
                 nextPageMessage = {nextPageMessage}
-                onCheckBeforeNextPage = {()=> {onCheckBeforeNextPage('result'); onDeleteActExeOption('exercise')}}
+                onCheckBeforeNextPage = {()=> {onCheckBeforeNextPage('result')}}
                 />
         </div>
     )

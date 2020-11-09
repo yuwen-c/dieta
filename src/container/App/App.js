@@ -171,6 +171,7 @@ class App extends Component{
         const {activity} = this.state;
         if(activity.length === 7 && !activity.includes(undefined)){
           this.onRouteChange('exercise');
+          this.onDeleteActExeOption('activity');
         }
         else{
           this.setState({nextPageMessage: "Choose options."})
@@ -182,6 +183,7 @@ class App extends Component{
         const {exercise} = this.state;
         if(exercise.length === 7 && !exercise.includes(undefined)){
           this.onRouteChange('result');
+          this.onDeleteActExeOption('exercise');
           this.calculateNutrition();
         }
         else{
