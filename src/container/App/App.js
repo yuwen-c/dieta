@@ -311,7 +311,6 @@ class App extends Component{
     let dailyCalorie = [];
     let dailyCarbon = [];
     const totalDeficit = parseInt(deficit) + parseInt(-modifyDeficit);
-    console.log("calculation - deficit", deficit, "modifyDeficit", modifyDeficit, "totalDeficit", totalDeficit)
     // deficit from user data + the modifyDeficit of next move = the new deficit
     // calculate day1-7
     for(let i=0; i<7; i++){
@@ -352,7 +351,6 @@ class App extends Component{
 
 // save data to database
   onSaveCalculation = (userEmail, deficit, dailyCalorie, dailyCarbon) => {
-    console.log("onSaveCalculation", deficit)
     const {weight} = this.state.user;
     const {activity, exercise} = this.state; 
     // fetch('https://gentle-badlands-25513.herokuapp.com/calculate', {
@@ -553,7 +551,6 @@ class App extends Component{
   }
 
   render(){
-    console.log("render", this.state.user.deficit)
     const modal = 
       <Modal>
         <ModalContent

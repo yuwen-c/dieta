@@ -52,78 +52,72 @@ class SignUp extends Component{
         .catch(console.log)
     }
 
+    // sign up, 2 conditions, normal user and guest
     onSignUp = () => {
-        console.log("on sign up")
         const {name, email, password} = this.state;
         if(name && email && password){
-            this.onSignUpFetch(name, email, password)
-            .then(result => {
-                if(result.name){
-                    this.props.loadUser(result);
-                    this.props.onRouteChange('howItWorks');
-                    this.props.onIsSignIn();
-                }
-                else{
-                    this.setState({message : result});
-                }     
-            })
-            .catch(console.log)
+            if(this.props.name !== "Guest"){ // normal user sign up
+                console.log("normal user sign up")
+                this.onSignUpFetch(name, email, password)
+                .then(result => {
+                    if(result.name){
+                        this.props.loadUser(result);
+                        this.props.onRouteChange('howItWorks');
+                        this.props.onIsSignIn();
+                    }
+                    else{
+                        this.setState({message : result});
+                    }     
+                })
+                .catch(console.log)
+            }
+            else{                            // guest user sign up
+                console.log("guest user sign up")
+                this.onSignUpFetch(name, email, password)
+                .then(result => {
+                    if(result.name){ 
+                        const {deficit, dailyCalorie, dailyCarbon} = this.props;  
+                        this.props.onSaveCalculation(result.email, deficit, dailyCalorie, dailyCarbon);
+                        this.props.onRouteChange('result');
+                        this.props.loadUser(result);
+                        this.props.onIsSignIn();
+                    }
+                    else{
+                        this.setState({message : result});
+                    }     
+                })
+                .catch(console.log)          
+            }
         }
         else{
             this.setState({message : 'Enter your data please.'})
         }
     }
 
-    // 
-    onGuestSignUp = () => {
-        const {name, email, password} = this.state;
-        if(this.props.name !== "Guest"){ // normal user
-            this.onSignUp();
-        }
-        else{                            // guest user
-            this.onSignUpFetch(name, email, password)
-            .then(result => {
-                console.log("result", result)
-                if(result.name){ 
-                    const {deficit, dailyCalorie, dailyCarbon} = this.props;  
-                    console.log("guest sign up - deficit", deficit)       // undefine????????/
-                    this.props.onSaveCalculation(result.email, deficit, dailyCalorie, dailyCarbon);
-                    this.props.onRouteChange('result');
-                    this.props.loadUser(result);
-                    this.props.onIsSignIn();
-                }
-                else{
-                    this.setState({message : result});
-                }     
-            })
-            .catch(console.log)          
-        }
-    }
-
     render(){
         // a original version of sign up button, and a guest user after calculation, sign up button
-        const button = this.props.name !== 'Guest' ?
+        // const button = this.props.name !== 'Guest' ?
         
-        <div className="">
-        <input 
-        className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
-        type="submit" 
-        value="Sign up"
-        onClick={this.onSignUp}
-        />
-        </div>
+        // <div className="">
+        // <input 
+        // className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
+        // type="submit" 
+        // value="Sign up"
+        // onClick={this.onSignUp}
+        // />
+        // </div>
         
 
-        :
+        //:
 
-        <div className="">
-        <input 
-        className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
-        type="submit" 
-        value="Guest Sign up"
-        onClick={this.onGuestSignUp} // guest signup, store calculation result
-        />
-        </div>
+        // <div className="">
+        // <input 
+        // className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
+        // type="submit" 
+        // value="Guest Sign up"
+        // onClick={this.onGuestSignUp} // guest signup, store calculation result
+        // />
+        // </div>
 
         return(
             <div>
@@ -174,7 +168,7 @@ class SignUp extends Component{
                             className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                             type="submit" 
                             value="Sign up"
-                            onClick={this.onGuestSignUp}
+                            onClick={this.onSignUp}
                             />
                         </div>
                         {/* {button} */}
