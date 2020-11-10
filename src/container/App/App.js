@@ -102,10 +102,6 @@ class App extends Component{
       user.deficit = 0;
       return {user: user}
     })
-    // this.setState(Object.assign(this.state.user, {
-    //   weight: 0,
-    //   deficit: 0
-    // }))
   }
 
   onIsSignIn = () => {
@@ -141,7 +137,7 @@ class App extends Component{
     const {route} = this.state;
     switch (toRoute) {
       case 'activity':     
-        if (route === 'calculation'){  // calculate weight 頁面的檢查
+        if (route === 'calculation'){  // checks of calculate weight page 
           const {weight, deficit} = this.state.user;
           if (!isNaN(weight) && weight <=1000 && weight >= 40){
             if(deficit !== 0){
@@ -155,7 +151,7 @@ class App extends Component{
             this.setState({nextPageMessage: "Invalid weight."})
           }
         }
-        else if (route === 'nextMove'){  // nextMove頁面的檢查
+        else if (route === 'nextMove'){  // checks of nextMove page
           const {maintainRate, modifyDeficit} = this.state;
           if(maintainRate === false && modifyDeficit === 0){
             this.setState({nextPageMessage: "Choose deficit."})
@@ -328,7 +324,6 @@ class App extends Component{
       dailyCalorie : dailyCalorie,
       dailyCarbon : dailyCarbon    
     });
-    // this.setState(Object.assign(this.state.user, {deficit: totalDeficit}));
 
     this.setState(prevstate => {
       let user = Object.assign({}, prevstate.user);
@@ -336,27 +331,19 @@ class App extends Component{
       return {user : user}
     })
     if(name === 'Guest'){
-      console.log("guest", `don't do fetch`);
+      console.log("guest", `don't save calculation`);
     }
     else{
       this.onSaveCalculation(email, totalDeficit, dailyCalorie, dailyCarbon);
     }
   }
-// guest user
-// 1. do calculation ok
-// 2. click sign up => to sign up page w/o initiation the user ok
-// 3. fill data, click sign up => create new user and do save data
-// 4. direct to result page with user name.
-
-// issue? isGuest?
-// 2 pathes: normal user and guest user
 
 // save data to database
   onSaveCalculation = (userEmail, deficit, dailyCalorie, dailyCarbon) => {
     const {weight} = this.state.user;
     const {activity, exercise} = this.state; 
-    // fetch('https://gentle-badlands-25513.herokuapp.com/calculate', {
-      fetch('http://localhost:3000/calculate', {
+    // fetch('https://gentle-badlands-25513.herokuapp.com/saveData', {
+      fetch('http://localhost:3000/saveData', {
         method: 'put',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -435,10 +422,7 @@ class App extends Component{
           user.deficit = deficit;
           return {user : user}
         })
-        // this.setState(Object.assign(this.state.user, {
-        //   weight: weight,
-        //   deficit: deficit
-        // }))
+
         delete userCalorie.email;
         delete userCarbon.email;
         delete userActivity.email;

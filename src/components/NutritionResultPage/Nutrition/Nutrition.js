@@ -3,6 +3,29 @@ import Distribution from '../Distribution/Distribution';
 
 const Nutrition = ({ name, onRouteChange, deficit, protein, oil, activity, exercise, dailyCalorie, dailyCarbon }) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; 
+
+    // if it's a guest user, ask if he/she wants to sign up?
+    const button = name !== 'Guest' ?
+    
+    <div className="pv3">
+        <input 
+        className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
+        type="submit" 
+        value="Sign out"
+        onClick={() => {onRouteChange('signin')}}
+        />
+    </div>
+    
+    :
+    <div className="pv3">
+        <input 
+        className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
+        type="submit" 
+        value="Sign up now to save calculation result!"
+        onClick={() => {onRouteChange('signup')}} 
+        />
+    </div>
+
     return(
         <div className="pa3 flex flex-column items-center">
                 <legend className="fw7 f4 pv2 tc">{name}, your daily recommended intakes are:</legend>
@@ -25,17 +48,15 @@ const Nutrition = ({ name, onRouteChange, deficit, protein, oil, activity, exerc
                           })
                         }                    
                 </div>
-    
-                <div className="pv3">
+    {button}
+                {/* <div className="pv3">
                     <input 
                     className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                     type="submit" 
-                    // value="Sign out"
-                    // onClick={() => {onRouteChange('signin')}}
-                    value="Sign up now to save your calculation!"
-                    onClick={() => {onRouteChange('signup')}}
+                    value="Sign out"
+                    onClick={() => {onRouteChange('signin')}}
                     />
-                </div> 
+                </div>  */}
         </div>
     )
 }
