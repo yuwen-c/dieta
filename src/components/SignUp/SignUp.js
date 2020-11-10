@@ -41,8 +41,8 @@ class SignUp extends Component{
             email: email,
             password: password
         }
-       // return fetch('https://gentle-badlands-25513.herokuapp.com/signup', {
-        return fetch('http://localhost:3000/signup', {
+        return fetch('https://gentle-badlands-25513.herokuapp.com/signup', {
+        // return fetch('http://localhost:3000/signup', {
             method: 'post', 
             headers: {'Content-Type' : 'application/json'},
             body : JSON.stringify(user)

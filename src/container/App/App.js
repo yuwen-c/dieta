@@ -77,7 +77,8 @@ class App extends Component{
   }
 
   reLoadUser = () => {
-    fetch('http://localhost:3000/getUser',{
+    fetch('https://gentle-badlands-25513.herokuapp.com/signin', {
+    // fetch('http://localhost:3000/getUser',{
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({email: this.state.user.email})
@@ -261,8 +262,8 @@ class App extends Component{
     const type = event.target.name; //activity or exercise
     const checkedStr = `checked`+ type.slice(0,1).toUpperCase()+type.slice(1); // get checkedActivity str or checkedExercise str
 
-    // fetch(`https://gentle-badlands-25513.herokuapp.com/${type}`, {
-    fetch(`http://localhost:3000/${type}`, {
+    fetch(`https://gentle-badlands-25513.herokuapp.com/${type}`, {
+    // fetch(`http://localhost:3000/${type}`, {
       method: 'post',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({email: this.state.user.email})
@@ -342,8 +343,8 @@ class App extends Component{
   onSaveCalculation = (userEmail, deficit, dailyCalorie, dailyCarbon) => {
     const {weight} = this.state.user;
     const {activity, exercise} = this.state; 
-    // fetch('https://gentle-badlands-25513.herokuapp.com/saveData', {
-      fetch('http://localhost:3000/saveData', {
+      fetch('https://gentle-badlands-25513.herokuapp.com/saveData', {
+      // fetch('http://localhost:3000/saveData', {
         method: 'put',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -400,8 +401,8 @@ class App extends Component{
 // ========================== Check Latest Nutrition Result ==========================
   // get latest calculation result
   getResult = () => {
-    // fetch('https://gentle-badlands-25513.herokuapp.com/result', {
-    fetch('http://localhost:3000/result', {
+    fetch('https://gentle-badlands-25513.herokuapp.com/result', {
+    // fetch('http://localhost:3000/result', {
       method: 'post', 
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({email: this.state.user.email})
