@@ -18,7 +18,8 @@ class SignUp extends Component{
             weight: 0,
             deficit: 0
         }
-        this.props.loadUser(guestUser);
+        // this.props.loadUser(guestUser);
+        this.props.refreshWholeUser(guestUser);
         this.props.onRouteChange('howItWorks');
         this.props.onIsSignIn();
     }
