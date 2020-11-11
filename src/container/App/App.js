@@ -227,6 +227,7 @@ class App extends Component{
 // ========================== Routing ==========================
   // set route state
   onRouteChange = (route) => {
+    console.log("reoute", route);
     // 1. if already sign in, can access to anywhere
     if(this.state.isSignIn){ 
       if(route === 'signin'){ // actually is "sign out" button
@@ -573,7 +574,7 @@ class App extends Component{
   }
 
   render(){
-    console.log("render user", this.state.email, this.state.user.deficit, this.state.user.weight);
+    console.log("render user", this.state.user.email, this.state.user.deficit, this.state.user.weight);
     const modal = 
       <Modal>
         <ModalContent
