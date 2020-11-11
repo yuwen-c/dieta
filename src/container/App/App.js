@@ -81,6 +81,7 @@ class App extends Component{
   }
 
   refreshPartialUser = (data) => {
+    console.log("refreshPartialUser", data);
     const {name, email} = data;
     // only refresh user name and email
     this.setState(prevstate => {
@@ -93,36 +94,36 @@ class App extends Component{
   }
 
 // after sign in, load user to App state  
-  loadUser = (data) => {
-    const {name, email} = data;
-    // only refresh user name and email
-    this.setState(prevstate => {
-      let user = Object.assign({}, prevstate.user);
-      user.name = name;
-      user.email = email;
-      return {user : user};
-    })
-    return name;
-  }
+  // loadUser = (data) => {
+  //   const {name, email} = data;
+  //   // only refresh user name and email
+  //   this.setState(prevstate => {
+  //     let user = Object.assign({}, prevstate.user);
+  //     user.name = name;
+  //     user.email = email;
+  //     return {user : user};
+  //   })
+  //   return name;
+  // }
 
-  reLoadUser = () => {
-    fetch('https://gentle-badlands-25513.herokuapp.com/signin', {
-    // fetch('http://localhost:3000/user',{
-      method: 'post',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({email: this.state.user.email})
-    })
-    .then(response => response.json())
-    .then(user => {
-      if(user.name){
-        this.loadUser(user);
-      }
-      else{
-        //?????
-      }
-    })
-    .catch(console.log);
-  }
+  // reLoadUser = () => {
+  //   fetch('https://gentle-badlands-25513.herokuapp.com/signin', {
+  //   // fetch('http://localhost:3000/user',{
+  //     method: 'post',
+  //     headers: {'Content-Type': 'application/json'},
+  //     body: JSON.stringify({email: this.state.user.email})
+  //   })
+  //   .then(response => response.json())
+  //   .then(user => {
+  //     if(user.name){
+  //       this.loadUser(user);
+  //     }
+  //     else{
+  //       //?????
+  //     }
+  //   })
+  //   .catch(console.log);
+  // }
 
   // delete state so that the nextPage check can work well
   deleteUserNumber = () => {
@@ -237,7 +238,7 @@ class App extends Component{
           this.deleteUserNumber();
         }
         else if(route === 'nextMove'){
-          this.reLoadUser();
+          this.refreshWholeUser(this.state.user.email) //下一步時，要先更新使用者。
         }
         this.setState({route : route});
       }
@@ -501,6 +502,7 @@ class App extends Component{
                 name = {this.state.user.name}
                 // loadUser = {this.loadUser}
                 refreshWholeUser = {this.refreshWholeUser}
+                refreshPartialUser = {this.refreshPartialUser}
                 onRouteChange = {this.onRouteChange}
                 onIsSignIn = {this.onIsSignIn}
                 onSaveCalculation = {this.onSaveCalculation}
@@ -569,6 +571,7 @@ class App extends Component{
   }
 
   render(){
+    console.log("render weight", this.state.user.deficit, this.state.user.weight);
     const modal = 
       <Modal>
         <ModalContent
@@ -593,7 +596,6 @@ class App extends Component{
         <div>
           {this.renderSwitch(this.state.route)}
         </div>
-
         {modal}
       </div>
     )

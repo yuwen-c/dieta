@@ -80,7 +80,8 @@ class SignUp extends Component{
                         const {deficit, dailyCalorie, dailyCarbon} = this.props;  
                         this.props.onSaveCalculation(result.email, deficit, dailyCalorie, dailyCarbon);
                         this.props.onRouteChange('result');
-                        this.props.loadUser(result);
+                        // this.props.loadUser(result);
+                        this.props.refreshPartialUser(result);
                         this.props.onIsSignIn();
                     }
                     else{
