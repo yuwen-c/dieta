@@ -196,7 +196,6 @@ class App extends Component{
     if(this.state.isSignIn){ 
       if(route === 'signin'){ // actually is "sign out" button
         this.setState(initialState);
-        console.log("reset initialState", initialState);
       }
       else{
         // once get into the calculation page, delete weight and deficit state to fit the check
