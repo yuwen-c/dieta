@@ -61,7 +61,8 @@ class SignUp extends Component{
                 this.onSignUpFetch(name, email, password)
                 .then(result => {
                     if(result.name){
-                        this.props.loadUser(result);
+                        // this.props.loadUser(result);
+                        this.props.refreshWholeUser(result);
                         this.props.onRouteChange('howItWorks');
                         this.props.onIsSignIn();
                     }

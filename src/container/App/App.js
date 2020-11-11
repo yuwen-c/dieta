@@ -63,7 +63,36 @@ class App extends Component{
 
 
 // ========================== Sign In ==========================
-  // after sign in, load user to App state  
+
+  fetchUser = (email) => {
+    return fetch('https://gentle-badlands-25513.herokuapp.com/user', {
+      method: 'post', 
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({email: email})
+    })
+    .then(response => response.json())
+    .catch(console.log);
+  }
+
+
+  refreshWholeUser = (data) => {
+    console.log("refreshWholeUser", data)
+    this.state.user({data: data});
+  }
+
+  refreshPartialUser = (data) => {
+    const {name, email} = data;
+    // only refresh user name and email
+    this.setState(prevstate => {
+      let user = Object.assign({}, prevstate.user);
+      user.name = name;
+      user.email = email;
+      return {user : user};
+    })
+    return name; 
+  }
+
+// after sign in, load user to App state  
   loadUser = (data) => {
     const {name, email} = data;
     // only refresh user name and email
@@ -78,7 +107,7 @@ class App extends Component{
 
   reLoadUser = () => {
     fetch('https://gentle-badlands-25513.herokuapp.com/signin', {
-    // fetch('http://localhost:3000/getUser',{
+    // fetch('http://localhost:3000/user',{
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({email: this.state.user.email})
@@ -462,14 +491,16 @@ class App extends Component{
                 />
       case 'signin':
         return <SignIn
-                loadUser = {this.loadUser}
+                //loadUser = {this.loadUser}
+                refreshWholeUser = {this.refreshWholeUser}
                 onRouteChange = {this.onRouteChange}
                 onIsSignIn = {this.onIsSignIn}
                 />
       case 'signup':
         return <SignUp
                 name = {this.state.user.name}
-                loadUser = {this.loadUser}
+                // loadUser = {this.loadUser}
+                refreshWholeUser = {this.refreshWholeUser}
                 onRouteChange = {this.onRouteChange}
                 onIsSignIn = {this.onIsSignIn}
                 onSaveCalculation = {this.onSaveCalculation}
