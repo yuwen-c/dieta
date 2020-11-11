@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9be0e98fabb7ddd1d0cb15c13e654051",
+    "revision": "eb0af6be60a35bac37910927f5db7a62",
     "url": "/dieta/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dieta/static/css/2.240481f6.chunk.css"
   },
   {
-    "revision": "85fbc5e4c1f0f6bf8351",
+    "revision": "cd5e59ca32dbe02a85c2",
     "url": "/dieta/static/css/main.ab450499.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dieta/static/js/2.e49e1c0f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "85fbc5e4c1f0f6bf8351",
-    "url": "/dieta/static/js/main.9019ff4f.chunk.js"
+    "revision": "cd5e59ca32dbe02a85c2",
+    "url": "/dieta/static/js/main.afe96301.chunk.js"
   },
   {
     "revision": "a7f1ad9d8753ebe0588d",
