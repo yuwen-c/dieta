@@ -65,6 +65,7 @@ class App extends Component{
 // ========================== Sign In ==========================
 
   fetchUser = (email) => {
+    console.log("fetch", email);
     return fetch('https://gentle-badlands-25513.herokuapp.com/user', {
       method: 'post', 
       headers: {'Content-Type': 'application/json'},
@@ -572,7 +573,7 @@ class App extends Component{
   }
 
   render(){
-    console.log("render weight", this.state.user.deficit, this.state.user.weight);
+    console.log("render user", this.state.email, this.state.user.deficit, this.state.user.weight);
     const modal = 
       <Modal>
         <ModalContent
