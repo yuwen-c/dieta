@@ -238,7 +238,8 @@ class App extends Component{
           this.deleteUserNumber();
         }
         else if(route === 'nextMove'){
-          this.refreshWholeUser(this.state.user.email) //下一步時，要先更新使用者。
+          this.fetchUser(this.state.user.email) // refresh user when go to nextMove page
+          .then(user => this.refreshWholeUser(user))
         }
         this.setState({route : route});
       }
