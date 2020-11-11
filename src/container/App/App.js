@@ -57,7 +57,7 @@ class App extends Component{
   constructor(){
     super();
     // this.state = initialState;
-    this.state = JSON.parse(JSON.stringify(initialState));
+    this.state = JSON.parse(JSON.stringify(initialState)); // avoid pass by reference
   }
 
 
@@ -65,7 +65,6 @@ class App extends Component{
 // ========================== Sign In ==========================
 
   fetchUser = (email) => {
-    console.log("fetch", email);
     return fetch('https://gentle-badlands-25513.herokuapp.com/user', {
       method: 'post', 
       headers: {'Content-Type': 'application/json'},
@@ -77,12 +76,10 @@ class App extends Component{
 
 
   refreshWholeUser = (data) => {
-    console.log("refreshWholeUser", data);
     this.setState({user: data});
   }
 
   refreshPartialUser = (data) => {
-    console.log("refreshPartialUser", data);
     const {name, email} = data;
     // only refresh user name and email
     this.setState(prevstate => {
@@ -93,38 +90,6 @@ class App extends Component{
     })
     return name; 
   }
-
-// after sign in, load user to App state  
-  // loadUser = (data) => {
-  //   const {name, email} = data;
-  //   // only refresh user name and email
-  //   this.setState(prevstate => {
-  //     let user = Object.assign({}, prevstate.user);
-  //     user.name = name;
-  //     user.email = email;
-  //     return {user : user};
-  //   })
-  //   return name;
-  // }
-
-  // reLoadUser = () => {
-  //   fetch('https://gentle-badlands-25513.herokuapp.com/signin', {
-  //   // fetch('http://localhost:3000/user',{
-  //     method: 'post',
-  //     headers: {'Content-Type': 'application/json'},
-  //     body: JSON.stringify({email: this.state.user.email})
-  //   })
-  //   .then(response => response.json())
-  //   .then(user => {
-  //     if(user.name){
-  //       this.loadUser(user);
-  //     }
-  //     else{
-  //       //?????
-  //     }
-  //   })
-  //   .catch(console.log);
-  // }
 
   // delete state so that the nextPage check can work well
   deleteUserNumber = () => {
@@ -227,7 +192,6 @@ class App extends Component{
 // ========================== Routing ==========================
   // set route state
   onRouteChange = (route) => {
-    console.log("reoute", route);
     // 1. if already sign in, can access to anywhere
     if(this.state.isSignIn){ 
       if(route === 'signin'){ // actually is "sign out" button
@@ -365,7 +329,7 @@ class App extends Component{
       return {user : user}
     })
     if(name === 'Guest'){
-      console.log("guest", `don't save calculation`);
+
     }
     else{
       this.onSaveCalculation(email, totalDeficit, dailyCalorie, dailyCarbon);
@@ -486,7 +450,7 @@ class App extends Component{
   }
 
 // ========================== Rendering ==========================
-  // decide render components
+  // decide rendered components
   renderSwitch = (route) => {
     switch (route){
       case 'home':
@@ -495,7 +459,6 @@ class App extends Component{
                 />
       case 'signin':
         return <SignIn
-                //loadUser = {this.loadUser}
                 refreshWholeUser = {this.refreshWholeUser}
                 onRouteChange = {this.onRouteChange}
                 onIsSignIn = {this.onIsSignIn}
@@ -503,7 +466,6 @@ class App extends Component{
       case 'signup':
         return <SignUp
                 name = {this.state.user.name}
-                // loadUser = {this.loadUser}
                 refreshWholeUser = {this.refreshWholeUser}
                 refreshPartialUser = {this.refreshPartialUser}
                 onRouteChange = {this.onRouteChange}
@@ -518,14 +480,12 @@ class App extends Component{
       case 'calculation':
         return <Weight
                 onWeightChange = {this.onWeightChange}
-                // onRouteChange = {this.onRouteChange} 
                 onDeficitChange = {this.onDeficitChange} 
                 nextPageMessage = {this.state.nextPageMessage}
                 onCheckBeforeNextPage = {this.onCheckBeforeNextPage}
                 />
       case 'activity':
         return <Activity
-                // onRouteChange = {this.onRouteChange}  
                 onActExeAmount = {this.onActExeAmount}
                 onLoadActExe = {this.onLoadActExe}  
                 optionCheckedState = {this.state.checkedActivity}
@@ -535,9 +495,7 @@ class App extends Component{
                 />
       case 'exercise':
         return <Exercise
-                // onRouteChange = {this.onRouteChange}  
                 onActExeAmount = {this.onActExeAmount}
-                // calculateNutrition = {this.calculateNutrition}
                 onLoadActExe = {this.onLoadActExe}  
                 optionCheckedState = {this.state.checkedExercise}
                 onDeleteActExeOption = {this.onDeleteActExeOption}
@@ -564,7 +522,6 @@ class App extends Component{
                 modifySpeedUp = {this.state.modifySpeedUp}
                 modifySlowDown = {this.state.modifySlowDown}
                 onModifyDeficit = {this.onModifyDeficit}
-                // onRouteChange = {this.onRouteChange}
                 nextPageMessage = {this.state.nextPageMessage}
                 onCheckBeforeNextPage = {this.onCheckBeforeNextPage}
                 />
@@ -574,7 +531,6 @@ class App extends Component{
   }
 
   render(){
-    console.log("render user", this.state.user.email, this.state.user.deficit, this.state.user.weight);
     const modal = 
       <Modal>
         <ModalContent
@@ -586,10 +542,6 @@ class App extends Component{
 
     return(
       <div>
-        {/* <Navigation
-        onRouteChange = {this.onRouteChange}
-        isSignIn = {this.state.isSignIn} 
-        /> */}
         <NavbarDrop
           name = {this.state.user.name}
           onRouteChange = {this.onRouteChange}

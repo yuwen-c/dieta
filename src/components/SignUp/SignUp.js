@@ -18,7 +18,6 @@ class SignUp extends Component{
             weight: 0,
             deficit: 0
         }
-        // this.props.loadUser(guestUser);
         this.props.refreshWholeUser(guestUser);
         this.props.onRouteChange('howItWorks');
         this.props.onIsSignIn();
@@ -58,11 +57,9 @@ class SignUp extends Component{
         const {name, email, password} = this.state;
         if(name && email && password){
             if(this.props.name !== "Guest"){ // normal user sign up
-                console.log("normal user sign up")
                 this.onSignUpFetch(name, email, password)
                 .then(result => {
                     if(result.name){
-                        // this.props.loadUser(result);
                         this.props.refreshWholeUser(result);
                         this.props.onRouteChange('howItWorks');
                         this.props.onIsSignIn();
@@ -74,14 +71,12 @@ class SignUp extends Component{
                 .catch(console.log)
             }
             else{                            // guest user sign up
-                console.log("guest user sign up")
                 this.onSignUpFetch(name, email, password)
                 .then(result => {
                     if(result.name){ 
                         const {deficit, dailyCalorie, dailyCarbon} = this.props;  
                         this.props.onSaveCalculation(result.email, deficit, dailyCalorie, dailyCarbon);
                         this.props.onRouteChange('result');
-                        // this.props.loadUser(result);
                         this.props.refreshPartialUser(result);
                         this.props.onIsSignIn();
                     }
@@ -150,7 +145,6 @@ class SignUp extends Component{
                             onClick={this.onSignUp}
                             />
                         </div>
-                        {/* {button} */}
                         <div className="lh-copy mt3">
                             <p 
                             className="f5 link dark-pink db"
