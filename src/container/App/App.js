@@ -76,8 +76,8 @@ class App extends Component{
 
 
   refreshWholeUser = (data) => {
-    console.log("refreshWholeUser", data)
-    this.state.user({data: data});
+    console.log("refreshWholeUser", data);
+    this.setState({user: data});
   }
 
   refreshPartialUser = (data) => {
