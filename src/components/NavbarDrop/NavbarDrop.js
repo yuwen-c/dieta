@@ -2,15 +2,23 @@ import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Navbar from 'react-bootstrap/Navbar';
+import {useTranslation} from 'react-i18next';
 // from https://react-bootstrap.github.io/components/navbar/
 import './NavbarDrop.css';
 
 const NavbarDrop = ({ isSignIn, onRouteChange, getResult }) => {
-    return(
+
+
+  const { t } = useTranslation();
+  
+
+  return(
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Navbar.Brand className="grow pointer"
             onClick={() => {onRouteChange('home')}}          
-           >Dieta</Navbar.Brand>
+          //  >Dieta</Navbar.Brand>
+           >{t ("app_name")}</Navbar.Brand>
+
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
           <Navbar.Collapse id="responsive-navbar-nav">

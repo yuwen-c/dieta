@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
+import './i18n';
 import './index.css';
 import App from './container/App/App';
 import * as serviceWorker from './serviceWorker';
