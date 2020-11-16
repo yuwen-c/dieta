@@ -15,7 +15,23 @@
     "slogan": "Making your dieta go smoothly.",
     "description": "Calculate how many calories you need, give you advice based on your losing rate.",
     "option": "Learn More"
-    }
+    },
+
+  "sign_in":{
+    "title": "Sign In",
+    "email": "Email",
+    "password": "Password",
+    "button": "Sign in"
+  },
+
+  "sign_up":{
+    "title": "Sign Up",
+    "try": "Try it",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "button": "Sign up"
+  }
   
 
 }

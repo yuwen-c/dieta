@@ -15,6 +15,22 @@
     "slogan": "你最好的減脂幫手",
     "description": "針對體重、每日活動量及運動量，及想要的減重速度，幫你計算每日卡路里，並給予調整建議。",
     "option": "了解更多"
+    },
+
+  "sign_in":{
+      "title": "登入",
+      "email": "信箱",
+      "password": "密碼",
+      "button": "登入"
+    },
+  
+  "sign_up":{
+        "title": "註冊",
+        "try": "先逛逛吧",
+        "name": "姓名",
+        "email": "信箱",
+        "password": "密碼",
+        "button": "註冊"
     }
   
-  }
+}

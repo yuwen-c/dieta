@@ -3,9 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 const Home = ({onRouteChange}) => {
   const { t, i18n } = useTranslation();
-  // const changeLan = (language) => {
-  //   i18n.changeLanguage(language);
-  // }
+
     return(
         <div className="mt5">
             <article className="mw7 center ph3 ph5-ns tc br2 pv5 bg-washed-green dark-green mb5">

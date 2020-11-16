@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { useTranslation } from 'react-i18next';
+
+
+const { t, i18n } = useTranslation();
 
 class SignIn extends Component{
     constructor(){
@@ -52,7 +56,7 @@ class SignIn extends Component{
                 <div className="pa4 black-80">
                     <div className="measure center">
                         <fieldset id="sign_in" className="ba b--transparent ph0 mh0">
-                            <legend className="f4 fw6 ph0 mh0">Sign In</legend>
+                            <legend className="f4 fw6 ph0 mh0">{t("sign_in.title")}</legend>
                             <div className="mt3">
                                <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
                                <input 
