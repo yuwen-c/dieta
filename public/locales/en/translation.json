@@ -1,0 +1,14 @@
+{
+  "navbar": {
+    "app_name": "Dieta",
+    "menu": "Menu",
+    "theory": "Theory",
+    "start_diet": "Start Diet",
+    "during_diet": "During Diet",
+    "latest_result": "Latest Result",
+    "language": "Language",
+    "sign_in": "Sign In",
+    "sign_up": "Sign Up"    
+  }
+
+}

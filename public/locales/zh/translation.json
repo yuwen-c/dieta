@@ -1,0 +1,14 @@
+{
+    "navbar": {
+      "app_name": "Dieta",
+      "menu": "目錄",
+      "theory": "原理",
+      "start_diet": "開始減脂",
+      "during_diet": "減脂期間",
+      "latest_result": "上次計算結果",
+      "language": "語言",
+      "sign_in": "登入",
+      "sign_up": "註冊"        
+    }
+  
+  }
