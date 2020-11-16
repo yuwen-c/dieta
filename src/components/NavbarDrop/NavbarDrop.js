@@ -18,17 +18,15 @@ const NavbarDrop = ({ isSignIn, onRouteChange, getResult }) => {
           <Navbar.Brand className="grow pointer"
             onClick={() => {onRouteChange('home')}}          
            >Dieta</Navbar.Brand>
-           {/* >{t('app_name')}</Navbar.Brand> */}
-
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
           <Navbar.Collapse id="responsive-navbar-nav">
+
             <Nav className="mr-auto">            
               <NavDropdown title={t('navbar.menu')} id="collasible-nav-dropdown"> 
                 <NavDropdown.Item 
                   href="#howItWorks" 
                   onClick={(event) => {onRouteChange('howItWorks'); event.preventDefault()}}
-                  // onClick={() => {onRouteChange('howItWorks')}}                  
                   >{t('navbar.theory')}</NavDropdown.Item>
                 <NavDropdown.Item 
                   href="#calculation" 
@@ -42,8 +40,12 @@ const NavbarDrop = ({ isSignIn, onRouteChange, getResult }) => {
                   href="#getResult"
                   onClick={(event) => {getResult(); event.preventDefault()}}
                   >{t('navbar.latest_result')}</NavDropdown.Item>
-                </NavDropdown>
-                <NavDropdown title={t('navbar.language')} id="collasible-nav-dropdown"> 
+              </NavDropdown>
+            </Nav>
+
+            <Nav> 
+
+              <NavDropdown title={t('navbar.language')} id="collasible-nav-dropdown"> 
                 <NavDropdown.Item 
                   href="#lngZH" 
                   onClick={(event) => {changeLan("zh"); event.preventDefault()}}
@@ -52,28 +54,32 @@ const NavbarDrop = ({ isSignIn, onRouteChange, getResult }) => {
                   href="#lngEN" 
                   onClick={(event) => {changeLan("en"); event.preventDefault()}}
                   >English</NavDropdown.Item>
-                </NavDropdown>
-            </Nav>
+              </NavDropdown>   
+
+
               { 
                 !isSignIn ?  
-              <Nav > 
-                <Nav.Link
-                href="#signin"
-                onClick={(event) => {onRouteChange('signin'); event.preventDefault()}}
-                >{t('navbar.sign_in')}</Nav.Link>
-                <Nav.Link
-                href="#signup"                
-                onClick={(event) => {onRouteChange('signup'); event.preventDefault()}}
-                >{t('navbar.sign_up')}</Nav.Link>
-              </Nav>
+                <Nav> 
+                  <Nav.Link
+                  href="#signin"
+                  onClick={(event) => {onRouteChange('signin'); event.preventDefault()}}
+                  >{t('navbar.sign_in')}</Nav.Link>
+                  <Nav.Link
+                  href="#signup"                
+                  onClick={(event) => {onRouteChange('signup'); event.preventDefault()}}
+                  >{t('navbar.sign_up')}</Nav.Link>
+                </Nav>
               :  
-              <Nav>
-                <Nav.Link
-                href="signin"
-                onClick={(event) => {onRouteChange('signin'); event.preventDefault()}}
-                >Sign Out</Nav.Link>                
-              </Nav>                      
-              }          
+                <Nav>
+                  <Nav.Link
+                  href="signin"
+                  onClick={(event) => {onRouteChange('signin'); event.preventDefault()}}
+                  >Sign Out</Nav.Link>                
+                </Nav>   
+
+              }   
+
+            </Nav>       
           </Navbar.Collapse>
         </Navbar>
     )

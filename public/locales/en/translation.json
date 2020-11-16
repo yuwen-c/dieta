@@ -9,6 +9,13 @@
     "language": "Language",
     "sign_in": "Sign In",
     "sign_up": "Sign Up"    
-  }
+    },
+  
+  "home":{
+    "slogan": "Making your dieta go smoothly.",
+    "description": "Calculate how many calories you need, give you advice based on your losing rate.",
+    "option": "Learn More"
+    }
+  
 
 }
