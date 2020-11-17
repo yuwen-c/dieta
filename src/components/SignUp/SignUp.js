@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { withTranslation } from 'react-i18next';
+
 
 class SignUp extends Component{
     constructor(){
@@ -100,20 +102,20 @@ class SignUp extends Component{
                         <fieldset id="sign_in" className="ba b--transparent ph0 mh0">
                             <legend className="f4 fw6 ph0 mh0 flex">
                                 <div>
-                                    Sign Up
+                                    {this.props.t('sign_up.title')}
                                 </div>
 
                                 <div className="pl5">
                                     <input 
                                     className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                                     type="submit" 
-                                    value="隨便逛逛"
+                                    value={this.props.t('sign_up.try')}
                                     onClick={this.onGuestLogin}
                                     />
                                 </div>
                             </legend>
                             <div className="mt3">
-                               <label className="db fw6 lh-copy f6" htmlFor="name">Name</label>
+                               <label className="db fw6 lh-copy f6" htmlFor="name">{this.props.t('sign_up.name')}</label>
                                <input 
                                 className="pa2 input-reset ba hover-bg-black hover-white w-50" 
                                 type="name" name="name"  id="name"
@@ -121,7 +123,7 @@ class SignUp extends Component{
                                />
                             </div>
                             <div className="mt3">
-                               <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
+                               <label className="db fw6 lh-copy f6" htmlFor="email-address">{this.props.t('sign_up.email')}</label>
                                <input 
                                 className="pa2 input-reset ba hover-bg-black hover-white w-100" 
                                 type="email" name="email-address"  id="email-address"
@@ -129,7 +131,7 @@ class SignUp extends Component{
                                />
                             </div>
                             <div className="mv3">
-                              <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
+                              <label className="db fw6 lh-copy f6" htmlFor="password">{this.props.t('sign_up.password')}</label>
                               <input 
                                className="b pa2 input-reset ba hover-bg-black hover-white w-100" 
                                type="password" name="password"  id="password"
@@ -141,7 +143,7 @@ class SignUp extends Component{
                             <input 
                             className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                             type="submit" 
-                            value="Sign up"
+                            value={this.props.t('sign_up.button')}
                             onClick={this.onSignUp}
                             />
                         </div>
@@ -158,4 +160,5 @@ class SignUp extends Component{
     }
 }
 
-export default SignUp;
+// export default SignUp;
+export default withTranslation()(SignUp);

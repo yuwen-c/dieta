@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { useTranslation } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
-
-const { t, i18n } = useTranslation();
 
 class SignIn extends Component{
     constructor(){
@@ -56,9 +54,9 @@ class SignIn extends Component{
                 <div className="pa4 black-80">
                     <div className="measure center">
                         <fieldset id="sign_in" className="ba b--transparent ph0 mh0">
-                            <legend className="f4 fw6 ph0 mh0">{t("sign_in.title")}</legend>
+                            <legend className="f4 fw6 ph0 mh0">{this.props.t("sign_in.title")}</legend>
                             <div className="mt3">
-                               <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
+                               <label className="db fw6 lh-copy f6" htmlFor="email-address">{this.props.t("sign_in.email")}</label>
                                <input 
                                 className="pa2 input-reset ba hover-bg-black hover-white w-100" 
                                 type="email" name="email-address"  id="email-address"
@@ -66,7 +64,7 @@ class SignIn extends Component{
                                />
                             </div>
                             <div className="mv3">
-                              <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
+                              <label className="db fw6 lh-copy f6" htmlFor="password">{this.props.t("sign_in.password")}</label>
                               <input 
                                 className="b pa2 input-reset ba hover-bg-black hover-white w-100" 
                                 type="password" name="password"  id="password"
@@ -78,7 +76,7 @@ class SignIn extends Component{
                             <input 
                             className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                             type="submit" 
-                            value="Sign in"
+                            value={this.props.t("sign_in.button")}
                             onClick={this.onSignIn}
                             />
                         </div>
@@ -94,4 +92,5 @@ class SignIn extends Component{
     }
 }
 
-export default SignIn;
+// export default SignIn;
+export default withTranslation()(SignIn);
