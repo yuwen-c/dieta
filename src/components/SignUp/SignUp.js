@@ -67,7 +67,8 @@ class SignUp extends Component{
                         this.props.onIsSignIn();
                     }
                     else{
-                        this.setState({message : result});
+                        let errMes = this.props.t("sign_up.error.fail")
+                        this.setState({message : errMes});
                     }     
                 })
                 .catch(console.log)
@@ -83,14 +84,16 @@ class SignUp extends Component{
                         this.props.onIsSignIn();
                     }
                     else{
-                        this.setState({message : result});
+                        let errMes = this.props.t("sign_up.error.fail")
+                        this.setState({message : errMes});
                     }     
                 })
                 .catch(console.log)          
             }
         }
         else{
-            this.setState({message : 'Enter your data please.'})
+            let errMes = this.props.t('sign_up.error_blank');
+            this.setState({message : errMes})
         }
     }
 

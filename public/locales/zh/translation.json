@@ -21,7 +21,8 @@
       "title": "登入",
       "email": "信箱",
       "password": "密碼",
-      "button": "登入"
+      "button": "登入",
+      "error_blank": "請輸入資料"
     },
   
   "sign_up":{
@@ -30,7 +31,9 @@
         "name": "姓名",
         "email": "信箱",
         "password": "密碼",
-        "button": "註冊"
+        "button": "註冊",
+        "error_blank": "請輸入資料",
+        "error_fail": "註冊失敗"
     }
   
 }
