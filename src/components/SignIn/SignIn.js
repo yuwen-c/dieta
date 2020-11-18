@@ -37,13 +37,15 @@ class SignIn extends Component{
                     this.props.onIsSignIn();
                 }
                 else{
-                    this.setState({message : result});
+                    let errMes = this.props.t('sign_in.error_fail');
+                    this.setState({message : errMes});
                 }
             })
             .catch(console.log);
         }
         else{
-            this.setState({message : 'Please fill up the blanks.'});
+            let errMes = this.props.t('sign_in.error_blank');
+            this.setState({message : errMes});
         }
     }
 

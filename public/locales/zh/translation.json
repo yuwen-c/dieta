@@ -22,7 +22,8 @@
       "email": "信箱",
       "password": "密碼",
       "button": "登入",
-      "error_blank": "請輸入資料"
+      "error_blank": "請輸入資料",
+      "error_fail": "登入失敗"
     },
   
   "sign_up":{

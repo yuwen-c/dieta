@@ -2,7 +2,7 @@
   "navbar": {
     "app_name": "Dieta",
     "menu": "Menu",
-    "theory": "Theory",
+    "theory": "How it works",
     "start_diet": "Start Diet",
     "during_diet": "During Diet",
     "latest_result": "Latest Result",
@@ -11,21 +11,22 @@
     "sign_up": "Sign Up"    
     },
   
-  "home":{
+  "home": {
     "slogan": "Making your dieta go smoothly.",
     "description": "Calculate how many calories you need, give you advice based on your losing rate.",
     "option": "Learn More"
     },
 
-  "sign_in":{
+  "sign_in": {
     "title": "Sign In",
     "email": "Email",
     "password": "Password",
     "button": "Sign in",
-    "error_blank": "Enter your data please."
+    "error_blank": "Enter your data please.",
+    "error_fail": "Sign in failed"
   },
 
-  "sign_up":{
+  "sign_up": {
     "title": "Sign Up",
     "try": "Try it",
     "name": "Name",
@@ -35,6 +36,8 @@
     "error_blank": "Enter your data please.",
     "error_fail": "Registration failed"
   }
+
+
   
 
 }

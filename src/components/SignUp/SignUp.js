@@ -67,7 +67,7 @@ class SignUp extends Component{
                         this.props.onIsSignIn();
                     }
                     else{
-                        let errMes = this.props.t("sign_up.error.fail")
+                        let errMes = this.props.t("sign_up.error.fail");
                         this.setState({message : errMes});
                     }     
                 })
@@ -84,7 +84,7 @@ class SignUp extends Component{
                         this.props.onIsSignIn();
                     }
                     else{
-                        let errMes = this.props.t("sign_up.error.fail")
+                        let errMes = this.props.t("sign_up.error.fail");
                         this.setState({message : errMes});
                     }     
                 })
