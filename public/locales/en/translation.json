@@ -35,6 +35,19 @@
     "button": "Sign up",
     "error_blank": "Enter your data please.",
     "error_fail": "Registration failed"
+  },
+
+  "weight" : {
+    "start_title": "Start to calculate!",
+    "instruction": "Enter your body weight:",
+    "weight": "Body weight",
+    "example": "e.g. 78",
+    "deficit_title": "Deficit /day",
+    "question": "How many calories would you like to reduce?"
+  },
+  
+  "button": {
+    "name": "next page"
   }
 
 

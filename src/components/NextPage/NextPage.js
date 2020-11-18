@@ -1,13 +1,16 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const NextPage = ({onRouteChange, onCheckBeforeNextPage, nextPageMessage}) => {
+    const {t, i18n} = useTranslation();
+    
     return(
         <div className="relative">
             <div className=" ma3">
                 <input 
                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                 type="submit" 
-                value="next page"
+                value={t('button.name')}
                 onClick={onCheckBeforeNextPage}
                 />
                 <span

@@ -35,6 +35,20 @@
         "button": "註冊",
         "error_blank": "請輸入資料",
         "error_fail": "註冊失敗"
+    },
+
+    "weight" : {
+      "start_title": "開始計算",
+      "instruction": "請輸入體重：",
+      "weight": "體重",
+      "example": "例：78",
+      "deficit_title": "熱量赤字 /天",
+      "question": "你一天想要減少多少卡路里？",
+    },
+    
+    "button": {
+      "name": "下一頁",
+      ""
     }
   
 }

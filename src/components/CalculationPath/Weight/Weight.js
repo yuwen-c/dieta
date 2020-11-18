@@ -2,8 +2,11 @@ import React from 'react';
 import CalorieDeficit from '../CalorieDeficit/CalorieDeficit';
 import NextPage from '../../NextPage/NextPage';
 import './Weight.css'
+import { useTranslation } from 'react-i18next';
 
 const Weight = ({onWeightChange, onRouteChange, onDeficitChange, nextPageMessage, onCheckBeforeNextPage}) => {
+    const { t, i18n } = useTranslation();
+
     return(
         <div className="flex flex-column items-center">
             <div id="cardDiv" className="pa3 w5 w-70-ns">
@@ -11,12 +14,12 @@ const Weight = ({onWeightChange, onRouteChange, onDeficitChange, nextPageMessage
                     <div className="ph3">
                         <div className="br2" style={{'backgroundColor' : '#96CCFF'}} >
                             <h3>
-                            Start to calculate! 
+                            {t('weight.start_title')} 
                             </h3>      
                         </div>   
-                        <div className="fw7 f8 pb3">Enter your body weight:</div> 
+                        <div className="fw7 f8 pb3">{t('weight.instruction')}</div> 
                         <div className="measure">
-                            <label htmlFor="name" className="f6 b db mb2">Body Weight 
+                            <label htmlFor="name" className="f6 b db mb2">{t('weight.weight')} 
                             <span className="normal black-60"> kg</span>
                             </label>
                             <div className="flex flex-wrap">
@@ -27,7 +30,7 @@ const Weight = ({onWeightChange, onRouteChange, onDeficitChange, nextPageMessage
                                 onChange={onWeightChange}
                                 />                               
                             </div>
-                            <small id="name-desc" className="f6 black-60 db mb2">e.g. 78</small>
+                            <small id="name-desc" className="f6 black-60 db mb2">{t('weight.example')}</small>
                         </div>
                     </div>
                 </article>   

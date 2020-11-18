@@ -1,14 +1,17 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const CalorieDeficit = ({onDeficitChange}) => {
+    const { t, i18n } = useTranslation();
+    
     return (
         <div>
             <div className="br2" style={{'backgroundColor' : '#96CCFF'}} >
                 <h3>
-                Deficit /day
+                {t('weight.deficit_title')}
                 </h3>      
             </div>   
-            <div className="fw7 f8 pb3">How many calories would you like to reduce?</div> 
+            <div className="fw7 f8 pb3">{t('weight.question')}</div> 
             <div className="flex items-center mb2">
                 <input 
                 className="mr2" type="radio" id="300" value="300" name="deficit"
