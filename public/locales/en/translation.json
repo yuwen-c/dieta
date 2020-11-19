@@ -47,7 +47,10 @@
   },
   
   "button": {
-    "name": "next page"
+    "name": "next page",
+    "error_deficit": "Choose deficit.",
+    "error_weight": "Invalid weight.",
+    "error_option": "Choose options."
   }
 
 

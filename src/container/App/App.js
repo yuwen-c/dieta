@@ -14,6 +14,7 @@ import Modal from '../../components/Modal/Modal';
 import ModalContent from '../../components/Modal/ModalContent';
 // import { Button } from 'react-bootstrap';
 //import { activityTableData, exerciseTableData } from '../../components/CalculationPath/LevelTable/TableData';
+import { withTranslation } from 'react-i18next';
 
 const initialchecked = 
 [[false, false, false, false],[false, false, false, false],[false, false, false, false],
@@ -141,17 +142,20 @@ class App extends Component{
               this.onRouteChange('activity');
             }
             else{
-              this.setState({nextPageMessage: "Choose deficit."})
+              const errorMes = this.props.t("button.error_deficit");
+              this.setState({nextPageMessage: errorMes});
             }
           }
           else{
-            this.setState({nextPageMessage: "Invalid weight."})
+            const errorMes = this.props.t("button.error_weight");
+            this.setState({nextPageMessage: errorMes});
           }
         }
         else if (route === 'nextMove'){  // checks of nextMove page
           const {maintainRate, modifyDeficit} = this.state;
           if(maintainRate === false && modifyDeficit === 0){
-            this.setState({nextPageMessage: "Choose deficit."})
+            const errorMes = this.props.t("button.error_deficit");
+            this.setState({nextPageMessage: errorMes});
           }
           else{
             this.onRouteChange('activity');
@@ -167,8 +171,8 @@ class App extends Component{
           this.onDeleteActExeOption('activity');
         }
         else{
-          this.setState({nextPageMessage: "Choose options."})
-          console.log("message change")
+          const errorMes = this.props.t("button.error_option");
+          this.setState({nextPageMessage: errorMes});
         }
         break;
 
@@ -180,7 +184,8 @@ class App extends Component{
           this.calculateNutrition();
         }
         else{
-          this.setState({nextPageMessage: "Choose options."})
+          const errorMes = this.props.t("button.error_option");
+          this.setState({nextPageMessage: errorMes});
         }
         break;
 
@@ -557,5 +562,5 @@ class App extends Component{
 
 }
 
-// className="pl3 pl5-ns "
-export default App;
+// export default App;
+export default withTranslation()(App);
