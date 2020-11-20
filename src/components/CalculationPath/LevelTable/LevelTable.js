@@ -5,11 +5,12 @@ import './LevelTable.css';
 // https://www.npmjs.com/package/react-super-responsive-table
 import { useTranslation } from 'react-i18next';
 
-const LevelTable = (data) => {
+const LevelTable = ({data}) => {
     const {t, i18n} = useTranslation();
 
     return (
         <div className="w-80">
+        {console.log("data", data)}
             <Table>
                 <Thead>
                   <Tr className="white bg-mid-gray">
@@ -21,7 +22,7 @@ const LevelTable = (data) => {
                 </Thead>
                 <Tbody>
                 {
-                    data.data.map((item, index) => {
+                    data.map((item, index) => {
                         return(                    
                             <Tr className="" key={item.Type}>
                               <Td><span role="img" aria-label={item.Type} className="pr2">{item.icon}</span>{item.Type}</Td>

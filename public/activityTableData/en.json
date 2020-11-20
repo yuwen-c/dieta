@@ -1,0 +1,44 @@
+[
+    {
+        "icon": "👣",
+        "Type": "Steps",
+        "Low": "6,000 steps",
+        "Medium": "10,000 steps",
+        "High": "20,000 steps"
+    },
+    {
+        "icon": "⛰",
+        "Type": "Mounting",
+        "Low": "0.5 hr",
+        "Medium": "1 hr",
+        "High": "2 hr"
+    },
+    {
+        "icon":"📶",
+        "Type": "Climbing stairs",
+        "Low": "0.5 hr",
+        "Medium": "1 hr",
+        "High": "2 hr"
+    },
+    {
+        "icon": "🚶",
+        "Type": "Walking",
+        "Low": "1 hr",
+        "Medium": "2 hr",
+        "High": "3 hr"
+    },
+    {
+        "icon": "🧹",
+        "Type": "House cleaning",
+        "Low": "1 hr",
+        "Medium": "2 hr",
+        "High": "3 hr"
+    },
+    {
+        "icon": "🚴",
+        "Type": "Biking",
+        "Low": "1 hr",
+        "Medium": "2 hr",
+        "High": "3 hr"
+    }
+]

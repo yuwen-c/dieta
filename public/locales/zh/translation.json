@@ -54,8 +54,11 @@
     },
 
     "activity": {
-      "title": "活動量/ 天"
-      
+      "title": "活動量/ 天" 
+    },
+
+    "exercise": {
+      "title": "運動量/ 天"
     },
   
     "table": {

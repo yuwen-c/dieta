@@ -55,7 +55,10 @@
 
   "activity": {
     "title": "Amount of activity/ day"
-    
+  },
+
+  "exercise": {
+    "title": "Amount of exercise/ day"
   },
 
   "table": {

@@ -1,20 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Options from '../Options/Options';
 import LoadButton from '../LoadButton/LoadButton';
 import NextPage from '../../NextPage/NextPage';
 import LevelTable from '../LevelTable/LevelTable';
-import {activityTableData} from '../LevelTable/TableData';
+// import {activityTableData} from '../LevelTable/TableData';
 import { useTranslation } from 'react-i18next';
 
 // onLoadActExe的參數竟然不用在最底層的onClick帶入！！
 const Activity = ({onRouteChange, onActExeAmount, onLoadActExe, optionCheckedState, onCheckBeforeNextPage, nextPageMessage}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; 
     const {t,i18n} = useTranslation();
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetch(`/dieta/activityTableData/${i18n.language}.json`)
+        .then(response => response.json())
+        .then(result => setData(result))
+    }, [i18n.language]);
+
+    if(data.length === 0 ){
+        return(<p>loading</p>)
+    }
+    else{
+
     return( 
         <div className="pa3 flex flex-column items-center"> 
             <legend className="fw7 f4 pv3 tc">{t('activity.title')}</legend>      
             <LevelTable         
-                data={activityTableData}
+                // data={activityTableData}
+                data={data}
             />
             {/* [{},{},{}] */}
             <LoadButton
@@ -46,6 +60,7 @@ const Activity = ({onRouteChange, onActExeAmount, onLoadActExe, optionCheckedSta
                 />
         </div>
     )
+    }
 }
 
 
