@@ -3,20 +3,20 @@ import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import './LevelTable.css';
 // https://www.npmjs.com/package/react-super-responsive-table
+import { useTranslation } from 'react-i18next';
 
 const LevelTable = (data) => {
-    // console.log("activity", activity, "exercise", exercise)
-    // console.log("data",data)
-    // console.log("data.data",data.data)
+    const {t, i18n} = useTranslation();
+
     return (
         <div className="w-80">
             <Table>
                 <Thead>
                   <Tr className="white bg-mid-gray">
-                    <Th>Type</Th>
-                    <Th>Low</Th>
-                    <Th>Mideum</Th>
-                    <Th>High</Th>
+                    <Th>{t('table.type')}</Th>
+                    <Th>{t('table.low')}</Th>
+                    <Th>{t('table.medium')}</Th>
+                    <Th>{t('table.high')}</Th>
                   </Tr>
                 </Thead>
                 <Tbody>

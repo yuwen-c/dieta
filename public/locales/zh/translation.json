@@ -51,6 +51,28 @@
       "error_deficit": "請選擇熱量赤字",
       "error_weight": "請輸入有效體重",
       "error_option": "每日皆需填寫"
-    }
+    },
+
+    "activity": {
+      "title": "活動量/ 天"
+      
+    },
   
+    "table": {
+      "type": "種類", 
+      "low": "低",
+      "medium": "中",
+      "high": "高"
+    },
+  
+    "loadButton": "下載上週紀錄",
+  
+    "options": {
+      "rare": "極少",
+      "low": "低",
+      "medium": "中",
+      "high": "高"
+    },
+    
+    "dayOrder": "第 {{count}} 天"  
 }

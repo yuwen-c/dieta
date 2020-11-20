@@ -51,9 +51,29 @@
     "error_deficit": "Choose deficit.",
     "error_weight": "Invalid weight.",
     "error_option": "Choose options."
-  }
+  },
 
+  "activity": {
+    "title": "Amount of activity/ day"
+    
+  },
 
+  "table": {
+    "type": "Type", 
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High"
+  },
+
+  "loadButton": "Load setting of last week",
   
+  "options": {
+    "rare": "Rare",
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High"
+  },
 
+  "dayOrder": "Day {{count}}"
+  
 }

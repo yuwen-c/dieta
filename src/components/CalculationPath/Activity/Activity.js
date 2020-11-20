@@ -4,13 +4,15 @@ import LoadButton from '../LoadButton/LoadButton';
 import NextPage from '../../NextPage/NextPage';
 import LevelTable from '../LevelTable/LevelTable';
 import {activityTableData} from '../LevelTable/TableData';
+import { useTranslation } from 'react-i18next';
 
 // onLoadActExe的參數竟然不用在最底層的onClick帶入！！
 const Activity = ({onRouteChange, onActExeAmount, onLoadActExe, optionCheckedState, onCheckBeforeNextPage, nextPageMessage}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; 
+    const {t,i18n} = useTranslation();
     return( 
         <div className="pa3 flex flex-column items-center"> 
-            <legend className="fw7 f4 pv3 tc">Amount of activity/ day</legend>      
+            <legend className="fw7 f4 pv3 tc">{t('activity.title')}</legend>      
             <LevelTable         
                 data={activityTableData}
             />

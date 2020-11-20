@@ -1,7 +1,10 @@
 import React from 'react';
 import './Options.css';
+import { useTranslation } from 'react-i18next';
+import { Trans } from 'react-i18next';
 
 const Options = ({style, item, name, onActExeAmount, optionCheckedState}) => {
+    const {t,i18n} = useTranslation();
     // The for attribute of <label> must be equal to the id attribute of the related element 
     return(
         <div id="cardDiv" className="pa2 dib w5 center">
@@ -9,7 +12,9 @@ const Options = ({style, item, name, onActExeAmount, optionCheckedState}) => {
                 <div className="ph3">
                     <div className="br2" style={style}>
                         <h3 >
+                        <Trans i18nKey="dayOrder" count={item}>
                           Day {item}
+                        </Trans>
                         </h3>      
                     </div>                   
                     <div className="flex items-center mb2">
@@ -18,7 +23,7 @@ const Options = ({style, item, name, onActExeAmount, optionCheckedState}) => {
                         onChange={onActExeAmount} // use onChange istead of onClick to meet the checked's need
                         checked={optionCheckedState[0]}
                         />
-                        <label htmlFor={`${name}-rare`} className="lh-copy">Rare</label>
+                        <label htmlFor={`${name}-rare`} className="lh-copy">{t('options.rare')}</label>
                     </div>
                     <div className="flex items-center mb2">
                         <input 
@@ -26,7 +31,7 @@ const Options = ({style, item, name, onActExeAmount, optionCheckedState}) => {
                         onChange={onActExeAmount}
                         checked={optionCheckedState[1]}
                         />
-                        <label htmlFor={`${name}-low`} className="lh-copy">Low</label>
+                        <label htmlFor={`${name}-low`} className="lh-copy">{t('options.low')}</label>
                     </div>
                     <div className="flex items-center mb2">
                         <input 
@@ -34,7 +39,7 @@ const Options = ({style, item, name, onActExeAmount, optionCheckedState}) => {
                         onChange={onActExeAmount}
                         checked={optionCheckedState[2]}
                         />
-                        <label htmlFor={`${name}-medium`} className="lh-copy">Medium</label>
+                        <label htmlFor={`${name}-medium`} className="lh-copy">{t('options.medium')}</label>
                     </div>
                     <div className="flex items-center mb2">
                         <input 
@@ -42,7 +47,7 @@ const Options = ({style, item, name, onActExeAmount, optionCheckedState}) => {
                         onChange={onActExeAmount}
                         checked={optionCheckedState[3]}
                         />
-                        <label htmlFor={`${name}-high`} className="lh-copy">High</label>
+                        <label htmlFor={`${name}-high`} className="lh-copy">{t('options.high')}</label>
                     </div>
                 </div>
             </article>           
