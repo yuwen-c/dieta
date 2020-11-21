@@ -1,7 +1,10 @@
 import React from 'react';
 import './Distribution.css';
+import { useTranslation } from 'react-i18next';
 
 const Distribution = ({ item, protein, oil, activity, exercise, dailyCalorie, dailyCarbon }) => {
+    const {t, i18n} = useTranslation();
+
     let amountA, amountE;
 // show activity and exercise here, turn number to string
     if(activity[item-1] === 0) {
@@ -36,19 +39,19 @@ const Distribution = ({ item, protein, oil, activity, exercise, dailyCalorie, da
                     <h4 className="">{amountA} activity, {amountE} exercise.</h4>
                     <div className="">
                         <dl className="f5 lh-title mv2">
-                            <dt className="dib b">Protein:</dt>
+                            <dt className="dib b">{t('nutrition.protein')}:</dt>
                             <dd className="dib ml1 near-gray">{protein} g</dd>
                         </dl>
                         <dl className="f5 lh-title mv2">
-                            <dt className="dib b">Oil:</dt>
+                            <dt className="dib b">{t('nutrition.oil')}:</dt>
                             <dd className="dib ml1 near-gray">{oil} g</dd>
                         </dl>
                         <dl className="f5 lh-title mv2">
-                            <dt className="dib b">Carbohydrate:</dt>
+                            <dt className="dib b">{t('nutrition.carbohydrate')}:</dt>
                             <dd className="dib ml1 near-gray">{dailyCarbon[item-1]} g</dd>
                         </dl>
                         <dl className="f5 lh-title mv2">
-                            <dt className="dib b">Total calorie: </dt>
+                            <dt className="dib b">{t('nutrition.totalCalorie')}: </dt>
                             <dd className="dib ml1 near-gray">{dailyCalorie[item-1]} Kcal</dd>
                         </dl>   
                     </div>      

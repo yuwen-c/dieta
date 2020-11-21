@@ -77,6 +77,19 @@
     "high": "High"
   },
 
-  "dayOrder": "Day {{count}}"
+  "dayOrder": "Day {{count}}",
+
+  "nutrition": {
+    "title": "your daily recommended intakes are:",
+    "deficit": "Deficit",
+    "protein": "Protein",
+    "oil": "Oil",
+    "carbohydrate": "Carbohydrate",
+    "totalCalorie": "Total calorie",
+    "buttonSignOut": "Sign out",
+    "buttonGuest": "Sign up now to save calculation result!"
+  },
+
+  "nutritionTitle": "{{nickName}}, your daily recommended intakes are:"
   
 }

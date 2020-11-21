@@ -10,7 +10,6 @@ const LevelTable = ({data}) => {
 
     return (
         <div className="w-80">
-        {console.log("data", data)}
             <Table>
                 <Thead>
                   <Tr className="white bg-mid-gray">

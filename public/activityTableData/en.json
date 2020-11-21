@@ -7,20 +7,6 @@
         "High": "20,000 steps"
     },
     {
-        "icon": "⛰",
-        "Type": "Mounting",
-        "Low": "0.5 hr",
-        "Medium": "1 hr",
-        "High": "2 hr"
-    },
-    {
-        "icon":"📶",
-        "Type": "Climbing stairs",
-        "Low": "0.5 hr",
-        "Medium": "1 hr",
-        "High": "2 hr"
-    },
-    {
         "icon": "🚶",
         "Type": "Walking",
         "Low": "1 hr",
@@ -33,6 +19,20 @@
         "Low": "1 hr",
         "Medium": "2 hr",
         "High": "3 hr"
+    },
+    {
+        "icon": "⛰",
+        "Type": "Mounting",
+        "Low": "0.5 hr",
+        "Medium": "1 hr",
+        "High": "2 hr"
+    },
+    {
+        "icon":"📶",
+        "Type": "Climbing stairs",
+        "Low": "0.5 hr",
+        "Medium": "1 hr",
+        "High": "2 hr"
     },
     {
         "icon": "🚴",

@@ -3,7 +3,6 @@ import Options from '../Options/Options';
 import LoadButton from '../LoadButton/LoadButton';
 import NextPage from '../../NextPage/NextPage';
 import LevelTable from '../LevelTable/LevelTable';
-// import {exerciseTableData} from '../LevelTable/TableData';
 import {useTranslation} from 'react-i18next';
 
 const Exercise = ({onRouteChange, calculateNutrition, onActExeAmount, onLoadActExe, optionCheckedState, onCheckBeforeNextPage, nextPageMessage}) => {
@@ -17,8 +16,12 @@ const Exercise = ({onRouteChange, calculateNutrition, onActExeAmount, onLoadActE
         .then(result => setData(result))
     }, [i18n.language]);
 
-    return (
-        <div className="pa3 flex flex-column items-center">
+    if(data.length === 0){
+        return(<p>loading</p>)
+    }
+    else{
+        return (
+            <div className="pa3 flex flex-column items-center">
                 <legend className="fw7 f4 pv3 tc">{t('exercise.title')}</legend>
                 <LevelTable
                     data={data}
@@ -31,14 +34,14 @@ const Exercise = ({onRouteChange, calculateNutrition, onActExeAmount, onLoadActE
                     {
                         dayArr.map((item, index) => {
                             return (
-                                    <Options 
-                                        key={item}
-                                        style={{'backgroundColor' : '#96CCFF'}}
-                                        item={item}
-                                        name={`exercise${item}`}
-                                        onActExeAmount={onActExeAmount}
-                                        optionCheckedState={optionCheckedState[index]}
-                                    />
+                                <Options 
+                                    key={item}
+                                    style={{'backgroundColor' : '#96CCFF'}}
+                                    item={item}
+                                    name={`exercise${item}`}
+                                    onActExeAmount={onActExeAmount}
+                                    optionCheckedState={optionCheckedState[index]}
+                                />
                             )
                         })
                     }
@@ -49,8 +52,9 @@ const Exercise = ({onRouteChange, calculateNutrition, onActExeAmount, onLoadActE
                 nextPageMessage = {nextPageMessage}
                 onCheckBeforeNextPage = {()=> {onCheckBeforeNextPage('result')}}
                 />
-        </div>
-    )
+            </div>
+        )
+    }
 }
 
 export default Exercise;
