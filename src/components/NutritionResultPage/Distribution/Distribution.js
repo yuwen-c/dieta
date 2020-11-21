@@ -33,7 +33,7 @@ const Distribution = ({ item, protein, oil, activity, exercise, dailyCalorie, da
                 <div className="ph3">
                     <div className="bg-green br2">
                         <h3 >
-                            Day {item}
+                            {t('nutrition.day', {item: item})}
                         </h3>      
                     </div>
                     <h4 className="">{amountA} activity, {amountE} exercise.</h4>

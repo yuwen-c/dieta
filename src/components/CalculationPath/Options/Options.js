@@ -1,7 +1,6 @@
 import React from 'react';
 import './Options.css';
 import { useTranslation } from 'react-i18next';
-import { Trans } from 'react-i18next';
 
 const Options = ({style, item, name, onActExeAmount, optionCheckedState}) => {
     const {t,i18n} = useTranslation();
@@ -12,9 +11,10 @@ const Options = ({style, item, name, onActExeAmount, optionCheckedState}) => {
                 <div className="ph3">
                     <div className="br2" style={style}>
                         <h3 >
-                        <Trans i18nKey="dayOrder" count={item}>
+                        {/* <Trans i18nKey="dayOrder" count={item}>
                           Day {item}
-                        </Trans>
+                        </Trans> */}
+                        {t('options.day', {item: item})}
                         </h3>      
                     </div>                   
                     <div className="flex items-center mb2">

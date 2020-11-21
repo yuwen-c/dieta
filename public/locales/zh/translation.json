@@ -71,24 +71,22 @@
     "loadButton": "下載上週紀錄",
   
     "options": {
+      "day":"第 {{item}} 天",
       "rare": "極少",
       "low": "低",
       "medium": "中",
       "high": "高"
     },
     
-    "dayOrder": "第 {{count}} 天",
-
     "nutrition": {
-      "title": "你的每日營養建議攝取量為：",
+      "title": "{{name}}, 你的每日營養建議攝取量為：",
       "deficit": "熱量赤字",
       "protein": "蛋白質",
       "oil": "油脂",
       "carbohydrate": "碳水化合物",
       "totalCalorie": "總熱量",
       "buttonSignOut": "登出",
-      "buttonGuest": "註冊並儲存計算結果"
-    },
-  
-    "nutritionTitle": "{{nickName}}, 你的每日營養建議攝取量為："  
+      "buttonGuest": "註冊並儲存計算結果",
+      "day": "第 {{item}} 天"
+    } 
 }

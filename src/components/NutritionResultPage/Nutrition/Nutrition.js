@@ -1,7 +1,6 @@
 import React from 'react';
 import Distribution from '../Distribution/Distribution';
 import {useTranslation} from 'react-i18next';
-import { Trans } from 'react-i18next';
 
 const Nutrition = ({ name, onRouteChange, deficit, protein, oil, activity, exercise, dailyCalorie, dailyCarbon }) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; 
@@ -32,12 +31,7 @@ const Nutrition = ({ name, onRouteChange, deficit, protein, oil, activity, exerc
     return(
         <div className="pa3 flex flex-column items-center">
                 <legend className="fw7 f4 pv2 tc">
-                    {name}, {t('nutrition.title')}
-                    {/* <Trans
-                      i18nKey="nutritionTitle" 
-                      defaults="{{name}}, your daily recommended intakes are:" 
-                      values={{ name: name}}
-                    /> */}
+                    {t('nutrition.title', {name: name})}
                 </legend>
                 <div className="b">{t('nutrition.deficit')} : {deficit} Kcal</div>
                 <div className="flex flex-wrap">
