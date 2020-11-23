@@ -87,6 +87,7 @@
     "totalCalorie": "Total calorie",
     "buttonSignOut": "Sign out",
     "buttonGuest": "Sign up now to save calculation result!",
-    "day": "Day {{item}}"
+    "day": "Day {{item}}",
+    "amount": "{{act}} activity, {{exe}} exercise."
   }
 }

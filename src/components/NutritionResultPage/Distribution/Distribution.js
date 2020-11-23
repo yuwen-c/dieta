@@ -5,32 +5,27 @@ import { useTranslation } from 'react-i18next';
 const Distribution = ({ item, protein, oil, activity, exercise, dailyCalorie, dailyCarbon }) => {
     const {t, i18n} = useTranslation();
 
+    const en = ["Rare", "Low", "Medium", "High"];
+    const zh = ["極少", "低", "中", "高"]
     let amountA, amountE;
 
-    // show activity and exercise here, turn number to string
-    const toAmountStr = (type) => {
-        let amount;
-        
-        switch (type[item-1]){
-            case 0:
-                amount = "Rare";
-                break;
-            case 1:
-                amount = "Low";
-                break;
-            case 2:
-                amount = "Medium";
-                break;
-            case 3:
-                amount = "High";
-                break;
-            default:
+    // show activity and exercise on the page, turn number to string
+    const toAmountStr = (type, language) => {
+        let amountStr;
+        let lngStr;
+        if(language === 'en'){
+            lngStr = en
         }
-        return amount;
+        else if(language === 'zh'){
+            lngStr = zh
+        }
+        amountStr = lngStr[type[item-1]]
+
+        return amountStr;
     }
 
-    amountA = toAmountStr(activity);
-    amountE = toAmountStr(exercise);
+    amountA = toAmountStr(activity, i18n.language);
+    amountE = toAmountStr(exercise, i18n.language);
     
     return (    
         <div id="cardDiv" className="pa2 dib w5 center">
@@ -41,7 +36,7 @@ const Distribution = ({ item, protein, oil, activity, exercise, dailyCalorie, da
                             {t('nutrition.day', {item: item})}
                         </h3>      
                     </div>
-                    <h4 className="">{amountA} activity, {amountE} exercise.</h4>
+                    <h4 className="">{t('nutrition.amount', {act: amountA, exe: amountE})}</h4>
                     <div className="">
                         <dl className="f5 lh-title mv2">
                             <dt className="dib b">{t('nutrition.protein')}:</dt>

@@ -87,6 +87,7 @@
       "totalCalorie": "總熱量",
       "buttonSignOut": "登出",
       "buttonGuest": "註冊並儲存計算結果",
-      "day": "第 {{item}} 天"
+      "day": "第 {{item}} 天",
+      "amount": "{{act}}活動量， {{exe}}運動量。"
     } 
 }
