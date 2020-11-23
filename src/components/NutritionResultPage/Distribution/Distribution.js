@@ -6,26 +6,31 @@ const Distribution = ({ item, protein, oil, activity, exercise, dailyCalorie, da
     const {t, i18n} = useTranslation();
 
     let amountA, amountE;
-// show activity and exercise here, turn number to string
-    if(activity[item-1] === 0) {
-        amountA = 'Rare';
-    }else if (activity[item-1] === 1){
-        amountA = 'Low';
-    }else if(activity[item-1] === 2){
-        amountA = 'Medium';
-    }else{
-        amountA = 'High';
-    }  
-    
-    if(exercise[item-1] === 0) {
-        amountE = 'Rare';
-    }else if (exercise[item-1] === 1){
-        amountE = 'Low';
-    }else if(exercise[item-1] === 2){
-        amountE = 'Medium';
-    }else{
-        amountE = 'High';
+
+    // show activity and exercise here, turn number to string
+    const toAmountStr = (type) => {
+        let amount;
+        
+        switch (type[item-1]){
+            case 0:
+                amount = "Rare";
+                break;
+            case 1:
+                amount = "Low";
+                break;
+            case 2:
+                amount = "Medium";
+                break;
+            case 3:
+                amount = "High";
+                break;
+            default:
+        }
+        return amount;
     }
+
+    amountA = toAmountStr(activity);
+    amountE = toAmountStr(exercise);
     
     return (    
         <div id="cardDiv" className="pa2 dib w5 center">
@@ -63,4 +68,6 @@ const Distribution = ({ item, protein, oil, activity, exercise, dailyCalorie, da
 
 
 
-export default Distribution;
+export default Distribution;    
+
+
