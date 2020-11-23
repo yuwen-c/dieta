@@ -83,11 +83,22 @@
       "deficit": "熱量赤字",
       "protein": "蛋白質",
       "oil": "油脂",
-      "carbohydrate": "碳水化合物",
+      "carbohydrate": "碳水",
       "totalCalorie": "總熱量",
       "buttonSignOut": "登出",
       "buttonGuest": "註冊並儲存計算結果",
       "day": "第 {{item}} 天",
       "amount": "{{act}}活動量， {{exe}}運動量。"
-    } 
+    },
+    
+    "rate": {
+      "title": "如何調整？",
+      "calculate": "計算減脂率",
+      "aveThis": "本週體重平均",
+      "aveLast": "上週體重平均",
+      "submit": "計算",
+      "percentage": "% 體重變化。"
+  
+  
+    }
 }

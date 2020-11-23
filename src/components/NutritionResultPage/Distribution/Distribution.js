@@ -32,25 +32,25 @@ const Distribution = ({ item, protein, oil, activity, exercise, dailyCalorie, da
             <article className="ba pv1 br2 b--light-silver shadow-1">
                 <div className="ph3">
                     <div className="bg-green br2">
-                        <h3 >
+                        <h3>
                             {t('nutrition.day', {item: item})}
                         </h3>      
                     </div>
-                    <h4 className="">{t('nutrition.amount', {act: amountA, exe: amountE})}</h4>
+                    <h4 className="mb3">{t('nutrition.amount', {act: amountA, exe: amountE})}</h4>
                     <div className="">
-                        <dl className="f5 lh-title mv2">
+                        <dl className="f5 lh-title mv1">
                             <dt className="dib b">{t('nutrition.protein')}:</dt>
                             <dd className="dib ml1 near-gray">{protein} g</dd>
                         </dl>
-                        <dl className="f5 lh-title mv2">
+                        <dl className="f5 lh-title mv1">
                             <dt className="dib b">{t('nutrition.oil')}:</dt>
                             <dd className="dib ml1 near-gray">{oil} g</dd>
                         </dl>
-                        <dl className="f5 lh-title mv2">
+                        <dl className="f5 lh-title mv1">
                             <dt className="dib b">{t('nutrition.carbohydrate')}:</dt>
                             <dd className="dib ml1 near-gray">{dailyCarbon[item-1]} g</dd>
                         </dl>
-                        <dl className="f5 lh-title mv2">
+                        <dl className="f5 lh-title mv1">
                             <dt className="dib b">{t('nutrition.totalCalorie')}: </dt>
                             <dd className="dib ml1 near-gray">{dailyCalorie[item-1]} Kcal</dd>
                         </dl>   

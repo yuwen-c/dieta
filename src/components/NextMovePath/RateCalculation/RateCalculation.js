@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import NextMove from '../NextMove/NextMove';
 import NextPage from '../../NextPage/NextPage';
 import RateGuide from '../RateGuide/RateGuide';
-import {RateGuideSuggestions} from '../RateGuide/RateGuideSuggestions';
+// import {RateGuideSuggestions} from '../RateGuide/RateGuideSuggestions';
+import { withTranslation, useTranslation } from 'react-i18next';
 
 class RateCalculation extends Component{
     constructor(){
         super();
         this.state = {
             showGuide: false, // show guide card after calculating rate
+            guide: [],
             weightThisWeek: 0,
             weightLastWeek: 0,
             rate: 0, // % of losing rate
@@ -33,7 +35,7 @@ class RateCalculation extends Component{
                 this.setState({
                     rate: rate,
                     showGuide: true
-                });                
+                });        
             }
             else{
                 this.setState({error: 'Invalid number'})
@@ -46,11 +48,53 @@ class RateCalculation extends Component{
     }
 
 
+    // 當使用者按下submit, 或是按下語言切換(props 不變。會從changeLng的地方重新load)
+    componentDidUpdate = (prevProps, prevState) => {
+        console.log("did update")
+        console.log("this.state", this.props.i18n.language);
+        console.log("prevState", prevProps.i18n.language)
+        if (this.state.showGuide !== prevState.showGuide || this.props.i18n.language !== prevProps.i18n.language){
+            console.log("fetch");
+            fetch(`/dieta/guideData/${this.props.i18n.language}.json`)
+            .then(response => response.json())
+            .then(result => this.setState({guide: result}));  
+        }
+    }
 
     render(){
-        const {rate, showGuide} = this.state;
+        const {rate, showGuide, guide} = this.state;
         const rateNum = rate/100; // convert % -> normal number
+        let guideBox;
+        if(this.state.guide.length === 0){
+            guideBox = null;
+        }
+        else{
+            guideBox = 
+               //-0.5% ~ -1.5%
+                (rateNum <= -0.005 && rateNum > -0.015) ?
+            
+            <RateGuide
+            showGuide={showGuide}
+            RateGuideSuggestions={guide[0]}
+            />
 
+            :
+                rateNum <= -0.015 ?  // -1.5% or more 
+            
+                <RateGuide
+                showGuide={showGuide}
+                RateGuideSuggestions={guide[1]}
+                />
+
+                :   // - less than 0.5%
+                    
+                <RateGuide
+                showGuide={showGuide}
+                RateGuideSuggestions={guide[2]}
+                />
+
+            
+        }
         return(
             <div className="flex flex-column items-center">
                 <div className="w5 w-70-ns">
@@ -59,15 +103,12 @@ class RateCalculation extends Component{
                             <div className="ph3">
                                 <div className="br2" style={{'backgroundColor' : '#96CCFF'}} >
                                     <h3>
-                                    What's the next? 
-                                    {this.state.rate}
-                                    {rateNum}
-                                    {this.state.weightThisWeek}
+                                    {this.props.t('rate.title')}
                                     </h3>      
                                 </div>  
-                                <div className="fw7 f8 ">Calculate your losing rate:</div> 
+                                <div className="fw7 f8 ">{this.props.t('rate.calculate')}</div> 
                                 <div className="measure">
-                                    <label htmlFor="name" className="f6 b db mb2">Average weight This Week 
+                                    <label htmlFor="name" className="f6 b db mb2">{this.props.t('rate.aveThis')} 
                                       <span className="normal black-60"> kg</span>
                                     </label>
                                     <input id="weightThisWeek" 
@@ -78,7 +119,7 @@ class RateCalculation extends Component{
                                     />
                                 </div>
                                 <div className="measure">
-                                    <label htmlFor="name" className="f6 b db mb2">Average weight Last Week
+                                    <label htmlFor="name" className="f6 b db mb2">{this.props.t('rate.aveLast')} 
                                       <span className="normal black-60"> kg</span>
                                     </label>
                                     <input id="weightLastWeek" 
@@ -93,7 +134,7 @@ class RateCalculation extends Component{
                                     <input 
                                     className="ph3 pv2 input-reset ba b--black bg-transparent grow pointer b f6 dib" 
                                     type="submit" 
-                                    value="submit"
+                                    value={this.props.t('rate.submit')}
                                     onClick={this.rateCalculation}
                                     />
                                     <span
@@ -101,35 +142,12 @@ class RateCalculation extends Component{
                                     >{this.state.error}</span> 
                                 </div>
             
-                                <p><span className="pl1">{this.state.rate}</span> % weight change.</p>
+                                <p><span className="pl1">{this.state.rate}</span> {this.props.t('rate.percentage')}</p>
             
                             </div>
                         </article>   
                     </div>
-                    {   //-0.5% ~ -1.5%
-                        (rateNum <= -0.005 && rateNum > -0.015) ?
-                    
-                    <RateGuide
-                    showGuide={showGuide}
-                    RateGuideSuggestions={RateGuideSuggestions[0]}
-                    />
-    
-                    :
-                        rateNum <= -0.015 ?  // -1.5% or more 
-                    
-                        <RateGuide
-                        showGuide={showGuide}
-                        RateGuideSuggestions={RateGuideSuggestions[1]}
-                        />
-    
-                        :   // - less than 0.5%
-                            
-                        <RateGuide
-                        showGuide={showGuide}
-                        RateGuideSuggestions={RateGuideSuggestions[2]}
-                        />
-    
-                    }
+                    {guideBox}
                 </div>
                 <div id="cardDiv" className="pa3 w5 w-70-ns">
                     <article className="ba pv1 br2 b--light-silver shadow-1">
@@ -156,18 +174,11 @@ class RateCalculation extends Component{
     }
 }
 
-export default RateCalculation;
+// export default RateCalculation;
+export default withTranslation()(RateCalculation);
 
 
 
-// 1. 
-// 輸入上週體重平均、本週體重平均  ok
-// input
-
-// 2. 算出下降%。
-
-
-// 3. 出現說明: 能否，算出某個數值之後，出現那個說明即可？
 
 // - 0.5%-1%：
 // 正常速度，可繼續維持。

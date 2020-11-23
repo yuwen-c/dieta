@@ -89,5 +89,18 @@
     "buttonGuest": "Sign up now to save calculation result!",
     "day": "Day {{item}}",
     "amount": "{{act}} activity, {{exe}} exercise."
+  },
+
+  "rate": {
+    "title": "What's the next?",
+    "calculate": "Calculate your losing rate:",
+    "aveThis": "Average weight This Week",
+    "aveLast": "Average weight Last Week",
+    "submit": "submit",
+    "percentage": "% weight change."
+  },
+
+  "guide": {
+    "number": ""
   }
 }

@@ -1,7 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 // based on rate, showing guide on screen
 const RateGuide = ({showGuide, RateGuideSuggestions}) => {
+    const { t } = useTranslation();
+
     if(!showGuide){
         return null
     }
