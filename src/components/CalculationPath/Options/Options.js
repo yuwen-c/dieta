@@ -3,7 +3,7 @@ import './Options.css';
 import { useTranslation } from 'react-i18next';
 
 const Options = ({style, item, name, onActExeAmount, optionCheckedState}) => {
-    const {t,i18n} = useTranslation();
+    const { t } = useTranslation();
     // The for attribute of <label> must be equal to the id attribute of the related element 
     return(
         <div id="cardDiv" className="pa2 dib w5 center">
@@ -11,9 +11,6 @@ const Options = ({style, item, name, onActExeAmount, optionCheckedState}) => {
                 <div className="ph3">
                     <div className="br2" style={style}>
                         <h3 >
-                        {/* <Trans i18nKey="dayOrder" count={item}>
-                          Day {item}
-                        </Trans> */}
                         {t('options.day', {item: item})}
                         </h3>      
                     </div>                   

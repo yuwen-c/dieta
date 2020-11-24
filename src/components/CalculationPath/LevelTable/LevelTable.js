@@ -6,7 +6,7 @@ import './LevelTable.css';
 import { useTranslation } from 'react-i18next';
 
 const LevelTable = ({data}) => {
-    const {t, i18n} = useTranslation();
+    const { t } = useTranslation();
 
     return (
         <div className="w-80">

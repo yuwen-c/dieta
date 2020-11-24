@@ -5,7 +5,7 @@ import './Weight.css'
 import { useTranslation } from 'react-i18next';
 
 const Weight = ({onWeightChange, onRouteChange, onDeficitChange, nextPageMessage, onCheckBeforeNextPage}) => {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     return(
         <div className="flex flex-column items-center">

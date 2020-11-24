@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 
 
 const ExplanationCardList = ( ) => {
-    const { t, i18n } = useTranslation();
+    const { i18n } = useTranslation();
     const [workingCards, setWorkingCards] = useState([]);
     const [usingCards, setUsingCards] = useState([]); // add empty [] so that the cards.lenth in if statement works
     // useState has one parameter - initialState
