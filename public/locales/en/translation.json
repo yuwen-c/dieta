@@ -124,5 +124,20 @@
       "fast": "Add 300 - 500 Kcal per day during break.",
       "slow": "If the above two things you are doing right, and you are stuck here for more than 2 weeks, than speed up."
     }
+  },
+
+  "next": {
+    "title": "Consider these factors:",
+    "question1": "Is the rate normal?",
+    "question2": "Keep losing weight for 3 weeks?",
+    "question3": "Feel tired?",
+    "question4": "Expect more stress next week?",
+    "maintain": "Maintain Current Rate",
+    "maintainPS": "Maintain the current deficit.",
+    "currentDeficit": "Maintain deficit:",
+    "speedUp": "Speed Up, eat less",
+    "speedUpPS": "Enlarge calorie deficit, eat less.",
+    "slowDown": "Slow Down, eat more",
+    "slowDownPS": "Minimize calorie deficit, eat more."
   }
 }

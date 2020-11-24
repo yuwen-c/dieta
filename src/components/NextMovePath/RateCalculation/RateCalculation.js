@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import NextMove from '../NextMove/NextMove';
 import NextPage from '../../NextPage/NextPage';
 import RateGuide from '../RateGuide/RateGuide';
-// import {RateGuideSuggestions} from '../RateGuide/RateGuideSuggestions';
-import { withTranslation, useTranslation } from 'react-i18next';
+import { withTranslation} from 'react-i18next';
 
 class RateCalculation extends Component{
     constructor(){
         super();
         this.state = {
             showGuide: false, // show guide card after calculating rate
-            // guide: [],
             weightThisWeek: 0,
             weightLastWeek: 0,
             rate: 0, // % of losing rate
@@ -33,7 +31,6 @@ class RateCalculation extends Component{
         if(!isNaN(weightThisWeek) && !isNaN(weightLastWeek)){
             if(weightThisWeek <=1000 && weightThisWeek >= 40 && weightLastWeek <=1000 &&  weightLastWeek >= 40 ){
                 const rateNum = ((weightThisWeek - weightLastWeek)/ weightLastWeek) ;
-                console.log("rateNum", rateNum)
                 let speed = rateNum <= -0.005 && rateNum > -0.015 ?  //-0.5% ~ -1.5%
                   'normal'
                   :
@@ -58,16 +55,6 @@ class RateCalculation extends Component{
         // window.scrollTo(0, 300); //scroll page the guide part
     }
 
-
-    // 當使用者按下submit, 或是按下語言切換(props 不變。會從changeLng的地方重新load)
-    // componentDidUpdate = (prevProps, prevState) => {
-    //     if (this.state.showGuide !== prevState.showGuide || this.props.i18n.language !== prevProps.i18n.language){
-    //         console.log("fetch");
-    //         fetch(`/dieta/guideData/${this.props.i18n.language}.json`)
-    //         .then(response => response.json())
-    //         .then(result => this.setState({guide: result}));  
-    //     }
-    // }
 
     render(){
         const {showGuide, speed} = this.state;
@@ -156,43 +143,3 @@ class RateCalculation extends Component{
 
 // export default RateCalculation;
 export default withTranslation()(RateCalculation);
-
-
-
-
-// - 0.5%-1%：
-// 正常速度，可繼續維持。
-// * 若連續三到四週以上了，建議休息 2 至 7 天，
-// 熱量提高 200-400 kcal 左右
-
-// - >1.5%-2%：
-// 速度稍快，要留意。
-// 如果連續兩三週快速下降，建議至少先休息一週，
-// 熱量提高 300-500kcal 左右。
-
-// - <0.5%：
-// 建議繼續練習精確紀錄、穩定達到赤字。
-
-// 4. 
-// 根據以下因素決定下週走向：
-// - 目前減重速度是否正常(0.5%~1%)
-// - 是否已連續多週下降？
-// - 是否已感覺到疲勞？(有：建議放慢)
-// - 工作、生活是否會有壓力變大的情況？？(有：建議放慢)
-
-// - 維持
-// => 跳至原本營養分佈
-
-// - 加速
-// 選擇100.200.300kcal
-
-// - 放慢
-// 選擇100.200.300kcal
-
-// 5. 
-// 減脂2-4週後，可以間歇加入休息日，可以讓減脂更有效果。
-// 吃回赤字
-
-// 選擇天數 禮拜幾
-
-// 6. 營養頁面

@@ -114,15 +114,33 @@
       },
   
       "suggestion1": {
-        "normal": "正常If you have been losing weight with this rate over 3 -4weeks, a 2 - 7 day \"break\" are suggested.",
-        "fast": "正常If you have been losing weight with this rate over 2 - 3 weeks, highly recommend you to take a week \"break\".",
-        "slow": "正常Try to record your calorie with more accuracy, and have a steady deficit every day."
+        "normal": "若已連續降低 3-4 週以上了，建議休息 2-7 天，",
+        "fast": "如果已經以此速率下降連續 2-3 週，建議至少先休息 1 週，",
+        "slow": "建議繼續練習精確紀錄、穩定達成熱量赤字。"
       },
   
       "suggestion2": {
-        "normal": "正常Add 200 - 400 Kcal per day during break.",
-        "fast": "正常Add 300 - 500 Kcal per day during break.",
-        "slow": "正常If the above two things you are doing right, and you are stuck here for more than 2 weeks, than speed up."
+        "normal": "休息期間，熱量提高 200-400 Kcal/ 天 左右",
+        "fast": "熱量提高 300-500 Kcal/ 天 左右。",
+        "slow": "如果紀錄正確，也有穩定達成赤字，但還是在這個區間卡了 2 週，建議可提高熱量赤字。"
       }
+    },
+
+    "next": {
+      "title": "將下列因素納入考慮：",
+      "question1": "下降速率是否正常？(0.5%~1%)",
+      "question2": "體重是否已經下降超過3週？(是：建議休息幾天)",
+      "question3": "感到疲倦嗎？(有：建議放慢)",
+      "question4": "工作、生活是否會有壓力變大的情況？(有：建議放慢)",
+      "maintain": "維持目前速率",
+      "maintainPS": "維持目前的熱量赤字",
+      "currentDeficit": "維持目前熱量赤字：",
+      "speedUp": "加速，少吃一點",
+      "speedUpPS": "增加熱量赤字，少吃一點",
+      "slowDown": "放慢，多吃一點",
+      "slowDownPS": "減少熱量赤字，多吃一點"
+
     }
+
+
 }

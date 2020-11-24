@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-const RateGuide = ({showGuide, speed, RateGuideSuggestions}) => {
+const RateGuide = ({showGuide, speed}) => {
     const { t } = useTranslation();
 
     if(!showGuide){
