@@ -10,10 +10,11 @@ class RateCalculation extends Component{
         super();
         this.state = {
             showGuide: false, // show guide card after calculating rate
-            guide: [],
+            // guide: [],
             weightThisWeek: 0,
             weightLastWeek: 0,
             rate: 0, // % of losing rate
+            speed:'', // 'normal', 'fast', 'slow'
             error: ''
         }
     }
@@ -31,10 +32,20 @@ class RateCalculation extends Component{
 
         if(!isNaN(weightThisWeek) && !isNaN(weightLastWeek)){
             if(weightThisWeek <=1000 && weightThisWeek >= 40 && weightLastWeek <=1000 &&  weightLastWeek >= 40 ){
-                const rate = Math.round((weightThisWeek - weightLastWeek)/ weightLastWeek * 10000)/100
+                const rateNum = ((weightThisWeek - weightLastWeek)/ weightLastWeek) ;
+                console.log("rateNum", rateNum)
+                let speed = rateNum <= -0.005 && rateNum > -0.015 ?  //-0.5% ~ -1.5%
+                  'normal'
+                  :
+                  rateNum <= -0.015 ?  // -1.5% or more 
+                   'fast'
+                   :    // - less than 0.5%
+                    'slow'
+
                 this.setState({
-                    rate: rate,
-                    showGuide: true
+                    rate: Math.round( ( rateNum + Number.EPSILON ) * 10000 ) / 100,
+                    showGuide: true,
+                    speed: speed
                 });        
             }
             else{
@@ -49,54 +60,20 @@ class RateCalculation extends Component{
 
 
     // 當使用者按下submit, 或是按下語言切換(props 不變。會從changeLng的地方重新load)
-    componentDidUpdate = (prevProps, prevState) => {
-        console.log("did update")
-        console.log("this.state", this.props.i18n.language);
-        console.log("prevState", prevProps.i18n.language)
-        if (this.state.showGuide !== prevState.showGuide || this.props.i18n.language !== prevProps.i18n.language){
-            console.log("fetch");
-            fetch(`/dieta/guideData/${this.props.i18n.language}.json`)
-            .then(response => response.json())
-            .then(result => this.setState({guide: result}));  
-        }
-    }
+    // componentDidUpdate = (prevProps, prevState) => {
+    //     if (this.state.showGuide !== prevState.showGuide || this.props.i18n.language !== prevProps.i18n.language){
+    //         console.log("fetch");
+    //         fetch(`/dieta/guideData/${this.props.i18n.language}.json`)
+    //         .then(response => response.json())
+    //         .then(result => this.setState({guide: result}));  
+    //     }
+    // }
 
     render(){
-        const {rate, showGuide, guide} = this.state;
-        const rateNum = rate/100; // convert % -> normal number
-        let guideBox;
-        if(this.state.guide.length === 0){
-            guideBox = null;
-        }
-        else{
-            guideBox = 
-               //-0.5% ~ -1.5%
-                (rateNum <= -0.005 && rateNum > -0.015) ?
-            
-            <RateGuide
-            showGuide={showGuide}
-            RateGuideSuggestions={guide[0]}
-            />
-
-            :
-                rateNum <= -0.015 ?  // -1.5% or more 
-            
-                <RateGuide
-                showGuide={showGuide}
-                RateGuideSuggestions={guide[1]}
-                />
-
-                :   // - less than 0.5%
-                    
-                <RateGuide
-                showGuide={showGuide}
-                RateGuideSuggestions={guide[2]}
-                />
-
-            
-        }
+        const {showGuide, speed} = this.state;
         return(
             <div className="flex flex-column items-center">
+            {console.log(this.state.speed)}
                 <div className="w5 w-70-ns">
                     <div id="cardDiv" className="pa3 ">
                         <article className="ba pv1 br2 b--light-silver shadow-1">     
@@ -147,7 +124,10 @@ class RateCalculation extends Component{
                             </div>
                         </article>   
                     </div>
-                    {guideBox}
+                    <RateGuide
+                    showGuide={showGuide}
+                    speed={speed}
+                    />
                 </div>
                 <div id="cardDiv" className="pa3 w5 w-70-ns">
                     <article className="ba pv1 br2 b--light-silver shadow-1">

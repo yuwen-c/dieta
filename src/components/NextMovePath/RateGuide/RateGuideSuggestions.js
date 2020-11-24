@@ -15,6 +15,6 @@ export const RateGuideSuggestions =  [
         rate: 'Lose less than 0.5%',
         result: 'Keep trying, you just need more practice.',
         suggestion1: 'Try to record your calorie with more accuracy, and have a steady deficit every day.',
-        suggestion2: 'If the above two things you are doing right, and you are stuck here for more then 2 weeks, than speed up.'
+        suggestion2: 'If the above two things you are doing right, and you are stuck here for more than 2 weeks, than speed up.'
     },
 ]

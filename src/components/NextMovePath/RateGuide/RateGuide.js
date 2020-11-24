@@ -1,8 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-// based on rate, showing guide on screen
-const RateGuide = ({showGuide, RateGuideSuggestions}) => {
+const RateGuide = ({showGuide, speed, RateGuideSuggestions}) => {
     const { t } = useTranslation();
 
     if(!showGuide){
@@ -15,15 +14,17 @@ const RateGuide = ({showGuide, RateGuideSuggestions}) => {
                 <div className="ph3">
                     <div className="br2" style={{'backgroundColor' : '#96CCFF'}} >
                         <h3>
-                        {RateGuideSuggestions.rate}
+                            {t(`guide.rate.${speed}`)}
                         </h3>      
                     </div>  
-                    <div className=" b lh-copy pb2">{RateGuideSuggestions.result}</div>
+                    <div className=" b lh-copy pb2">
+                        {t(`guide.result.${speed}`)}
+                    </div>
                     <p className="mb2"> 
-                    {RateGuideSuggestions.suggestion1}
+                        {t(`guide.suggestion1.${speed}`)}
                     </p>
                     <p>
-                    {RateGuideSuggestions.suggestion2}
+                        {t(`guide.suggestion2.${speed}`)}
                     </p>
                 </div>
             </article>   

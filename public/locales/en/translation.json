@@ -101,6 +101,28 @@
   },
 
   "guide": {
-    "number": ""
+    "rate": {
+      "normal": "Lose 0.5% - 1.5%",
+      "fast": "Lose 1.5% - 2% or more",
+      "slow": "Lose less than 0.5%"
+    },
+
+    "result": {
+      "normal": "Normal rate, keep going.",
+      "fast": "A little bit too fast, keep watching it.",
+      "slow": "Keep trying, you just need more practice."
+    },
+
+    "suggestion1": {
+      "normal": "If you have been losing weight with this rate over 3 -4weeks, a 2 - 7 day \"break\" are suggested.",
+      "fast": "If you have been losing weight with this rate over 2 - 3 weeks, highly recommend you to take a week \"break\".",
+      "slow": "Try to record your calorie with more accuracy, and have a steady deficit every day."
+    },
+
+    "suggestion2": {
+      "normal": "Add 200 - 400 Kcal per day during break.",
+      "fast": "Add 300 - 500 Kcal per day during break.",
+      "slow": "If the above two things you are doing right, and you are stuck here for more than 2 weeks, than speed up."
+    }
   }
 }

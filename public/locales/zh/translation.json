@@ -93,12 +93,36 @@
     
     "rate": {
       "title": "如何調整？",
-      "calculate": "計算減脂率",
+      "calculate": "計算減脂率：",
       "aveThis": "本週體重平均",
       "aveLast": "上週體重平均",
       "submit": "計算",
       "percentage": "% 體重變化。"
+    },
+
+    "guide": {
+      "rate": {
+        "normal": "減少 0.5% - 1.5%",
+        "fast": "減少 1.5% - 2% 或更多",
+        "slow": "減少不到 0.5%"
+      },
   
+      "result": {
+        "normal": "正常速度，繼續保持。",
+        "fast": "速度稍快，要注意。",
+        "slow": "再試試看，多練習會更上手。"
+      },
   
+      "suggestion1": {
+        "normal": "正常If you have been losing weight with this rate over 3 -4weeks, a 2 - 7 day \"break\" are suggested.",
+        "fast": "正常If you have been losing weight with this rate over 2 - 3 weeks, highly recommend you to take a week \"break\".",
+        "slow": "正常Try to record your calorie with more accuracy, and have a steady deficit every day."
+      },
+  
+      "suggestion2": {
+        "normal": "正常Add 200 - 400 Kcal per day during break.",
+        "fast": "正常Add 300 - 500 Kcal per day during break.",
+        "slow": "正常If the above two things you are doing right, and you are stuck here for more than 2 weeks, than speed up."
+      }
     }
 }

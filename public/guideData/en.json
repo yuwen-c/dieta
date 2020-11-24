@@ -12,11 +12,11 @@
         "suggestion1": "If you have been losing weight with this rate over 2 - 3 weeks, highly recommend you to take a week \"break\".",
         "suggestion2": "Add 300 - 500 Kcal per day during break."
     },
-    
+
     {
         "rate": "Lose less than 0.5%",
         "result": "Keep trying, you just need more practice.",
         "suggestion1": "Try to record your calorie with more accuracy, and have a steady deficit every day.",
-        "suggestion2": "If the above two things you are doing right, and you are stuck here for more then 2 weeks, than speed up."
+        "suggestion2": "If the above two things you are doing right, and you are stuck here for more than 2 weeks, than speed up."
     }
 ]
