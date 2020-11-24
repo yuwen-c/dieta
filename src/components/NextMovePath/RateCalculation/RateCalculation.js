@@ -46,25 +46,27 @@ class RateCalculation extends Component{
                 });        
             }
             else{
-                this.setState({error: 'Invalid number'})
+                const errorMes = this.props.t('button.error_weight');
+                this.setState({error: errorMes});
             }
         }
         else{
-            this.setState({error: 'Invalid number'})
+            const errorMes = this.props.t('button.error_weight');
+            this.setState({error: errorMes});
         }
         // window.scrollTo(0, 300); //scroll page the guide part
     }
 
 
     render(){
-        const {showGuide, speed} = this.state;
+        const {showGuide, speed, error, rate} = this.state;
         const { t } = this.props;
         let percentage;
         if(showGuide === true){
-            percentage = this.state.rate >= 0 ?
-            <p>{t('rate.percentage.gain', {percent: this.state.rate})}</p>
+            percentage = rate >= 0 ?
+            <p>{t('rate.percentage.gain', {percent: rate})}</p>
             :
-            <p>{t('rate.percentage.lose', {percent: this.state.rate})}</p>            
+            <p>{t('rate.percentage.lose', {percent: rate})}</p>            
         }
 
         return(
@@ -111,7 +113,7 @@ class RateCalculation extends Component{
                                     />
                                     <span
                                     className="f5 link dark-pink dib ml2 pt3"
-                                    >{this.state.error}</span> 
+                                    >{error}</span> 
                                 </div>
                             {percentage}            
                             </div>
