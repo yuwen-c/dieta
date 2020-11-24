@@ -97,7 +97,10 @@
     "aveThis": "Average weight This Week",
     "aveLast": "Average weight Last Week",
     "submit": "submit",
-    "percentage": "% weight change."
+    "percentage": {
+      "gain": "Gain {{percent}} % weight.",
+      "lose": "Lose {{percent}} % weight."
+    }
   },
 
   "guide": {

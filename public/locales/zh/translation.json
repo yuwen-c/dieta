@@ -97,7 +97,10 @@
       "aveThis": "本週體重平均",
       "aveLast": "上週體重平均",
       "submit": "計算",
-      "percentage": "% 體重變化。"
+      "percentage": {
+        "gain": "增加 {{percent}} % 體重。",
+        "lose": "減少 {{percent}} % 體重。"
+      }
     },
 
     "guide": {

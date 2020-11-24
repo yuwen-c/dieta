@@ -58,21 +58,29 @@ class RateCalculation extends Component{
 
     render(){
         const {showGuide, speed} = this.state;
+        const { t } = this.props;
+        let percentage;
+        if(showGuide === true){
+            percentage = this.state.rate >= 0 ?
+            <p>{t('rate.percentage.gain', {percent: this.state.rate})}</p>
+            :
+            <p>{t('rate.percentage.lose', {percent: this.state.rate})}</p>            
+        }
+
         return(
             <div className="flex flex-column items-center">
-            {console.log(this.state.speed)}
                 <div className="w5 w-70-ns">
                     <div id="cardDiv" className="pa3 ">
                         <article className="ba pv1 br2 b--light-silver shadow-1">     
                             <div className="ph3">
                                 <div className="br2" style={{'backgroundColor' : '#96CCFF'}} >
                                     <h3>
-                                    {this.props.t('rate.title')}
+                                    {t('rate.title')}
                                     </h3>      
                                 </div>  
-                                <div className="fw7 f8 ">{this.props.t('rate.calculate')}</div> 
+                                <div className="fw7 f8  pb1">{t('rate.calculate')}</div> 
                                 <div className="measure">
-                                    <label htmlFor="name" className="f6 b db mb2">{this.props.t('rate.aveThis')} 
+                                    <label htmlFor="name" className="f6 b db mb2">{t('rate.aveThis')} 
                                       <span className="normal black-60"> kg</span>
                                     </label>
                                     <input id="weightThisWeek" 
@@ -83,7 +91,7 @@ class RateCalculation extends Component{
                                     />
                                 </div>
                                 <div className="measure">
-                                    <label htmlFor="name" className="f6 b db mb2">{this.props.t('rate.aveLast')} 
+                                    <label htmlFor="name" className="f6 b db mb2">{t('rate.aveLast')} 
                                       <span className="normal black-60"> kg</span>
                                     </label>
                                     <input id="weightLastWeek" 
@@ -98,16 +106,14 @@ class RateCalculation extends Component{
                                     <input 
                                     className="ph3 pv2 input-reset ba b--black bg-transparent grow pointer b f6 dib" 
                                     type="submit" 
-                                    value={this.props.t('rate.submit')}
+                                    value={t('rate.submit')}
                                     onClick={this.rateCalculation}
                                     />
                                     <span
                                     className="f5 link dark-pink dib ml2 pt3"
                                     >{this.state.error}</span> 
                                 </div>
-            
-                                <p><span className="pl1">{this.state.rate}</span> {this.props.t('rate.percentage')}</p>
-            
+                            {percentage}            
                             </div>
                         </article>   
                     </div>

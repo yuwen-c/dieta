@@ -13,7 +13,6 @@ import ExplanationCardList from '../../components/HowItWorksPath/ExplanationCard
 import Modal from '../../components/Modal/Modal';
 import ModalContent from '../../components/Modal/ModalContent';
 // import { Button } from 'react-bootstrap';
-//import { activityTableData, exerciseTableData } from '../../components/CalculationPath/LevelTable/TableData';
 import { withTranslation } from 'react-i18next';
 
 const initialchecked = 
