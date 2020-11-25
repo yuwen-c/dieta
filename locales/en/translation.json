@@ -1,0 +1,146 @@
+{
+  "navbar": {
+    "app_name": "Dieta",
+    "menu": "Menu",
+    "theory": "How it works",
+    "start_diet": "Start Diet",
+    "during_diet": "During Diet",
+    "latest_result": "Latest Result",
+    "language": "Language",
+    "sign_in": "Sign In",
+    "sign_up": "Sign Up"    
+    },
+  
+  "home": {
+    "slogan": "Making your dieta go smoothly.",
+    "description": "Calculate how many calories you need, give you advice based on your losing rate.",
+    "option": "Learn More"
+    },
+
+  "sign_in": {
+    "title": "Sign In",
+    "email": "Email",
+    "password": "Password",
+    "button": "Sign in",
+    "error_blank": "Enter your data please.",
+    "error_fail": "Sign in failed"
+  },
+
+  "sign_up": {
+    "title": "Sign Up",
+    "try": "Try it",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "button": "Sign up",
+    "error_blank": "Enter your data please.",
+    "error_fail": "Registration failed"
+  },
+
+  "weight" : {
+    "start_title": "Start to calculate!",
+    "instruction": "Enter your body weight:",
+    "weight": "Body weight",
+    "example": "e.g. 78",
+    "deficit_title": "Deficit /day",
+    "question": "How many calories would you like to reduce?"
+  },
+  
+  "button": {
+    "name": "next page",
+    "error_deficit": "Choose deficit.",
+    "error_weight": "Invalid weight.",
+    "error_option": "Choose options."
+  },
+
+  "activity": {
+    "title": "Amount of activity/ day"
+  },
+
+  "exercise": {
+    "title": "Amount of exercise/ day"
+  },
+
+  "table": {
+    "type": "Type", 
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High"
+  },
+
+  "loadButton": "Load setting of last week",
+  
+  "options": {
+    "day": "Day {{item}}",
+    "rare": "Rare",
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High"
+  },
+
+  "nutrition": {
+    "title": "{{name}}, your daily recommended intakes are:",
+    "deficit": "Deficit",
+    "protein": "Protein",
+    "oil": "Oil",
+    "carbohydrate": "Carbohydrate",
+    "totalCalorie": "Total calorie",
+    "buttonSignOut": "Sign out",
+    "buttonGuest": "Sign up now to save calculation result!",
+    "day": "Day {{item}}",
+    "amount": "{{act}} activity, {{exe}} exercise."
+  },
+
+  "rate": {
+    "title": "What's the next?",
+    "calculate": "Calculate your losing rate:",
+    "aveThis": "Average weight This Week",
+    "aveLast": "Average weight Last Week",
+    "submit": "submit",
+    "percentage": {
+      "gain": "Gain {{percent}} % weight.",
+      "lose": "Lose {{percent}} % weight."
+    }
+  },
+
+  "guide": {
+    "rate": {
+      "normal": "Lose 0.5% - 1.5%",
+      "fast": "Lose 1.5% - 2% or more",
+      "slow": "Lose less than 0.5%"
+    },
+
+    "result": {
+      "normal": "Normal rate, keep going.",
+      "fast": "A little bit too fast, keep watching it.",
+      "slow": "Keep trying, you just need more practice."
+    },
+
+    "suggestion1": {
+      "normal": "If you have been losing weight with this rate over 3 -4weeks, a 2 - 7 day \"break\" are suggested.",
+      "fast": "If you have been losing weight with this rate over 2 - 3 weeks, highly recommend you to take a week \"break\".",
+      "slow": "Try to record your calorie with more accuracy, and have a steady deficit every day."
+    },
+
+    "suggestion2": {
+      "normal": "Add 200 - 400 Kcal per day during break.",
+      "fast": "Add 300 - 500 Kcal per day during break.",
+      "slow": "If the above two things you are doing right, and you are stuck here for more than 2 weeks, than speed up."
+    }
+  },
+
+  "next": {
+    "title": "Consider these factors:",
+    "question1": "Is the rate normal?",
+    "question2": "Keep losing weight for 3 weeks?",
+    "question3": "Feel tired?",
+    "question4": "Expect more stress next week?",
+    "maintain": "Maintain Current Rate",
+    "maintainPS": "Maintain the current deficit.",
+    "currentDeficit": "Maintain deficit:",
+    "speedUp": "Speed Up, eat less",
+    "speedUpPS": "Enlarge calorie deficit, eat less.",
+    "slowDown": "Slow Down, eat more",
+    "slowDownPS": "Minimize calorie deficit, eat more."
+  }
+}

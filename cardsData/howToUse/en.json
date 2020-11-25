@@ -1,0 +1,18 @@
+[
+    {
+        "title": "Getting start",
+        "description": "First step, enter your body weight and estimate your daily activity and exercise amount."   
+    },
+    {
+        "title": "How can I know the amount?",
+        "description": "number of steps, sets of work out, hours of housework can be an index, follow our instruction on the top of activity and exercise page."   
+    },
+    {
+        "title": "Check my last record",
+        "description": "Select latest result on menu"   
+    },
+    {
+        "title": "Next move?",
+        "description": "Enter your average weight this week and last week to get an advise!"   
+    }
+]
