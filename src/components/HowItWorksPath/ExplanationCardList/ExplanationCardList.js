@@ -14,18 +14,22 @@ const ExplanationCardList = ( ) => {
     // it returns 2 things, the current state, and a function that updates it
 
     useEffect(()=> {
-        fetch(`/dieta/cardsData/howItWorks/${i18n.language}.json`)
+        fetch(`https://yuwengithub.github.io/dieta/cardsData/howItWorks/${i18n.language}.json`)
+        // fetch(`/dieta/cardsData/howItWorks/${i18n.language}.json`)
         .then(response => response.json())
         .then(result => setWorkingCards(result));
     }, [i18n.language])
 
     useEffect(() => {
-        fetch(`/dieta/cardsData/howToUse/${i18n.language}.json`)
+        fetch(`https://yuwengithub.github.io/dieta/cardsData/howToUse/${i18n.language}.json`)
+        // fetch(`/dieta/cardsData/howToUse/${i18n.language}.json`)
         .then(response => response.json())
         .then(result => setUsingCards(result))
     }, [i18n.language])
 
     if(workingCards.length === 0 || usingCards.length === 0){
+        console.log("working", workingCards.length)
+        console.log("using", usingCards.length)
         return <p>loading</p>
     }
     else{

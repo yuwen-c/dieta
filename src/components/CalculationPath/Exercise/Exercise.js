@@ -11,7 +11,7 @@ const Exercise = ({onRouteChange, calculateNutrition, onActExeAmount, onLoadActE
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch(`/dieta/exerciseTableData/${i18n.language}.json`)
+        fetch(`https://yuwengithub.github.io/dieta/exerciseTableData/${i18n.language}.json`)
         .then(response => response.json())
         .then(result => setData(result))
     }, [i18n.language]);
