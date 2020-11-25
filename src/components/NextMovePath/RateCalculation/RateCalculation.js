@@ -44,6 +44,7 @@ class RateCalculation extends Component{
                     showGuide: true,
                     speed: speed
                 });        
+                window.scrollTo(0, 300); //scroll page the guide part
             }
             else{
                 const errorMes = this.props.t('button.error_weight');
@@ -54,7 +55,6 @@ class RateCalculation extends Component{
             const errorMes = this.props.t('button.error_weight');
             this.setState({error: errorMes});
         }
-        // window.scrollTo(0, 300); //scroll page the guide part
     }
 
 
