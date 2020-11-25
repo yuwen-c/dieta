@@ -28,8 +28,6 @@ const ExplanationCardList = ( ) => {
     }, [i18n.language])
 
     if(workingCards.length === 0 || usingCards.length === 0){
-        console.log("working", workingCards.length)
-        console.log("using", usingCards.length)
         return <p>loading</p>
     }
     else{

@@ -97,6 +97,12 @@ class SignUp extends Component{
         }
     }
 
+    componentDidMount = () => {
+        fetch('https://gentle-badlands-25513.herokuapp.com/')
+        .then(response => response.json())
+        .then(result => console.log(result))
+    }
+
     render(){
         return(
             <div>
