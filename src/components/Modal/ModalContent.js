@@ -1,7 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const ModalContent = ({showNoResultModal, showNoActExeModal, onHideModal}) => {
-    
+
+    const { t } = useTranslation();
+
     return(
 
         showNoResultModal ? 
@@ -12,17 +15,17 @@ const ModalContent = ({showNoResultModal, showNoActExeModal, onHideModal}) => {
                     <div className="ph3 tc">
                         <div id="colorDiv" className="br2 bg-orange">
                             <h3 >
-                            No record.
+                                {t('modal.noResult')}
                             </h3>      
                         </div>
                         <p id="description">
-                          Let's get start from calculation.
+                            {t('modal.noResultContent')}
                         </p>  
                         <div className="relative pb3">
                           <input 
                           className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                           type="submit" 
-                          value="Got it!"
+                          value={t('modal.button')}
                           onClick={() => {onHideModal("showNoResultModal")}}
                           />
                         </div>
@@ -42,17 +45,17 @@ const ModalContent = ({showNoResultModal, showNoActExeModal, onHideModal}) => {
                     <div className="ph3 tc">
                         <div id="colorDiv" className="br2 bg-orange">
                             <h3 >
-                            No record.
+                                {t('modal.noActExe')}
                             </h3>      
                         </div>
                         <p id="description">
-                          Please choose options.
+                            {t('modal.noActExeContent')}
                         </p>  
                         <div className="relative pb3">
                           <input 
                           className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                           type="submit" 
-                          value="Got it!"
+                          value={t('modal.button')}
                           onClick={() => {onHideModal("showNoActExeModal")}}
                           />
                         </div>
