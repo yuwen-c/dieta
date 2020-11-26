@@ -38,7 +38,7 @@ const NavbarDrop = ({ isSignIn, onRouteChange, getResult }) => {
                   {t('navbar.during_diet')}</NavDropdown.Item>                
                 <NavDropdown.Item 
                   href="#getResult"
-                  onClick={(event) => {getResult(); event.preventDefault()}}
+                  onClick={(event) => {onRouteChange('result'); event.preventDefault()}}
                   >{t('navbar.latest_result')}</NavDropdown.Item>
               </NavDropdown>
             </Nav>
