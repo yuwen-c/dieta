@@ -8,12 +8,11 @@ import './index.css';
 import App from './container/App/App';
 import * as serviceWorker from './serviceWorker';
 import 'tachyons';
-
-
+import Loader from '../src/components/Loader/Loader';
 
 ReactDOM.render(
   <React.StrictMode>
-    <React.Suspense fallback="Loading...">
+    <React.Suspense fallback={<Loader/>} >
       <App />
     </React.Suspense>
   </React.StrictMode>,
