@@ -3,7 +3,7 @@ import ExplanationCard from '../ExplanationCard/ExplanationCard';
 // import { howItWorks, howToUse} from './explanation';
 import './ExplanationCardList.css';
 import { useTranslation } from 'react-i18next';
-
+import { useLoading, Audio } from '@agney/react-loading';
 
 
 const ExplanationCardList = ( ) => {
@@ -12,6 +12,12 @@ const ExplanationCardList = ( ) => {
     const [usingCards, setUsingCards] = useState([]); // add empty [] so that the cards.lenth in if statement works
     // useState has one parameter - initialState
     // it returns 2 things, the current state, and a function that updates it
+
+    // loading icon
+    const { containerProps, indicatorEl } = useLoading({
+        loading: true,
+        indicator: <Audio height="10vh" />,
+      });
 
     useEffect(()=> {
         fetch(`https://yuwengithub.github.io/dieta/cardsData/howItWorks/${i18n.language}.json`)
@@ -28,7 +34,11 @@ const ExplanationCardList = ( ) => {
     }, [i18n.language])
 
     if(workingCards.length === 0 || usingCards.length === 0){
-        return <p>loading</p>
+        return(             
+            <div className="flex justify-center items-center" {...containerProps}>
+                {indicatorEl} 
+            </div>
+        )
     }
     else{
         return(
