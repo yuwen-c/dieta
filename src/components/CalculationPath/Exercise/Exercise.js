@@ -4,6 +4,7 @@ import LoadButton from '../LoadButton/LoadButton';
 import NextPage from '../../NextPage/NextPage';
 import LevelTable from '../LevelTable/LevelTable';
 import {useTranslation} from 'react-i18next';
+import Loader from '../../Loader/Loader';
 
 const Exercise = ({onRouteChange, calculateNutrition, onActExeAmount, onLoadActExe, optionCheckedState, onCheckBeforeNextPage, nextPageMessage}) => {
     const dayArr = ['1', '2', '3', '4', '5', '6', '7']; 
@@ -17,7 +18,7 @@ const Exercise = ({onRouteChange, calculateNutrition, onActExeAmount, onLoadActE
     }, [i18n.language]);
 
     if(data.length === 0){
-        return(<p>loading</p>)
+        return <Loader/>
     }
     else{
         return (

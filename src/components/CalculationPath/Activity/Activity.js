@@ -4,6 +4,7 @@ import LoadButton from '../LoadButton/LoadButton';
 import NextPage from '../../NextPage/NextPage';
 import LevelTable from '../LevelTable/LevelTable';
 import { useTranslation } from 'react-i18next';
+import Loader from '../../Loader/Loader';
 
 // onLoadActExe的參數竟然不用在最底層的onClick帶入！！
 const Activity = ({onRouteChange, onActExeAmount, onLoadActExe, optionCheckedState, onCheckBeforeNextPage, nextPageMessage}) => {
@@ -18,7 +19,7 @@ const Activity = ({onRouteChange, onActExeAmount, onLoadActExe, optionCheckedSta
     }, [i18n.language]);
 
     if(data.length === 0 ){
-        return(<p>loading</p>)
+        return <Loader/>
     }
     else{
         return( 
