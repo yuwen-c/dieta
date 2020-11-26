@@ -34,10 +34,11 @@ const ExplanationCardList = ( ) => {
     }, [i18n.language])
 
     if(workingCards.length === 0 || usingCards.length === 0){
-        return(             
-            <div className="flex justify-center items-center" {...containerProps}>
+        return(        
+            <div className="flex justify-center items-center vh-75" {...containerProps}>
                 {indicatorEl} 
             </div>
+
         )
     }
     else{
