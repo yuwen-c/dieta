@@ -6,7 +6,7 @@ const Loader = () => {
     // loading icon type: Audio
     const { containerProps, indicatorEl } = useLoading({
         loading: true,
-        indicator: <Audio height="10vh" />,
+        indicator: <Audio height="10%"/>,
       });
 
     return (

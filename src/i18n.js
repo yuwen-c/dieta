@@ -10,15 +10,16 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
-    // lng: "en",
-    // supportedLngs: ['en', 'zh'],
-    // nonExplicitSupportedLngs: true,
-    fallbackLng: "en",
+    supportedLngs: ['en', 'zh'],
+    nonExplicitSupportedLngs: true,
+    fallbackLng: { 
+      'zh-Hant': ['zh', 'en'],
+      'default': ['en']
+    },
 
     backend: {
         loadPath: '/dieta/locales/{{lng}}/{{ns}}.json'
     },
-    // keySeparator: false, // we do not use keys in form messages.welcome
 
     interpolation: {
       escapeValue: false // react already safes from xss
