@@ -142,5 +142,14 @@
     "speedUpPS": "Enlarge calorie deficit, eat less.",
     "slowDown": "Slow Down, eat more",
     "slowDownPS": "Minimize calorie deficit, eat more."
+  },
+
+  "modal": {
+    "noResult": "No record.",
+    "noResultContent": "Let's get start from calculation.",
+    "noActExe": "No record.",
+    "noActExeContent": "Please choose options.",
+    "button": "Got it!"
   }
+  
 }

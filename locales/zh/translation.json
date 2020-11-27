@@ -142,8 +142,14 @@
       "speedUpPS": "增加熱量赤字，少吃一點",
       "slowDown": "放慢，多吃一點",
       "slowDownPS": "減少熱量赤字，多吃一點"
+    },
 
+    "modal": {
+      "noResult": "沒有記錄",
+      "noResultContent": "請重新計算",
+      "noActExe": "沒有記錄",
+      "noActExeContent": "請分別點選",
+      "button": "收到"
     }
-
 
 }
