@@ -146,7 +146,7 @@
 
   "modal": {
     "noResult": "No record.",
-    "noResultContent": "Let's get start from calculation.",
+    "noResultContent": "Let's get start from \"Start Diet\".",
     "noActExe": "No record.",
     "noActExeContent": "Please choose options.",
     "button": "Got it!"

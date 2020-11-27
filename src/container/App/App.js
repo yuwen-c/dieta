@@ -29,8 +29,7 @@ const initialState = {
   },
 
   isSignIn : false,
-  route: 'home', // sign in, sign up, weight, activity, exercise, nutrition 新增 description, rate
-  nextPageMessage: '',
+  route: 'home', // sign in, sign up, howItWorks, calculation, activity, exercise, result, nextMove
 
   activity : [], // store week activity, like: [0, 1, 0, 1, 0, 3, 2]
   exercise : [], // store week exercise, like: [0, 1, 0, 1, 0, 3, 2]
@@ -157,7 +156,17 @@ class App extends Component{
             this.setState({nextPageMessage: errorMes});
           }
           else{
-            this.onRouteChange('activity');
+            // check if user has calculation record, if not, showModal
+            this.fetchUser(this.state.user.email)
+            .then(result => {
+              if(result.weight === 0){
+                this.onShowModal("showNoResultModal"); 
+                this.onRouteChange('calculation');
+              }
+              else{
+                this.onRouteChange('activity');
+              }
+            })
           }
         }
 
