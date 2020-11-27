@@ -146,7 +146,7 @@
 
     "modal": {
       "noResult": "沒有記錄",
-      "noResultContent": "請重新計算",
+      "noResultContent": "第一次計算請由「開始減脂」進入",
       "noActExe": "沒有記錄",
       "noActExeContent": "請分別點選",
       "button": "收到"
