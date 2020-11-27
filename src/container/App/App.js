@@ -189,7 +189,6 @@ class App extends Component{
         break;
 
       default:
-        console.log("default")
     }
   }
 
@@ -439,7 +438,8 @@ class App extends Component{
           activity: Object.values(userActivity),
           exercise: Object.values(userExercise) 
           });
-        this.onRouteChange('result');
+        // this.onRouteChange('result');
+        this.setState({route: 'result'})
       }}
     )
     .catch(console.log)

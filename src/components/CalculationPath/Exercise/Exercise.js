@@ -11,11 +11,14 @@ const Exercise = ({onRouteChange, calculateNutrition, onActExeAmount, onLoadActE
     const { t, i18n} = useTranslation();
     const [data, setData] = useState([]);
 
+    const lng = i18n.language.includes('zh') ? 'zh' : 
+        i18n.language.includes('en') ? 'en' : 'en';
+
     useEffect(() => {
-        fetch(`https://yuwengithub.github.io/dieta/exerciseTableData/${i18n.language}.json`)
+        fetch(`https://yuwengithub.github.io/dieta/exerciseTableData/${lng}.json`)
         .then(response => response.json())
         .then(result => setData(result))
-    }, [i18n.language]);
+    }, [lng]);
 
     if(data.length === 0){
         return <Loader/>

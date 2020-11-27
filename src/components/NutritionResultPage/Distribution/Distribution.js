@@ -9,6 +9,9 @@ const Distribution = ({ item, protein, oil, activity, exercise, dailyCalorie, da
     const zh = ["極少", "低", "中", "高"]
     let amountA, amountE;
 
+    const lng = i18n.language.includes('zh') ? 'zh' :
+        i18n.language.includes('en') ? 'en' : 'en';
+
     // show activity and exercise on the page, turn number to string
     const toAmountStr = (type, language) => {
         let amountStr;
@@ -24,8 +27,8 @@ const Distribution = ({ item, protein, oil, activity, exercise, dailyCalorie, da
         return amountStr;
     }
 
-    amountA = toAmountStr(activity, i18n.language);
-    amountE = toAmountStr(exercise, i18n.language);
+    amountA = toAmountStr(activity, lng);
+    amountE = toAmountStr(exercise, lng);
     
     return (    
         <div id="cardDiv" className="pa2 dib w5 center">

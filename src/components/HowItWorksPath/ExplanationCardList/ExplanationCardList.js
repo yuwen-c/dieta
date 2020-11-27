@@ -13,7 +13,7 @@ const ExplanationCardList = ( ) => {
     // it returns 2 things, the current state, and a function that updates it
 
     // since the language of browser can be zh-TW, transform it to zh to fetch the right url
-    let lng = i18n.language.includes('zh') ? 'zh' :
+    const lng = i18n.language.includes('zh') ? 'zh' :
             i18n.language.includes('en') ? 'en' : 'en'
 
     useEffect(()=> {
@@ -30,50 +30,46 @@ const ExplanationCardList = ( ) => {
         .then(result => setUsingCards(result))
     }, [lng])
 
-    // if(workingCards.length === 0 || usingCards.length === 0){
+    if(workingCards.length === 0 || usingCards.length === 0){
         return(  
             <div>
             <Loader/>
             </div> 
         )
-    // }
-    // else{
-    //     return(
-    //         <div className="">
-    //             <div className="flex flex-wrap" id="yellow"> 
-    //             {/* // JSX外面也要包<div></div> */}
-    //             {
-    //                 workingCards.map((item, index) => {
-    //                     return(
-    //                         <ExplanationCard
-    //                         key={item.title}
-    //                         title={item.title} 
-    //                         description={item.description}                         
-    //                         />                
-    //                     )
-    //                 })
-    //             }         
-        //         </div>  
-        //         <div className="flex flex-wrap" id="blue">        
-        //         {
-        //             usingCards.map((item, index) => {
-        //                 return(
-        //                     <ExplanationCard
-        //                     key={item.title}
-        //                     title={item.title}
-        //                     description={item.description}
-        //                     />
-        //                 )
-        //             })
-        //         }
-        //         </div>          
-        //     </div>
-        // ) 
-   // }
+    }
+    else{
+        return(
+            <div className="">
+                <div className="flex flex-wrap" id="yellow"> 
+                {/* // JSX外面也要包<div></div> */}
+                {
+                    workingCards.map((item, index) => {
+                        return(
+                            <ExplanationCard
+                            key={item.title}
+                            title={item.title} 
+                            description={item.description}                         
+                            />                
+                        )
+                    })
+                }         
+                </div>  
+                <div className="flex flex-wrap" id="blue">        
+                {
+                    usingCards.map((item, index) => {
+                        return(
+                            <ExplanationCard
+                            key={item.title}
+                            title={item.title}
+                            description={item.description}
+                            />
+                        )
+                    })
+                }
+                </div>          
+            </div>
+        ) 
+   }
 }
 
 export default ExplanationCardList;
-
-
-// {console.log("render", workingCards)}
-// {console.log("render 2", usingCards)}  
