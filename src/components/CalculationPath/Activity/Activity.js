@@ -16,7 +16,7 @@ const Activity = ({onRouteChange, onActExeAmount, onLoadActExe, optionCheckedSta
         i18n.language.includes('en') ? 'en' : 'en';
 
     useEffect(() => {
-        fetch(`https://yuwengithub.github.io/dieta/activityTableData/${lng}.json`)
+        fetch(`https://yuwen-c.github.io/dieta/activityTableData/${lng}.json`)
         .then(response => response.json())
         .then(result => setData(result))
     }, [lng]);
