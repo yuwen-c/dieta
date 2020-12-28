@@ -14,6 +14,7 @@ import Modal from '../../components/Modal/Modal';
 import ModalContent from '../../components/Modal/ModalContent';
 // import { Button } from 'react-bootstrap';
 import { withTranslation } from 'react-i18next';
+import Footer from '../../components/Footer/Footer';
 
 const initialchecked = 
 [[false, false, false, false],[false, false, false, false],[false, false, false, false],
@@ -556,7 +557,7 @@ class App extends Component{
       </Modal>
 
     return(
-      <div>
+      <div className="flex flex-column vh-100">
         <NavbarDrop
           name = {this.state.user.name}
           onRouteChange = {this.onRouteChange}
@@ -566,6 +567,7 @@ class App extends Component{
         <div>
           {this.renderSwitch(this.state.route)}
         </div>
+        <Footer/>
         {modal}
       </div>
     )

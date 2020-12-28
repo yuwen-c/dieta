@@ -17,14 +17,14 @@ const ExplanationCardList = ( ) => {
             i18n.language.includes('en') ? 'en' : 'en'
 
     useEffect(()=> {
-        fetch(`https://yuwengithub.github.io/dieta/cardsData/howItWorks/${lng}.json`)
+        fetch(`https://yuwen-c.github.io/dieta/cardsData/howItWorks/${lng}.json`)
         // fetch(`/dieta/cardsData/howItWorks/${i18n.language}.json`)
         .then(response => response.json())
         .then(result => setWorkingCards(result));
     }, [lng])
 
     useEffect(() => {
-        fetch(`https://yuwengithub.github.io/dieta/cardsData/howToUse/${lng}.json`)
+        fetch(`https://yuwen-c.github.io/dieta/cardsData/howToUse/${lng}.json`)
         // fetch(`/dieta/cardsData/howToUse/${i18n.language}.json`)
         .then(response => response.json())
         .then(result => setUsingCards(result))
