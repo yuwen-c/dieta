@@ -76,6 +76,7 @@ class App extends Component{
 
 
   refreshWholeUser = (data) => {
+    console.log("refresh", data)
     this.setState({user: data});
   }
 
@@ -219,8 +220,19 @@ class App extends Component{
           this.deleteUserNumber();
         }
         else if(route === 'nextMove'){
-          this.fetchUser(this.state.user.email) // refresh user when go to nextMove page
-          .then(user => this.refreshWholeUser(user))
+          // Guest user cannot use nextMove page, show modal
+          if(this.state.user.name === "Guest"){
+            this.onShowModal('showNoResultModal');
+            this.setState({route: 'calculation'}) 
+            
+            // WRONG, 後面還會被設回nextMove
+            // 邏輯要再重想。
+
+          }
+          else{
+            this.fetchUser(this.state.user.email) // refresh user when go to nextMove page
+            .then(user => this.refreshWholeUser(user))
+          }
         }
         this.setState({route : route});
       }
@@ -555,11 +567,11 @@ class App extends Component{
           onHideModal={this.onHideModal}
         />
       </Modal>
-
+    console.log("render", this.state.user.name, this.state.user.deficit)
     return(
       <div className="flex flex-column vh-100">
         <NavbarDrop
-          name = {this.state.user.name}
+          // name = {this.state.user.name}
           onRouteChange = {this.onRouteChange}
           isSignIn = {this.state.isSignIn} 
           getResult = {this.getResult}
