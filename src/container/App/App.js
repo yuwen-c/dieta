@@ -15,6 +15,7 @@ import ModalContent from '../../components/Modal/ModalContent';
 // import { Button } from 'react-bootstrap';
 import { withTranslation } from 'react-i18next';
 import Footer from '../../components/Footer/Footer';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 
 const initialchecked = 
 [[false, false, false, false],[false, false, false, false],[false, false, false, false],
@@ -572,17 +573,25 @@ class App extends Component{
       </Modal>
     return(
       <div className="flex flex-column vh-100">
-        <NavbarDrop
-          // name = {this.state.user.name}
-          onRouteChange = {this.onRouteChange}
-          isSignIn = {this.state.isSignIn} 
-          getResult = {this.getResult}
-        />
-        <div>
-          {this.renderSwitch(this.state.route)}
-        </div>
-        <Footer/>
-        {modal}
+        <ErrorBoundary>
+          <NavbarDrop
+            // name = {this.state.user.name}
+            onRouteChange = {this.onRouteChange}
+            isSignIn = {this.state.isSignIn} 
+            getResult = {this.getResult}
+          />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <div>
+            {this.renderSwitch(this.state.route)}
+          </div>
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <Footer/>
+        </ErrorBoundary>
+        <ErrorBoundary>
+          {modal}
+        </ErrorBoundary>
       </div>
     )
   }
