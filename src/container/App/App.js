@@ -220,19 +220,8 @@ class App extends Component{
           this.deleteUserNumber();
         }
         else if(route === 'nextMove'){
-          // Guest user cannot use nextMove page, show modal
-          if(this.state.user.name === "Guest"){
-            this.onShowModal('showNoResultModal');
-            this.setState({route: 'calculation'}) 
-            
-            // WRONG, 後面還會被設回nextMove
-            // 邏輯要再重想。
-
-          }
-          else{
-            this.fetchUser(this.state.user.email) // refresh user when go to nextMove page
-            .then(user => this.refreshWholeUser(user))
-          }
+          this.fetchUser(this.state.user.email) // refresh user when go to nextMove page
+          .then(user => this.refreshWholeUser(user))
         }
         this.setState({route : route});
       }
@@ -248,7 +237,6 @@ class App extends Component{
     }
     window.scrollTo(0, 0); //scroll page to top 
   }
-
 
 // ========================== Choose activity and exercise amount ==========================
   // 把同一組的default設為false，再把選中的設為true
