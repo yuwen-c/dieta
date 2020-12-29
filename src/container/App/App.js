@@ -158,23 +158,23 @@ class App extends Component{
             this.setState({nextPageMessage: errorMes});
           }
           else{
-          // guest user and real user
+          // check guest user or real user
             if(this.state.user.name === "Guest"){
               this.onShowModal("showNoResultModal"); 
               this.onRouteChange('calculation');
             }
             else{
-            // check if user has calculation record, if not, showModal
-            this.fetchUser(this.state.user.email)
-            .then(result => {
-              if(result.weight === 0){
-                this.onShowModal("showNoResultModal"); 
-                this.onRouteChange('calculation');
-              }
-              else{
-                this.onRouteChange('activity');
-              }
-            })
+              // check if user has calculation record, if not, showModal
+              this.fetchUser(this.state.user.email)
+              .then(result => {
+                if(result.weight === 0){
+                  this.onShowModal("showNoResultModal"); 
+                  this.onRouteChange('calculation');
+                }
+                else{
+                  this.onRouteChange('activity');
+                }
+              })
             }
           }
         }
@@ -422,7 +422,9 @@ class App extends Component{
 // ========================== Check Latest Nutrition Result ==========================
   // get latest calculation result
   getResult = () => {
-    fetch('https://gentle-badlands-25513.herokuapp.com/result', {
+    // check guest user or real user
+    if(!this.state.user.name === "Guest"){
+      fetch('https://gentle-badlands-25513.herokuapp.com/result', {
     // fetch('http://localhost:3000/result', {
       method: 'post', 
       headers: {'Content-Type': 'application/json'},
@@ -444,7 +446,7 @@ class App extends Component{
           user.deficit = deficit;
           return {user : user}
         })
-
+      
         delete userCalorie.email;
         delete userCarbon.email;
         delete userActivity.email;
@@ -462,6 +464,11 @@ class App extends Component{
       }}
     )
     .catch(console.log)
+    }
+    else{
+      this.onShowModal('showNoResultModal');
+      this.onRouteChange('calculation');
+    }
   }
 
 // ========================== Modal ==========================
@@ -556,7 +563,6 @@ class App extends Component{
   }
 
   render(){
-    {console.log("render", this.state.user.name, this.state.user.deficit)}
     const modal = 
       <Modal>
         <ModalContent
