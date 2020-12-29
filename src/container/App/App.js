@@ -15,7 +15,7 @@ import ModalContent from '../../components/Modal/ModalContent';
 // import { Button } from 'react-bootstrap';
 import { withTranslation } from 'react-i18next';
 import Footer from '../../components/Footer/Footer';
-import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
+import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
 
 const initialchecked = 
 [[false, false, false, false],[false, false, false, false],[false, false, false, false],
