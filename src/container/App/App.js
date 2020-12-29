@@ -158,6 +158,12 @@ class App extends Component{
             this.setState({nextPageMessage: errorMes});
           }
           else{
+          // guest user and real user
+            if(this.state.user.name === "Guest"){
+              this.onShowModal("showNoResultModal"); 
+              this.onRouteChange('calculation');
+            }
+            else{
             // check if user has calculation record, if not, showModal
             this.fetchUser(this.state.user.email)
             .then(result => {
@@ -169,6 +175,7 @@ class App extends Component{
                 this.onRouteChange('activity');
               }
             })
+            }
           }
         }
 
@@ -220,8 +227,10 @@ class App extends Component{
           this.deleteUserNumber();
         }
         else if(route === 'nextMove'){
+          if(!this.state.user.name === "Guest"){
           this.fetchUser(this.state.user.email) // refresh user when go to nextMove page
-          .then(user => this.refreshWholeUser(user))
+          .then(user => this.refreshWholeUser(user)) 
+          }
         }
         this.setState({route : route});
       }
@@ -547,6 +556,7 @@ class App extends Component{
   }
 
   render(){
+    {console.log("render", this.state.user.name, this.state.user.deficit)}
     const modal = 
       <Modal>
         <ModalContent
@@ -555,7 +565,6 @@ class App extends Component{
           onHideModal={this.onHideModal}
         />
       </Modal>
-    console.log("render", this.state.user.name, this.state.user.deficit)
     return(
       <div className="flex flex-column vh-100">
         <NavbarDrop
