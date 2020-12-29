@@ -2,11 +2,11 @@ import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Navbar from 'react-bootstrap/Navbar';
-import { useTranslation } from 'react-i18next';
 // from https://react-bootstrap.github.io/components/navbar/
+import { useTranslation } from 'react-i18next';
 import './NavbarDrop.css';
 
-const NavbarDrop = ({ isSignIn, onRouteChange, getResult }) => {
+const NavbarDrop = ({ isSignIn, onRouteChange}) => {
 
   const { t, i18n } = useTranslation();
   const changeLan = (language) => {

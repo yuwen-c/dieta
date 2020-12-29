@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { withTranslation } from 'react-i18next';
 
-
 class SignUp extends Component{
     constructor(){
         super();
@@ -14,7 +13,6 @@ class SignUp extends Component{
     }
 
     onGuestLogin = () => {
-        console.log("onGuestLogin")
         const guestUser = {
             name: 'Guest',
             email: 'guest',

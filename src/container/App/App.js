@@ -12,7 +12,6 @@ import NavbarDrop from '../../components/NavbarDrop/NavbarDrop';
 import ExplanationCardList from '../../components/HowItWorksPath/ExplanationCardList/ExplanationCardList';
 import Modal from '../../components/Modal/Modal';
 import ModalContent from '../../components/Modal/ModalContent';
-// import { Button } from 'react-bootstrap';
 import { withTranslation } from 'react-i18next';
 import Footer from '../../components/Footer/Footer';
 import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
@@ -80,9 +79,9 @@ class App extends Component{
     this.setState({user: data});
   }
 
+  // only refresh user name and email
   refreshPartialUser = (data) => {
     const {name, email} = data;
-    // only refresh user name and email
     this.setState(prevstate => {
       let user = Object.assign({}, prevstate.user);
       user.name = name;
@@ -92,7 +91,7 @@ class App extends Component{
     return name; 
   }
 
-  // delete state so that the nextPage check can work well
+  // delete state data so that the nextPage check can work well
   deleteUserNumber = () => {
     this.setState(prevstate => {
       let user = Object.assign({}, prevstate.user);
@@ -222,14 +221,14 @@ class App extends Component{
         this.getResult();
       }
       else{
-        // once get into the calculation page, delete weight and deficit state to fit the check
+        // on calculation page, delete weight and deficit state to fit the check
         if(route === 'calculation'){ 
           this.deleteUserNumber();
         }
         else if(route === 'nextMove'){
-          if(!this.state.user.name === "Guest"){
-          this.fetchUser(this.state.user.email) // refresh user when go to nextMove page
-          .then(user => this.refreshWholeUser(user)) 
+          if(!this.state.user.name === "Guest"){ // guest user : don't fetch
+            this.fetchUser(this.state.user.email) // refresh user when go to nextMove page
+            .then(user => this.refreshWholeUser(user)) 
           }
         }
         this.setState({route : route});
@@ -240,7 +239,7 @@ class App extends Component{
       if(route === 'calculation' || route === 'nextMove' || route === 'result' || route === 'signin'){
         this.setState({route : 'signin'});
       }
-      else{ // "how it works" page doesn't need permission
+      else{ 
         this.setState({route : route});
       }     
     }
@@ -409,7 +408,7 @@ class App extends Component{
         modifySlowDown: true
       })
     }
-  } //event.target.value = Speed Up, name=X
+  } 
 
   // choose calorie option (-100/ +100...)
   onModifyDeficit = (event) => {
@@ -459,7 +458,6 @@ class App extends Component{
           activity: Object.values(userActivity),
           exercise: Object.values(userExercise) 
           });
-        // this.onRouteChange('result');
         this.setState({route: 'result'})
       }}
     )
@@ -484,6 +482,10 @@ class App extends Component{
 // ========================== Rendering ==========================
   // decide rendered components
   renderSwitch = (route) => {
+    const {name, deficit, } = this.state.user;
+    const {dailyCalorie, dailyCarbon, nextPageMessage, 
+      checkedActivity, checkedExercise, protein, oil, 
+      activity, exercise, maintainRate, modifySpeedUp, modifySlowDown} = this.state;
     switch (route){
       case 'home':
         return  <Home
@@ -497,15 +499,15 @@ class App extends Component{
                 />
       case 'signup':
         return <SignUp
-                name = {this.state.user.name}
+                name = {name}
                 refreshWholeUser = {this.refreshWholeUser}
                 refreshPartialUser = {this.refreshPartialUser}
                 onRouteChange = {this.onRouteChange}
                 onIsSignIn = {this.onIsSignIn}
                 onSaveCalculation = {this.onSaveCalculation}
-                deficit = {this.state.user.deficit}
-                dailyCalorie = {this.state.dailyCalorie}
-                dailyCarbon = {this.state.dailyCarbon}
+                deficit = {deficit}
+                dailyCalorie = {dailyCalorie}
+                dailyCarbon = {dailyCarbon}
                 />
       case 'howItWorks':
         return <ExplanationCardList/>
@@ -513,48 +515,48 @@ class App extends Component{
         return <Weight
                 onWeightChange = {this.onWeightChange}
                 onDeficitChange = {this.onDeficitChange} 
-                nextPageMessage = {this.state.nextPageMessage}
+                nextPageMessage = {nextPageMessage}
                 onCheckBeforeNextPage = {this.onCheckBeforeNextPage}
                 />
       case 'activity':
         return <Activity
                 onActExeAmount = {this.onActExeAmount}
                 onLoadActExe = {this.onLoadActExe}  
-                optionCheckedState = {this.state.checkedActivity}
+                optionCheckedState = {checkedActivity}
                 onDeleteActExeOption = {this.onDeleteActExeOption}
-                nextPageMessage = {this.state.nextPageMessage}
+                nextPageMessage = {nextPageMessage}
                 onCheckBeforeNextPage = {this.onCheckBeforeNextPage}
                 />
       case 'exercise':
         return <Exercise
                 onActExeAmount = {this.onActExeAmount}
                 onLoadActExe = {this.onLoadActExe}  
-                optionCheckedState = {this.state.checkedExercise}
+                optionCheckedState = {checkedExercise}
                 onDeleteActExeOption = {this.onDeleteActExeOption}
-                nextPageMessage = {this.state.nextPageMessage}
+                nextPageMessage = {nextPageMessage}
                 onCheckBeforeNextPage = {this.onCheckBeforeNextPage}
                 />
       case 'result':
         return <Nutrition
                 onRouteChange = {this.onRouteChange}
-                name = {this.state.user.name}
-                deficit = {this.state.user.deficit}
-                protein = {this.state.protein}
-                oil = {this.state.oil}
-                activity = {this.state.activity}
-                exercise = {this.state.exercise}
-                dailyCalorie = {this.state.dailyCalorie}
-                dailyCarbon = {this.state.dailyCarbon}
+                name = {name}
+                deficit = {deficit}
+                protein = {protein}
+                oil = {oil}
+                activity = {activity}
+                exercise = {exercise}
+                dailyCalorie = {dailyCalorie}
+                dailyCarbon = {dailyCarbon}
                 />
       case 'nextMove':
         return  <RateCalculation
-                maintainRate = {this.state.maintainRate}
-                deficit = {this.state.user.deficit}
+                maintainRate = {maintainRate}
+                deficit = {deficit}
                 onModifySpeed = {this.onModifySpeed}
-                modifySpeedUp = {this.state.modifySpeedUp}
-                modifySlowDown = {this.state.modifySlowDown}
+                modifySpeedUp = {modifySpeedUp}
+                modifySlowDown = {modifySlowDown}
                 onModifyDeficit = {this.onModifyDeficit}
-                nextPageMessage = {this.state.nextPageMessage}
+                nextPageMessage = {nextPageMessage}
                 onCheckBeforeNextPage = {this.onCheckBeforeNextPage}
                 />
       default:
@@ -575,10 +577,8 @@ class App extends Component{
       <div className="flex flex-column vh-100">
         <ErrorBoundary>
           <NavbarDrop
-            // name = {this.state.user.name}
             onRouteChange = {this.onRouteChange}
             isSignIn = {this.state.isSignIn} 
-            getResult = {this.getResult}
           />
         </ErrorBoundary>
         <ErrorBoundary>
