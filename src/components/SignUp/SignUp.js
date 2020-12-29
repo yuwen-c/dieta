@@ -14,7 +14,6 @@ class SignUp extends Component{
     }
 
     onGuestLogin = () => {
-        console.log("onGuestLogin")
         const guestUser = {
             name: 'Guest',
             email: 'guest',

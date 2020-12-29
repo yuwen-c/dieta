@@ -76,7 +76,6 @@ class App extends Component{
 
 
   refreshWholeUser = (data) => {
-    console.log("refresh", data)
     this.setState({user: data});
   }
 
