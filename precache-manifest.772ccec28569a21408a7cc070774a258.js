@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5907550eabd7abea2c89d52555691e11",
+    "revision": "7f8ec88df16e42a9ae988e161bb14f89",
     "url": "/dieta/index.html"
   },
   {
-    "revision": "d9b99e9570f2db1e0e52",
+    "revision": "e06d8371732ccf28de97",
     "url": "/dieta/static/css/2.240481f6.chunk.css"
   },
   {
-    "revision": "111fc7160c53827ec426",
+    "revision": "3fe6162e7ea045a8fac1",
     "url": "/dieta/static/css/main.f3689d1d.chunk.css"
   },
   {
-    "revision": "d9b99e9570f2db1e0e52",
-    "url": "/dieta/static/js/2.8482b50e.chunk.js"
+    "revision": "e06d8371732ccf28de97",
+    "url": "/dieta/static/js/2.9d69621e.chunk.js"
   },
   {
     "revision": "5ac48c47bb3912b14c2d8de4f56d5ae8",
-    "url": "/dieta/static/js/2.8482b50e.chunk.js.LICENSE.txt"
+    "url": "/dieta/static/js/2.9d69621e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "111fc7160c53827ec426",
-    "url": "/dieta/static/js/main.f68d7b24.chunk.js"
+    "revision": "3fe6162e7ea045a8fac1",
+    "url": "/dieta/static/js/main.93dc752a.chunk.js"
   },
   {
     "revision": "a7f1ad9d8753ebe0588d",
