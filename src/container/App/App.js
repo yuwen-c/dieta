@@ -194,7 +194,6 @@ class App extends Component{
 
       case 'result':   // exercise 頁面的檢查
         const {exercise} = this.state;
-        console.log("onCheck, result")
         if(exercise.length === 7 && !exercise.includes(undefined)){
           this.onRouteChange('result');
           this.onDeleteActExeOption('exercise');
@@ -219,8 +218,10 @@ class App extends Component{
         this.setState(initialState);
       }
       else if(route === 'result'){
-        console.log("onRouteChange, result")
-        this.getResult();
+      // user goes to result page from nevbar, not from calculation path
+        if(!this.state.route === 'exercise'){
+          this.getResult();
+        }
       }
       else{
         // on calculation page, delete weight and deficit state to fit the check
@@ -233,8 +234,9 @@ class App extends Component{
             .then(user => this.refreshWholeUser(user)) 
           }
         }
-        this.setState({route : route});
       }
+      this.setState({route : route});
+
     }
     // 2. to some certain pages, users need to sign in first
     else{
@@ -323,7 +325,6 @@ class App extends Component{
 // ========================== Calculate nutrition result ==========================
   // do calculation and save to state
   calculateNutrition = () => {
-    console.log("calculation")
     const {name, email, weight, deficit} = this.state.user;
     const {activity, exercise, modifyDeficit} = this.state; 
     
@@ -364,7 +365,6 @@ class App extends Component{
 
 // save data to database
   onSaveCalculation = (userEmail, deficit, dailyCalorie, dailyCarbon) => {
-    console.log("onsavecalculation")
     const {weight} = this.state.user;
     const {activity, exercise} = this.state; 
       fetch('https://gentle-badlands-25513.herokuapp.com/saveData', {
@@ -425,10 +425,8 @@ class App extends Component{
 // ========================== Check Latest Nutrition Result ==========================
   // get latest calculation result
   getResult = () => {
-    console.log("getResult")
     // check guest user or real user
     if(!this.state.user.name === "Guest"){
-      console.log("not guest")
       fetch('https://gentle-badlands-25513.herokuapp.com/result', {
     // fetch('http://localhost:3000/result', {
       method: 'post', 
@@ -464,7 +462,6 @@ class App extends Component{
           activity: Object.values(userActivity),
           exercise: Object.values(userExercise) 
           });
-        this.setState({route: 'result'})
       }}
     )
     .catch(console.log)
@@ -571,7 +568,6 @@ class App extends Component{
   }
 
   render(){
-    console.log("render", this.state.user.name, this.state.user.weight)
     const {showNoResultModal, showNoActExeModal, isSignIn, route} = this.state;
     const modal = 
       <Modal>
