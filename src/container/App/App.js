@@ -99,6 +99,7 @@ class App extends Component{
       user.deficit = 0;
       return {user: user}
     })
+    this.setState({modifyDeficit: 0})
   }
 
   onIsSignIn = () => {
@@ -570,7 +571,6 @@ class App extends Component{
   }
 
   render(){
-    {console.log("render", this.state.modifyDeficit)}
     const {showNoResultModal, showNoActExeModal, isSignIn, route} = this.state;
     const modal = 
       <Modal>
