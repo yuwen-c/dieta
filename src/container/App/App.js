@@ -219,8 +219,9 @@ class App extends Component{
       }
       else if(route === 'result'){
       // user goes to result page from nevbar, not from calculation path
-        if(!this.state.route === 'exercise'){
-          this.getResult();
+        if(this.state.route !== 'exercise'){
+          return this.getResult();
+          // result has its own logic in getResult function, don't do setState route now.
         }
       }
       else{
@@ -229,14 +230,13 @@ class App extends Component{
           this.deleteUserNumber();
         }
         else if(route === 'nextMove'){
-          if(!this.state.user.name === "Guest"){ // guest user : don't fetch
+          if(this.state.user.name !== "Guest"){ // guest user : don't fetch
             this.fetchUser(this.state.user.email) // refresh user when go to nextMove page
             .then(user => this.refreshWholeUser(user)) 
           }
         }
       }
-      this.setState({route : route});
-
+      this.setState({route : route}); 
     }
     // 2. to some certain pages, users need to sign in first
     else{
@@ -426,7 +426,7 @@ class App extends Component{
   // get latest calculation result
   getResult = () => {
     // check guest user or real user
-    if(!this.state.user.name === "Guest"){
+    if(this.state.user.name !== "Guest"){
       fetch('https://gentle-badlands-25513.herokuapp.com/result', {
     // fetch('http://localhost:3000/result', {
       method: 'post', 
@@ -462,6 +462,8 @@ class App extends Component{
           activity: Object.values(userActivity),
           exercise: Object.values(userExercise) 
           });
+        
+        this.setState({route: 'result'})
       }}
     )
     .catch(console.log)
@@ -568,6 +570,7 @@ class App extends Component{
   }
 
   render(){
+    {console.log("render", this.state.modifyDeficit)}
     const {showNoResultModal, showNoActExeModal, isSignIn, route} = this.state;
     const modal = 
       <Modal>
