@@ -74,7 +74,7 @@ const NavbarDrop = ({ isSignIn, onRouteChange}) => {
                   <Nav.Link
                   href="signin"
                   onClick={(event) => {onRouteChange('signin'); event.preventDefault()}}
-                  >Sign Out</Nav.Link>                
+                  >{t('navbar.sign_out')}</Nav.Link>                
                 </Nav>   
 
               }   
