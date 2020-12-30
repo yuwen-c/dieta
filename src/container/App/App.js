@@ -219,7 +219,7 @@ class App extends Component{
         this.setState(initialState);
       }
       else if(route === 'result'){
-      // user goes to result page from nevbar, not from calculation path
+      // user goes to result page from navbar, not from calculation path
         if(this.state.route !== 'exercise'){
           return this.getResult();
           // result has its own logic in getResult function, don't do setState route now.
