@@ -49,11 +49,11 @@ const NavbarDrop = ({ isSignIn, onRouteChange}) => {
                 <NavDropdown.Item 
                   href="#lngZH" 
                   onClick={(event) => {changeLan("zh"); event.preventDefault()}}
-                  >{t('navbar.latest_chinese')}</NavDropdown.Item>
+                  >{t('navbar.chinese')}</NavDropdown.Item>
                 <NavDropdown.Item 
                   href="#lngEN" 
                   onClick={(event) => {changeLan("en"); event.preventDefault()}}
-                  >{t('navbar.latest_english')}</NavDropdown.Item>
+                  >{t('navbar.english')}</NavDropdown.Item>
               </NavDropdown>   
 
 
