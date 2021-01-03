@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-const NextPage = ({onRouteChange, onCheckBeforeNextPage, nextPageMessage}) => {
+const NextPage = ({onCheckBeforeNextPage, nextPageMessage}) => {
     const { t } = useTranslation();
     
     return(

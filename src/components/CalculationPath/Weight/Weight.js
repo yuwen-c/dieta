@@ -4,7 +4,7 @@ import NextPage from '../../NextPage/NextPage';
 import './Weight.css'
 import { useTranslation } from 'react-i18next';
 
-const Weight = ({onWeightChange, onRouteChange, onDeficitChange, nextPageMessage, onCheckBeforeNextPage}) => {
+const Weight = ({onWeightChange, onDeficitChange, nextPageMessage, onCheckBeforeNextPage}) => {
     const { t } = useTranslation();
 
     return(
@@ -45,7 +45,6 @@ const Weight = ({onWeightChange, onRouteChange, onDeficitChange, nextPageMessage
                 </article>   
             </div>
             <NextPage className=""
-            // onRouteChange={()=> {onCheckWeight(); onRouteChange('activity'); onDeleteBMR()}}
             onCheckBeforeNextPage={() => onCheckBeforeNextPage('activity')}
             nextPageMessage={nextPageMessage}
             />
