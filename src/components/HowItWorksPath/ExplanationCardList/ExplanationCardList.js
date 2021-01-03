@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import ExplanationCard from '../ExplanationCard/ExplanationCard';
-import './ExplanationCardList.css';
 import { useTranslation } from 'react-i18next';
 import Loader from '../../Loader/Loader';
 
 const ExplanationCardList = ( ) => {
     const { i18n } = useTranslation();
     const [workingCards, setWorkingCards] = useState([]);
-    const [usingCards, setUsingCards] = useState([]); // add empty [] so that the cards.lenth in if statement works
-    // useState has one parameter - initialState
-    // it returns 2 things, the current state, and a function that updates it
+    const [usingCards, setUsingCards] = useState([]); 
 
     // if language is zh-TW, transform it to zh to fetch the right url
     const lng = i18n.language.includes('zh') ? 'zh' :
@@ -45,7 +42,8 @@ const ExplanationCardList = ( ) => {
                             <ExplanationCard
                             key={item.title}
                             title={item.title} 
-                            description={item.description}                         
+                            description={item.description}  
+                            color="yellow"                       
                             />                
                         )
                     })
@@ -59,6 +57,7 @@ const ExplanationCardList = ( ) => {
                             key={item.title}
                             title={item.title}
                             description={item.description}
+                            color="blue"
                             />
                         )
                     })
