@@ -25,7 +25,7 @@ i18n
       escapeValue: false // react already safes from xss
     },
 
-    debug: true // suggested. to get console logs
+    debug: false // suggested. to get console logs
   });
 
   export default i18n;
