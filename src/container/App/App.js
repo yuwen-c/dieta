@@ -582,6 +582,7 @@ class App extends Component{
       </Modal>
     return(
       <div className="flex flex-column vh-100">
+      {this.state.user.name}
         <ErrorBoundary>
           <NavbarDrop
             onRouteChange = {this.onRouteChange}

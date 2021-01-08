@@ -78,9 +78,10 @@ class SignUp extends Component{
                     if(result.name){ 
                         const {deficit, dailyCalorie, dailyCarbon} = this.props;  
                         this.props.onSaveCalculation(result.email, deficit, dailyCalorie, dailyCarbon);
-                        this.props.onRouteChange('result');
-                        this.props.refreshPartialUser(result);
+                        this.props.refreshPartialUser(result); 
                         this.props.onIsSignIn();
+                        this.props.onRouteChange('result'); 
+
                     }
                     else{
                         let errMes = this.props.t("sign_up.error.fail");
