@@ -20,6 +20,7 @@ class SignIn extends Component{
     }
 
     onSignIn = () => {
+        console.log("onSignin")
         const {email, password} = this.state;
         if(email && password){
             fetch('https://gentle-badlands-25513.herokuapp.com/signin', {
@@ -32,8 +33,8 @@ class SignIn extends Component{
             .then(result => {
                 if(result.name){
                     this.props.refreshWholeUser(result);
-                    this.props.onRouteChange('howItWorks');
                     this.props.onIsSignIn();
+                    this.props.onRouteChange('calculation');
                 }
                 else{
                     let errMes = this.props.t('sign_in.error_fail');

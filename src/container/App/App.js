@@ -104,6 +104,7 @@ class App extends Component{
 
   onIsSignIn = () => {
     this.setState({isSignIn : true});
+    console.log("after trigger setState isSignin")
   }
 
 // ========================== Calculation Weight ==========================
@@ -213,8 +214,10 @@ class App extends Component{
 // ========================== Routing ==========================
   // set route state
   onRouteChange = (route) => {
+    console.log("onRouteChange, isSignin?", this.state.isSignIn.toString(), route)
     // 1. if already sign in, can access to anywhere
     if(this.state.isSignIn){ 
+      console.log("onRouteChange, yes isSignin")
       if(route === 'signin'){ // actually is "sign out" button
         this.setState(initialState);
       }
@@ -241,6 +244,7 @@ class App extends Component{
     }
     // 2. to some certain pages, users need to sign in first
     else{
+      console.log("onRouteChange, NOT isSignin")
       if(route === 'calculation' || route === 'nextMove' || route === 'result' || route === 'signin'){
         this.setState({route : 'signin'});
       }
@@ -582,7 +586,7 @@ class App extends Component{
       </Modal>
     return(
       <div className="flex flex-column vh-100">
-      {this.state.user.name}
+      {this.state.isSignIn.toString()}
         <ErrorBoundary>
           <NavbarDrop
             onRouteChange = {this.onRouteChange}
