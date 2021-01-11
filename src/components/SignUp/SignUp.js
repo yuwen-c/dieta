@@ -13,18 +13,18 @@ class SignUp extends Component{
     }
 
     // 想讓guest sign in 後 連到calculation，但是sign in state沒有設定那麼快，會被擋。
-    onGuestLogin = () => {
-        console.log("onGuestLogin")
+    onGuestLogin = async () => {
         const guestUser = {
             name: 'Guest',
             email: 'guest',
             weight: 0,
             deficit: 0
         }
-        this.props.refreshWholeUser(guestUser);
-        this.props.onIsSignIn(); // 就算把這個放前面，還是沒有那麼快重設state
-        // this.props.onRouteChange('calculation');
-        setTimeout(()=> {this.props.onRouteChange('calculation')}, 100)
+        this.props.refreshWholeUser(guestUser);     
+
+        // async/await
+        let signin = await this.props.onIsSignIn();
+        this.props.onRouteChange('calculation')
     }
 
     onNameChange = (event) => {
@@ -62,11 +62,11 @@ class SignUp extends Component{
         if(name && email && password){
             if(this.props.name !== "Guest"){ // normal user sign up
                 this.onSignUpFetch(name, email, password)
-                .then(result => {
+                .then(async result => {
                     if(result.name){
                         this.props.refreshWholeUser(result);
-                        this.props.onRouteChange('howItWorks');
-                        this.props.onIsSignIn();
+                        let signup = await this.props.onIsSignIn();
+                        this.props.onRouteChange('calculation');
                     }
                     else{
                         let errMes = this.props.t("sign_up.error.fail");
@@ -82,7 +82,6 @@ class SignUp extends Component{
                         const {deficit, dailyCalorie, dailyCarbon} = this.props;  
                         this.props.onSaveCalculation(result.email, deficit, dailyCalorie, dailyCarbon);
                         this.props.refreshPartialUser(result); 
-                        // this.props.onIsSignIn();
                         this.props.onRouteChange('result'); 
 
                     }
