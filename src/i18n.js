@@ -19,7 +19,7 @@ i18n
 
     backend: {
         // loadPath: '/dieta/locales/{{lng}}/{{ns}}.json'
-        loadPath: '/dieta/locales/{{lng}}/{{ns}}.json'
+        loadPath: '/locales/{{lng}}/{{ns}}.json'
     },
 
     interpolation: {
