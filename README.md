@@ -1,5 +1,5 @@
 # Dieta
-### Help you to calculate calories during your diet!! 
+### Help you to calculate calories during your diet!! 🍱
 
 <h2 align="center">
   <img src="example/Dieta_screenshot.png" alt="Dieta example" width="600px" />
@@ -28,9 +28,9 @@
 ✨ Back-end deployed to Heroku
 
 
-## How to use? 🎯
+## How to use? 
 
-- **TRY It!! 🎯 Then if you like it, sign up.**
+- **TRY It 🎯  Then if you like it, sign up.**
 - For first time user:
   - go to "Start Diet" page.
   - fill in your weight, how fast you want to lose your weight.
