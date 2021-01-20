@@ -37,7 +37,7 @@
   - then follow the intruction to choose your activity amount and exercise amount each day.
 
 <h2 align="center">
-  <img src="example/Dieta_screenshot.png" alt="Dieta example" width="600px" />
+  <img src="example/Dieta_start_diet.png" alt="start diet" width="400px" />
   <br>
 </h2>
 
@@ -51,6 +51,6 @@
   - you can always check your last record of nutrition by going to "Latest result" page.
 
 <h2 align="center">
-  <img src="example/Dieta_screenshot.png" alt="Dieta example" width="600px" />
+  <img src="example/Dieta_during_diet.png" alt="during diet" width="400px" />
   <br>
 </h2>
