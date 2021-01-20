@@ -14,18 +14,18 @@
 
 ## features
 
- 📌  Modern UI for both mobile and desktop\
- 📌  Built by React.js\
- 📌  Styled with Tachyons\
- 📌  Responsive form using react-super-responsive-table\
- 📌  Responsive navigation bar using react-bootstrap\
- 📌  Backend built with node.js, express.js\
- 📌  Using RestfulAPI\
- 📌  Internationalize with Chinese and English using react-i18next\
- 📌  Saving user data in PostgreSQL\
- 📌  Password hashed by Bcrypt\
- 📌  Front-end deployed to Netlify\
- 📌  Back-end deployed to Heroku\
+✨ Modern UI for both mobile and desktop\
+✨ Built by React.js\
+✨ Styled with Tachyons\
+✨ Responsive form using react-super-responsive-table\
+✨ Responsive navigation bar using react-bootstrap\
+✨ Backend built with node.js, express.js\
+✨ Using RestfulAPI\
+✨ Internationalize with Chinese and English using react-i18next\
+✨ Saving user data in PostgreSQL\
+✨ Password hashed by Bcrypt\
+✨ Front-end deployed to Netlify\
+✨ Back-end deployed to Heroku\
 
 
 ## How to use?
