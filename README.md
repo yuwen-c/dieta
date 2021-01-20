@@ -35,6 +35,12 @@
   - go to "Start Diet" page.
   - fill in your weight, how fast you want to lose your weight.
   - then follow the intruction to choose your activity amount and exercise amount each day.
+
+<h2 align="center">
+  <img src="example/Dieta_screenshot.png" alt="Dieta example" width="600px" />
+  <br>
+</h2>
+
 - then we'll give you a list of nutritions for this week.
 - For a second time user:
   - after a week with diet, your want to know if the rate is OK, so go to "During diet" page.
@@ -44,3 +50,7 @@
   - get the result of this week.
   - you can always check your last record of nutrition by going to "Latest result" page.
 
+<h2 align="center">
+  <img src="example/Dieta_screenshot.png" alt="Dieta example" width="600px" />
+  <br>
+</h2>
