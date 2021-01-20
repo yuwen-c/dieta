@@ -12,11 +12,11 @@
 - Don't know if I'm losing weight too fast or too slow and how to do a calorie adjustment.
 
 ## features
-Modern UI for both mobile and desktop/
-利用React.js框架設計的適合手機/ 桌機的前端網站，搭配Express Server，利用RestfulAPI完成前後端相連。/
-使用者資料如姓名、加密的密碼、體重，都儲存在PostgreSQL資料庫。/
-前端網站部署到Netlify，後端Server及資料庫部署到Heroku。/
-使用react-i18next使網站可切換中/英文。/
+Modern UI for both mobile and desktop\
+利用React.js框架設計的適合手機/ 桌機的前端網站，搭配Express Server，利用RestfulAPI完成前後端相連。\
+使用者資料如姓名、加密的密碼、體重，都儲存在PostgreSQL資料庫。\
+前端網站部署到Netlify，後端Server及資料庫部署到Heroku。\
+使用react-i18next使網站可切換中/英文。\
 
 
 ## How to use?
