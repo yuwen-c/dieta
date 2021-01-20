@@ -6,7 +6,7 @@
   <br>
 </h2>
 
-## for people who...
+## for people who...💡
 
 - Don't know how many calories should you eat to lose weight.
 - What if I go to gym today or go for a walk? 
@@ -25,12 +25,12 @@
 ✨ Saving user data in PostgreSQL\
 ✨ Password hashed by Bcrypt\
 ✨ Front-end deployed to Netlify\
-✨ Back-end deployed to Heroku\
+✨ Back-end deployed to Heroku
 
 
-## How to use?
+## How to use? 🎯
 
-- TRY It!! Then if you like it, sign up.
+- **TRY It!! 🎯 Then if you like it, sign up.**
 - For first time user:
   - go to "Start Diet" page.
   - fill in your weight, how fast you want to lose your weight.
