@@ -54,12 +54,3 @@
   <img src="example/Dieta_during_diet.png" alt="during diet" width="300px" />
   <br>
 </h2>
-- ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `#f03c15`
-
-- ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `#f03c15`
-
-
-<h2>
-    <img src="https://placehold.it/15/f03c15/000000?text=+" alt="Dieta example" width="600px" />
-    <img src="example/Dieta_during_diet.png" alt="during diet" width="300px" />
-</h2>
