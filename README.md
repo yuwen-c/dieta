@@ -37,7 +37,7 @@
   - then follow the intruction to choose your activity amount and exercise amount each day.
 
 <h2 align="center">
-  <img src="example/Dieta_start_diet.png" alt="start diet" width="400px" />
+  <img src="example/Dieta_start_diet.png" alt="start diet" width="300px" />
   <br>
 </h2>
 
@@ -50,7 +50,7 @@
   - get the result of this week.
   - you can always check your last record of nutrition by going to "Latest result" page.
 
-<h2 align="center">
-  <img src="example/Dieta_during_diet.png" alt="during diet" width="400px" />
+<h2 align="center"  style="color:blue;">
+  <img src="example/Dieta_during_diet.png" alt="during diet" width="300px" />
   <br>
 </h2>
