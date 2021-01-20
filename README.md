@@ -50,11 +50,12 @@
   - get the result of this week.
   - you can always check your last record of nutrition by going to "Latest result" page.
 
-<h2 align="center" style="color:blue; background-color:yellow;">
-  <div >
+<h2 align="center">
   <img src="example/Dieta_during_diet.png" alt="during diet" width="300px" />
-   </div>
   <br>
 </h2>
-
 - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `#f03c15`
+
+<h2>
+    <img src="https://placehold.it/15/f03c15/000000?text=+" alt="Dieta example" width="600px" />
+</h2>
