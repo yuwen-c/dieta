@@ -13,10 +13,17 @@
 
 ## features
 Modern UI for both mobile and desktop\
-利用React.js框架設計的適合手機/ 桌機的前端網站，搭配Express Server，利用RestfulAPI完成前後端相連。\
-使用者資料如姓名、加密的密碼、體重，都儲存在PostgreSQL資料庫。\
-前端網站部署到Netlify，後端Server及資料庫部署到Heroku。\
-使用react-i18next使網站可切換中/英文。\
+built by React.js\
+styled with Tachyons\
+Responsive form using react-super-responsive-table\
+Responsive navigation bar using react-bootstrap\
+backend built with node.js, express.js\
+Using RestfulAPI\
+Internationalize with Chinese and English using react-i18next\
+Saving user data in PostgreSQL\
+password hashed by Bcrypt\
+Front-end deployed to Netlify\
+Back-end deployed to Heroku\
 
 
 ## How to use?
