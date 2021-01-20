@@ -50,7 +50,7 @@
   - get the result of this week.
   - you can always check your last record of nutrition by going to "Latest result" page.
 
-<h2 align="center"  style="color:blue;">
+<h2 align="center"  style="background-color: coral;">
   <img src="example/Dieta_during_diet.png" alt="during diet" width="300px" />
   <br>
 </h2>
