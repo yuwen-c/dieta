@@ -7,26 +7,29 @@
 </h2>
 
 ## for people who...
+
 - Don't know how many calories should you eat to lose weight.
 - What if I go to gym today or go for a walk? 
 - Don't know if I'm losing weight too fast or too slow and how to do a calorie adjustment.
 
 ## features
-📌 Modern UI for both mobile and desktop\
-📌 Built by React.js\
-📌 Styled with Tachyons\
-📌 Responsive form using react-super-responsive-table\
-📌 Responsive navigation bar using react-bootstrap\
-📌 Backend built with node.js, express.js\
-📌 Using RestfulAPI\
-📌 Internationalize with Chinese and English using react-i18next\
-📌 Saving user data in PostgreSQL\
-📌 Password hashed by Bcrypt\
-📌 Front-end deployed to Netlify\
-📌 Back-end deployed to Heroku\
+
+ 📌  Modern UI for both mobile and desktop\
+ 📌  Built by React.js\
+ 📌  Styled with Tachyons\
+ 📌  Responsive form using react-super-responsive-table\
+ 📌  Responsive navigation bar using react-bootstrap\
+ 📌  Backend built with node.js, express.js\
+ 📌  Using RestfulAPI\
+ 📌  Internationalize with Chinese and English using react-i18next\
+ 📌  Saving user data in PostgreSQL\
+ 📌  Password hashed by Bcrypt\
+ 📌  Front-end deployed to Netlify\
+ 📌  Back-end deployed to Heroku\
 
 
 ## How to use?
+
 - TRY It!! Then if you like it, sign up.
 - For first time user:
   - go to "Start Diet" page.
