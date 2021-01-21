@@ -14,7 +14,7 @@
 
 ## features
 
-✨ Modern UI for both mobile and desktop\
+✨ **Modern UI** for both mobile and desktop\
 ✨ Built by **React.js**\
 ✨ Styled with **Tachyons**\
 ✨ Responsive form using **react-super-responsive-table**\
