@@ -1,68 +1,56 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Dieta
+### Help you to calculate calories during your diet!! 🍱
 
-## Available Scripts
+<h2 align="center">
+  <img src="example/Dieta_screenshot.png" alt="Dieta example" width="600px" />
+  <br>
+</h2>
 
-In the project directory, you can run:
+## for people who...💡
 
-### `npm start`
+- Don't know how many calories should you eat to lose weight.
+- What if I go to gym today or go for a walk? 
+- Don't know if I'm losing weight too fast or too slow and how to do a calorie adjustment.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## features
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+✨ **Modern UI** for both mobile and desktop\
+✨ Built by **React.js**\
+✨ Styled with **Tachyons**\
+✨ Responsive form using **react-super-responsive-table**\
+✨ Responsive navigation bar using **react-bootstrap**\
+✨ Backend built with **node.js**, **express.js**\
+✨ Using **RestfulAPI**\
+✨ Internationalize with Chinese and English using **react-i18next** and **hooks**\
+✨ Saving user data in **PostgreSQL**\
+✨ Password hashed by **Bcrypt**\
+✨ Front-end deployed to **Netlify**\
+✨ Back-end deployed to **Heroku**
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How to use? 
 
-### `npm run build`
+**🎯 TRY It!! Then if you like it, sign up.**
+- For first time user:
+  - go to "Start Diet" page.
+  - fill in your weight, how fast you want to lose your weight.
+  - then follow the intruction to choose your activity amount and exercise amount each day.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h2 align="center">
+  <img src="example/Dieta_start_diet.png" alt="start diet" width="300px" />
+  <br>
+</h2>
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- then we'll give you a list of nutritions for this week.
+- For a second time user:
+  - after a week with diet, your want to know if the rate is OK, so go to "During diet" page.
+  - fill in the average weight of this week and last week to get an advice.
+  - base the advice and evaluate your personal situation to decide the speed of next week, make an adjustment to the next week deficit.
+  - then do the activity and exercise options again. this time instead of choosing one by one, you can load the record of last week, and do some changes.
+  - get the result of this week.
+  - you can always check your last record of nutrition by going to "Latest result" page.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<h2 align="center">
+  <img src="example/Dieta_during_diet.png" alt="during diet" width="300px" />
+  <br>
+</h2>
