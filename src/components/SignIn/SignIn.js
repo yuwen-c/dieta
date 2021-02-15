@@ -57,7 +57,7 @@ class SignIn extends Component{
     render(){
         return(
             <div>
-                <div className="pa4 black-80">
+                <div className="pa4 black-80 ">
                     <div className="measure center">
                         <fieldset id="sign_in" className="ba b--transparent ph0 mh0">
                             <legend className="f4 fw6 ph0 mh0">{this.props.t("sign_in.title")}</legend>

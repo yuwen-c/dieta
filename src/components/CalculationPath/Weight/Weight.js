@@ -10,7 +10,7 @@ const Weight = ({onWeightChange, onDeficitChange, nextPageMessage, onCheckBefore
     return(
         <div className="flex flex-column items-center">
             <div id="cardDiv" className="pa3 w5 w-70-ns">
-                <article className="ba pv1 br2 b--light-silver shadow-1">     
+                <article className="ba pv1 br2 b--light-silver bg-white shadow-1">     
                     <div className="ph3">
                         <div className="br2" style={{'backgroundColor' : '#96CCFF'}} >
                             <h3>
@@ -36,7 +36,7 @@ const Weight = ({onWeightChange, onDeficitChange, nextPageMessage, onCheckBefore
                 </article>   
             </div>
             <div id="cardDiv" className="pa3 w5 w-70-ns">
-                <article className="ba pv1 br2 b--light-silver shadow-1">
+                <article className="ba pv1 br2 b--light-silver bg-white shadow-1">
                     <div className="ph3">
                         <CalorieDeficit
                         onDeficitChange={onDeficitChange}
