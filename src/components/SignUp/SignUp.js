@@ -12,20 +12,6 @@ class SignUp extends Component{
         }
     }
 
-    // onGuestLogin = async () => {
-    //     const guestUser = {
-    //         name: 'Guest',
-    //         email: 'guest',
-    //         weight: 0,
-    //         deficit: 0
-    //     }
-    //     this.props.refreshWholeUser(guestUser);     
-
-    //     // async/await
-    //     let signin = await this.props.onIsSignIn();
-    //     this.props.onRouteChange('calculation')
-    // }
-
     onNameChange = (event) => {
         this.setState({name : event.target.value})
     }
@@ -114,15 +100,6 @@ class SignUp extends Component{
                                 <div>
                                     {this.props.t('sign_up.title')}
                                 </div>
-
-                                {/* <div className="pl5">
-                                    <input 
-                                    className="b ph3 pv2 input-reset ba b--black bg-white grow pointer f6 dib" 
-                                    type="submit" 
-                                    value={this.props.t('sign_up.try')}
-                                    onClick={this.onGuestLogin}
-                                    />
-                                </div> */}
                             </legend>
                             <div className="mt3">
                                <label className="db fw6 lh-copy f6" htmlFor="name">{this.props.t('sign_up.name')}</label>
