@@ -1,3 +1,7 @@
+#navbarId{
+    flex-shrink: 0;
+}
+
 .dropdown-item.active, .dropdown-item:active {
     color: #212529;
     text-decoration: none;
@@ -5,3 +9,4 @@
 }
 /* to overwrite the bootstrap setting: 
 chosen item has different css when your open menu next time*/
+

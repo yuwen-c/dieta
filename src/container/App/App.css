@@ -37,6 +37,10 @@ input{
     font-weight: bold;
 }
 
+.layoutDiv{
+  min-height: calc(100vh - 56px);
+}
+
 #description{
     line-height: 1.6;
 }
