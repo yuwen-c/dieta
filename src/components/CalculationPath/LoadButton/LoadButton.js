@@ -7,7 +7,7 @@ const LoadButton = ({name, onLoadActExe}) => {
     return(
         <div className="ma3">
             <input 
-            className="b pv2 input-reset ba b--black bg-transparent grow pointer f5 dib" 
+            className="b pv2 input-reset ba b--black bg-white grow pointer f5 dib" 
             type="submit" value={t('loadButton')}
             name={name}
             onClick={onLoadActExe}

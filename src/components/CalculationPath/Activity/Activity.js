@@ -26,7 +26,7 @@ const Activity = ({onRouteChange, onActExeAmount, onLoadActExe, optionCheckedSta
     }
     else{
         return( 
-            <div className="pa3 flex flex-column items-center bg-near-white"> 
+            <div className="pa3 flex flex-column items-center"> 
                 <legend className="fw7 f4 pv3 tc">{t('activity.title')}</legend>      
                 <LevelTable         
                     data={data}

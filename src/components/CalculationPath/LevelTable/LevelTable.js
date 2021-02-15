@@ -9,7 +9,7 @@ const LevelTable = ({data}) => {
     const { t } = useTranslation();
 
     return (
-        <div className="w-80">
+        <div className="w-80 bg-white">
             <Table>
                 <Thead>
                   <Tr className="white bg-mid-gray">

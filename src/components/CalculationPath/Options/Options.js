@@ -7,7 +7,7 @@ const Options = ({style, item, name, onActExeAmount, optionCheckedState}) => {
     // The for attribute of <label> must be equal to the id attribute of the related element 
     return(
         <div id="cardDiv" className="pa2 dib w5 center">
-            <article className="ba pv1 br2 b--light-silver shadow-1">
+            <article className="ba pv1 br2 b--light-silver bg-white shadow-1">
                 <div className="ph3">
                     <div className="br2" style={style}>
                         <h3 >
