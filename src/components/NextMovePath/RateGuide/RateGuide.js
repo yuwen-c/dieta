@@ -10,7 +10,7 @@ const RateGuide = ({showGuide, speed}) => {
     else{
     return(
         <div id="cardDiv" className="pa3">
-            <article className="ba pv1 br2 b--light-silver shadow-1">     
+            <article className="ba pv1 br2 b--light-silver bg-white  shadow-1">     
                 <div className="ph3">
                     <div className="br2" style={{'backgroundColor' : '#96CCFF'}} >
                         <h3>

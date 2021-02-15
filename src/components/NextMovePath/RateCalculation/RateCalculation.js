@@ -73,7 +73,7 @@ class RateCalculation extends Component{
             <div className="flex flex-column items-center">
                 <div className="w5 w-70-ns">
                     <div id="cardDiv" className="pa3 ">
-                        <article className="ba pv1 br2 b--light-silver shadow-1">     
+                        <article className="ba pv1 br2 b--light-silver bg-white shadow-1">     
                             <div className="ph3">
                                 <div className="br2" style={{'backgroundColor' : '#96CCFF'}} >
                                     <h3>
@@ -106,7 +106,7 @@ class RateCalculation extends Component{
             
                                 <div className="pb3 flex flex-wrap">
                                     <input 
-                                    className="ph3 pv2 input-reset ba b--black bg-transparent grow pointer b f6 dib" 
+                                    className="ph3 pv2 input-reset ba b--black bg-white grow pointer b f6 dib" 
                                     type="submit" 
                                     value={t('rate.submit')}
                                     onClick={this.rateCalculation}
@@ -125,7 +125,7 @@ class RateCalculation extends Component{
                     />
                 </div>
                 <div id="cardDiv" className="pa3 w5 w-70-ns">
-                    <article className="ba pv1 br2 b--light-silver shadow-1">
+                    <article className="ba pv1 br2 b--light-silver bg-white shadow-1">
                         <div className="ph3">
                             <NextMove
                             maintainRate = {this.props.maintainRate}
