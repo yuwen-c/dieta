@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-const Home = ({onRouteChange}) => {
+const Home = ({onRouteChange, onGuestLogin}) => {
   const { t } = useTranslation();
 
     return(
@@ -13,11 +13,14 @@ const Home = ({onRouteChange}) => {
               <h2 className="fw4 f4 lh-copy mt0 mb3 ph4">
                 {t('home.description')}
               </h2>
-              {/* <div className="pt3">
-                <p className="f5 br-pill bg-dark-green no-underline washed-green ba b--dark-green grow pv2 ph3 dib"
+              <div className="pt3">
+                <div className="f5 br-pill bg-dark-green no-underline washed-green ba b--dark-green grow pv2 ph3 dib mr1"
                 onClick={() => {onRouteChange('howItWorks')}} >
-                {t('home.option')}</p>
-              </div> */}
+                {t('home.option')}</div>
+                <div className="f5 br-pill bg-dark-green no-underline washed-green ba b--dark-green grow pv2 ph3 dib ml1 animate__animated animate__pulse animate__infinite"
+                onClick={onGuestLogin} >
+                {t('sign_up.try')}</div>
+              </div>
             </article>            
         </div>
     )

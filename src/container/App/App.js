@@ -74,6 +74,19 @@ class App extends Component{
     .catch(console.log);
   }
 
+  onGuestLogin = async () => {
+    const guestUser = {
+        name: 'Guest',
+        email: 'guest',
+        weight: 0,
+        deficit: 0
+    }
+    this.refreshWholeUser(guestUser);     
+
+    // async/await
+    let signin = await this.onIsSignIn();
+    this.onRouteChange('calculation')
+  }
 
   refreshWholeUser = (data) => {
     this.setState({user: data});
@@ -496,6 +509,7 @@ class App extends Component{
       case 'home':
         return  <Home
                 onRouteChange = {this.onRouteChange} 
+                onGuestLogin = {this.onGuestLogin}
                 />
       case 'signin':
         return <SignIn
