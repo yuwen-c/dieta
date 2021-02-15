@@ -118,7 +118,7 @@ class SignUp extends Component{
 
                                 <div className="pl5">
                                     <input 
-                                    className="b ph3 pv2 input-reset ba b--black bg-white  grow pointer f6 dib" 
+                                    className="b ph3 pv2 input-reset ba b--black bg-white grow pointer f6 dib" 
                                     type="submit" 
                                     value={this.props.t('sign_up.try')}
                                     onClick={this.onGuestLogin}

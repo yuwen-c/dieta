@@ -13,11 +13,11 @@ const Home = ({onRouteChange}) => {
               <h2 className="fw4 f4 lh-copy mt0 mb3 ph4">
                 {t('home.description')}
               </h2>
-              <div className="pt3">
+              {/* <div className="pt3">
                 <p className="f5 br-pill bg-dark-green no-underline washed-green ba b--dark-green grow pv2 ph3 dib"
                 onClick={() => {onRouteChange('howItWorks')}} >
                 {t('home.option')}</p>
-              </div>
+              </div> */}
             </article>            
         </div>
     )

@@ -32,7 +32,7 @@
   
   "sign_up":{
         "title": "註冊",
-        "try": "先逛逛吧",
+        "try": "試用免註冊",
         "name": "姓名",
         "email": "信箱",
         "password": "密碼",
