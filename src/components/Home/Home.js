@@ -14,13 +14,13 @@ const Home = ({onRouteChange, onGuestLogin}) => {
                 {t('home.description')}
               </h2>
               <div className="pt2">
-                <div className="f5 br-pill bg-white no-underline near-black ba bw2 b--dark-gray grow pv2 ph3 dib mr1"
+                <div className="f5 br-pill bg-white no-underline near-black ba bw2 b--dark-gray grow pv2 ph2 dib mr1"
                 onClick={() => {onRouteChange('signin')}} >
                 {t('home.signin')}</div>
-                <div className="f5 br-pill bg-white no-underline near-black ba bw2 b--dark-gray grow pv2 ph3 dib mr1"
+                <div className="f5 br-pill bg-white no-underline near-black ba bw2 b--dark-gray grow pv2 ph2 dib mr1"
                 onClick={() => {onRouteChange('howItWorks')}} >
                 {t('home.more')}</div>
-                <div className="f5 br-pill bg-white no-underline near-black ba bw2 b--dark-gray grow pv2 ph3 dib ml1 animate__animated animate__pulse animate__infinite"
+                <div className="f5 br-pill bg-white no-underline near-black ba bw2 b--dark-gray grow pv2 ph2 dib ml1 animate__animated animate__pulse animate__infinite"
                 onClick={onGuestLogin} >
                 {t('home.tryit')}</div>
               </div>
