@@ -1,10 +1,10 @@
 # Dieta
 ### Help you to calculate calories during your diet!! 🍱
 
-<h2 align="center">
+<div align="center">
   <img src="example/Dieta_screenshot.png" alt="Dieta example" width="600px" />
   <br>
-</h2>
+</div>
 
 ## for people who...💡
 
@@ -39,25 +39,25 @@
   <br>
 </div>
 - then follow the intruction to choose your activity amount and exercise amount each day.
-<h2 align="center">
+<div align="center">
   <img src="example/Dieta_activity.png" alt="start diet" width="300px" />
   <br>
-</h2>
+</div>
 - then we'll give you a list of nutritions for this week.
-<h2 align="center">
+<div align="center">
   <img src="example/Dieta_nutrition.png" alt="start diet" width="300px" />
   <br>
-</h2>
+</div>
 
 ✌ For a second time user:
 - after a week with diet, your want to know if the rate is OK, so go to "During diet" page.
 - fill in the average weight of this week and last week to get an advice.
 - base the advice and evaluate your personal situation to decide the speed of next week, make an adjustment to the next week deficit.
+<div align="center">
+  <img src="example/Dieta_nextmove.png" alt="start diet" width="300px" />
+  <br>
+</div>
 - then do the activity and exercise options again. this time instead of choosing one by one, you can load the record of last week, and do some changes.
 - get the result of this week.
 - you can always check your last record of nutrition by going to "Latest result" page.
 
-<h2 align="center">
-  <img src="example/Dieta_during_diet.png" alt="during diet" width="300px" />
-  <br>
-</h2>
