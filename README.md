@@ -34,15 +34,19 @@
 ☝ For first time user:
 - go to "Start Diet" page.
 - fill in your weight and how fast you want to lose your weight.
+
 <div align="center">
   <img src="example/Dieta_calculate.png" alt="start diet" width="300px" />
   <br>
 </div>
+
 - then follow the intruction to choose your activity amount and exercise amount each day.
+
 <div align="center">
   <img src="example/Dieta_activity.png" alt="start diet" width="300px" />
   <br>
 </div>
+
 - then we'll give you a list of nutritions for this week.
 
 <div align="center">
