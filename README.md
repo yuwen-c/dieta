@@ -30,14 +30,14 @@
 
 ## How to use? 
 
-**🎯 TRY It!! Then if you like it, sign up.**
+**🎯 TRY It!! Then if you like it, sign up.**\
 ☝ For first time user:
 - go to "Start Diet" page.
 - fill in your weight and how fast you want to lose your weight.
-<h2 align="center">
+<div align="center">
   <img src="example/Dieta_calculate.png" alt="start diet" width="300px" />
   <br>
-</h2>
+</div>
 - then follow the intruction to choose your activity amount and exercise amount each day.
 <h2 align="center">
   <img src="example/Dieta_activity.png" alt="start diet" width="300px" />
