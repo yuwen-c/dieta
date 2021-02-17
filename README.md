@@ -31,25 +31,31 @@
 ## How to use? 
 
 **🎯 TRY It!! Then if you like it, sign up.**
-- For first time user:
-  - go to "Start Diet" page.
-  - fill in your weight, how fast you want to lose your weight.
+☝ For first time user:
+- go to "Start Diet" page.
+- fill in your weight and how fast you want to lose your weight.
 <h2 align="center">
-  <img src="example/Dieta_start_diet.png" alt="start diet" width="300px" />
+  <img src="example/Dieta_calculate.png" alt="start diet" width="300px" />
   <br>
 </h2>
-  - then follow the intruction to choose your activity amount and exercise amount each day.
-
-
-
+- then follow the intruction to choose your activity amount and exercise amount each day.
+<h2 align="center">
+  <img src="example/Dieta_activity.png" alt="start diet" width="300px" />
+  <br>
+</h2>
 - then we'll give you a list of nutritions for this week.
-- For a second time user:
-  - after a week with diet, your want to know if the rate is OK, so go to "During diet" page.
-  - fill in the average weight of this week and last week to get an advice.
-  - base the advice and evaluate your personal situation to decide the speed of next week, make an adjustment to the next week deficit.
-  - then do the activity and exercise options again. this time instead of choosing one by one, you can load the record of last week, and do some changes.
-  - get the result of this week.
-  - you can always check your last record of nutrition by going to "Latest result" page.
+<h2 align="center">
+  <img src="example/Dieta_nutrition.png" alt="start diet" width="300px" />
+  <br>
+</h2>
+
+✌ For a second time user:
+- after a week with diet, your want to know if the rate is OK, so go to "During diet" page.
+- fill in the average weight of this week and last week to get an advice.
+- base the advice and evaluate your personal situation to decide the speed of next week, make an adjustment to the next week deficit.
+- then do the activity and exercise options again. this time instead of choosing one by one, you can load the record of last week, and do some changes.
+- get the result of this week.
+- you can always check your last record of nutrition by going to "Latest result" page.
 
 <h2 align="center">
   <img src="example/Dieta_during_diet.png" alt="during diet" width="300px" />
