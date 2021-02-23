@@ -12,6 +12,11 @@ input{
     z-index: 999;
   } */
 
+.contextClass {
+  height: calc(100vh - 56px);
+}
+/* delete the height of navbar */
+
 .modalClass {
     background-color: rgba(0,0,0,0.5);
     position: fixed; 

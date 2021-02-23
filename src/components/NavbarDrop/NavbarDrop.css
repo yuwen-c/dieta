@@ -1,6 +1,3 @@
-#navbarId{
-    flex-shrink: 0;
-}
 
 .dropdown-item.active, .dropdown-item:active {
     color: #212529;

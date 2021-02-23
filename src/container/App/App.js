@@ -595,24 +595,26 @@ class App extends Component{
         />
       </Modal>
     return(
-      <div className="flex flex-column vh-100">
+      <div className="flex flex-column">
         <ErrorBoundary>
           <NavbarDrop
             onRouteChange = {this.onRouteChange}
             isSignIn = {isSignIn} 
           />
         </ErrorBoundary>
-        <ErrorBoundary>
-          <div>
-            {this.renderSwitch(route)}
-          </div>
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <Footer/>
-        </ErrorBoundary>
-        <ErrorBoundary>
-          {modal}
-        </ErrorBoundary>
+        <div className="flex flex-column contextClass">
+          <ErrorBoundary>
+            <div>
+              {this.renderSwitch(route)}
+            </div>
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <Footer/>
+          </ErrorBoundary>
+          <ErrorBoundary>
+            {modal}
+          </ErrorBoundary>
+        </div>
       </div>
     )
   }
