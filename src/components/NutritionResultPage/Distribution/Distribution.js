@@ -51,7 +51,7 @@ const Distribution = ({ item, protein, oil, activity, exercise, dailyCalorie, da
                         </dl>
                         <dl className="f5 lh-title mv1">
                             <dt className="dib b">{t('nutrition.carbohydrate')}:</dt>
-                            <dd className="dib ml1 near-gray">{dailyCarbon[item-1]} g</dd>
+                            <dd className="dib ml1 `${dailyCarbon[item-1] >0 ? near-gray : red }`">{dailyCarbon[item-1]} g</dd>
                         </dl>
                         <dl className="f5 lh-title mv1">
                             <dt className="dib b">{t('nutrition.totalCalorie')}: </dt>
