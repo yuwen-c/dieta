@@ -28,6 +28,11 @@ const Nutrition = ({ name, onRouteChange, deficit, protein, oil, activity, exerc
         />
     </div>
 
+    // check if any carbon < 0, if yes, show warning
+    const checkCarbon = dailyCarbon.filter(item => item < 0) ? 
+    
+    "<0, red" : ">0, safe"
+
     return(
         <div className="pa3 flex flex-column items-center">
             <legend className="fw7 f4 pv2 tc">
