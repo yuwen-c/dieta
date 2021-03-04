@@ -155,6 +155,8 @@
     "noActExe": "No record.",
     "noActExeContent": "Please choose options.",
     "button": "Got it!"
-  }
+  },
+
+  "footer": "Guide"
   
 }
