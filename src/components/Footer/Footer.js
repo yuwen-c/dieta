@@ -1,7 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import './Footer.css'
 
 const Footer = () => {
+  const { t } = useTranslation();
+
     return(
         <footer  className="tc-l w-100 ">
           <div className="flex justify-center">
@@ -23,7 +26,7 @@ const Footer = () => {
             <a className="link black-80 dim inline-flex items-center ma2 tc br2 pa2" href="https://www.notion.so/Dieta-b0b97c375c6545b1bd748192b96a6d34" target="_blank" rel="noopener noreferrer">
             <svg className="dib w1" fill='none' stroke='#0E1A27' strokeWidth='8' strokeDashoffset='0' strokeDasharray='0' strokeLinecap='round' strokeLinejoin='round' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
             <rect x="15" y="10" width="70" height="80"/> <rect x="30" y="5" width="40" height="15"/> <circle cx="30" cy="50" r="1"/> <circle cx="30" cy="70" r="1"/> <line x1="45" y1="50" x2="70" y2="50" /> <line x1="45" y1="70" x2="70" y2="70" /></svg>
-              <span className="f6 ml1 ">使用方式</span>
+              <span className="f6 ml1 ">{t('footer')}</span>
             </a>
           </div>
         </footer>
