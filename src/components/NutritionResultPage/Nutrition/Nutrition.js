@@ -28,16 +28,25 @@ const Nutrition = ({ name, onRouteChange, deficit, protein, oil, activity, exerc
         />
     </div>
 
-    // check if any carbon < 0, if yes, show warning
-    const checkCarbon = dailyCarbon.filter(item => item < 0) ? 
-    
-    "<0, red" : ">0, safe"
+    // check if any carbon < 0
+    const checkCarbon = dailyCarbon.filter(item => item < 0).length === 0 ? 
+
+    // all carbon > 0, show normal title.
+    <legend className="fw7 f4 pv2 tc">
+    {t('nutrition.title', {name: name})}
+    </legend>
+
+     : 
+
+    // yes < 0, show warning.
+    <legend className="fw7 f4 pv2 tc red">
+    {t('nutrition.warning', {name: name})}
+    </legend>
+
 
     return(
         <div className="pa3 flex flex-column items-center">
-            <legend className="fw7 f4 pv2 tc">
-                {t('nutrition.title', {name: name})}
-            </legend>
+            {checkCarbon}
             <div className="b">{t('nutrition.deficit')} : {deficit} Kcal</div>
             <div className="flex flex-wrap">
                 {

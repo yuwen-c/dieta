@@ -84,6 +84,7 @@
 
   "nutrition": {
     "title": "{{name}}, your daily recommended intakes are:",
+    "warning": "{{name}}, this recommandation isn't suit you, please consult with your doctor before starting a diet.",
     "deficit": "Deficit",
     "protein": "Protein",
     "oil": "Oil",

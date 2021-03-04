@@ -86,6 +86,7 @@
     
     "nutrition": {
       "title": "{{name}}, 你的每日營養建議攝取量為：",
+      "warning": "{{name}}, 這份營養建議不適合你, 請在減重前諮詢醫師。",
       "deficit": "熱量赤字",
       "protein": "蛋白質",
       "oil": "油脂",
