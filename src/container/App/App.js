@@ -15,6 +15,7 @@ import ModalContent from '../../components/Modal/ModalContent';
 import { withTranslation } from 'react-i18next';
 import Footer from '../../components/Footer/Footer';
 import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
+import GuidePage from '../../components/GuidePage/GuidePage';
 
 const initialchecked = 
 [[false, false, false, false],[false, false, false, false],[false, false, false, false],
@@ -605,7 +606,8 @@ class App extends Component{
         <div className="flex flex-column contextClass">
           <ErrorBoundary>
             <div>
-              {this.renderSwitch(route)}
+              {/* {this.renderSwitch(route)} */}
+              <GuidePage/>
             </div>
           </ErrorBoundary>
           <ErrorBoundary>
