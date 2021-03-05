@@ -1,6 +1,13 @@
 import React from 'react';
+import photo_calculate from '../../photo/Dieta_calculate.png';
+import photo_activity from '../../photo/Dieta_activity.png';
+import photo_nutrition from '../../photo/Dieta_nutrition.png';
+import photo_nextmove from '../../photo/Dieta_nextmove.png';
+
 
 const GuidePage = () => {
+
+
     return(
         <article class="pa3 pa5-ns">
             <header class="pv4">
@@ -13,18 +20,18 @@ const GuidePage = () => {
                 <li>選單→目錄→開始減脂</li>
                 <li>輸入體重，選擇熱量赤字。</li>
             </ul>
-            <img src="Dieta_calculate.png" class="w-100 f5 measure" alt="Dieta_calculate"/>
+            <img src={photo_calculate} class="w-100 f5 measure" alt="Dieta_calculate"/>
 
 
             <ul>
                 <li>輸入本週的活動量與運動量等級。低/中/高等級可參考畫面上方的表格。</li>
             </ul>
-            <img src="Dieta_activity.png" class="w-100 f5 measure" alt="Dieta_activity"/>
+            <img src={photo_activity} class="w-100 f5 measure" alt="Dieta_activity"/>
             
             <ul>
                 <li>最後算出本週的營養素及熱量建議。</li>
             </ul>
-            <img src="Dieta_nutrition.png" class="w-100 f5 measure" alt="Dieta_nutrition.png"/>
+            <img src={photo_nutrition} class="w-100 f5 measure" alt="Dieta_nutrition"/>
 
             <p class="b">👑 <span class="pl1">小技巧：隨時可從 選單→目錄→上次計算結果 叫出紀錄</span>🤙</p>
 
@@ -36,7 +43,7 @@ const GuidePage = () => {
                 <li>根據建議，及評估自身狀況，決定下週的減脂速度是否要調整。熱量赤字增加，表示減脂速度加快，減少，表示放慢減脂。</li>
             </ul>
             <p class="b">這個步驟是根據「首次計算」的熱量結果來進行調整，才符合結果導向的意義。</p>
-            <img src="Dieta_nextmove.png" class="w-100 f5 measure" alt="Dieta_nextmove.png"/>
+            <img src={photo_nextmove} class="w-100 f5 measure" alt="Dieta_nextmove"/>
             
             <ul>
                 <li>接著像上週一樣，選擇活動量及運動量等級。</li>
