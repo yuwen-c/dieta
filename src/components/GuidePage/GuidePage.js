@@ -3,6 +3,7 @@ import photo_calculate from '../../photo/Dieta_calculate.png';
 import photo_activity from '../../photo/Dieta_activity.png';
 import photo_nutrition from '../../photo/Dieta_nutrition.png';
 import photo_nextmove from '../../photo/Dieta_nextmove.png';
+import Emoji from '../Emoji/Emoji';
 
 
 const GuidePage = () => {
@@ -11,7 +12,8 @@ const GuidePage = () => {
     return(
         <article className="pa3 pa5-ns">
             <header className="pv4">
-              <h4 className="f3 fw7 tracked lh-title mt0 mb3">🎯  不用註冊即可試用！</h4>
+              <h4 className="f3 fw7 tracked lh-title mt0 mb3">
+              <Emoji emoji="🎯" label="bullseye"/>  不用註冊即可試用！</h4>
               <h4 className="f3 fw6 lh-title mt0">首頁Dieta→試用(可體驗部分功能)，喜歡再註冊。</h4>
               <h4 className="f3 fw6 lh-title mt0">或是直接前往選單→註冊頁面填寫資料。</h4>
             </header>
