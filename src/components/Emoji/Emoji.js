@@ -4,7 +4,7 @@ import React from 'react';
 const Emoji = ({emoji, label}) => {
     return(
         <span
-        className="emoji"
+        className="emoji pr1"
         role="img"
         aria-label={label ? label : ""}
         aria-hidden="true"   

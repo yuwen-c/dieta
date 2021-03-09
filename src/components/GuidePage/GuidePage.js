@@ -8,9 +8,8 @@ import Emoji from '../Emoji/Emoji';
 
 const GuidePage = () => {
 
-
     return(
-        <article className="pa3 pa5-ns">
+        <article className="pa3 pa5-ns center w-50-l">
             <header className="pv4">
               <h4 className="f3 fw7 tracked lh-title mt0 mb3">
               <Emoji emoji="🎯" label="bullseye"/>  不用註冊即可試用！</h4>
