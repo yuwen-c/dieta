@@ -16,7 +16,7 @@ const GuidePage = () => {
               <h4 className="f3 fw6 lh-title mt0">首頁Dieta→試用(可體驗部分功能)，喜歡再註冊。</h4>
               <h4 className="f3 fw6 lh-title mt0">或是直接前往選單→註冊頁面填寫資料。</h4>
             </header>
-            <h4 className="f3 fw6 lh-title mt0">第一次使用☝：</h4>
+            <h4 className="f3 fw6 lh-title mt0">第一次使用 <Emoji emoji="☝" label="index pointing up"/>：</h4>
             <ul>
                 <li>選單→目錄→開始減脂</li>
                 <li>輸入體重，選擇熱量赤字。</li>
@@ -34,9 +34,9 @@ const GuidePage = () => {
             </ul>
             <img src={photo_nutrition} className="w-100 f5 measure" alt="Dieta_nutrition"/>
 
-            <p className="b">👑 <span className="pl1">小技巧：隨時可從 選單→目錄→上次計算結果 叫出紀錄</span>🤙</p>
+            <p className="b"> <Emoji emoji="👑" label="crown"/>小技巧：隨時可從 選單→目錄→上次計算結果 叫出紀錄<Emoji emoji="🤙" label="call me hand"/></p>
 
-            <h4 className="f3 fw6 lh-title mt0">減脂進行一週以上，需要進行調整的第二次使用者✌：</h4>
+            <h4 className="f3 fw6 lh-title mt0">減脂進行一週以上，需要進行調整的第二次使用者<Emoji emoji="✌" label="victory hand"/>：</h4>
             <ul>
                 <li>此功能僅供完成註冊，且已完成「第一次計算」的使用者。</li>
                 <li>減脂進行一週後，前往選單→目錄→減脂期間。</li>
@@ -49,13 +49,13 @@ const GuidePage = () => {
             <ul>
                 <li>接著像上週一樣，選擇活動量及運動量等級。</li>
             </ul>
-            <p className="b">👑  小技巧：可直接點選下載上週紀錄按鈕，載入後也可再修改。</p>
+            <p className="b"><Emoji emoji="👑" label="crown"/>小技巧：可直接點選下載上週紀錄按鈕，載入後也可再修改。</p>
 
             <ul>
                 <li>計算出下週的營養素及熱量建議。</li>
             </ul>
 
-            <h4 className="f3 fw6 lh-title mt0">重新開始新一輪減脂的朋友🤘：</h4>
+            <h4 className="f3 fw6 lh-title mt0">重新開始新一輪減脂的朋友<Emoji emoji="🤟" label="love-you gesture"/>：</h4>
             <ul>
                 <li>請從第一步驟：選單→目錄→開始減脂計算重新開始。</li>
                 <li>進入第二週時再到選單→目錄→減脂期間。</li>
