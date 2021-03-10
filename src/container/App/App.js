@@ -606,8 +606,7 @@ class App extends Component{
         <div className="flex flex-column contextClass">
           <ErrorBoundary>
             <div>
-              {/* {this.renderSwitch(route)} */}
-              <GuidePage/>
+              {this.renderSwitch(route)}
             </div>
           </ErrorBoundary>
           <ErrorBoundary>

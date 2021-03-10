@@ -29,6 +29,10 @@ const NavbarDrop = ({ isSignIn, onRouteChange}) => {
                   onClick={(event) => {onRouteChange('howItWorks'); event.preventDefault()}}
                   >{t('navbar.theory')}</NavDropdown.Item>
                 <NavDropdown.Item 
+                  href="#guide" 
+                  onClick={(event) => {onRouteChange('guide'); event.preventDefault()}}
+                  >Guide</NavDropdown.Item>
+                <NavDropdown.Item 
                   href="#calculation" 
                   onClick={(event) => {onRouteChange('calculation'); event.preventDefault()}}
                   >{t('navbar.start_diet')}</NavDropdown.Item>
