@@ -31,7 +31,7 @@ const NavbarDrop = ({ isSignIn, onRouteChange}) => {
                 <NavDropdown.Item 
                   href="#guide" 
                   onClick={(event) => {onRouteChange('guide'); event.preventDefault()}}
-                  >Guide</NavDropdown.Item>
+                  >{t('navbar.guide')}</NavDropdown.Item>
                 <NavDropdown.Item 
                   href="#calculation" 
                   onClick={(event) => {onRouteChange('calculation'); event.preventDefault()}}
