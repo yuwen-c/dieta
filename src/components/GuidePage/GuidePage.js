@@ -7,26 +7,28 @@ import Emoji from '../Emoji/Emoji';
 
 
 const GuidePage = () => {
-    const firstTime = useRef(null)
+    const firstTime = useRef(null);
+    const secondTime = useRef(null);
+    const newRound = useRef(null);
 
     const scrollTo = (ref) => {
-        ref.scrollIntoView();
+        ref.current.scrollIntoView();
     }
 
     return(
         <article className="pa3 pa5-ns center w-50-l">
+            <nav >
+                <a className="dim dark-blue b f3 f4-ns dib mr3 link" onClick={() => scrollTo(firstTime)}>第一次使用</a>
+                <a className="dim dark-blue b f3 f4-ns dib mr3 link" onClick={() => scrollTo(secondTime)}>減脂進入第二週以上</a>
+                <a className="dim dark-blue b f3 f4-ns dib mr3 link" onClick={() => scrollTo(newRound)}>開始新一輪減脂</a>
+            </nav>
             <header className="pv4">
                 <h4 className="f3 fw7 tracked lh-title mt0 mb3">
                     <Emoji emoji="🎯" label="bullseye"/>  不用註冊即可試用！</h4>
                 <h4 className="f3 fw6 lh-title mt0">首頁Dieta→試用(可體驗部分功能)，喜歡再註冊。</h4>
                 <h4 className="f3 fw6 lh-title mt0">或是直接前往選單→註冊頁面填寫資料。</h4>
             </header>
-            <nav>
-                <a href="#firstTime" onClick={() => scrollTo(firstTime)}>第一次使用</a> |
-                <a href="#secondTime">減脂進入第二週以上</a> |
-                <a href="#newRound">重新開始新一輪減脂</a> |
-            </nav>
-            <section id="firstTime" ref={firstTime}>
+            <section ref={firstTime} className="mb5">
             <h4 className="f3 fw6 lh-title mt0">第一次使用 <Emoji emoji="☝" label="index pointing up"/>：</h4>
             <ul>
                 <li>選單→目錄→開始減脂</li>
@@ -48,8 +50,8 @@ const GuidePage = () => {
             <p className="b"> <Emoji emoji="👑" label="crown"/>小技巧：隨時可從 選單→目錄→上次計算結果 叫出紀錄<Emoji emoji="🤙" label="call me hand"/></p>
             </section>
 
-            <section id="secondTime">
-            <h4 className="f3 fw6 lh-title mt0">減脂進行一週以上，需要進行調整的第二次使用者<Emoji emoji="✌" label="victory hand"/>：</h4>
+            <section ref={secondTime} className="mb5">
+            <h4 className="f3 fw6 lh-title mt0">減脂進入第二週以上<Emoji emoji="✌" label="victory hand"/>：</h4>
             <ul>
                 <li>此功能僅供完成註冊，且已完成「第一次計算」的使用者。</li>
                 <li>減脂進行一週後，前往選單→目錄→減脂期間。</li>
@@ -69,8 +71,8 @@ const GuidePage = () => {
             </ul>
             </section>
 
-            <section id="newRound">
-            <h4 className="f3 fw6 lh-title mt0">重新開始新一輪減脂的朋友<Emoji emoji="🤟" label="love-you gesture"/>：</h4>
+            <section ref={newRound} className="mb5">
+            <h4 className="f3 fw6 lh-title mt0">開始新一輪減脂<Emoji emoji="🤟" label="love-you gesture"/>：</h4>
             <ul>
                 <li>請從第一步驟：選單→目錄→開始減脂計算重新開始。</li>
                 <li>進入第二週時再到選單→目錄→減脂期間。</li>
