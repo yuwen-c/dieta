@@ -532,6 +532,8 @@ class App extends Component{
                 />
       case 'howItWorks':
         return <ExplanationCardList/>
+      case 'guide':
+        return <GuidePage/>
       case 'calculation':
         return <Weight
                 onWeightChange = {this.onWeightChange}
