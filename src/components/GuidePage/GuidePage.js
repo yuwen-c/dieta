@@ -16,7 +16,7 @@ const GuidePage = () => {
     }
 
     return(
-        <article className="pa3 pa5-ns center w-50-l">
+        <article className="pa4 pa5-ns center w-50-l mw6">
             <nav >
                 <a className="dim dark-blue b f3 f4-ns dib mr3 link" onClick={() => scrollTo(firstTime)}>第一次使用</a>
                 <a className="dim dark-blue b f3 f4-ns dib mr3 link" onClick={() => scrollTo(secondTime)}>減脂進入第二週以上</a>
