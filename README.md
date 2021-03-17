@@ -1,14 +1,21 @@
 # Dieta
-### Help you to calculate calories during your diet!! 🍱
-### backend server goes [here](https://github.com/yuwen-c/dieta-api)
+## Help you to calculate calories during the diet!! 🍱
+## 🔆 [see live](https://yuwen-dieta.netlify.app) 
+## backend server goes [here](https://github.com/yuwen-c/dieta-api)
+
+
+## I built this because...💡
+- I was in dieta and needed to calculate calorie every week, for about 15 weeks in total.
+- There were so many repetitions in it, so I decided to build a system so that next time I'll go though the diet with less effort.
+- I also recommended this project to my coach, hope this project can help more people! 🥰
+
 
 <div align="center">
   <img src="example/Dieta_screenshot.png" alt="Dieta example" width="600px" />
   <br>
 </div>
 
-## for people who...💡
-
+## for people who...
 - Don't know how many calories should you eat to lose weight.
 - What if I go to gym today or go for a walk? 
 - Don't know if I'm losing weight too fast or too slow and how to do a calorie adjustment.
