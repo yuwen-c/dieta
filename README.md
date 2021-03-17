@@ -16,9 +16,9 @@
 </div>
 
 ## for people who...
-- Don't know how many calories should you eat to lose weight.
-- What if I go to gym today or go for a walk? 
-- Don't know if I'm losing weight too fast or too slow and how to do a calorie adjustment.
+- Doesn't know how many calories should I eat to lose weight.
+- How many calories should I increase if I go to gym or go for a walk? 
+- Doesn't know if I'm losing weight too fast or too slow and how to arrange an adjustment.
 
 ## features
 
