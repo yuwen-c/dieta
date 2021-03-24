@@ -50,7 +50,7 @@ const GuidePage = () => {
             </ul>
             <img src={photo_nutrition} className="w-100 f5 measure" alt="Dieta_nutrition"/>
 
-            <p className="b"> <Emoji emoji="👑" label="crown"/>{t('guidePage.tipResult')}<Emoji emoji="🤙" label="call me hand"/></p>
+            <p className="b"> <Emoji emoji="👑" label="crown"/>{t('guidePage.tipResult')}</p>
             </section>
 
             <section ref={secondTime} className="mb5">
