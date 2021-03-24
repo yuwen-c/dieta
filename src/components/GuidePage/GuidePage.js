@@ -4,13 +4,16 @@ import photo_activity from '../../photo/Dieta_activity.png';
 import photo_nutrition from '../../photo/Dieta_nutrition.png';
 import photo_nextmove from '../../photo/Dieta_nextmove.png';
 import Emoji from '../Emoji/Emoji';
-
+import {useTranslation} from 'react-i18next';
 
 const GuidePage = () => {
+    const { t } = useTranslation();
+
     const firstTime = useRef(null);
     const secondTime = useRef(null);
     const newRound = useRef(null);
 
+    // direct to certain part:
     const scrollTo = (ref) => {
         ref.current.scrollIntoView();
     }
@@ -18,13 +21,13 @@ const GuidePage = () => {
     return(
         <article className="pa4 pa5-ns center w-50-l mw6">
             <nav >
-                <a className="dim dark-blue b f3 f4-ns dib mr3 link" onClick={() => scrollTo(firstTime)}>第一次使用</a>
-                <a className="dim dark-blue b f3 f4-ns dib mr3 link" onClick={() => scrollTo(secondTime)}>減脂進入第二週以上</a>
-                <a className="dim dark-blue b f3 f4-ns dib mr3 link" onClick={() => scrollTo(newRound)}>開始新一輪減脂</a>
+                <a className="dim dark-blue b f3 f4-ns dib mr3 link" onClick={() => scrollTo(firstTime)}>{t('guidePage.nav1st')}</a>
+                <a className="dim dark-blue b f3 f4-ns dib mr3 link" onClick={() => scrollTo(secondTime)}>{t('guidePage.nav2nd')}</a>
+                <a className="dim dark-blue b f3 f4-ns dib mr3 link" onClick={() => scrollTo(newRound)}>{t('guidePage.navAgain')}</a>
             </nav>
             <header className="pv4">
                 <h4 className="f3 fw7 tracked lh-title mt0 mb3">
-                    <Emoji emoji="🎯" label="bullseye"/>  不用註冊即可試用！</h4>
+                    <Emoji emoji="🎯" label="bullseye"/>不用註冊即可試用！</h4>
                 <h4 className="f3 fw6 lh-title mt0">首頁Dieta→試用(可體驗部分功能)，喜歡再註冊。</h4>
                 <h4 className="f3 fw6 lh-title mt0">或是直接前往選單→註冊頁面填寫資料。</h4>
             </header>

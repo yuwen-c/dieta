@@ -24,6 +24,13 @@
     "tryit": "試用"
     },
 
+  "guidePage":{
+    "nav1st": "第一次使用",
+    "nav2nd": "減脂進入第二週以上",
+    "navAgain": "開始新一輪減脂"
+    
+  },
+
   "sign_in":{
       "title": "登入",
       "email": "信箱",

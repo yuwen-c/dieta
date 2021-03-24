@@ -23,6 +23,13 @@
     "tryit": "Try It"
     },
 
+  "guidePage":{
+    "nav1st": "First time user",
+    "nav2nd": "After the second week of dieting",
+    "navAgain": "Start with a new diet"
+    
+  },
+
   "sign_in": {
     "title": "Sign In",
     "email": "Email",
