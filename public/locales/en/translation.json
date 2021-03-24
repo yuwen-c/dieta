@@ -26,8 +26,24 @@
   "guidePage":{
     "nav1st": "First time user",
     "nav2nd": "After the second week of dieting",
-    "navAgain": "Start with a new diet"
-    
+    "navAgain": "Start with a new diet",
+    "cta": "TRY It without sign up!!",
+    "tryIt": "Homepage Dieta → Try it (limited function). Then if you like it, sign up.",
+    "signUp": "Or sign up from menu → Sign Up",
+    "1stRoute": "Navbar → Menu → Start Diet",
+    "enter": "Enter your weight and select the calorie deficit.",
+    "selectLevel": "select the strength level of activity and exercise. Find your level in the table.",
+    "nutrition": "Get your recommandation list of calorie and nutritions.",
+    "tipResult": "Tip: get your record anytime from: Navbar → Menu → Latest Result.",
+    "restriction": "Only for non-guest user, with the first time calculation finished.",
+    "2ndRoute": "Navbar → Menu → During Diet.",
+    "getAdvice": "Fill in the average weight this and last week. Submit to see the suggestion.",
+    "adjustment": "Decide your deficit next week based on the suggestion, your circumstances. Increase the deficit means speed up the losing rate, vise versa.",
+    "resultOriented": "Instead of re-calculating calorie with weight of this week, we make adjustion with the result of last week - a result oriented step.",
+    "selectLevelAgain": "Select strengh level of activity and exercise just like you did last week.",
+    "tipLoad": "Tip: Click \"Load setting of last week\" to get your record. You can also modify it after clicking.",
+    "againRoute": "Re-start it from: Navbar → Menu → Start Diet.",
+    "againDuring": "After the second week, go to: Navbar → Menu → During Diet."
   },
 
   "sign_in": {
