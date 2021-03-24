@@ -18,8 +18,8 @@ const Home = ({onRouteChange, onGuestLogin}) => {
                 onClick={() => {onRouteChange('signin')}} >
                 {t('home.signin')}</div>
                 <div className="f5 br-pill bg-white no-underline near-black ba bw2 b--dark-gray grow pv2 ph2 dib mr1"
-                onClick={() => {onRouteChange('howItWorks')}} >
-                {t('home.more')}</div>
+                onClick={() => {onRouteChange('guide')}} >
+                {t('home.guide')}</div>
                 <div className="f5 br-pill bg-white no-underline red ba bw2 b--dark-gray grow pv2 ph2 dib ml1 animate__animated animate__pulse animate__infinite"
                 onClick={onGuestLogin} >
                 {t('home.tryit')}</div>
