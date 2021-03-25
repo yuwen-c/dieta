@@ -15,14 +15,15 @@
   <br>
 </div>
 
-- project主要有3條路徑/ 功能：
+- Dieta 主要有3條路徑/ 功能 (圖中黃色方框)：
 1. 第一週，開始減脂：使用者輸入體重、預計熱量赤字，並且根據指示，選擇活動量、運動量等級，得到營養素及熱量的計算結果。
 2. 第二週以後：輸入本週、上週平均體重，獲得建議，來決定下一週的調整方向(少吃或多吃)，然後一樣填入活動量、運動量，得到熱量計算結果。
 3. 此外，隨時可以到「結果查詢」叫出上次的計算結果。
 
 
-## 成果？？？？？
-- 我把這個project推薦給我的教練，他也鼓勵他的學生使用，目前已有xx個使用者。
+## 成果？？？？？🚀
+- 我把這個project推薦給我的教練，他也鼓勵他的學生使用🥰。
+- 上線一個月內達到xx個使用者。
 
 ## 特點
 
@@ -53,9 +54,52 @@
 ✨ 前端網站部署到Netlify。\
 ✨ 後端網站部署到Heroku。
 
-## 詳細作法
-### 前端
-### 後端
+## 畫面預覽
+- 首次使用，開始計算，輸入體重及預計熱量赤字。
+<div align="center">
+  <img src="example/Dieta_calculate.png" alt="start diet" width="300px" />
+  <br>
+</div>
+
+- 根據表格資料，選擇當週的活動量等級。
+<div align="center">
+  <img src="example/Dieta_activity.png" alt="start diet" width="300px" />
+  <br>
+</div>
+
+- 電腦版的計算結果畫面，顯示使用者名稱、營養素、熱量。
+<div align="center">
+  <img src="example/Dieta_screenshot.png" alt="Dieta example" width="600px" />
+  <br>
+</div>
+
+- 進入第二週，輸入本週、上週平均體重，會根據減重速率，**動態顯示建議**，使用者再決定下週調整方向。
+<div align="center">
+  <img src="example/Dieta_nextmove.png" alt="start diet" width="300px" />
+  <br>
+</div>
+
+## 前端詳細作法
+### 儲存、計算使用者輸入資料
+- ```App class```裡有這些state來存資料：
+- 使用者obj (姓名、信箱、體重、熱量赤字)
+- 設定```initialState```
+
+### Route，及進到下一頁的檢查
+
+
+
+### 為了讓活動量、運動量的選取顯示在畫面上
+
+### 動態顯示調整熱量選項
+
+### 錯誤訊息div, modal
+
+
+- 
+- 
+
+### 後端詳細作法
 
 
 
