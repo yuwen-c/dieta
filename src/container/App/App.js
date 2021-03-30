@@ -343,7 +343,7 @@ class App extends Component{
     const {name, email, weight, deficit} = this.state.user;
     const {activity, exercise, modifyDeficit} = this.state; 
     
-    const protein = weight * 1.6; // fix protein to 1.6 times weight
+    const protein = parseInt(weight * 1.6); // fix protein to 1.6 times weight
     const oil = weight * 1; // fix oil to 1 time weight
 
     let dailyCalorie = [];
