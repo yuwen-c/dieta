@@ -24,6 +24,7 @@ class SignUp extends Component{
         this.setState({password : event.target.value})
     }
 
+    // save new user data to database, return a promise
     onSignUpFetch = (name, email, password) => {
         const user = {
             name: name, 
@@ -46,12 +47,12 @@ class SignUp extends Component{
         const {name, email, password} = this.state;
         if(name && email && password){
             if(this.props.name !== "Guest"){ // normal user sign up
-                this.onSignUpFetch(name, email, password)
+                this.onSignUpFetch(name, email, password) 
                 .then(async result => {
                     if(result.name){
-                        this.props.refreshWholeUser(result);
-                        let signup = await this.props.onIsSignIn();
-                        this.props.onRouteChange('calculation');
+                        this.props.refreshWholeUser(result);   // refresh user state
+                        let signup = await this.props.onIsSignIn();  // change signIn state
+                        this.props.onRouteChange('calculation');   // to calculation page
                     }
                     else{
                         let errMes = this.props.t("sign_up.error.fail");
@@ -61,13 +62,13 @@ class SignUp extends Component{
                 .catch(console.log)
             }
             else{                            // guest user sign up
-                this.onSignUpFetch(name, email, password)
+                this.onSignUpFetch(name, email, password) // save new user data
                 .then(result => {
                     if(result.name){ 
-                        const {deficit, dailyCalorie, dailyCarbon} = this.props;  
+                        const {deficit, dailyCalorie, dailyCarbon} = this.props;  // save calculation result to database
                         this.props.onSaveCalculation(result.email, deficit, dailyCalorie, dailyCarbon);
-                        this.props.refreshPartialUser(result); 
-                        this.props.onRouteChange('result'); 
+                        this.props.refreshPartialUser(result); // only refresh user name and email state
+                        this.props.onRouteChange('result'); // to result page
 
                     }
                     else{

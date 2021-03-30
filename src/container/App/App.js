@@ -65,6 +65,7 @@ class App extends Component{
 
 // ========================== Sign In ==========================
 
+  // get user data from database
   fetchUser = (email) => {
     return fetch('https://gentle-badlands-25513.herokuapp.com/user', {
       method: 'post', 
@@ -93,7 +94,7 @@ class App extends Component{
     this.setState({user: data});
   }
 
-  // only refresh user name and email
+  // only refresh user name and email state
   refreshPartialUser = (data) => {
     const {name, email} = data;
     this.setState(prevstate => {
