@@ -114,19 +114,37 @@
 </div>
 
 
-### 叫出上週的活動量、運動量，並顯示於畫面上
+### 叫出上週的活動量、運動量，並顯示於畫面
 - 減脂期間，可點選按鈕，叫出上週的活動量、運動量紀錄。使用者操作流程，及state改變，與後端、資料庫的流程：
 <div align="center">
   <img src="example/Load_options_bgw_200percent_pad10.png" alt="load activity and exercise record" width="600px" />
   <br>
 </div>
 
-### Route，及進到下一頁的檢查？？？
+### get result, 再畫一個圖？
+
+### Route???  判斷是否登入。畫圖？
+- ```onRouteChange``` function，傳入```route```參數，
+- 
 - 使用者是否sign in: ```isSignIn```(預設```false```)
 - ```route```預設在```"home"```
 
+### 進入下一頁的檢查
+- 在下一頁的按鈕呼叫```onCheckBeforeNextPage```，傳入「前往哪一頁」的```(toRoute)```參數，如果有通過檢查，再執行```onRouteChange``` function。
+- 各頁面的檢查以```switch case```分別定義。
+- 以「進入選擇活動量頁面」為例：
+<div align="center">
+  <img src="example/routeChange_200persent_pad20.png" alt="route change check chart" width="600px" />
+  <br>
+</div>
 
-### Modal提示
+
+### 畫面顯示
+- 設定一```route```state，畫面跳轉時，去setState。
+- renderSwitch function，傳入route參數，並以```switch case```分別定義：在不同route case時，回傳要顯示的component。
+- 在render function中，放入```renderSwitch```的執行結果。
+
+### Modal彈出視窗   ??? Portal使用
 - 遇到「未完成第一次計算」的使用者想下載紀錄，跳出錯誤宣告:「沒有計算結果」或「沒有活動量、運動量紀錄」
 ```
 showNoResultModal: false,
