@@ -79,76 +79,59 @@
   <br>
 </div>
 
-## 前端詳細作法 及 儲存的 ```state``` 種類
+## 詳細作法
 
-
-### 註冊或登入
-- 在```SignIn```和```SignUp``` component分別儲存使用者輸入的資訊：信箱、名字、密碼。
-
-
-### guest user登入 （畫圖）
-
+### 註冊、登入，及 Guest user試用登入
+- 前端、後端、資料庫，資料流向圖示：
+<div align="center">
+  <img src="example/signIn_signUp_bgw_200percent_pad10.png" alt="sign in and sign up chart" width="600px" />
+  <br>
+</div>
 
 ### 儲存、計算使用者輸入資料
-- ```user obj```- 姓名、信箱、體重、熱量赤字。
+- 「開始減脂」的路徑，前端畫面、state狀態、後端，與資料庫的流程圖示：
+
+<div align="center">
+  <img src="example/calculation_path_bgw_200percent_pad10.png" alt="calculation path chart" width="600px" />
+  <br>
+</div>
+
+### 第二週開始，「減脂期間」，調整熱量
+- 「減脂期間」，使用者輸入體重後，動態檢視建議，調整下週熱量－使用者操作流程，及state改變：
+
+<div align="center">
+  <img src="example/next_move_path_bgw_200percent_pad10.png" alt="during diet chart" width="600px" />
+  <br>
+</div>
+
+- 畫面展示：
+1. 輸入體重後，動態顯示建議。
+2. 下方動態顯示加速或放慢速度的選項。
+
+<div align="center">
+  <img src="example/gif_next_move.gif" alt="sign in and sign up chart" width="300px" />
+  <br>
+</div>
 
 
-### Route，及進到下一頁的檢查
+### 叫出上週的活動量、運動量，並顯示於畫面上
+- 減脂期間，可點選按鈕，叫出上週的活動量、運動量紀錄。使用者操作流程，及state改變，與後端、資料庫的流程：
+<div align="center">
+  <img src="example/Load_options_bgw_200percent_pad10.png" alt="load activity and exercise record" width="600px" />
+  <br>
+</div>
+
+### Route，及進到下一頁的檢查？？？
 - 使用者是否sign in: ```isSignIn```(預設```false```)
 - ```route```預設在```"home"```
 
 
-### 為了讓活動量、運動量的選取顯示在畫面上
-- 使用者填入的活動量、運動量的無、低、中、高等級，一週七天，存成array，例如
-```
-activity: [0,1,2,0,0,1,3];
-exercise: [0,1,0,2,0,2,0];
-```
-- 為了讓同一畫面中，7天共28個選項，正確顯示是否有被勾選，另外存了：
-```checkedActivity```和```checkedExercise```，兩者都預設為：
-```
-const initialchecked = 
-[[false, false, false, false],[false, false, false, false],[false, false, false, false],
-[false, false, false, false],[false, false, false, false],[false, false, false, false],
-[false, false, false, false]];
-```
-
-### 計算結果
-- 將使用者的營養素、熱量計算後，存在state，並顯示在畫面上：
-```
-protein : 0,
-oil : 0,
-dailyCalorie : [], // 總共7天的卡路里
-dailyCarbon : [], // 總共7天的碳水化合物數量
-```
-
-### 動態顯示調整熱量選項
-- 熱量調整，可以選擇「維持不變」，「加快」，「放慢」，分別為：
-```
-maintainRate: false,
-modifySpeedUp: false,
-modifySlowDown: false, 
-modifyDeficit: 0,
-```
-
-
-### 錯誤訊息div, modal
+### Modal提示
 - 遇到「未完成第一次計算」的使用者想下載紀錄，跳出錯誤宣告:「沒有計算結果」或「沒有活動量、運動量紀錄」
 ```
 showNoResultModal: false,
 showNoActExeModal: false
 ```
-- 另外，在操作過程中，未填寫資料就點選下一頁，會出現提示訊息：
-
-### 在使用者登出後，必須將state還原成初始狀態。
-- 設定```initialState```，包含上述各state。
-- constructor裡面以```JSON.parse(JSON.stringify(initialState))```將state設為```initialState```，並且避免pass by reference。
-
-
-
-
-
-### 後端詳細作法
 
 
 
