@@ -82,7 +82,8 @@
 ## 詳細作法
 
 ### 註冊、登入，及 Guest user試用登入
-- 前端、後端、資料庫，資料流向圖示：
+- 前端、後端、資料庫，登入、註冊的資料流向：
+  
 <div align="center">
   <img src="example/signIn_signUp_bgw_200percent_pad10.png" alt="sign in and sign up chart" width="600px" />
   <br>
@@ -114,23 +115,35 @@
 </div>
 
 
-### 叫出上週的活動量、運動量，並顯示於畫面
+### 叫出上週的「活動量、運動量」記錄，使用者不用再一一點選。
 - 減脂期間，可點選按鈕，叫出上週的活動量、運動量紀錄。使用者操作流程，及state改變，與後端、資料庫的流程：
+
 <div align="center">
   <img src="example/Load_options_bgw_200percent_pad10.png" alt="load activity and exercise record" width="600px" />
   <br>
 </div>
 
-### get result, 再畫一個圖？
+### 叫出上次的熱量計算結果
+- 判斷是否為guest user，及是否存有記錄，有的話就顯示在畫面上。
 
-### Route???  判斷是否登入。畫圖？
-- ```onRouteChange``` function，傳入```route```參數，
-- 
-- 使用者是否sign in: ```isSignIn```(預設```false```)
-- ```route```預設在```"home"```
+<div align="center">
+  <img src="example/get_result_path_200persent_pad20.png" alt="get latest result chart" width="600px" />
+  <br>
+</div>
+
+
+### 使用三大功能(開始計算、熱量調整、查看上次熱量紀錄)時，判斷權限。
+- 區分使用者是否有登入，某些功能頁面僅限已登入的使用者使用，未登入者會被導引至登入畫面。
+- 除此之外，進入不同功能時，有些前置作業(抓資料、刪除資料)必須完成，也是在這邊做判斷並執行。
+
+<div align="center">
+  <img src="example/onRouteChange_200persent_pad20.png" alt="onRouteChange function chart" width="600px" />
+  <br>
+</div>
+
 
 ### 進入下一頁的檢查
-- 在下一頁的按鈕呼叫```onCheckBeforeNextPage```，傳入「前往哪一頁」的```(toRoute)```參數，如果有通過檢查，再執行```onRouteChange``` function。
+- 在頁面跳轉時，執行檢查，確認空格皆有填寫、符合格式，或是該使用者先前有留過資料，才能進入下一頁。
 - 各頁面的檢查以```switch case```分別定義。
 - 以「進入選擇活動量頁面」為例：
 <div align="center">
@@ -139,10 +152,10 @@
 </div>
 
 
-### 畫面顯示
+### 根據route顯示不同畫面
 - 設定一```route```state，畫面跳轉時，去setState。
-- renderSwitch function，傳入route參數，並以```switch case```分別定義：在不同route case時，回傳要顯示的component。
-- 在render function中，放入```renderSwitch```的執行結果。
+- ```renderSwitch``` function，傳入route參數，並以```switch case```分別定義：在不同route case時，回傳要顯示的component。
+- 在```render function```中，放入```renderSwitch```的執行結果。
 
 ### Modal彈出視窗   ??? Portal使用
 - 遇到「未完成第一次計算」的使用者想下載紀錄，跳出錯誤宣告:「沒有計算結果」或「沒有活動量、運動量紀錄」
@@ -151,5 +164,11 @@ showNoResultModal: false,
 showNoActExeModal: false
 ```
 
+### react-i18n使用
+HOC
+useEffect
+public locales
 
+### nav bar?
 
+### 後端要怎麼介紹？
