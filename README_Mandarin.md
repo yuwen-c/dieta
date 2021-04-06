@@ -35,7 +35,8 @@
 ✨ 前後端以**RestfulAPI**連接。\
 －提高可讀性、除錯效率，分離每個端點，可彈性組合成多種邏輯。\
 ✨ 使用者資料儲存於**PostgreSQL**資料庫。\
-✨ 資料庫與server以**knex**相接。
+✨ 資料庫與server以**knex**相接。\
+－說明文件清楚，功能強大。 
 
 ### 響應式網站
 ✨ 手機、桌機體驗良好的前端網站。\
@@ -49,10 +50,15 @@
 
 ### 多國語言
 ✨ 支援中文/英文，採用```react-i18next```及```hooks```\
+－將翻譯檔放在後端，需要時再去抓取，減少檔案大小。
+－自動偵測使用者瀏覽器語言。
+－基於i18next的基礎上發展，而i18next可與多種框架配合使用。
 
 ### 部署
 ✨ 前端網站部署到Netlify。\
-✨ 後端網站部署到Heroku。
+－適合部署前端網站，不需等待喚醒時間。
+✨ 後端網站部署到Heroku。\
+－維護、操作容易，適合小流量網站。
 
 ## 畫面預覽
 - 首次使用，開始計算，輸入體重及預計熱量赤字。
@@ -184,9 +190,23 @@
 ＝＝＝
 
 ### react-i18n使用
-HOC
-useEffect
-public locales
+- a ```i18n``` file in src folder to define the language, detector,  backend load path.
+- import ```i18n``` to ```index.js``` to bundle it, remember to use suspense
+- prepare your translation json files in public> locales> en> translation.json
+- 3 ways to use react-i18next:
+1. functional component - hook:
+> import {useTranslation}
+> const {t, i18n}
+> {t('modal.noResult')}
+2. class component - HOC
+> import {withTranslation}. 
+> export default withTranslation()(App);
+> this.props.t('')
+3. 根據語言fetch public資料夾的翻譯檔案。
+偵測使用者語言，利用useEffect，去fetch public裡面，該語種的翻譯檔。
+把fetch回來的資料，用useState放到state中。
+
+
 
 ### nav bar?
 

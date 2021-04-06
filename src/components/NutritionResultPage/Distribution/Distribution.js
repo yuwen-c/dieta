@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 const Distribution = ({ item, protein, oil, activity, exercise, dailyCalorie, dailyCarbon }) => {
     const {t, i18n} = useTranslation();
 
+    // translate rare....options and then put into {t('')}
     const en = ["Rare", "Low", "Medium", "High"];
     const zh = ["極少", "低", "中", "高"]
     let amountA, amountE;
