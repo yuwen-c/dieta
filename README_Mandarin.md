@@ -153,16 +153,35 @@
 
 
 ### 根據route顯示不同畫面
-- 設定一```route```state，畫面跳轉時，去setState。
-- ```renderSwitch``` function，傳入route參數，並以```switch case```分別定義：在不同route case時，回傳要顯示的component。
-- 在```render function```中，放入```renderSwitch```的執行結果。
+<div align="center">
+  <img src="example/renderRoute_200persent_pad20.png" alt="route change chart" width="600px" />
+  <br>
+</div>
 
-### Modal彈出視窗   ??? Portal使用
+- 設定三個function，及一個route state。
+- 一個function專門去change State。
+- 一個function傳入route參數，並以```switch case```分別定義：在不同route case時，回傳要顯示的component。
+- 在最後的render function放入前一function的執行結果。
+
+
+### Modal彈出提醒視窗
+<div align="center">
+  <img src="example/modal_200percent_pad20.png" alt="modal chart" width="600px" />
+  <br>
+</div>
+
 - 遇到「未完成第一次計算」的使用者想下載紀錄，跳出錯誤宣告:「沒有計算結果」或「沒有活動量、運動量紀錄」
-```
-showNoResultModal: false,
-showNoActExeModal: false
-```
+- 利用react的portal概念達到modal效果。
+- 分別設定單獨的modal component，並另外將modal的內容設為另一個component，以children的方式傳入，達到重複利用的目的。
+
+下面可刪除？＝＝＝
+- ```在index.html```設兩個root，一個給portal使用。
+- 在```modal class```裡面，contructor指定一新增div DOM，並且利用生命週期function設定開啟、關閉時，將DOM附加或移除。
+- ```modal class```的render，用```createPortal```將children顯示在div DOM裡面
+- 在app裡面的state，設定哪種modal需要出現。並且有function去控制state。
+- app render的地方，<Modal>裡面夾著<content>，並且透過props把state，及控制關閉modal的function傳進去。
+- modal content 內容的部分，則依據所收到的state不同，決定要回傳哪一個內容。
+＝＝＝
 
 ### react-i18n使用
 HOC
