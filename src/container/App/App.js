@@ -360,7 +360,7 @@ class App extends Component{
     }
     // save these numbers to state
     this.setState({
-      protein : protein,
+      protein : parseInt(protein),
       oil : oil,
       dailyCalorie : dailyCalorie,
       dailyCarbon : dailyCarbon    
