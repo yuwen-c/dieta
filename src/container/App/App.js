@@ -471,7 +471,7 @@ class App extends Component{
         delete userActivity.email;
         delete userExercise.email;
         this.setState({
-          protein: weight*2,
+          protein: weight*1.6, // set to 1.6 times weight
           oil: weight,
           dailyCalorie: Object.values(userCalorie),
           dailyCarbon: Object.values(userCarbon),
