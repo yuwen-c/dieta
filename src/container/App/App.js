@@ -434,7 +434,7 @@ class App extends Component{
   onModifyDeficit = (event) => {
     this.setState({
       maintainRate : false,
-      modifyDeficit: event.target.value
+      modifyDeficit: parseInt(event.target.value)
     });
   } 
 
