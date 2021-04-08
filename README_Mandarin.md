@@ -190,24 +190,19 @@
 ＝＝＝
 
 ### react-i18n使用
-- a ```i18n``` file in src folder to define the language, detector,  backend load path.
-- import ```i18n``` to ```index.js``` to bundle it, remember to use suspense
-- prepare your translation json files in public> locales> en> translation.json
-- 3 ways to use react-i18next:
-1. functional component - hook:
-> import {useTranslation}
-> const {t, i18n}
-> {t('modal.noResult')}
-2. class component - HOC
-> import {withTranslation}. 
-> export default withTranslation()(App);
-> this.props.t('')
-3. 根據語言fetch public資料夾的翻譯檔案。
-偵測使用者語言，利用useEffect，去fetch public裡面，該語種的翻譯檔。
-把fetch回來的資料，用useState放到state中。
+
+<div align="center">
+  <img src="example/react-i18next_200percent_pad20.png" alt="react i18next chart" width="600px" />
+  <br>
+</div>
+
+- a ```i18n.js``` config file in src folder to define the language, detector,  backend load path, and imported to ```index.js``` to bundle it.
+- Translation json files stored in public > locales folder.
+- Different ways to use react-i18next:
+1. functional component: useTranslation Hook.
+2. class component: withTranslation, Higher order component.
+3. 運動、活動表格裡的資料，是另外把資料倒進去，不是寫死在表格裡的，所以翻譯資料必須另外放、另外fetch：偵測語言，到public folder抓回來。
+4. 語言切換的handle: useTranslation Hook.
 
 
 
-### nav bar?
-
-### 後端要怎麼介紹？
