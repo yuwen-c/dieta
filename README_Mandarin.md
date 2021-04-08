@@ -11,7 +11,7 @@
 ## 路徑簡介、使用方式介紹
 
 <div align="center">
-  <img src="example/dietaChart_trans_200percent_100dpi.png" alt="Dieta Route Chart" width="600px" />
+  <img src="example/dietaChart_bgw_200percent_pad20.png" alt="Dieta Route Chart" width="600px" />
   <br>
 </div>
 
@@ -196,9 +196,10 @@
   <br>
 </div>
 
-- a ```i18n.js``` config file in src folder to define the language, detector,  backend load path, and imported to ```index.js``` to bundle it.
-- Translation json files stored in public > locales folder.
-- Different ways to use react-i18next:
+- 
+- 設定```i18n.js```檔，用來設定語言、偵測器、後端下載的路徑，並import到```index.js```使他能被bundle在一起。
+- 翻譯的json檔，放在```public``` > ```locales``` 檔案夾。
+- 幾種使用react-i18next的方式:
 1. functional component: useTranslation Hook.
 2. class component: withTranslation, Higher order component.
 3. 運動、活動表格裡的資料，是另外把資料倒進去，不是寫死在表格裡的，所以翻譯資料必須另外放、另外fetch：偵測語言，到public folder抓回來。
