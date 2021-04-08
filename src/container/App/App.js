@@ -360,8 +360,8 @@ class App extends Component{
     }
     // save these numbers to state
     this.setState({
-      protein : parseInt(protein),
-      oil : oil,
+      protein : Math.round(protein),  // set to int
+      oil : Math.round(oil),          // set to int
       dailyCalorie : dailyCalorie,
       dailyCarbon : dailyCarbon    
     });
@@ -434,7 +434,7 @@ class App extends Component{
   onModifyDeficit = (event) => {
     this.setState({
       maintainRate : false,
-      modifyDeficit: event.target.value
+      modifyDeficit: parseInt(event.target.value)
     });
   } 
 
@@ -471,7 +471,7 @@ class App extends Component{
         delete userActivity.email;
         delete userExercise.email;
         this.setState({
-          protein: weight*2,
+          protein: weight*1.6, // set to 1.6 times weight
           oil: weight,
           dailyCalorie: Object.values(userCalorie),
           dailyCarbon: Object.values(userCarbon),
