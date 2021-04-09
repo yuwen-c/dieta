@@ -6,9 +6,9 @@
 
 ## 動機及目的
 - 想減重😁。採用的方式是：讓「攝取」的熱量比「消耗」的熱量少。
-- 減重期間共約15週，每週都要重複計算熱量、做調整，我希望有一個系統，不只幫我算，也記得上週的數據，方便我調整，讓我減重更輕鬆。
+- 減重期間共約15週，每週都要重複計算熱量、做調整，我希望有一個系統，不只幫助計算，也記得上週的數據，方便做調整，讓減重更輕鬆。
 
-## 路徑簡介、使用方式介紹
+## 功能路徑、使用方式簡介
 
 <div align="center">
   <img src="example/dietaChart_bgw_200percent_pad20.png" alt="Dieta Route Chart" width="600px" />
@@ -21,9 +21,9 @@
 3. 此外，隨時可以到「結果查詢」叫出上次的計算結果。
 
 
-## 成果？？？？？🚀
-- 我把這個project推薦給我的教練，他也鼓勵他的學生使用🥰。
-- 上線一個月內達到xx個使用者。
+## 實際上線成果🚀
+- 我把這個project介紹給我的教練，他也推薦給他的學生使用🥰。
+- 上線一個月內達到 **31** 名使用者。
 
 ## 特點
 
@@ -42,7 +42,7 @@
 ✨ 手機、桌機體驗良好的前端網站。\
 ✨ 利用```react-super-responsive-table```達成響應式表格。\
 ✨ 利用```react-bootstrap```達成響應式導覽列。\
-✨ 利用Tachyons設定達成：針對不同螢幕大小，顯示不同樣式的設計。
+✨ 利用```Tachyons```設定達成：針對不同螢幕大小，顯示不同樣式的設計。
 
 ### 安全性
 ✨ 使用者密碼以**Bcrypt**加密。\
@@ -52,7 +52,7 @@
 ✨ 支援中文/英文，採用```react-i18next```及```hooks```\
 －將翻譯檔放在後端，需要時再去抓取，減少檔案大小。
 －自動偵測使用者瀏覽器語言。
-－基於i18next的基礎上發展，而i18next可與多種框架配合使用。
+－基於i18next的基礎上發展，而i18next可與多種框架配合使用，不僅限於react。
 
 ### 部署
 ✨ 前端網站部署到Netlify。\
@@ -88,30 +88,39 @@
 ## 詳細作法
 
 ### 註冊、登入，及 Guest user試用登入
-- 前端、後端、資料庫，登入、註冊的資料流向：
+- 前端、後端、資料庫，登入、註冊時，資料從前端帶到後端server，及資料庫，並回傳到前端：
   
 <div align="center">
   <img src="example/signIn_signUp_bgw_200percent_pad10.png" alt="sign in and sign up chart" width="600px" />
   <br>
 </div>
 
-### 儲存、計算使用者輸入資料
+- 登入(黃色框)時，資料傳到資料庫，比對hash的密碼，比對成功後將使用者資料回傳到前端。
+- 註冊(藍色框)時，資料傳到後端，建立新使用者，並儲存hash密碼於Login table，另外也在Users table新增該使用者，過程以transaction完成。完成後，回傳資料到前端。
+- Guest User(淺紫色框)的路線，則是不用註冊，直接試用計算熱量的功能，計算完成後，可導引至註冊頁面(箭頭連到註冊的藍色框)，填完資料後，系統會先新增該使用者，再將計算結果儲存到各個表格(箭頭旁的紫色說明文字部分)。
+
+
+### 路徑一：「開始減脂」，儲存、計算營養素和熱量
 - 「開始減脂」的路徑，前端畫面、state狀態、後端，與資料庫的流程圖示：
 
 <div align="center">
   <img src="example/calculation_path_bgw_200percent_pad10.png" alt="calculation path chart" width="600px" />
   <br>
 </div>
+- 使用者輸入的資料，以及計算結果，都會存在state，最後一步才會透過server存到資料庫。
 
-### 第二週開始，「減脂期間」，調整熱量
-- 「減脂期間」，使用者輸入體重後，動態檢視建議，調整下週熱量－使用者操作流程，及state改變：
+### 路徑二：第二週開始，「減脂期間」，調整熱量
+- 「減脂期間」，使用者輸入體重後，動態檢視建議，並調整下週熱量。以下是使用者操作流程，及state改變：
 
 <div align="center">
   <img src="example/next_move_path_bgw_200percent_pad10.png" alt="during diet chart" width="600px" />
   <br>
 </div>
 
-- 畫面展示：
+- 輸入體重後計算速率，並觸發state改變，來達到顯示特定內容的功能。
+- 使用者可選擇加快或放慢，畫面也會隨state跟著改變。
+
+#### 畫面展示：
 1. 輸入體重後，動態顯示建議。
 2. 下方動態顯示加速或放慢速度的選項。
 
@@ -121,24 +130,29 @@
 </div>
 
 
-### 叫出上週的「活動量、運動量」記錄，使用者不用再一一點選。
-- 減脂期間，可點選按鈕，叫出上週的活動量、運動量紀錄。使用者操作流程，及state改變，與後端、資料庫的流程：
+### 「下載上週記錄」功能，使用者不用再一一點選活動量、運動量。
+- 當使用者進入減脂期間，到點選活動量、運動量頁面時，可點選下載按鈕，直接叫出上週的紀錄。下圖是使用者操作流程，及state改變，與後端、資料庫的流程：
 
 <div align="center">
   <img src="example/Load_options_bgw_200percent_pad10.png" alt="load activity and exercise record" width="600px" />
   <br>
 </div>
 
-### 叫出上次的熱量計算結果
-- 判斷是否為guest user，及是否存有記錄，有的話就顯示在畫面上。
+- 原本為了將一週七天的選擇結果記錄下來，state裡面有設計活動量及運動量的陣列。
+- 為了達到「將結果叫出，並且顯示在畫面上」的功能，我加上新的state去控制該選項是否「checked」。每組選項共有「無、低、中、高」四種等級，於是以一個2維陣列代表，分別紀錄每個小選項的checked狀態，checked為true的就會顯示為選中。
+
+
+### 路徑三：「叫出上次的熱量計算結果」
+- 叫出計算結果，並顯示在畫面上。
 
 <div align="center">
   <img src="example/get_result_path_200persent_pad20.png" alt="get latest result chart" width="600px" />
   <br>
 </div>
 
+- 此路徑必須先判斷是否為guest user，及是否存有記錄(已註冊，但還沒計算過的使用者，就不會有紀錄)。如果有，在畫面上顯示結果；沒有，顯示提醒，並將使用者導引至路徑一：熱量計算。
 
-### 使用三大功能(開始計算、熱量調整、查看上次熱量紀錄)時，判斷權限。
+### 使用三大路徑功能(開始計算、熱量調整、查看上次熱量紀錄)時，判斷權限。
 - 區分使用者是否有登入，某些功能頁面僅限已登入的使用者使用，未登入者會被導引至登入畫面。
 - 除此之外，進入不同功能時，有些前置作業(抓資料、刪除資料)必須完成，也是在這邊做判斷並執行。
 
@@ -156,38 +170,32 @@
   <img src="example/routeChange_200persent_pad20.png" alt="route change check chart" width="600px" />
   <br>
 </div>
-
+- 使用者想進入選擇活動量頁面，先判斷使用者是從「路徑一，計算熱量」還是「路徑二，熱量調整」來的？再判斷各自的頁面資料是否填寫正確。如錯誤，顯示提醒；正確，路徑一者，導引到活動頁；路徑二，再次進行判斷，是否已有計算資料？沒有的話，彈出提醒。
 
 ### 根據route顯示不同畫面
+- ```App.js```裡用function及state來控制畫面：
 <div align="center">
   <img src="example/renderRoute_200persent_pad20.png" alt="route change chart" width="600px" />
   <br>
 </div>
 
-- 設定三個function，及一個route state。
-- 一個function專門去change State。
-- 一個function傳入route參數，並以```switch case```分別定義：在不同route case時，回傳要顯示的component。
-- 在最後的render function放入前一function的執行結果。
+- 設定3個function，及一個route state。
+- ```A function```專門change State。
+- ```B function```傳入route state，並以```switch case```分別定義：在不同route case時，回傳要顯示的component。
+- ```C render function```放入```B function```的執行結果。
 
 
 ### Modal彈出提醒視窗
+- 以```portal```功能達到modal效果。下圖顯示使用者操作流程，搭配component的資料傳遞。
+
 <div align="center">
   <img src="example/modal_200percent_pad20.png" alt="modal chart" width="600px" />
   <br>
 </div>
 
 - 遇到「未完成第一次計算」的使用者想下載紀錄，跳出錯誤宣告:「沒有計算結果」或「沒有活動量、運動量紀錄」
-- 利用react的portal概念達到modal效果。
-- 分別設定單獨的modal component，並另外將modal的內容設為另一個component，以children的方式傳入，達到重複利用的目的。
-
-下面可刪除？＝＝＝
-- ```在index.html```設兩個root，一個給portal使用。
-- 在```modal class```裡面，contructor指定一新增div DOM，並且利用生命週期function設定開啟、關閉時，將DOM附加或移除。
-- ```modal class```的render，用```createPortal```將children顯示在div DOM裡面
-- 在app裡面的state，設定哪種modal需要出現。並且有function去控制state。
-- app render的地方，<Modal>裡面夾著<content>，並且透過props把state，及控制關閉modal的function傳進去。
-- modal content 內容的部分，則依據所收到的state不同，決定要回傳哪一個內容。
-＝＝＝
+- 利用react的portal做出modal效果。
+- 分別設定單獨的modal component，及另外一個內容component，將內容以children的方式傳入modal，達到重複利用component的目的。
 
 ### react-i18n使用
 
@@ -196,14 +204,14 @@
   <br>
 </div>
 
-- 
 - 設定```i18n.js```檔，用來設定語言、偵測器、後端下載的路徑，並import到```index.js```使他能被bundle在一起。
-- 翻譯的json檔，放在```public``` > ```locales``` 檔案夾。
+- 翻譯的json檔，主要放在```public``` > ```locales``` 檔案夾。
 - 幾種使用react-i18next的方式:
-1. functional component: useTranslation Hook.
-2. class component: withTranslation, Higher order component.
-3. 運動、活動表格裡的資料，是另外把資料倒進去，不是寫死在表格裡的，所以翻譯資料必須另外放、另外fetch：偵測語言，到public folder抓回來。
-4. 語言切換的handle: useTranslation Hook.
+1. 導覽列的語言切換功能: 使用useTranslation Hook.
+2. functional component: 使用useTranslation Hook.
+3. class component: 使用withTranslation, Higher order component.
+- 另外，運動、活動表格裡的資料，不是寫死在表格裡，而是匯入檔案，把資料倒進去。所以我把翻譯檔另外放，要用時，先偵測語言，再去public folder fetch回來。
+
 
 
 
