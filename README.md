@@ -1,6 +1,7 @@
 # Dieta
 ## Help you to calculate calories during the diet!! 🍱
 ## 🔆 [see live](https://yuwen-dieta.netlify.app) 
+## [中文版readme](https://github.com/yuwen-c/dieta/blob/master/README_Mandarin.md)
 ## backend server goes [here](https://github.com/yuwen-c/dieta-api)
 
 
@@ -10,18 +11,24 @@
 - I also recommended this project to my coach, hope this project can help more people! 🥰
 
 
+## Routes and user guide
+
 <div align="center">
-  <img src="example/Dieta_screenshot.png" alt="Dieta example" width="600px" />
+  <img src="example/dieta_chart_english_200persent_pad20.png" alt="Dieta Route Chart" width="600px" />
   <br>
 </div>
 
-## for people who...
-- Doesn't know how many calories should I eat to lose weight.
-- How many calories should I increase if I go to gym or go for a walk? 
-- Doesn't know if I'm losing weight too fast or too slow and how to arrange an adjustment.
+- There are 3 main routes (yellow square in picture) in Dieta:
+1. The first week, "Start Diet": user fills in weight, deficit, and select strength level of activity, exercise based on the table and gets the result of calorie and nutrition. 
+2. From the second week, "During Diet": fill in average weight of this and last week and modify the deficit depends on the suggestion and your circumstances. Then fill in the activity and exercise part like the first week, and get your result.
+3. "Latest Result": get your last result anytime with this route.
 
+
+## Success 🚀
+- I sent Dieta to my coach, she found that it was pretty good and also recommended to her students 🥰 .
+- Dieta have got **31** users in a month.
+＝＝＝＝
 ## features
-
 ✨ **Modern UI** for both mobile and desktop\
 ✨ Built by **React.js**\
 ✨ Styled with **Tachyons**\
