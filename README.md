@@ -64,53 +64,168 @@
 －Easy to maintain and operate. Suitable for traffical level of an non-produce website.
 
 
-==
-## 畫面預覽
-- 首次使用，開始計算，輸入體重及預計熱量赤字。
-<div align="center">
-  <img src="example/Dieta_calculate.png" alt="start diet" width="300px" />
-  <br>
-</div>
-
-
-
-## How to use? 
-
-**🎯 TRY It!! Then if you like it, sign up.**\
-☝ For first time user:
-- go to "Start Diet" page.
-- fill in your weight and how fast you want to lose your weight.
+## Preview
+- First time user, "Start Diet", fill in weight and deficit.
 
 <div align="center">
   <img src="example/Dieta_calculate.png" alt="start diet" width="300px" />
   <br>
 </div>
 
-- then follow the intruction to choose your activity amount and exercise amount each day.
-
+- Follow the table, select strength level of activity of this week.
 <div align="center">
   <img src="example/Dieta_activity.png" alt="start diet" width="300px" />
   <br>
 </div>
 
-- then we'll give you a list of nutritions for this week.
-
+- Calculation result on desktop with user name, nutrition and calorie.
 <div align="center">
-  <img src="example/Dieta_nutrition.png" alt="start diet" width="300px" />
+  <img src="example/Dieta_screenshot.png" alt="Dieta example" width="600px" />
   <br>
 </div>
 
-✌ For a second time user:
-- after a week with diet, your want to know if the rate is OK, so go to "During diet" page.
-- fill in the average weight of this week and last week to get an advice.
-- base the advice and evaluate your personal situation to decide the speed of next week, make an adjustment to the next week deficit.
-
+- Second week user, "Duting Diet", fill in the average weight of this and last week. A suggestion will show up dynamically. Then decide your deficit next week.
 <div align="center">
   <img src="example/Dieta_nextmove.png" alt="start diet" width="300px" />
   <br>
 </div>
 
-- then do the activity and exercise options again. this time instead of choosing one by one, you can load the record of last week, and do some changes.
-- get the result of this week.
-- you can always check your last record of nutrition by going to "Latest result" page.
+
+## How was Dieta built?
+
+### Registration, sign in, guest-user login
+- How does data flow during these processes?
+  
+<div align="center">
+  <img src="example/signIn_signUp_bgw_200percent_pad10.png" alt="sign in and sign up chart" width="600px" />
+  <br>
+</div>
+
+- Sign in (yellow squares): pass data to database, compare hashes, then return data to front-end.
+- Registration (blue squares): pass data to backend, create a new user and store hash into Login table. Also, create a new data into Users table. The two steps are finished in one **transaction**. Return data to front-end.
+- Guest User (light-purple squares): skip the registration step, do calculation directly. After that, route to registration page (arrow points registration blue square)。Then, create a new user, and store his data to all tables (see scripts with purple background).
+
+
+### Route 1: "Start Diet", calculate and store calorie
+- Flow chart of "Start Diet":
+
+<div align="center">
+  <img src="example/calculation_path_bgw_200percent_pad10.png" alt="calculation path chart" width="600px" />
+  <br>
+</div>
+- save all the fill-in data to state, then store to database via server at the end.
+
+### Route 2: "During Diet", after the second week, modify the dificit
+
+- "During Diet"，a suggestion will show up after user entering weight. Then user can change deficit. See the flow chart and the state change:
+
+<div align="center">
+  <img src="example/next_move_path_bgw_200percent_pad10.png" alt="during diet chart" width="600px" />
+  <br>
+</div>
+
+- After entering weight, get the loosing rate and trigger state change to show a specific suggestion.
+- User chooses to speed up or slow down, options will change respectively.
+
+#### Demo：
+1. Fill in weight, a suggestion will show up.
+2. Select speed up or slow down, the options will change.
+
+<div align="center">
+  <img src="example/gif_next_move.gif" alt="sign in and sign up chart" width="300px" />
+  <br>
+</div>
+
+
+### Download activity and exercise record of last week. 
+- After the second week, users can download records of activity and exercise of last week. See flow chart, state change below:
+
+<div align="center">
+  <img src="example/Load_options_bgw_200percent_pad10.png" alt="load activity and exercise record" width="600px" />
+  <br>
+</div>
+
+- We already had states to save activity and exercise. (Array with 7 elements which stands for 7 days)
+- To get record and show on the screen, a "checked" state is added. There are 4 levels each day: "Rare, Low, Medium, High". To represent it, we use a two-dimentional array, each elements contains 4 booleans to stands for 4 levels. A ```[false, true, false, false]``` means "Low" is chosen.
+
+
+### Route 3: "Last Result"
+- Get last result and show on the screen.
+
+<div align="center">
+  <img src="example/get_result_path_200persent_pad20.png" alt="get latest result chart" width="600px" />
+  <br>
+</div>
+
+- In this route we have to check if it's a guest user, and also, if there is record of this user (an registered user without calculation won't have record).
+- Showing record if there is one. Showing a reminder if not, and direct user to route 1: "Start Diet".
+
+### Check authority before entering the 3 routes (Start Diet, During Diet, Last result).
+- Check if it's a loggin user. Some pages are limited for loggin user, users without logging will direct to sign in page.
+- Also, some pre-processing such as deleting, fetching, will be executed during this stage.
+
+<div align="center">
+  <img src="example/onRouteChange_200persent_pad20.png" alt="onRouteChange function chart" width="600px" />
+  <br>
+</div>
+
+
+### Check before next page
+- When user clicks next page button, review the blankets, format, then go to next page.
+- Define each check with ```switch case```.
+- Take "entering selection of activity level page" as an example:
+  
+<div align="center">
+  <img src="example/routeChange_200persent_pad20.png" alt="route change check chart" width="600px" />
+  <br>
+</div>
+
+- When user goes to activity level page, do check:
+1. where does the user come from? Route 1 "Start Diet", or Route 2 "During Diet"?
+2. If the current page is finished correctly. If not, show reminder. 
+3. If correct, users from Route 1, direct to activity page. Users from Route 2, check if there is stored result. If not, pop up an modal.
+ 
+### Render different screens according to routes
+
+- Use function and state to controll rendering in ```App.js```: 
+
+<div align="center">
+  <img src="example/renderRoute_200persent_pad20.png" alt="route change chart" width="600px" />
+  <br>
+</div>
+
+- 3 functions and 1 route state are set.
+- ```A function```: change State。
+- ```B function```: pass route state in it, and return components correspondingly. Define by ```switch case```.
+- ```C render function```: put the execution result of ```B function```.
+
+### Pop up modal with portal
+- See flow chart with data passing by **portal** below:
+
+<div align="center">
+  <img src="example/modal_200percent_pad20.png" alt="modal chart" width="600px" />
+  <br>
+</div>
+
+- A user without records (without finishing first time calculation) want to download his record. Pop up a modal of "No calorie record" or "No activity or exercise record".
+- Set modal component and context component seperately. Pass content to modal as children so that the modal component is reusable.
+
+
+### Bilingual by react-i18next 
+
+<div align="center">
+  <img src="example/react-i18next_200percent_pad20.png" alt="react i18next chart" width="600px" />
+  <br>
+</div>
+
+- Set the ```i18n.js``` file with language, detector, load path. Import it to ```index.js``` to get bundled.
+- Put translation files in ```public``` > ```locales``` folder.
+- Several ways to use react-i18next:
+1. Toggle language change in nav bar using useTranslation Hook.
+2. functional component using useTranslation Hook.
+3. class component using withTranslation, a Higher order component.
+- Besides, the data in activity and exercise tables is not written in it, instead, it's imported. So the translation is stored in another folder, after detecting language, we load it from there.
+
+
+
 

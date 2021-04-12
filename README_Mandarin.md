@@ -28,9 +28,9 @@
 ## 特點
 
 ### 整體架構
-✨ 前端網站使用**React.js**\
+✨ 前端網站使用**React.js**。\
 －語法類似Javascript，利用多個元件組合而成，元件各自獨立且可重複使用。\
-✨ 後端server利用**node.js**, **express.js**\
+✨ 後端server利用**node.js**, **express.js**。\
 －使用Javascript語言，效能強大，可快速建造一個server。
 ✨ 前後端以**RestfulAPI**連接。\
 －提高可讀性、除錯效率，分離每個端點，可彈性組合成多種邏輯。\
@@ -49,7 +49,7 @@
 ✨ 使用者密碼，與姓名等資料分開存放在不同table，減少資料外洩的機率。
 
 ### 多國語言
-✨ 支援中文/英文，採用```react-i18next```及```hooks```\
+✨ 支援中文/英文，採用```react-i18next```及```hooks```。\
 －將翻譯檔放在後端，需要時再去抓取，減少檔案大小。
 －自動偵測使用者瀏覽器語言。
 －基於i18next的基礎上發展，而i18next可與多種框架配合使用，不僅限於react。
@@ -88,7 +88,7 @@
 ## 詳細作法
 
 ### 註冊、登入，及 Guest user試用登入
-- 前端、後端、資料庫，登入、註冊時，資料從前端帶到後端server，及資料庫，並回傳到前端：
+- 登入、註冊時，資料從前端帶到後端server，及資料庫，並回傳到前端：
   
 <div align="center">
   <img src="example/signIn_signUp_bgw_200percent_pad10.png" alt="sign in and sign up chart" width="600px" />
@@ -96,7 +96,7 @@
 </div>
 
 - 登入(黃色框)時，資料傳到資料庫，比對hash的密碼，比對成功後將使用者資料回傳到前端。
-- 註冊(藍色框)時，資料傳到後端，建立新使用者，並儲存hash密碼於Login table，另外也在Users table新增該使用者，過程以transaction完成。完成後，回傳資料到前端。
+- 註冊(藍色框)時，資料傳到後端，建立新使用者，並儲存hash密碼於Login table，另外也在Users table新增該使用者，過程以**transaction**完成。完成後，回傳資料到前端。
 - Guest User(淺紫色框)的路線，則是不用註冊，直接試用計算熱量的功能，計算完成後，可導引至註冊頁面(箭頭連到註冊的藍色框)，填完資料後，系統會先新增該使用者，再將計算結果儲存到各個表格(箭頭旁的紫色說明文字部分)。
 
 
@@ -122,7 +122,7 @@
 
 #### 畫面展示：
 1. 輸入體重後，動態顯示建議。
-2. 下方動態顯示加速或放慢速度的選項。
+2. 下方會隨著使用者選擇加快或放慢，動態顯示選項。
 
 <div align="center">
   <img src="example/gif_next_move.gif" alt="sign in and sign up chart" width="300px" />
@@ -139,7 +139,7 @@
 </div>
 
 - 原本為了將一週七天的選擇結果記錄下來，state裡面有設計活動量及運動量的陣列。
-- 為了達到「將結果叫出，並且顯示在畫面上」的功能，我加上新的state去控制該選項是否「checked」。每組選項共有「無、低、中、高」四種等級，於是以一個2維陣列代表，分別紀錄每個小選項的checked狀態，checked為true的就會顯示為選中。
+- 為了達到「將結果叫出，並且顯示在畫面上」的功能，我加上新的state去控制該選項是否「checked」。每一天的選項共有「無、低、中、高」四種等級，於是以一個2維陣列代表，分別紀錄每個小選項的checked狀態，checked為true的就會顯示為選中，```[false, true, false, false]``` 表示選中「低」。
 
 
 ### 路徑三：「叫出上次的熱量計算結果」
@@ -166,11 +166,15 @@
 - 在頁面跳轉時，執行檢查，確認空格皆有填寫、符合格式，或是該使用者先前有留過資料，才能進入下一頁。
 - 各頁面的檢查以```switch case```分別定義。
 - 以「進入選擇活動量頁面」為例：
+
 <div align="center">
   <img src="example/routeChange_200persent_pad20.png" alt="route change check chart" width="600px" />
   <br>
 </div>
-- 使用者想進入選擇活動量頁面，先判斷使用者是從「路徑一，計算熱量」還是「路徑二，熱量調整」來的？再判斷各自的頁面資料是否填寫正確。如錯誤，顯示提醒；正確，路徑一者，導引到活動頁；路徑二，再次進行判斷，是否已有計算資料？沒有的話，彈出提醒。
+
+- 使用者想進入選擇活動量頁面
+1. 先判斷使用者是從「路徑一，計算熱量」還是「路徑二，熱量調整」來的？
+2. 再判斷各自的頁面資料是否填寫正確。如錯誤，顯示提醒；正確，路徑一者，導引到活動頁；路徑二，再次進行判斷，是否已有計算資料？沒有的話，彈出提醒。
 
 ### 根據route顯示不同畫面
 - ```App.js```裡用function及state來控制畫面：
@@ -185,7 +189,7 @@
 - ```C render function```放入```B function```的執行結果。
 
 
-### Modal彈出提醒視窗
+### 利用portal做出彈出提醒視窗Modal
 - 以```portal```功能達到modal效果。下圖顯示使用者操作流程，搭配component的資料傳遞。
 
 <div align="center">
@@ -194,10 +198,9 @@
 </div>
 
 - 遇到「未完成第一次計算」的使用者想下載紀錄，跳出錯誤宣告:「沒有計算結果」或「沒有活動量、運動量紀錄」
-- 利用react的portal做出modal效果。
 - 分別設定單獨的modal component，及另外一個內容component，將內容以children的方式傳入modal，達到重複利用component的目的。
 
-### react-i18n使用
+### react-i18next 設定多國語言
 
 <div align="center">
   <img src="example/react-i18next_200percent_pad20.png" alt="react i18next chart" width="600px" />
@@ -206,7 +209,7 @@
 
 - 設定```i18n.js```檔，用來設定語言、偵測器、後端下載的路徑，並import到```index.js```使他能被bundle在一起。
 - 翻譯的json檔，主要放在```public``` > ```locales``` 檔案夾。
-- 幾種使用react-i18next的方式:
+- 幾種使用react-i18next的方式：
 1. 導覽列的語言切換功能: 使用useTranslation Hook.
 2. functional component: 使用useTranslation Hook.
 3. class component: 使用withTranslation, Higher order component.
