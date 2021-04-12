@@ -27,20 +27,51 @@
 ## Success 🚀
 - I sent Dieta to my coach, she found that it was pretty good and also recommended to her students 🥰 .
 - Dieta have got **31** users in a month.
-＝＝＝＝
-## features
-✨ **Modern UI** for both mobile and desktop\
-✨ Built by **React.js**\
-✨ Styled with **Tachyons**\
-✨ Responsive form using **react-super-responsive-table**\
-✨ Responsive navigation bar using **react-bootstrap**\
-✨ Backend built with **node.js**, **express.js**\
-✨ Using **RestfulAPI**\
-✨ Internationalize with Chinese and English using **react-i18next** and **hooks**\
-✨ Saving user data in **PostgreSQL**\
-✨ Password hashed by **Bcrypt**\
-✨ Front-end deployed to **Netlify**\
-✨ Back-end deployed to **Heroku**
+
+## Features
+
+### Structures
+✨ Front-end website with **React.js**.\
+－Based on Javascript. A project built with small components which can be reused.\
+✨ Back-end server with **node.js**, **express.js**.\
+－Using Javascript. Powerful, can be built fast.\
+✨ Connect front-end and backend with **RestfulAPI**.\
+－more readable, easy to debug. The seperated endpoint can be combined into multiple logic.\
+✨ User data stored in **PostgreSQL**.\
+✨ Combine data base with server using **knex**.\
+－Powerful, good documentation. 
+
+### Responsive website
+✨ Works well in both mobile and desktop.\
+✨ Responsive tables using ```react-super-responsive-table```.\
+✨ Responsive nav bar using ```react-bootstrap```.\
+✨ Different layouts fitting for both mobile and desktop using ```Tachyons```.
+
+### Security
+✨ Hash users' password with **Bcrypt**.\
+✨ User password hashes are stored seperatly from other data in different tables to reduce the probability of exposing user password.
+
+### Internationalization, i18n
+✨ English and Mandarin version is provided using ```react-i18next``` and ```hooks```\
+－Minimize project size by locating translation files on back-end.
+－Detecting user language automatically.
+－Based on i18next which works well with many frontend-frameworks.
+
+### Deployment
+✨ Front-end website deploying to **Netlify**.\
+－ Perfectly for frond-end website, response immediately without waiting to be awakened.
+✨ Back-end server deploying to **Heroku**. \
+－Easy to maintain and operate. Suitable for traffical level of an non-produce website.
+
+
+==
+## 畫面預覽
+- 首次使用，開始計算，輸入體重及預計熱量赤字。
+<div align="center">
+  <img src="example/Dieta_calculate.png" alt="start diet" width="300px" />
+  <br>
+</div>
+
 
 
 ## How to use? 
