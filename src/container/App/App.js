@@ -590,13 +590,14 @@ class App extends Component{
   }
 
   render(){
-    const {showNoResultModal, showNoActExeModal, isSignIn, route} = this.state;
+    const {showNoResultModal, showNoActExeModal, showNewsModal, isSignIn, route} = this.state;
     const modal = 
       <Modal>
         <ModalContent
-          showNoResultModal={showNoResultModal}
-          showNoActExeModal={showNoActExeModal}
-          onHideModal={this.onHideModal}
+          showNoResultModal = {showNoResultModal}
+          showNoActExeModal = {showNoActExeModal}
+          showNewsModal = {showNewsModal}
+          onHideModal = {this.onHideModal}
         />
       </Modal>
     return(
