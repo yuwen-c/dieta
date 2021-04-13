@@ -51,7 +51,8 @@ const initialState = {
   modifyDeficit: 0,
 
   showNoResultModal: false,
-  showNoActExeModal: false
+  showNoActExeModal: false,
+  showNewsModal: false
 }
 
 class App extends Component{
@@ -613,7 +614,10 @@ class App extends Component{
             </div>
           </ErrorBoundary>
           <ErrorBoundary>
-            <Footer/>
+            <Footer
+              onShowModal = {this.onShowModal}
+              onHideModal = {this.onHideModal}
+            />
           </ErrorBoundary>
           <ErrorBoundary>
             {modal}
