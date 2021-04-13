@@ -438,8 +438,8 @@ class App extends Component{
     });
   } 
 
-// ========================== Check Latest Nutrition Result ==========================
-  // get latest calculation result
+// ========================== Check Last Nutrition Result ==========================
+  // get last calculation result
   getResult = () => {
     // check guest user or real user
     if(this.state.user.name !== "Guest"){
@@ -453,7 +453,7 @@ class App extends Component{
     .then(result => {
       const {weight, deficit} = result.user;
       const {userCalorie, userCarbon, userActivity, userExercise} = result;
-    // first time loggin, no latest result 
+    // first time loggin, no last result 
       if(weight === 0){
         this.onShowModal('showNoResultModal');
         this.onRouteChange('calculation');

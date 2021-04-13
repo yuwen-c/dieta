@@ -43,7 +43,7 @@ const NavbarDrop = ({ isSignIn, onRouteChange}) => {
                 <NavDropdown.Item 
                   href="#getResult"
                   onClick={(event) => {onRouteChange('result'); event.preventDefault()}}
-                  >{t('navbar.latest_result')}</NavDropdown.Item>
+                  >{t('navbar.last_result')}</NavDropdown.Item>
               </NavDropdown>
             </Nav>
 

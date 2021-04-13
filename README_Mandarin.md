@@ -146,7 +146,7 @@
 - 叫出計算結果，並顯示在畫面上。
 
 <div align="center">
-  <img src="example/get_result_path_200persent_pad20.png" alt="get latest result chart" width="600px" />
+  <img src="example/get_result_path_200persent_pad20.png" alt="get last result chart" width="600px" />
   <br>
 </div>
 

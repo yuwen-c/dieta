@@ -21,7 +21,7 @@
 - There are 3 main routes (yellow square in picture) in Dieta:
 1. The first week, "Start Diet": user fills in weight, deficit, and select strength level of activity, exercise based on the table and gets the result of calorie and nutrition. 
 2. From the second week, "During Diet": fill in average weight of this and last week and modify the deficit depends on the suggestion and your circumstances. Then fill in the activity and exercise part like the first week, and get your result.
-3. "Latest Result": get your last result anytime with this route.
+3. "Last Result": get your last result anytime with this route.
 
 
 ## Success 🚀
@@ -153,7 +153,7 @@
 - Get last result and show on the screen.
 
 <div align="center">
-  <img src="example/get_result_path_200persent_pad20.png" alt="get latest result chart" width="600px" />
+  <img src="example/get_result_path_200persent_pad20.png" alt="get last result chart" width="600px" />
   <br>
 </div>
 
