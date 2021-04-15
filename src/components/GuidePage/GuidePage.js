@@ -22,10 +22,10 @@ const GuidePage = () => {
     return (
         <article className="pa4 pa5-ns center w-50-l mw6">
             <nav >
-                <a className="dim dark-blue b f3 f4-ns dib mr3 link" onClick={() => scrollTo(firstTime)}>{t('guidePage.nav1st')}</a>
-                <a className="dim dark-blue b f3 f4-ns dib mr3 link" onClick={() => scrollTo(secondTime)}>{t('guidePage.nav2nd')}</a>
-                <a className="dim dark-blue b f3 f4-ns dib mr3 link" onClick={() => scrollTo(newRound)}>{t('guidePage.navAgain')}</a>
-                <a className="dim dark-blue b f3 f4-ns dib mr3 link" onClick={() => scrollTo(result)}>{t('guidePage.navResult')}</a>
+                <a className="dim dark-blue b f3 f4-ns dib mr3 link" href="#firstTime" onClick={(event) => {scrollTo(firstTime); event.preventDefault()}}>{t('guidePage.nav1st')}</a>
+                <a className="dim dark-blue b f3 f4-ns dib mr3 link" href="#secondTime" onClick={(event) => {scrollTo(secondTime); event.preventDefault()}}>{t('guidePage.nav2nd')}</a>
+                <a className="dim dark-blue b f3 f4-ns dib mr3 link" href="#newRound" onClick={(event) => {scrollTo(newRound); event.preventDefault()}}>{t('guidePage.navAgain')}</a>
+                <a className="dim dark-blue b f3 f4-ns dib mr3 link" href="#result" onClick={(event) => {scrollTo(result); event.preventDefault()}}>{t('guidePage.navResult')}</a>
             </nav>
             <header className="pv4">
                 <h4 className="f3 fw7 tracked lh-title mt0 mb3">
