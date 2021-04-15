@@ -78,9 +78,7 @@ const ModalContent = ({ showNoResultModal, showNoActExeModal, showNewsModal, onH
                                             {t('footer.title')}
                                         </h3>
                                     </div>
-                                    <p id="description">
-                                        <ModalNews/>
-                                    </p>
+                                    <ModalNews/>
                                     <div className="relative pb3">
                                         <input
                                             className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
