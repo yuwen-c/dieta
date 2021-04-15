@@ -617,7 +617,6 @@ class App extends Component{
           <ErrorBoundary>
             <Footer
               onShowModal = {this.onShowModal}
-              onHideModal = {this.onHideModal}
             />
           </ErrorBoundary>
           <ErrorBoundary>

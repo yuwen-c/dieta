@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import './Footer.css'
 
-const Footer = ({ onShowModal, onHideModal }) => {
+const Footer = ({ onShowModal}) => {
   const { t } = useTranslation();
 
   return (
