@@ -75,7 +75,7 @@ const ModalContent = ({ showNoResultModal, showNoActExeModal, showNewsModal, onH
                                 <div className="ph3 tc">
                                     <div id="colorDiv" className="br2 bg-orange">
                                         <h3 >
-                                            News
+                                            {t('footer.title')}
                                         </h3>
                                     </div>
                                     <p id="description">

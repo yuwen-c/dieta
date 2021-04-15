@@ -183,6 +183,10 @@
     "button": "Got it!"
   },
 
-  "footerNews": "News"
-  
+  "footer":{
+    "title": "News",
+    "news1": "Watch user guide from Homepage → Guide.",
+    "news2": "Show nutrition as integer."
+  }
+
 }

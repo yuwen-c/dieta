@@ -1,11 +1,13 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const ModalNews = () => {
+    const { t } = useTranslation();
+    
     return (
         <ul className="tl">
-            <li>使用手冊搬家了：<br/>
-            首頁 → 使用手冊 看介紹</li>
-            <li>營養素改為整數顯示</li>
+            <li>{t('footer.news1')}</li>
+            <li>{t('footer.news2')}</li>
         </ul>
     )
 }
