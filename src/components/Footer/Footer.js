@@ -23,7 +23,7 @@ const Footer = ({ onShowModal}) => {
           <span className="f6 ml1 ">mail me</span>
         </a>
 
-        <a className="link black-80 dim inline-flex items-center ma2 tc br2 pa2" onClick={() => onShowModal('showNewsModal')}>
+        <a className="link black-80 dim inline-flex items-center ma2 tc br2 pa2" onClick={(event) => {onShowModal('showNewsModal'); event.preventDefault()}} href="news">
           <svg className="dib w1" fill='none' stroke='#0E1A27' strokeWidth='12' strokeDashoffset='0' strokeDasharray='0' strokeLinecap='round' strokeLinejoin='round' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
             <circle cx="40" cy="20" r="8" /> <circle cx="60" cy="20" r="8" />
             <rect x="15" y="50" width="70" height="40" />
