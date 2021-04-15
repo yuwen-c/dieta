@@ -51,7 +51,8 @@ const initialState = {
   modifyDeficit: 0,
 
   showNoResultModal: false,
-  showNoActExeModal: false
+  showNoActExeModal: false,
+  showNewsModal: false
 }
 
 class App extends Component{
@@ -589,13 +590,14 @@ class App extends Component{
   }
 
   render(){
-    const {showNoResultModal, showNoActExeModal, isSignIn, route} = this.state;
+    const {showNoResultModal, showNoActExeModal, showNewsModal, isSignIn, route} = this.state;
     const modal = 
       <Modal>
         <ModalContent
-          showNoResultModal={showNoResultModal}
-          showNoActExeModal={showNoActExeModal}
-          onHideModal={this.onHideModal}
+          showNoResultModal = {showNoResultModal}
+          showNoActExeModal = {showNoActExeModal}
+          showNewsModal = {showNewsModal}
+          onHideModal = {this.onHideModal}
         />
       </Modal>
     return(
@@ -613,7 +615,9 @@ class App extends Component{
             </div>
           </ErrorBoundary>
           <ErrorBoundary>
-            <Footer/>
+            <Footer
+              onShowModal = {this.onShowModal}
+            />
           </ErrorBoundary>
           <ErrorBoundary>
             {modal}
