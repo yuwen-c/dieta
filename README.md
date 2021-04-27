@@ -1,8 +1,7 @@
-# Dieta
-## Help you to calculate calories during the diet!! 🍱
-## 🔆 [see live](https://yuwen-dieta.netlify.app) 
-## [中文版readme](https://github.com/yuwen-c/dieta/blob/master/README_Mandarin.md)
+# Dieta - Help you to calculate calories during the diet!! 🍱
 
+### [中文版README](https://github.com/yuwen-c/dieta/blob/master/README_Mandarin.md)
+### 🔆 [see live](https://yuwen-dieta.netlify.app) 
 
 ## I built this because...💡
 - I was in dieta and needed to calculate calorie every week, for about 15 weeks in total.
