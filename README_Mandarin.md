@@ -1,6 +1,7 @@
 # Dieta - 減重熱量計算系統
+
+### [README in English](https://github.com/yuwen-c/dieta/blob/master/README.md)
 ### 🔆 [實際操作網站](https://yuwen-dieta.netlify.app/)
-### [readme in English](https://github.com/yuwen-c/dieta/blob/master/README.md)
 ### [後端server的github](https://github.com/yuwen-c/dieta-api)
 
 
