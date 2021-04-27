@@ -2,7 +2,6 @@
 ## Help you to calculate calories during the diet!! 🍱
 ## 🔆 [see live](https://yuwen-dieta.netlify.app) 
 ## [中文版readme](https://github.com/yuwen-c/dieta/blob/master/README_Mandarin.md)
-## backend server goes [here](https://github.com/yuwen-c/dieta-api)
 
 
 ## I built this because...💡
@@ -31,9 +30,9 @@
 ## Features
 
 ### Structures
-✨ Front-end website with **React.js**.\
+✨ Front-end website using **React.js**.\
 －Based on Javascript. A project built with small components which can be reused.\
-✨ Back-end server with **node.js**, **express.js**.\
+✨ [Back-end server](https://github.com/yuwen-c/dieta-api) using **node.js**, **express.js**.\
 －Using Javascript. Powerful, can be built fast.\
 ✨ Connect front-end and backend with **RestfulAPI**.\
 －more readable, easy to debug. The seperated endpoint can be combined into multiple logic.\
@@ -48,18 +47,18 @@
 ✨ Different layouts fitting for both mobile and desktop using ```Tachyons```.
 
 ### Security
-✨ Hash users' password with **Bcrypt**.\
+✨ Hash user's password with **Bcrypt**.\
 ✨ User password hashes are stored seperatly from other data in different tables to reduce the probability of exposing user password.
 
 ### Internationalization, i18n
 ✨ English and Mandarin version is provided using ```react-i18next``` and ```hooks```\
-－Minimize project size by locating translation files on back-end.
-－Detecting user language automatically.
+－Minimize project size by locating translation files on back-end.\
+－Detecting user language automatically.\
 －Based on i18next which works well with many frontend-frameworks.
 
 ### Deployment
 ✨ Front-end website deploying to **Netlify**.\
-－ Perfectly for frond-end website, response immediately without waiting to be awakened.
+－ Perfectly for frond-end website, response immediately without waiting to be awakened.\
 ✨ Back-end server deploying to **Heroku**. \
 －Easy to maintain and operate. Suitable for traffical level of an non-produce website.
 
