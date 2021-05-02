@@ -1,11 +1,11 @@
-# Dieta - Help you to calculate calories during the diet!! 🍱
+# Dieta - Help you to calculate calories during diet!! 🍱
 
 ### [中文版README](https://github.com/yuwen-c/dieta/blob/master/README_Mandarin.md)
 ### 🔆 [see live](https://yuwen-dieta.netlify.app) 
 
 ## I built this because...💡
 - I was in dieta and needed to calculate calorie every week, for about 15 weeks in total.
-- There were so many repetitions in it, so I decided to build a system so that next time I'll go though the diet with less effort.
+- There were so many repetitions, so I decided to build a system so that next time I'll go though the diet with less effort.
 - I also recommended this project to my coach, hope this project can help more people! 🥰
 
 
@@ -18,13 +18,13 @@
 
 - There are 3 main routes (yellow square in picture) in Dieta:
 1. The first week, "Start Diet": user fills in weight, deficit, and select strength level of activity, exercise based on the table and gets the result of calorie and nutrition. 
-2. From the second week, "During Diet": fill in average weight of this and last week and modify the deficit depends on the suggestion and your circumstances. Then fill in the activity and exercise part like the first week, and get your result.
+2. From the second week, "During Diet": fill in average weight for this and last week and modify the deficit depends on the suggestion and your circumstances. Then fill in the activity and exercise part like the first week, and get your result.
 3. "Last Result": get your last result anytime with this route.
 
 
 ## Success 🚀
 - I sent Dieta to my coach, she found that it was pretty good and also recommended to her students 🥰 .
-- Dieta have got **31** users in a month.
+- Dieta has got **31** users in the first month.
 
 ## Features
 
@@ -33,8 +33,8 @@
 －Based on Javascript. A project built with small components which can be reused.\
 ✨ [Back-end server](https://github.com/yuwen-c/dieta-api) using **node.js**, **express.js**.\
 －Using Javascript. Powerful, can be built fast.\
-✨ Connect front-end and backend with **RestfulAPI**.\
-－more readable, easy to debug. The seperated endpoint can be combined into multiple logic.\
+✨ Connect front-end and back-end with **RestfulAPI**.\
+－more readable, easy to debug. The seperated endpoints can be combined into multiple logic.\
 ✨ User data stored in **PostgreSQL**.\
 ✨ Combine data base with server using **knex**.\
 －Powerful, good documentation. 
@@ -47,7 +47,7 @@
 
 ### Security
 ✨ Hash user's password with **Bcrypt**.\
-✨ User password hashes are stored seperatly from other data in different tables to reduce the probability of exposing user password.
+✨ User password hashes are stored seperately from other data in different tables to reduce the probability of exposing user's password.
 
 ### Internationalization, i18n
 ✨ English and Mandarin version is provided using ```react-i18next``` and ```hooks```\
@@ -59,7 +59,7 @@
 ✨ Front-end website deploying to **Netlify**.\
 － Perfectly for frond-end website, response immediately without waiting to be awakened.\
 ✨ Back-end server deploying to **Heroku**. \
-－Easy to maintain and operate. Suitable for traffical level of an non-produce website.
+－Easy to maintain and operate. Suitable for traffical level of a non-product website.
 
 
 ## Preview
@@ -70,7 +70,7 @@
   <br>
 </div>
 
-- Follow the table, select strength level of activity of this week.
+- Follow the table, select strength level of activity for this week.
 <div align="center">
   <img src="example/Dieta_activity.png" alt="start diet" width="300px" />
   <br>
@@ -82,7 +82,7 @@
   <br>
 </div>
 
-- Second week user, "Duting Diet", fill in the average weight of this and last week. A suggestion will show up dynamically. Then decide your deficit next week.
+- Second week user, "During Diet", fill in the average weight for this and last week. A suggestion will show up dynamically. Then decide your deficit of next week.
 <div align="center">
   <img src="example/Dieta_nextmove.png" alt="start diet" width="300px" />
   <br>
@@ -100,8 +100,8 @@
 </div>
 
 - Sign in (yellow squares): pass data to database, compare hashes, then return data to front-end.
-- Registration (blue squares): pass data to backend, create a new user and store hash into Login table. Also, create a new data into Users table. The two steps are finished in one **transaction**. Return data to front-end.
-- Guest User (light-purple squares): skip the registration step, do calculation directly. After that, route to registration page (arrow points registration blue square)。Then, create a new user, and store his data to all tables (see scripts with purple background).
+- Registration (blue squares): pass data to back-end, create a new user and store hash into Login table. Also, create a new data into Users table. The two steps are finished in one **transaction**. Return data to front-end.
+- Guest User (light-purple squares): skip the registration step, do calculation directly. After that, route to registration page (arrow points to registration blue square). Then, create a new user, and store the data to all tables (see scripts with purple background).
 
 
 ### Route 1: "Start Diet", calculate and store calorie
@@ -115,7 +115,7 @@
 
 ### Route 2: "During Diet", after the second week, modify the dificit
 
-- "During Diet"，a suggestion will show up after user entering weight. Then user can change deficit. See the flow chart and the state change:
+- "During Diet", a suggestion will show up after user entering weight. Then user can change deficit. See the flow chart and the state change:
 
 <div align="center">
   <img src="example/next_move_path_bgw_200percent_pad10.png" alt="during diet chart" width="600px" />
@@ -135,8 +135,8 @@
 </div>
 
 
-### Download activity and exercise record of last week. 
-- After the second week, users can download records of activity and exercise of last week. See flow chart, state change below:
+### Download activity and exercise record for last week. 
+- After the second week, users can download records of activity and exercise for last week. See flow chart, state change below:
 
 <div align="center">
   <img src="example/Load_options_bgw_200percent_pad10.png" alt="load activity and exercise record" width="600px" />
@@ -159,7 +159,7 @@
 - Showing record if there is one. Showing a reminder if not, and direct user to route 1: "Start Diet".
 
 ### Check authority before entering the 3 routes (Start Diet, During Diet, Last result).
-- Check if it's a loggin user. Some pages are limited for loggin user, users without logging will direct to sign in page.
+- Check if it's a logged user. Some pages are limited for logged users, users without logging-in will direct to sign in page.
 - Also, some pre-processing such as deleting, fetching, will be executed during this stage.
 
 <div align="center">
@@ -181,7 +181,7 @@
 - When user goes to activity level page, do check:
 1. where does the user come from? Route 1 "Start Diet", or Route 2 "During Diet"?
 2. If the current page is finished correctly. If not, show reminder. 
-3. If correct, users from Route 1, direct to activity page. Users from Route 2, check if there is stored result. If not, pop up an modal.
+3. If correct, users from Route 1, direct to activity page. Users from Route 2, check if there is stored result. If not, pop up a modal.
  
 ### Render different screens according to routes
 
@@ -193,7 +193,7 @@
 </div>
 
 - 3 functions and 1 route state are set.
-- ```A function```: change State。
+- ```A function```: change State.
 - ```B function```: pass route state in it, and return components correspondingly. Define by ```switch case```.
 - ```C render function```: put the execution result of ```B function```.
 
@@ -206,10 +206,10 @@
 </div>
 
 - A user without records (without finishing first time calculation) want to download his record. Pop up a modal of "No calorie record" or "No activity or exercise record".
-- Set modal component and context component seperately. Pass content to modal as children so that the modal component is reusable.
+- Set modal component and content component seperately. Pass content to modal as children so that the modal component is reusable.
 
 
-### Bilingual by react-i18next 
+### Bilingual by react-i18next - internationalization
 
 <div align="center">
   <img src="example/react-i18next_200percent_pad20.png" alt="react i18next chart" width="600px" />
@@ -222,7 +222,7 @@
 1. Toggle language change in nav bar using useTranslation Hook.
 2. functional component using useTranslation Hook.
 3. class component using withTranslation, a Higher order component.
-- Besides, the data in activity and exercise tables is not written in it, instead, it's imported. So the translation is stored in another folder, after detecting language, we load it from there.
+4. Besides, the data in activity and exercise tables is not written in it, instead, it's imported. So the translation is stored in another folder, after detecting language, we load it from there.
 
 
 
