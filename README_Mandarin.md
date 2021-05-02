@@ -108,6 +108,7 @@
   <img src="example/calculation_path_bgw_200percent_pad10.png" alt="calculation path chart" width="600px" />
   <br>
 </div>
+
 - 使用者輸入的資料，以及計算結果，都會存在state，最後一步才會透過server存到資料庫。
 
 ### 路徑二：第二週開始，「減脂期間」，調整熱量
@@ -201,7 +202,7 @@
 - 遇到「未完成第一次計算」的使用者想下載紀錄，跳出錯誤宣告:「沒有計算結果」或「沒有活動量、運動量紀錄」
 - 分別設定單獨的modal component，及另外一個內容component，將內容以children的方式傳入modal，達到重複利用component的目的。
 
-### react-i18next 設定多國語言
+### react-i18next 設定多國語言 - internationalization
 
 <div align="center">
   <img src="example/react-i18next_200percent_pad20.png" alt="react i18next chart" width="600px" />
@@ -214,7 +215,7 @@
 1. 導覽列的語言切換功能: 使用useTranslation Hook.
 2. functional component: 使用useTranslation Hook.
 3. class component: 使用withTranslation, Higher order component.
-- 另外，運動、活動表格裡的資料，不是寫死在表格裡，而是匯入檔案，把資料倒進去。所以我把翻譯檔另外放，要用時，先偵測語言，再去public folder fetch回來。
+4. 另外，運動、活動表格裡的資料，不是寫死在表格裡，而是匯入檔案，把資料倒進去。所以我把翻譯檔另外放，要用時，先偵測語言，再去public folder fetch回來。
 
 
 
