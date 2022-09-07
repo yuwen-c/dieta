@@ -1,31 +1,30 @@
 {
-    "navbar": {
-      "app_name": "Dieta",
-      "menu": "目錄",
-      "theory": "原理",
-      "guide": "使用手冊",
-      "start_diet": "開始減脂",
-      "during_diet": "減脂期間",
-      "last_result": "上次計算結果",
-      "language": "語言",
-      "chinese": "中文",
-      "english": "英文",
-      "sign_in": "登入",
-      "sign_up": "註冊",
-      "sign_out": "登出"    
-        
-    },
-      
-  "home":{
+  "navbar": {
+    "app_name": "Dieta",
+    "menu": "目錄",
+    "theory": "原理",
+    "guide": "使用手冊",
+    "start_diet": "開始減脂",
+    "during_diet": "減脂期間",
+    "last_result": "上次計算結果",
+    "language": "語言",
+    "chinese": "中文",
+    "english": "英文",
+    "sign_in": "登入",
+    "sign_up": "註冊",
+    "sign_out": "登出"
+  },
+
+  "home": {
     "slogan": "你最好的減脂幫手",
     "description": "針對體重、每日活動量及運動量，及想要的減重速度，幫你計算每日卡路里，並給予調整建議。",
     "signin": "登入",
     "more": "了解更多",
     "guide": "使用手冊",
     "tryit": "試用"
-    },
+  },
 
-  "guidePage":{
+  "guidePage": {
     "nav1st": "第一次使用",
     "nav2nd": "減脂進入第二週以上",
     "navAgain": "開始新一輪減脂",
@@ -47,149 +46,147 @@
     "tipLoad": "小技巧：可直接點選下載上週紀錄按鈕，載入後也可再修改。",
     "againRoute": "請從第一步驟：選單→目錄→開始減脂計算重新開始。",
     "againDuring": "進入第二週時再到選單→目錄→減脂期間。"
-
   },
 
-  "sign_in":{
-      "title": "登入",
-      "email": "信箱",
-      "password": "密碼",
-      "button": "登入",
-      "error_blank": "請輸入資料",
-      "error_fail": "登入失敗"
-    },
-  
-  "sign_up":{
-        "title": "註冊",
-        "try": "試用免註冊",
-        "name": "姓名",
-        "email": "信箱",
-        "password": "密碼",
-        "button": "註冊",
-        "error_blank": "請輸入資料",
-        "error_fail": "註冊失敗"
-    },
+  "sign_in": {
+    "title": "登入",
+    "email": "信箱",
+    "password": "密碼",
+    "button": "登入",
+    "error_blank": "請輸入資料",
+    "error_fail": "登入失敗"
+  },
 
-    "weight" : {
-      "start_title": "開始計算",
-      "instruction": "請輸入體重：",
-      "weight": "體重",
-      "example": "例：78",
-      "deficit_title": "熱量赤字 /天",
-      "question": "你一天想要減少多少卡路里？"
-    },
-    
-    "button": {
-      "name": "下一頁",
-      "error_deficit": "請選擇熱量赤字",
-      "error_weight": "請輸入有效體重",
-      "error_option": "每日皆需填寫"
-    },
+  "sign_up": {
+    "title": "註冊",
+    "try": "試用免註冊",
+    "name": "姓名",
+    "email": "信箱",
+    "password": "密碼",
+    "button": "註冊",
+    "error_blank": "請輸入資料",
+    "error_fail": "註冊失敗"
+  },
 
-    "activity": {
-      "title": "活動量/ 天" 
-    },
+  "weight": {
+    "start_title": "開始計算",
+    "instruction": "請輸入體重：",
+    "weight": "體重",
+    "example": "例：78",
+    "deficit_title": "熱量赤字 /天",
+    "question": "你一天想要減少多少卡路里？"
+  },
 
-    "exercise": {
-      "title": "運動量/ 天"
-    },
-  
-    "table": {
-      "type": "種類", 
-      "low": "低",
-      "medium": "中",
-      "high": "高"
-    },
-  
-    "loadButton": "下載上週紀錄",
-  
-    "options": {
-      "day":"第 {{item}} 天",
-      "rare": "極少",
-      "low": "低",
-      "medium": "中",
-      "high": "高"
-    },
-    
-    "nutrition": {
-      "title": "{{name}}, 你的每日營養建議攝取量為：",
-      "warning": "{{name}}, 這份營養建議不適合你, 請在減重前諮詢醫師。",
-      "deficit": "熱量赤字",
-      "protein": "蛋白質",
-      "oil": "油脂",
-      "carbohydrate": "碳水",
-      "totalCalorie": "總熱量",
-      "buttonSignOut": "登出",
-      "buttonGuest": "註冊並儲存計算結果",
-      "day": "第 {{item}} 天",
-      "amount": "{{act}}活動量， {{exe}}運動量。"
-    },
-    
-    "rate": {
-      "title": "如何調整？",
-      "calculate": "計算減脂率：",
-      "aveThis": "本週體重平均",
-      "aveLast": "上週體重平均",
-      "submit": "計算",
-      "percentage": {
-        "gain": "增加 {{percent}} % 體重。",
-        "lose": "減少 {{percent}} % 體重。"
-      }
-    },
+  "button": {
+    "name": "下一頁",
+    "error_deficit": "請選擇熱量赤字",
+    "error_weight": "請輸入有效體重",
+    "error_option": "每日皆需填寫"
+  },
 
-    "guide": {
-      "rate": {
-        "normal": "減少 0.5% - 1.5%",
-        "fast": "減少 1.5% - 2% 或更多",
-        "slow": "減少不到 0.5%"
-      },
-  
-      "result": {
-        "normal": "正常速度，繼續保持。",
-        "fast": "速度稍快，要注意。",
-        "slow": "再試試看，多練習會更上手。"
-      },
-  
-      "suggestion1": {
-        "normal": "若已連續降低 3-4 週以上了，建議休息 2-7 天，",
-        "fast": "如果已經以此速率下降連續 2-3 週，建議至少先休息 1 週，",
-        "slow": "建議繼續練習精確紀錄、穩定達成熱量赤字。"
-      },
-  
-      "suggestion2": {
-        "normal": "休息期間，熱量提高 200-400 Kcal/ 天 左右",
-        "fast": "期間熱量提高 300-500 Kcal/ 天 左右。",
-        "slow": "如果紀錄正確，也有穩定達成赤字，但還是在這個區間卡了 2 週，建議可提高熱量赤字。"
-      }
-    },
+  "activity": {
+    "title": "活動量/ 天"
+  },
 
-    "next": {
-      "title": "將下列因素納入考慮：",
-      "question1": "下降速率是否正常？(0.5%~1%)",
-      "question2": "體重是否已經下降超過3週？(是：建議休息幾天)",
-      "question3": "感到疲倦嗎？(有：建議放慢)",
-      "question4": "工作、生活是否會有壓力變大的情況？(有：建議放慢)",
-      "maintain": "維持目前速率",
-      "maintainPS": "維持目前的熱量赤字",
-      "currentDeficit": "維持目前熱量赤字：",
-      "speedUp": "加速，少吃一點",
-      "speedUpPS": "增加熱量赤字，少吃一點",
-      "slowDown": "放慢，多吃一點",
-      "slowDownPS": "減少熱量赤字，多吃一點"
-    },
+  "exercise": {
+    "title": "運動量/ 天"
+  },
 
-    "modal": {
-      "noResult": "沒有記錄",
-      "noResultContent": "第一次計算請由「開始減脂」進入",
-      "noActExe": "沒有記錄",
-      "noActExeContent": "請分別點選",
-      "button": "收到"
-    },
+  "table": {
+    "type": "種類",
+    "low": "低",
+    "medium": "中",
+    "high": "高"
+  },
 
-    "footer":{
-      "title": "最新消息",
-      "news1": "使用手冊搬家了：首頁 → 使用手冊。",
-      "news2": "營養素改為整數顯示。"
+  "loadButton": "載入上週紀錄",
+
+  "options": {
+    "day": "第 {{item}} 天",
+    "rare": "極少",
+    "low": "低",
+    "medium": "中",
+    "high": "高"
+  },
+
+  "nutrition": {
+    "title": "{{name}}, 你的每日營養建議攝取量為：",
+    "warning": "{{name}}, 這份營養建議不適合你, 請在減重前諮詢醫師。",
+    "deficit": "熱量赤字",
+    "protein": "蛋白質",
+    "oil": "油脂",
+    "carbohydrate": "碳水",
+    "totalCalorie": "總熱量",
+    "buttonSignOut": "登出",
+    "buttonGuest": "註冊並儲存計算結果",
+    "day": "第 {{item}} 天",
+    "amount": "{{act}}活動量， {{exe}}運動量。"
+  },
+
+  "rate": {
+    "title": "如何調整？",
+    "calculate": "計算減脂率：",
+    "aveThis": "本週體重平均",
+    "aveLast": "上週體重平均",
+    "submit": "計算",
+    "percentage": {
+      "gain": "增加 {{percent}} % 體重。",
+      "lose": "減少 {{percent}} % 體重。"
     }
+  },
 
+  "guide": {
+    "rate": {
+      "normal": "減少 0.5% - 1.5%",
+      "fast": "減少 1.5% - 2% 或更多",
+      "slow": "減少不到 0.5%"
+    },
+
+    "result": {
+      "normal": "正常速度，繼續保持。",
+      "fast": "速度稍快，要注意。",
+      "slow": "再試試看，多練習會更上手。"
+    },
+
+    "suggestion1": {
+      "normal": "若已連續降低 3-4 週以上了，建議休息 2-7 天，",
+      "fast": "如果已經以此速率下降連續 2-3 週，建議至少先休息 1 週，",
+      "slow": "建議繼續練習精確紀錄、穩定達成熱量赤字。"
+    },
+
+    "suggestion2": {
+      "normal": "休息期間，熱量提高 200-400 Kcal/ 天 左右",
+      "fast": "期間熱量提高 300-500 Kcal/ 天 左右。",
+      "slow": "如果紀錄正確，也有穩定達成赤字，但還是在這個區間卡了 2 週，建議可提高熱量赤字。"
+    }
+  },
+
+  "next": {
+    "title": "將下列因素納入考慮：",
+    "question1": "下降速率是否正常？(0.5%~1%)",
+    "question2": "體重是否已經下降超過3週？(是：建議休息幾天)",
+    "question3": "感到疲倦嗎？(有：建議放慢)",
+    "question4": "工作、生活是否會有壓力變大的情況？(有：建議放慢)",
+    "maintain": "維持目前速率",
+    "maintainPS": "維持目前的熱量赤字",
+    "currentDeficit": "維持目前熱量赤字：",
+    "speedUp": "加速，少吃一點",
+    "speedUpPS": "增加熱量赤字，少吃一點",
+    "slowDown": "放慢，多吃一點",
+    "slowDownPS": "減少熱量赤字，多吃一點"
+  },
+
+  "modal": {
+    "noResult": "沒有記錄",
+    "noResultContent": "第一次計算請由「開始減脂」進入",
+    "noActExe": "沒有記錄",
+    "noActExeContent": "請分別點選",
+    "button": "收到"
+  },
+
+  "footer": {
+    "title": "最新消息",
+    "news1": "使用手冊搬家了：首頁 → 使用手冊。",
+    "news2": "營養素改為整數顯示。"
+  }
 }
