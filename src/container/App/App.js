@@ -230,11 +230,23 @@ class App extends Component {
         // actually is "sign out" button
         this.setState(initialState);
       } else if (route === "result") {
-        // user goes to result page from navbar, not from calculation path
-        if (this.state.route !== "exercise") {
-          return this.getResult();
+        /***
+         * 有幾種可能性：
+         * 1. 一般user，經過計算，到exercise
+         * 2. 一般user，直接從nav直達result頁面 -> 只有這種情況需要fetch result
+         * 3. guest user，註冊後，會直接跳轉到result頁面
+         */
+        if (
+          this.state.dailyCalorie.length === 0 &&
+          this.state.user.name !== "Guest"
+        ) {
           // result has its own logic in getResult function, don't do setState route now.
+          return this.getResult();
         }
+        // // user goes to result page from navbar, not from calculation path
+        // if (this.state.route !== "exercise") {
+        //   return this.getResult();
+        // }
       } else {
         // on calculation page, delete weight and deficit state to fit the check
         if (route === "calculation") {
@@ -401,7 +413,7 @@ class App extends Component {
       }),
     })
       .then((response) => response.json())
-      .then((result) => console.log(result))
+      .then()
       .catch(console.log);
   };
 

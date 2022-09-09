@@ -41,6 +41,52 @@ class SignUp extends Component {
       .catch(console.log);
   };
 
+  onCheckSignUpInputs = (name, email, password) => {
+    // const { name, email, password } = this.state;
+    return name && email && password;
+  };
+
+  onNormalSignUp = () => {
+    const { name, email, password } = this.state;
+    if (this.onCheckSignUpInputs(name, email, password)) {
+      this.onSignUpFetch(name, email, password)
+        .then(async (result) => {
+          if (result.name) {
+            await this.props.refreshWholeUser(result);
+            await this.props.onIsSignIn();
+            this.props.onRouteChange("calculation");
+          }
+        })
+        .catch(console.log);
+    } else {
+      let errMes = this.props.t("sign_up.error_blank");
+      this.setState({ message: errMes });
+    }
+  };
+
+  onGuestSignUp = () => {
+    const { name, email, password } = this.state;
+    if (this.onCheckSignUpInputs(name, email, password)) {
+      this.onSignUpFetch(name, email, password)
+        .then(async (result) => {
+          if (result.name) {
+            const { deficit, dailyCalorie, dailyCarbon } = this.props; // save calculation result to database
+            await this.props.onSaveCalculation(
+              result.email,
+              deficit,
+              dailyCalorie,
+              dailyCarbon
+            );
+            await this.props.refreshPartialUser(result);
+            this.props.onRouteChange("result");
+          }
+        })
+        .catch(console.log);
+    } else {
+      let errMes = this.props.t("sign_up.error_blank");
+      this.setState({ message: errMes });
+    }
+  };
   // sign up, 2 conditions, normal user and guest
   onSignUp = () => {
     const { name, email, password } = this.state;
@@ -143,7 +189,12 @@ class SignUp extends Component {
                 className="b ph3 pv2 input-reset ba b--black bg-white grow pointer f6 dib"
                 type="submit"
                 value={this.props.t("sign_up.button")}
-                onClick={this.onSignUp}
+                // onClick={this.onSignUp}
+                onClick={
+                  this.props.name === "Guest"
+                    ? this.onGuestSignUp
+                    : this.onNormalSignUp
+                }
               />
             </div>
             <div className="lh-copy mt3">
