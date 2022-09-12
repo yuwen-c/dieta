@@ -59,7 +59,7 @@ class SignUp extends Component {
               let signup = await this.props.onIsSignIn(); // change signIn state
               this.props.onRouteChange("calculation"); // to calculation page
             } else {
-              let errMes = this.props.t("sign_up.error.fail");
+              let errMes = this.props.t("sign_up.error_fail");
               this.setState({ message: errMes });
             }
           })
@@ -79,7 +79,7 @@ class SignUp extends Component {
               this.props.refreshPartialUser(result); // only refresh user name and email state
               this.props.onRouteChange("result"); // to result page
             } else {
-              let errMes = this.props.t("sign_up.error.fail");
+              let errMes = this.props.t("sign_up.error_fail");
               this.setState({ message: errMes });
             }
           })
