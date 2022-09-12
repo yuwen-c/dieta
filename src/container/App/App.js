@@ -231,22 +231,19 @@ class App extends Component {
         this.setState(initialState);
       } else if (route === "result") {
         /***
-         * 有幾種可能性：
-         * 1. 一般user，經過計算，到exercise
+         * 有幾種可能性會抵達result page：
+         * 1. 一般user，經過計算，經過exercise，到result(此時才算出daily calorie)
          * 2. 一般user，直接從nav直達result頁面 -> 只有這種情況需要fetch result
          * 3. guest user，註冊後，會直接跳轉到result頁面
+         * 4. guest user計算後抵達result (同1)
          */
         if (
           this.state.dailyCalorie.length === 0 &&
-          this.state.user.name !== "Guest"
+          this.state.exercise.length === 0
         ) {
           // result has its own logic in getResult function, don't do setState route now.
           return this.getResult();
         }
-        // // user goes to result page from navbar, not from calculation path
-        // if (this.state.route !== "exercise") {
-        //   return this.getResult();
-        // }
       } else {
         // on calculation page, delete weight and deficit state to fit the check
         if (route === "calculation") {
