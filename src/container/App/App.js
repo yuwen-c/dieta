@@ -524,6 +524,7 @@ class App extends Component {
           <Home
             onRouteChange={this.onRouteChange}
             onGuestLogin={this.onGuestLogin}
+            isSignIn={this.state.isSignIn}
           />
         );
       case "signin":

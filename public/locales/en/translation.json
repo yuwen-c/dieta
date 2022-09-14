@@ -12,19 +12,20 @@
     "english": "English",
     "sign_in": "Sign In",
     "sign_up": "Sign Up",
-    "sign_out": "Sign Out"    
-    },
-  
+    "sign_out": "Sign Out"
+  },
+
   "home": {
     "slogan": "Making your diet go smoothly.",
     "description": "Calculating how many calories you need based on amount of activity and exercise per day, and the losing rate you want, also providing you advice.",
     "signin": "Sign In",
+    "signout": "Sign Out",
     "more": "Learn More",
     "guide": "Guide",
     "tryit": "Try It"
-    },
+  },
 
-  "guidePage":{
+  "guidePage": {
     "nav1st": "First time user",
     "nav2nd": "After the second week of dieting",
     "navAgain": "Start with a new diet",
@@ -67,7 +68,7 @@
     "error_fail": "Registration failed"
   },
 
-  "weight" : {
+  "weight": {
     "start_title": "Start to calculate!",
     "instruction": "Enter your body weight:",
     "weight": "Body weight",
@@ -75,7 +76,7 @@
     "deficit_title": "Deficit /day",
     "question": "How many calories would you like to reduce?"
   },
-  
+
   "button": {
     "name": "next page",
     "error_deficit": "Choose deficit.",
@@ -92,14 +93,14 @@
   },
 
   "table": {
-    "type": "Type", 
+    "type": "Type",
     "low": "Low",
     "medium": "Medium",
     "high": "High"
   },
 
   "loadButton": "Load setting of last week",
-  
+
   "options": {
     "day": "Day {{item}}",
     "rare": "Rare",
@@ -183,10 +184,9 @@
     "button": "Got it!"
   },
 
-  "footer":{
+  "footer": {
     "title": "News",
     "news1": "Watch user guide from Homepage → Guide.",
     "news2": "Show nutrition as integer."
   }
-
 }

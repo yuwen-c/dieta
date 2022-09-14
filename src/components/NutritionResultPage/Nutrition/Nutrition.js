@@ -17,30 +17,23 @@ const Nutrition = ({
   const { t } = useTranslation();
 
   // if it's a guest user, ask if he/she wants to sign up?
-  const button =
-    name !== "Guest" ? (
-      <div className="pv3">
-        <input
-          className="b ph3 pv2 input-reset ba b--black bg-white grow pointer f6 dib"
-          type="submit"
-          value={t("nutrition.buttonSignOut")}
-          onClick={() => {
-            onRouteChange("signout");
-          }}
-        />
-      </div>
-    ) : (
-      <div className="pv3">
-        <input
-          className="b ph3 pv2 input-reset ba b--black bg-white grow pointer f6 dib"
-          type="submit"
-          value={t("nutrition.buttonGuest")}
-          onClick={() => {
-            onRouteChange("signup");
-          }}
-        />
-      </div>
-    );
+
+  const button = (
+    <div className="pv3">
+      <input
+        className="b ph3 pv2 input-reset ba b--black bg-white grow pointer f6 dib"
+        type="submit"
+        value={
+          name === "Guest"
+            ? t("nutrition.buttonGuest")
+            : t("nutrition.buttonSignOut")
+        }
+        onClick={() => {
+          onRouteChange(name === "Guest" ? "signup" : "signout");
+        }}
+      />
+    </div>
+  );
 
   // check if any carbon < 0
   const checkCarbon =
