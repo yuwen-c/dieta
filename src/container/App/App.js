@@ -150,51 +150,44 @@ class App extends Component {
 
   onCheckBeforeNextPage = (toRoute) => {
     this.setState({ nextPageMessage: "" });
-    const { route } = this.state;
     switch (toRoute) {
-      case "activity":
-        if (route === "calculation") {
-          // checks of calculate weight page
-          const { weight, deficit } = this.state.user;
-          if (!isNaN(weight) && weight <= 1000 && weight >= 40) {
-            if (deficit !== 0) {
-              this.onRouteChange("activity");
-            } else {
-              const errorMes = this.props.t("button.error_deficit");
-              this.setState({ nextPageMessage: errorMes });
-            }
+      case "weightToActivity":
+        const { weight, deficit } = this.state.user;
+        if (!isNaN(weight) && weight <= 1000 && weight >= 40) {
+          if (deficit !== 0) {
+            this.onRouteChange("activity");
           } else {
-            const errorMes = this.props.t("button.error_weight");
-            this.setState({ nextPageMessage: errorMes });
-          }
-        } else if (route === "nextMove") {
-          // checks of nextMove page
-          const { maintainRate, modifyDeficit } = this.state;
-          if (maintainRate === false && modifyDeficit === 0) {
             const errorMes = this.props.t("button.error_deficit");
             this.setState({ nextPageMessage: errorMes });
-          } else {
-            // check guest user or real user
-            if (this.state.user.name === "Guest") {
+          }
+        } else {
+          const errorMes = this.props.t("button.error_weight");
+          this.setState({ nextPageMessage: errorMes });
+        }
+        break;
+
+      case "RateCalToActivity":
+        const { maintainRate, modifyDeficit } = this.state;
+        if (maintainRate === false && modifyDeficit === 0) {
+          const errorMes = this.props.t("button.error_deficit");
+          this.setState({ nextPageMessage: errorMes });
+        } else if (this.state.user.name === "Guest") {
+          this.onShowModal("showNoResultModal");
+          this.onRouteChange("calculation");
+        } else {
+          // check if user has calculation record, if not, showModal
+          this.fetchUser(this.state.user.email).then((result) => {
+            if (result.weight === 0) {
               this.onShowModal("showNoResultModal");
               this.onRouteChange("calculation");
             } else {
-              // check if user has calculation record, if not, showModal
-              this.fetchUser(this.state.user.email).then((result) => {
-                if (result.weight === 0) {
-                  this.onShowModal("showNoResultModal");
-                  this.onRouteChange("calculation");
-                } else {
-                  this.onRouteChange("activity");
-                }
-              });
+              this.onRouteChange("activity");
             }
-          }
+          });
         }
-
         break;
 
-      case "exercise": // activity 頁面的檢查
+      case "exercise":
         const { activity } = this.state;
         if (activity.length === 7 && !activity.includes(undefined)) {
           this.onRouteChange("exercise");
@@ -205,12 +198,12 @@ class App extends Component {
         }
         break;
 
-      case "result": // exercise 頁面的檢查
+      case "result":
         const { exercise } = this.state;
         if (exercise.length === 7 && !exercise.includes(undefined)) {
+          this.calculateNutrition();
           this.onRouteChange("result");
           this.onDeleteActExeOption("exercise");
-          this.calculateNutrition();
         } else {
           const errorMes = this.props.t("button.error_option");
           this.setState({ nextPageMessage: errorMes });
@@ -221,57 +214,56 @@ class App extends Component {
     }
   };
 
+  onSignout = () => {
+    this.setState(initialState);
+  };
   // ========================== Routing ==========================
-  // set route state
   onRouteChange = (route) => {
-    // 1. if already sign in, can access to anywhere
     if (this.state.isSignIn) {
-      if (route === "signin") {
-        // actually is "sign out" button
-        this.setState(initialState);
-      } else if (route === "result") {
-        /***
-         * 有幾種可能性會抵達result page：
-         * 1. 一般user，經過計算，經過exercise，到result(此時才算出daily calorie)
-         * 2. 一般user，直接從nav直達result頁面 -> 只有這種情況需要fetch result
-         * 3. guest user，註冊後，會直接跳轉到result頁面
-         * 4. guest user計算後抵達result (同1)
-         */
-        if (
-          this.state.dailyCalorie.length === 0 &&
-          this.state.exercise.length === 0
-        ) {
-          // result has its own logic in getResult function, don't do setState route now.
-          return this.getResult();
-        }
-      } else {
-        // on calculation page, delete weight and deficit state to fit the check
-        if (route === "calculation") {
+      switch (route) {
+        case "result":
+          /***
+           * 有幾種可能性會抵達result page：
+           * 1. 一般user，經過計算，經過exercise，到result(此時才算出daily calorie)
+           * 2. 一般user，直接從nav直達result頁面 -> 只有這種情況需要fetch result
+           * 3. guest user，註冊後，會直接跳轉到result頁面
+           * 4. guest user計算後抵達result (同1)
+           */
+          if (
+            this.state.dailyCalorie.length === 0 &&
+            this.state.exercise.length === 0
+          ) {
+            // result has its own logic in getResult function, don't do setState route now.
+            return this.getResult();
+          }
+          break;
+        case "calculation":
+          // on calculation page, delete weight and deficit state to fit the check
           this.deleteUserNumber();
-        } else if (route === "nextMove") {
+          break;
+        case "nextmove":
           if (this.state.user.name !== "Guest") {
-            // guest user : don't fetch
             this.fetchUser(this.state.user.email) // refresh user when go to nextMove page
               .then((user) => this.refreshWholeUser(user));
           }
-        }
-      }
-      this.setState({ route: route });
-    }
-    // 2. to some certain pages, users need to sign in first
-    else {
-      if (
-        route === "calculation" ||
-        route === "nextMove" ||
-        route === "result" ||
-        route === "signin"
-      ) {
-        this.setState({ route: "signin" });
-      } else {
-        this.setState({ route: route });
+          break;
+        case "signout":
+          this.onSignout();
+          return this.setState({ route: "signin" });
+        default:
       }
     }
-    window.scrollTo(0, 0); //scroll page to top
+    // to some certain pages, users need to sign in first
+    else if (
+      route === "calculation" ||
+      route === "nextMove" ||
+      route === "result" ||
+      route === "signin"
+    ) {
+      return this.setState({ route: "signin" });
+    }
+    this.setState({ route: route });
+    window.scrollTo(0, 0);
   };
 
   // ========================== Choose activity and exercise amount ==========================
