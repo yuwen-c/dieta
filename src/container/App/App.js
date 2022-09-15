@@ -200,7 +200,7 @@ class App extends Component {
           // on calculation page, delete weight and deficit state to fit the check
           this.deleteUserNumber();
           break;
-        case "nextmove":
+        case "nextMove":
           if (this.state.user.name !== "Guest") {
             this.fetchUser(this.state.user.email) // refresh user when go to nextMove page
               .then((user) => this.refreshWholeUser(user));
