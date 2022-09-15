@@ -505,6 +505,7 @@ class App extends Component {
   renderSwitch = (route) => {
     const { name, deficit } = this.state.user;
     const {
+      isSignIn,
       dailyCalorie,
       dailyCarbon,
       nextPageMessage,
@@ -524,7 +525,7 @@ class App extends Component {
           <Home
             onRouteChange={this.onRouteChange}
             onGuestLogin={this.onGuestLogin}
-            isSignIn={this.state.isSignIn}
+            isSignIn={isSignIn}
           />
         );
       case "signin":

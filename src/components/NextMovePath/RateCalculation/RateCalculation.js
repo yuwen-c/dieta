@@ -13,7 +13,7 @@ class RateCalculation extends Component {
       weightLastWeek: 0,
       rate: 0, // % of losing rate
       speed: "", // 'normal', 'fast', 'slow'
-      error: "",
+      weightError: "",
     };
   }
   onThisWeekInput = (event) => {
@@ -25,7 +25,7 @@ class RateCalculation extends Component {
   };
 
   rateCalculation = () => {
-    this.setState({ error: "" });
+    this.setState({ weightError: "" });
     const { weightThisWeek, weightLastWeek } = this.state;
 
     if (!isNaN(weightThisWeek) && !isNaN(weightLastWeek)) {
@@ -52,16 +52,16 @@ class RateCalculation extends Component {
         window.scrollTo(0, 300); //scroll page the guide part
       } else {
         const errorMes = this.props.t("button.error_weight");
-        this.setState({ error: errorMes });
+        this.setState({ weightError: errorMes });
       }
     } else {
       const errorMes = this.props.t("button.error_weight");
-      this.setState({ error: errorMes });
+      this.setState({ weightError: errorMes });
     }
   };
 
   render() {
-    const { showGuide, speed, error, rate } = this.state;
+    const { showGuide, speed, weightError, rate } = this.state;
     const { t } = this.props;
     let percentage;
     if (showGuide === true) {
@@ -69,7 +69,7 @@ class RateCalculation extends Component {
         rate >= 0 ? (
           <p>{t("rate.percentage.gain", { percent: rate })}</p>
         ) : (
-          <p>{t("rate.percentage.lose", { percent: rate })}</p>
+          <p>{t("rate.percentage.lose", { percent: -rate })}</p>
         );
     }
 
@@ -117,7 +117,9 @@ class RateCalculation extends Component {
                     value={t("rate.submit")}
                     onClick={this.rateCalculation}
                   />
-                  <span className="f5 link dark-pink dib ml2 pt3">{error}</span>
+                  <span className="f5 link dark-pink dib ml2 pt3">
+                    {weightError}
+                  </span>
                 </div>
                 {percentage}
               </div>
