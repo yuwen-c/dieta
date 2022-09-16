@@ -46,45 +46,48 @@ class SignUp extends Component {
     return name && email && password;
   };
 
-  // sign up, 2 conditions, normal user and guest
-  onSignUp = () => {
+  onNormalSignUp = () => {
     const { name, email, password } = this.state;
-    if (name && email && password) {
-      if (this.props.name !== "Guest") {
-        // normal user sign up
-        this.onSignUpFetch(name, email, password)
-          .then(async (result) => {
-            if (result.name) {
-              this.props.refreshWholeUser(result); // refresh user state
-              let signup = await this.props.onIsSignIn(); // change signIn state
-              this.props.onRouteChange("calculation"); // to calculation page
-            } else {
-              let errMes = this.props.t("sign_up.error_fail");
-              this.setState({ message: errMes });
-            }
-          })
-          .catch(console.log);
-      } else {
-        // guest user sign up
-        this.onSignUpFetch(name, email, password) // save new user data
-          .then((result) => {
-            if (result.name) {
-              const { deficit, dailyCalorie, dailyCarbon } = this.props; // save calculation result to database
-              this.props.onSaveCalculation(
-                result.email,
-                deficit,
-                dailyCalorie,
-                dailyCarbon
-              );
-              this.props.refreshPartialUser(result); // only refresh user name and email state
-              this.props.onRouteChange("result"); // to result page
-            } else {
-              let errMes = this.props.t("sign_up.error_fail");
-              this.setState({ message: errMes });
-            }
-          })
-          .catch(console.log);
-      }
+    if (this.onCheckSignUpInputs(name, email, password)) {
+      this.onSignUpFetch(name, email, password)
+        .then(async (result) => {
+          if (result.name) {
+            await this.props.refreshWholeUser(result);
+            await this.props.onIsSignIn();
+            this.props.onRouteChange("calculation");
+          } else {
+            let errMes = this.props.t("sign_up.error_fail");
+            this.setState({ message: errMes });
+          }
+        })
+        .catch(console.log);
+    } else {
+      let errMes = this.props.t("sign_up.error_blank");
+      this.setState({ message: errMes });
+    }
+  };
+
+  onGuestSignUp = () => {
+    const { name, email, password } = this.state;
+    if (this.onCheckSignUpInputs(name, email, password)) {
+      this.onSignUpFetch(name, email, password)
+        .then(async (result) => {
+          if (result.name) {
+            const { deficit, dailyCalorie, dailyCarbon } = this.props; // save calculation result to database
+            await this.props.onSaveCalculation(
+              result.email,
+              deficit,
+              dailyCalorie,
+              dailyCarbon
+            );
+            await this.props.refreshPartialUser(result);
+            this.props.onRouteChange("result");
+          } else {
+            let errMes = this.props.t("sign_up.error_fail");
+            this.setState({ message: errMes });
+          }
+        })
+        .catch(console.log);
     } else {
       let errMes = this.props.t("sign_up.error_blank");
       this.setState({ message: errMes });
@@ -148,7 +151,12 @@ class SignUp extends Component {
                 className="b ph3 pv2 input-reset ba b--black bg-white grow pointer f6 dib"
                 type="submit"
                 value={this.props.t("sign_up.button")}
-                onClick={this.onSignUp}
+                // onClick={this.onSignUp}
+                onClick={
+                  this.props.name === "Guest"
+                    ? this.onGuestSignUp
+                    : this.onNormalSignUp
+                }
               />
             </div>
             <div className="lh-copy mt3">

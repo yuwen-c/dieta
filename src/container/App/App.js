@@ -48,8 +48,7 @@ class App extends Component {
     };
     this.refreshWholeUser(guestUser);
 
-    // async/await
-    let signin = await this.onIsSignIn();
+    await this.onIsSignIn();
     this.onRouteChange("calculation");
   };
 
